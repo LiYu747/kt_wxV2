@@ -1,0 +1,142 @@
+
+.flex {
+	display: flex;
+}
+
+.in-block {
+	display: inline-block;
+}
+
+.al-center {
+	align-items: center;
+}
+
+.ju-center {
+	justify-content: center;
+}
+
+.pos-rel {
+	position: relative;
+}
+
+.pos-abs {
+	position: absolute;
+}
+
+.red {
+	background: red;
+}
+
+.l-left5 {
+	margin-left: 10rpx;
+}
+
+.hover {
+	cursor: pointer;
+}
+
+.wrap {
+	flex-wrap: wrap;
+}
+
+.ju-between {
+	justify-content: space-between;
+}
+
+.ju-around {
+	justify-content: space-around;
+}
+
+.c-red {
+	color: red;
+}
+
+.hvr:hover {
+	cursor: pointer;
+}
+
+.fz-14 {
+	font-size: 28rpx;
+}
+
+.fz-12 {
+	font-size: 24rpx;
+}
+
+.fz-16 {
+	font-size: 32rpx;
+}
+
+.fz-18 {
+	font-size: 36rpx;
+}
+
+.orange {
+	color: rgb(255, 103, 0);
+}
+
+.flex-d {
+	display: flex;
+	flex-direction: column;
+}
+
+.fz-cu {
+	font-weight: 700;
+}
+
+.bai {
+	color: white;
+}
+
+.hei {
+	color: #000000;
+}
+
+.m-l1 {
+	margin-left: 10rpx;
+}
+
+.m-l2 {
+	margin-left: 20rpx;
+}
+
+.m-l3 {
+	margin-left: 30rpx;
+}
+
+.m-r1 {
+	margin-right: 10rpx;
+}
+
+.m-r2 {
+	margin-right: 20rpx;
+}
+
+.m-t1 {
+	margin-top: 10rpx;
+}
+
+.m-t2 {
+	margin-top: 20rpx;
+}
+
+.m-t3 {
+	margin-top: 30rpx;
+}
+
+.m-t4 {
+	margin-top: 40rpx;
+}
+
+.m-b2 {
+	margin-bottom: 20rpx;
+}
+
+.m-b1 {
+	margin-bottom: 10rpx;
+}
+
+.flex-w {
+	flex-wrap: wrap;
+	align-content: flex-start;
+}

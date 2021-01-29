@@ -1,0 +1,8 @@
+{
+  "usingComponents": {
+    "cropper":"/components/cropper/cropper"
+  },
+  "disableScroll": true,
+  "navigationStyle":"custom"
+}
+

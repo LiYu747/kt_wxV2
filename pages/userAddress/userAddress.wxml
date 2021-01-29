@@ -1,0 +1,78 @@
+<!--pages/userAddress/userAddress.wxml-->
+<view class=" flex-d al-center">
+	<view class="navtil flex ju-center ">
+		入住信息
+		<view class="">
+			<image src="https://oss.kuaitongkeji.com/static/img/app/address/plus.png" bindtap="push"
+				class="setimg {{rotateTimes%2===0?'dssv':''}}"></image>
+			<image hidden="{{pushshow}}" class="addshowimg " bindtap="getto"
+				src="https://oss.kuaitongkeji.com/static/img/app/address/ads.png" mode=""></image>
+		</view>
+	</view>
+	<image src="https://oss.kuaitongkeji.com/static/img/app/home/jx.png" class="img" mode=""></image>
+
+	<!-- 地址列表 -->
+	<view class="flex-d al-center">
+		<view wx:if="{{locdata.length>0}}" class="boxss" ref='fied'>
+			<view class="content pos-rel" wx:for="{{locdata}}" wx:for-item="item" wx:for-index="index" wx:key='id'>
+				<view class="location pos-abs" bindtap="Select" data-index="{{index}}" data-item="{{item}}">
+					<image wx:if="{{idx===index}}" class="zrimg" src="https://oss.kuaitongkeji.com/static/img/app/address/yes.png"
+						mode=""></image>
+					<image wx:else class="zrimg" src="https://oss.kuaitongkeji.com/static/img/app/address/zro.png" mode="">
+					</image>
+				</view>
+				<view class="addres">
+					<view wx:if="{{item.own_village}}" bindtap="Select" data-index="{{index}}" data-item="{{item}}"
+						class=" name flex al-center pos-rel">
+						{{item.own_village.name}}
+						<view class="pos-abs  right">
+							<image class="reimg" src="https://oss.kuaitongkeji.com/static/img/app/address/retrue.png" mode=""></image>
+						</view>
+					</view>
+					<view class="line"></view>
+					<view wx:if="{{item.address}}" class="text" bindtap="look">
+						{{item.address}}
+					</view>
+				</view>
+
+				<view bindtap="order" data-item="{{item}}" class="pos-abs botto">
+					预约电梯
+				</view>
+			</view>
+			<view class="flex ju-center m-b2 fz-14" wx:if="{{hasMore == false}}">
+				{{text}}
+			</view>
+		</view>
+		<view wx:if="{{locdata.length==0&&isLoding==false}}" class="nono flex al-center ju-center">
+			暂无地址,快去添加吧~
+		</view>
+		<view wx:if='{{flag===true && msg}}' class="show pos-abs flex al-center ju-center">
+			<view class="showbox flex-d al-center pos-rel">
+				<view wx:if="{{message==true}}" class="flex-d al-center">
+					<image src="https://oss.kuaitongkeji.com/static/img/app/address/scrcc.png" class="scrimg" mode=""></image>
+					<view class="msg">
+						{{msg}}
+					</view>
+				</view>
+				<view wx:if="{{message==false}}" class="flex-d al-center">
+					<image src="https://oss.kuaitongkeji.com/static/img/app/address/no.png" class="noimg" mode=""></image>
+					<image src="https://oss.kuaitongkeji.com/static/img/app/address/no1.png" class="ntimg" mode=""></image>
+				</view>
+
+				<view bindtap="sure" class="flex loca al-center ju-center">
+					<view class="pos-abs sowtext bai">
+						知道了
+					</view>
+					<image src="https://oss.kuaitongkeji.com/static/img/app/address/duan.png" class="showimg" mode=""></image>
+				</view>
+			</view>
+		</view>
+	</view>
+
+	<view wx:if="{{showPullDownRefreshIcon == true}}" class="addshow pos-abs flex al-center ju-center">
+		<view class="addshowcentent flex al-center ju-between">
+			<image class="addlodimg" src="https://oss.kuaitongkeji.com/static/img/app/address/loading.gif" mode=""></image>
+			刷新中
+		</view>
+	</view>
+</view>

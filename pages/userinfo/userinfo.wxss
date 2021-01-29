@@ -1,0 +1,146 @@
+.navtil{
+  width: 100%;
+  padding-top: 20rpx;
+  background: #F07535;
+  color:#fff;
+  position: fixed;
+  font-size: 20px;
+  z-index: 9;
+}
+.setimg{
+  width: 40rpx;
+  height: 40rpx;
+  position: absolute;
+  right: 70rpx;
+}
+.img {
+  margin-top: 70rpx;
+  width: 100%;
+  height: 160rpx;
+}
+
+.whole {
+  background: rgb(245, 245, 245);
+  height: 100%;
+}
+
+.nav {
+  width: 100%;
+  height: 128rpx;
+  background: #F07535;
+}
+
+.setimg {
+  width: 40rpx;
+  height: 40rpx;
+}
+
+.title {
+  top: 40rpx;
+  font-size: 36rpx;
+  color: #FFFFFF;
+  height: 88rpx;
+}
+
+.location {
+  right: 50rpx;
+}
+
+.jximg {
+  width: 100%;
+  height: 156rpx;
+}
+
+.portrait {
+  width: 148rpx;
+  height: 148rpx;
+  background: #FFFFFF;
+  border-radius: 50%;
+  position: relative;
+  top: -82rpx;
+}
+
+.headimg {
+  width: 148rpx;
+  height: 148rpx;
+  border-radius: 50%;
+  bottom: 0;
+}
+
+.text {
+  margin-top: -70rpx;
+  font-size: 36rpx;
+  font-weight: 400;
+  font-family: Microsoft YaHei;
+  color: #666666;
+}
+
+.informBox {
+  right: 50rpx;
+}
+
+
+
+.munber {
+  width: 34rpx;
+  height: 34rpx;
+  background: red;
+  border-radius: 50%;
+  font-size: 12px;
+  color: #FFFFFF;
+  z-index: 2;
+  margin-top: -12rpx;
+  margin-left: 16rpx;
+}
+
+.munMore{
+  width: 50rpx;
+  height: 34rpx;
+  background: red;
+  border-radius: 20rpx;
+  font-size: 12px;
+  color: #FFFFFF;
+  z-index: 2;
+  margin-top: -12rpx;
+  margin-left: 16rpx;
+}
+
+.boxss{
+	margin-top: 48rpx;
+	width: 690rpx;
+	padding: 0 30rpx;
+}
+.itemimg{
+	width: 30rpx;
+	height: 30rpx;
+	margin-left: 19rpx;
+	margin-right: 18rpx;
+}
+.item{
+	width: 690rpx;
+	height: 90rpx;
+	background: #FFFFFF;
+}
+.itemtext{
+	font-size: 32rpx;
+}
+.dv{
+	border-bottom: 1rpx solid rgb(231,231,231);
+}
+.top{
+	margin-top: 20rpx;
+}
+.infosImg {
+		width: 34rpx;
+		height: 34rpx;
+	}
+.munber {
+		padding: 2px 6px;
+		background: red;
+		border-radius: 20rpx;
+		font-weight: 700;
+		font-size: 10px;
+		color: #FFFFFF;
+		z-index: 2;
+		margin-left: 20rpx;
+	}	

@@ -1,0 +1,466 @@
+.wrap {
+  padding: 40rpx;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: rgb(245, 245, 245);
+}
+
+.logo {
+  height: 200rpx;
+  width: 200rpx;
+  margin-top: 200rpx;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 50rpx;
+}
+
+.text-area {
+  display: flex;
+  justify-content: center;
+}
+
+.title {
+  font-size: 36rpx;
+  color: #8f8f94;
+}
+
+.nav {
+  width: 750rpx;
+  background: #F07535;
+  position: fixed;
+  z-index: 9;
+  height: 90rpx;
+}
+
+.img {
+  width: 33rpx;
+  height: 34rpx;
+  left: 168rpx;
+}
+
+.ipt {
+  width: 750rpx;
+  height: 88rpx;
+}
+
+.input {
+  width: 394rpx;
+  height: 54rpx;
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 27px;
+  padding-left: 75rpx;
+  font-size: 24rpx;
+  font-family: Source Han Sans CN;
+  font-weight: 400;
+  color: #FFFFFF;
+}
+
+.input-placeholder {
+  color: #FFFFFF;
+}
+
+.boxss {
+  position: relative;
+  top: 90rpx;
+  width: 750rpx;
+  height: 156rpx;
+}
+.swper{
+  position: relative;
+    overflow: hidden;
+    top: -50rpx;
+}
+
+swiper{
+  height: 340rpx;
+}
+.u-swiper-item {
+  overflow: hidden;
+  align-items: center;
+}
+.ono{
+    width: 96%;
+		height: 100%;
+		flex: 1;
+		transition: all 0.5s;
+		overflow: hidden;
+		box-sizing: content-box;
+    position: relative;
+    margin: 0 2%;
+    border-radius: 20rpx;
+}
+
+.imgsrc{
+	width: 100%;
+		will-change: transform;
+		height: 100%;
+}
+
+.dcc{
+  transform-origin: center center;
+  transform:scaleY(0.9);
+}
+
+.imgjx {
+  width: 100%;
+  height: 156rpx;
+}
+
+.imglb {
+
+  width: 580rpx;
+  height: 304rpx;
+}
+
+.pos {
+  width: 100%;
+  height: 304rpx;
+  top: 150rpx;
+}
+
+
+
+.itemimg {
+  width: 100rpx;
+  height: 100rpx;
+}
+
+.operation {
+  width: 650rpx;
+  height: 150rpx;
+  background: #FFFFFF;
+  border-radius: 20rpx 20rpx 0px 0px;
+  padding: 20rpx;
+  padding-top: 14rpx;
+  padding-bottom: 22rpx;
+}
+
+.itemtext {
+  margin-top: 5rpx;
+  font-size: 30rpx;
+  color: #666666;
+}
+/* 分类 */
+.clabox{
+	margin-top: 20rpx;
+	width: 700rpx;
+	height: 253rpx;
+	padding:  20rpx;
+	padding-left: 25rpx;
+	padding-right: 25rpx;
+}
+.claitemimg{
+	width: 58rpx;
+	height: 58rpx;
+}
+.loyout{
+   width: 20%;
+   margin-bottom: 40rpx;
+}
+.clatext{
+	margin-top: 10rpx;
+	font-size: 28rpx;
+	color: #666666;
+	font-size: 26rpx ;
+}
+
+/* 社区资讯 */
+.infobox {
+  margin-top: 20rpx;
+  width: 690rpx;
+  height: auto;
+}
+
+.infoimgss {
+  width: 28rpx;
+  height: 35rpx;
+  margin-right: 10rpx;
+}
+
+.infotext {
+  font-size: 36rpx;
+  color: #666666;
+}
+
+.infoovertxt {
+  margin-top: 20rpx;
+  width: 650rpx;
+  background: #FFFFFF;
+  box-shadow: 2rpx 4rpx 6rpx 0 #C0C4CC;
+  padding: 30rpx 20rpx;
+}
+
+.infocontext {
+  width: 400rpx;
+  display: -webkit-box;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  word-wrap: break-word;
+  white-space: normal !important;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+
+.infoltst {
+  font-size: 24rpx;
+  color: #666666;
+}
+
+.infobtn {
+  width: 150rpx;
+  height: 48rpx;
+  background: #F79D46;
+  border-radius: 30rpx;
+  color: #FFFFFF;
+  font-size: 24rpx;
+  margin-left: 60rpx;
+}
+
+.infoonmsg{
+  font-size: 12px;
+  color: #999999;
+}
+
+/* 社区新闻 */
+.comconten {
+  margin-top: 40rpx;
+  width: 690rpx;
+  font-size: 30rpx;
+  color: #666666;
+}
+
+.comNotice {
+  margin-top: 20rpx;
+  width: 690rpx;
+  height: 66rpx;
+  background: #FFFFFF;
+}
+  
+.comnotice{
+  width: 650rpx;  
+}
+
+.comtextss{
+  font-size: 36rpx;
+}
+
+
+.comimgnb {
+  width: 23rpx;
+  height: 20rpx;
+}
+
+
+
+.comimgss {
+  width: 28rpx;
+  height: 28rpx;
+  margin-right: 10rpx;
+}
+
+.comnonews{
+  font-size: 12px;
+  color: #999999;
+  margin-left: 20rpx;
+}
+
+/* 周边消息 */
+.perboxss {
+  margin-top: 40rpx;
+  width: 690rpx;
+}
+
+.perimgss {
+  width: 24rpx;
+  height: 28rpx;
+  margin-right: 10rpx;
+}
+
+.pertext {
+  font-size: 36rpx;
+  color: #666666;
+}
+
+.perconten {
+  width: 100%;
+  margin-bottom: 40rpx;
+}
+
+.peritem {
+  margin-top: 20rpx;
+  width: 320rpx;
+  height: 185rpx;
+  background: #FFFFFF;
+  padding-top: 15rpx;
+  padding-left: 15rpx;
+}
+
+.peritemimg {
+  width: 140rpx;
+  height: 140rpx;
+}
+
+.perfont {
+  margin-left: 24rpx;
+  width: 144rpx;
+  height: 116rpx;
+  font-size: 22rpx;
+}
+
+.perfonts{
+  word-break:break-all;
+  overflow: hidden;
+  line-height: 1.3;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 4; 
+  }
+
+.perlocation {
+  right: 22rpx;
+  bottom: 18rpx;
+  color: #808080;
+  font-size: 24rpx;
+}
+
+.perandMore{
+  right: 10rpx;
+  font-size: 24rpx;
+  color: rgb(247,157,70);
+}
+
+.pernomsg{
+    font-size: 12px;
+  color: #999999;
+  margin: 20rpx ;
+  }
+
+.rig {
+  right: 49rpx;
+  font-size: 30rpx;
+  color: #FFFFFF;
+}
+
+.moive {
+  top: 0;
+  position: fixed;
+  z-index: 999;
+  width: 100%;
+  height: 100vh;
+  background: #000000;
+}
+
+.showback {
+  width: 100%;
+  height: 100vh;
+}
+
+.closeimg {
+  margin-top: 80rpx;
+  width: 60rpx;
+  height: 60rpx;
+}
+
+uni-video {
+  width: 100%;
+}
+
+.showloding {
+  position: absolute;
+  width: 100%;
+  height: 100vh;
+  top: 0;
+  color: #FFFFFF;
+}
+
+.loimg {
+  width: 50rpx;
+  height: 50rpx;
+}
+
+.loding {
+  width: 260rpx;
+  height: 200rpx;
+  border-radius: 10rpx;
+  background: rgba(88, 88, 88, 0.8);
+  border-radius: 10rpx;
+}
+
+.userSelection {
+  top: 20rpx;
+  left: 40rpx;
+}
+
+.sjxlIcon {
+  width: 28rpx;
+  height: 16rpx;
+  margin-left: 28rpx;
+}
+
+.xljxImg {
+  margin-top: 5rpx;
+  width: 140rpx;
+  height: 200rpx;
+  position: absolute;
+  z-index: -1;
+}
+
+.typeLine {
+  height: 20rpx;
+}
+
+.typeBox {
+  margin-top: 5rpx;
+  width: 140rpx;
+  height: 200rpx;
+  color: #666666;
+}
+
+.itemType {
+  margin-top: 10rpx;
+  width: 100%;
+  height: 40rpx;
+  border-bottom: 1px solid #E6E6E6;
+}
+
+.informBox {
+  right: 50rpx;
+}
+
+.infosImg {
+  width: 34rpx;
+  height: 34rpx;
+}
+
+.munber {
+  width: 34rpx;
+  height: 34rpx;
+  background: red;
+  border-radius: 50%;
+  font-size: 12px;
+  color: #FFFFFF;
+  z-index: 2;
+  margin-top: -12rpx;
+  margin-left: 16rpx;
+}
+
+.munMore{
+  width: 50rpx;
+  height: 34rpx;
+  background: red;
+  border-radius: 20rpx;
+  font-size: 12px;
+  color: #FFFFFF;
+  z-index: 2;
+  margin-top: -12rpx;
+  margin-left: 16rpx;
+}
+
+.btmLine{
+  height: 50rpx;
+}

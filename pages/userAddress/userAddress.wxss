@@ -1,0 +1,212 @@
+.navtil{
+  width: 100%;
+  padding-top: 20rpx;
+  background: #F07535;
+  color:#fff;
+  position: fixed;
+  font-size: 20px;
+  z-index: 9;
+}
+.setimg{
+  width: 40rpx;
+  height: 40rpx;
+  position: absolute;
+  right: 70rpx;
+}
+.img {
+  margin-top: 70rpx;
+  width: 100%;
+  height: 160rpx;
+}
+
+.boxss {
+  width: 697rpx;
+  padding-left: 30rpx;
+  padding-right: 23rpx;
+  position: relative;
+  top: -80rpx;
+}
+
+.content {
+  width: 604rpx;
+  background: #FFFFFF;
+  border-radius: 10rpx;
+  margin-bottom: 20rpx;
+  box-shadow: 2rpx 2rpx 6rpx #d9d9d9;
+  padding-left: 60rpx;
+  padding-top: 27rpx;
+  padding-right: 33rpx;
+  padding-bottom: 37rpx;
+}
+  
+.name{
+  height: 48rpx;
+  font-size: 34rpx;
+}
+
+.zrimg {
+  width: 24rpx;
+  height: 24rpx;
+}
+
+.location {
+  left: 20rpx;
+  top: 30rpx; 
+}
+
+.addres {
+  height: 100%;
+  width: 604rpx;
+  font-size: 30rpx;
+  color: #666666;
+}
+
+.reimg {
+  width: 24rpx;
+  height: 34rpx; 
+}
+
+.right {
+  right: 0;
+  color: #F07535;
+  font-size: 30rpx;
+}
+
+.line {
+  margin-top: 23rpx;
+  width: 604rpx;
+  height: 2rpx;
+  background: #CCCCCC;
+}
+
+.text {
+  display: flex;
+  align-items: center;
+  height: 80rpx;
+  width: 457rpx
+}
+
+.botto {
+  right: 32rpx;
+  bottom: 32rpx;
+  font-size: 30rpx;
+  color: #F07535;
+}
+
+.show {
+  top: 0;
+  width: 100%;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.3);
+  z-index: 999;
+  overflow: hidden;
+  position: fixed;
+}
+
+.dv {
+  position: fixed;
+}
+
+.showbox {
+  width: 440rpx;
+  height: 500rpx;
+  background: #FFFFFF;
+  border-radius: 20rpx;
+}
+
+.showimg {
+  width: 230rpx;
+  height: 60rpx;
+}
+
+.sowtext {
+  font-size: 30rpx;
+  z-index: 10;
+}
+
+.noimg {
+  margin-top: -74rpx;
+  width: 230rpx;
+  height: 190rpx;
+}
+
+.ntimg {
+  margin-top: 80rpx;
+  width: 182rpx;
+  height: 79rpx;
+}
+
+.loca {
+  position: absolute;
+  bottom: 100rpx;
+}
+
+.scrimg {
+  margin-top: -74rpx;
+  width: 384rpx;
+  height: 194rpx;
+}
+
+.scrtimg {
+  margin-top: 80rpx;
+  width: 220rpx;
+  height: 37rpx;
+}
+
+.msg {
+  color: rgb(254, 134, 72);
+  width: 90%;
+  height: 200rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.nono {
+  width: 100%;
+  height: 300rpx;
+}
+
+.lodimg {
+  width: 30rpx;
+  height: 30rpx;
+  margin-right: 20rpx;
+}
+
+.lodbox {
+  font-size: 24rpx;
+}
+
+.addshow {
+  width: 100%;
+  height: 100vh;
+  z-index: 9;
+}
+.addlodimg {
+  width: 50rpx;
+  height: 50rpx;
+}
+.addshowcentent {
+  top: 300rpx;
+  position: absolute;
+  width: 200rpx;
+  height: 200rpx;
+}
+
+.addshowimg {
+  width: 130rpx;
+  height: 76rpx;
+  position: absolute;
+  right: 50rpx;
+  top: 70rpx;
+  z-index: 9;
+}
+
+.dssv{
+  transform:  rotate(45deg);
+}
+
+
+
+
+

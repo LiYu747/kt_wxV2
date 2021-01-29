@@ -1,0 +1,158 @@
+<view>
+	<view class="nav ">
+		<view class="ipt  ju-center flex al-center pos-rel">
+			<view wx:if='{{user}}' class="userSelection pos-abs">
+				<image bindtap="ShowType" src="https://oss.kuaitongkeji.com/static/img/app/home/sjxl.png"
+					class="sjxlIcon" mode=""></image>
+				<view wx:if="{{isShowType == true}}" class="typeBox flex-d al-center">
+					<image src="https://oss.kuaitongkeji.com/static/img/app/home/xljx.png" class="xljxImg" mode=""></image>
+					<view class="typeLine">
+					</view>
+					<view class="fz-12 itemType flex ju-center al-center" wx:for="{{userType}}" bindtap="selecType"
+						data-item="item" wx:key='id'>
+						{{item.name}}
+					</view>
+				</view>
+			</view>
+			<image class="img pos-abs" src="https://oss.kuaitongkeji.com/static/img/app/home/ss.png" mode=""></image>
+			<input class="input" type="text" bindinput="inputchange" confirm-type="search" bindconfirm='confirm' value="{{value}}"
+				placeholder="请输入小区名称关键词" />
+
+			<view wx:if='{{user}}' bindtap="goInform" class="informBox pos-abs">
+				<view wx:if="{{0<informmsg.total_unread && informmsg.total_unread< 100}}"
+					class="munber flex al-center ju-center pos-abs">
+					<view class="">
+						{{informmsg.total_unread}}
+					</view>
+				</view>
+				<view wx:if='{{informmsg.total_unread >99}}' class="munMore  flex al-center ju-center pos-abs">
+					99+
+				</view>
+				<image src="https://oss.kuaitongkeji.com/static/img/app/home/infos.png" class="infosImg" mode=""></image>
+			</view>
+		</view>
+	</view>
+
+	<view class="boxss">
+		<image class="imgjx" src="https://oss.kuaitongkeji.com/static/img/app/home/jx.png" mode=""></image>
+	</view>
+	<!-- 轮播图 -->
+	<view class="swper">
+		<swiper indicator-dots="{{indicatorDots}}" previous-margin='50rpx' next-margin='50rpx' bindchange='onchange'
+			autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
+			<swiper-item class="u-swiper-item  " wx:for="{{list}}" wx:key="id" data-item="item" data-index="index">
+				<view class="ono {{index!=current?'dcc':''}}">
+					<image src="{{item.image}}" mode="aspectFill" class="imgsrc"></image>
+				</view>
+			</swiper-item>
+		</swiper>
+	</view>
+
+	<view class=" flex-d al-center">
+		<!-- 用户操作栏 -->
+		<view class="flex operation ju-between">
+			<view class="flex-d al-center" wx:for="{{localdata}}" bindtap="operation" data-item="item" wx:key='id'>
+				<image src="{{item.image}}" class="itemimg" mode=""></image>
+				<view class="itemtext">
+					{{item.name}}
+				</view>
+			</view>
+		</view>
+
+		<!-- 分类 -->
+		<view class="clabox flex flex-w">
+			<view class="flex-d al-center loyout ju-around" wx:for="{{clalists}}" wx:key='id' data-index='index'
+				bindtap="goclass">
+				<image src="{{item.image}}" class="claitemimg" mode=""></image>
+				<view class="clatext">
+					{{item.name}}
+				</view>
+			</view>
+		</view>
+
+		<!-- 社区资讯 -->
+		<view class="infobox">
+			<view class="flex al-center">
+				<image class="infoimgss" src="https://oss.kuaitongkeji.com/static/img/app/home/sq(1)@2x.png" mode=""></image>
+				<view class="infotext">
+					社区资讯
+				</view>
+			</view>
+			<view class="infoovertxt flex al-center">
+				<view wx:if="{{infoloctext.length > 0}}" class="infocontext">
+					<view wx:for="{{infoloctext}}" wx:key='id' class="infoltst ">
+						{{item.title}}
+					</view>
+				</view>
+				<view class="infoonmsg" wx:else>
+					暂无社区资讯...
+				</view>
+				<view wx:if="{{infoloctext.length > 0}}" bindtap="lookup" class="infobtn flex al-center ju-center">
+					查看详情 >
+				</view>
+			</view>
+		</view>
+
+		<!-- 社区新闻 -->
+		<view class="comconten">
+			<view class="flex al-center">
+				<view class="">
+					<image src="https://oss.kuaitongkeji.com/static/img/app/home/news.png" class="comimgss" mode=""></image>
+				</view>
+				<view class="comtextss">
+					社区新闻
+				</view>
+			</view>
+			<view class="comNotice flex-d ju-center">
+				<view wx:if="{{text}}" class=" ">
+					<van-notice-bar left-icon="volume-o" scrollable="{{ iScroll }}" background="#ffffff" color='#F07535'
+						speed='30' text="{{text}}" />
+				</view>
+				<view class="comnonews" wx:else>
+					暂无社区新闻...
+				</view>
+			</view>
+		</view>
+
+		<!-- 周边消息 -->
+		<view class="perboxss">
+			<view class="flex al-center  m-b1 pos-rel">
+				<image class="perimgss" src="https://oss.kuaitongkeji.com/static/img/app/home/zx@2x.png" mode=""></image>
+				<view class="pertext">
+					周边消息
+				</view>
+
+				<view bindtap="lookmore" class="perandMore pos-abs">
+					查看更多
+				</view>
+			</view>
+			<view wx:if="{{perlocdata.length>0}}" class="perconten flex ju-between flex-w">
+				<view class="peritem flex pos-rel" bindtap="godils" wx:for="{{perlocdata}}" wx:key='id'>
+					<image src="{{item.faceimg}}" mode="" class="peritemimg"></image>
+					<view class="perfont">
+						<view class="perfonts">
+							{{item.title}}
+						</view>
+					</view>
+					<view class=" pos-abs perlocation ">
+						{{item.created_at}}
+					</view>
+				</view>
+			</view>
+
+			<view class="pernomsg" wx:else>
+				还没有任何周边资讯哦~
+			</view>
+		</view>
+	</view>
+
+	<view class="btmLine"></view>
+	<view hidden="{{showPullDownRefreshIcon}}" class="showloding flex al-center ju-center">
+		<view class="loding flex-d al-center ju-center">
+			<view class=" ">
+				<image class="loimg" src="https://oss.kuaitongkeji.com/static/img/app/address/loading.gif" mode=""></image>
+			</view>
+			刷新中
+		</view>
+	</view>
+</view>

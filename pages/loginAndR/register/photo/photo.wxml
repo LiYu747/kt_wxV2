@@ -1,0 +1,18 @@
+<view class="">
+		<image class="img" bindtap="goback" src="https://oss.kuaitongkeji.com/static/img/app/login/retrue.png" mode=""></image>
+		<view class="photo flex-d al-center ju-center">
+			<image src="{{img}}" class="phimg" mode="aspectFill"></image>
+			<view bindtap="chooseAvatar" class="text">
+				更换照片
+			</view>
+		</view>
+
+		<view wx:if="{{isLoding == true}}" class="showloding flex al-center ju-center">
+			<view class="loding flex-d al-center ju-center">
+				<view class=" ">
+					<image class="loimg" src="https://oss.kuaitongkeji.com/static/img/app/address/loading.gif" mode=""></image>
+				</view>
+				上传中
+			</view>
+		</view>
+	</view>

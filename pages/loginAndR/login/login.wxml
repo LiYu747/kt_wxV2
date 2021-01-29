@@ -1,0 +1,76 @@
+<view class="back">
+		<view class="nav pos-rel flex al-center ju-center">
+			<image    bindtap="goback" class="img pos-abs" src="https://oss.kuaitongkeji.com/static/img/app/login/fanhui.png" mode=""></image>
+			<view class="text">
+				<!-- 登录 -->
+			</view>
+		</view>
+
+		<!-- logo -->
+		<view class="logo flex ju-center">
+			<image src="https://oss.kuaitongkeji.com/static/img/app/login/logo.png" class="logoimg" mode=""></image>
+		</view>
+		
+		
+		<!-- 输入框 -->
+		<view class="top flex-d al-center">
+				<!-- 手机号 -->
+					<view class="uiput flex al-center pos-rel">
+						<image class="iptimg pos-abs" src="https://oss.kuaitongkeji.com/static/img/app/login/phone.png" mode=""></image>
+						<input class="ipt" type="number"  bindinput="phonechange" placeholder="输入手机号" value="" />
+					</view>
+				<!-- 密码 -->
+					<view wx:if="{{iSlogin==false}}" class="uiput flex al-center pos-rel">
+						<image class="iptimg2 pos-abs" src="https://oss.kuaitongkeji.com/static/img/app/login/security.png" mode=""></image>
+						<input class="ipt" type="password" bindinput="passwordchange"  placeholder="输入密码" value="" />
+					</view>
+				<!-- 验证码 -->
+					<view wx:if="{{iSlogin==true}}" class="uiput flex al-center pos-rel">
+						<image class="iptimg2 pos-abs" src="https://oss.kuaitongkeji.com/static/img/app/login/security.png" mode=""></image>
+						<input class="ipt" type="number"  bindinput="codechange"  placeholder="输入验证码" />
+						<view    bindtap="addvercode" ref='code'  class=" {{codebtn===false?'dv':''}} vcode pos-abs flex al-center ju-center">
+							<view class="tetxs">
+								{{text}}
+							</view>
+						</view>
+					</view>
+				<u-toast ref="uToast" />
+		</view>
+    <view  class="cutBox flex al-center">
+			<view   bindtap="cut"  class="">
+				<view wx:if="{{iSlogin==false}}" class="passlogin flex m-t1">
+					验证码登录
+				</view>
+				<view wx:if="{{iSlogin==true}}" class="passlogin flex m-t1">
+					密码登录
+				</view>
+			</view>
+			<!-- <image src="../../../image/zhuanh.png" class="zhuanh" mode=""></image> -->
+		</view>
+	
+
+		<!-- 登录按钮 -->
+		<view class="flex-d al-center m-t4">
+			<view    bindtap="Login" class="btn pos-rel flex ju-center al-center">
+				<image src="https://oss.kuaitongkeji.com/static/img/app/login/jbs.png" class="jbsimg" mode=""></image>
+				<view class="lgtext pos-abs">
+					登录
+				</view>
+			</view>
+
+			<!-- 找回密码 -->
+			<view class="flex al-center retrieve">
+				<view    bindtap="find" class="">
+					找回密码
+				</view>
+				<view class="line">
+
+				</view>
+				<view    bindtap="register" class="">
+					注册账号
+				</view>
+			</view>
+
+		</view>
+
+	</view>

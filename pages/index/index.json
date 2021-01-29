@@ -1,0 +1,12 @@
+{
+  "usingComponents": {
+   "swpper":"../../components/swpper/index/index",
+   "van-notice-bar": "/@vant/weapp/notice-bar/index"
+  },
+  "navigationBarBackgroundColor": "#F07535",
+  "navigationBarTextStyle": "white",
+  "navigationBarTitleText": "首页",
+  "backgroundColor": "#eeeeee",
+  "backgroundTextStyle": "light",
+  "enablePullDownRefresh":true
+}
