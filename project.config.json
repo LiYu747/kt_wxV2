@@ -127,6 +127,35 @@
           "id": -1,
           "name": "pages/homeSearch/search",
           "pathName": "pages/homeSearch/search",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "pages/homeSearch/search",
+          "pathName": "pages/homeSearch/search",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "pages/homeSearch/search",
+          "pathName": "pages/homeSearch/search",
+          "query": "text='山'",
+          "scene": null
+        },
+        {
+          "id": 10,
+          "name": "pages/homeSearch/search",
+          "pathName": "pages/homeSearch/search",
+          "query": "text=''",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "pages/homeSearch/search",
+          "pathName": "pages/homeSearch/search",
+          "query": "text=山",
           "scene": null
         }
       ]

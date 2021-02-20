@@ -1,3 +1,60 @@
 <view class=" flex-d al-center">
-    <view class="nav"></view>
+  <view class="nav flex pos-rel al-center   ju-center">
+    <view class="ipt  ju-center flex al-center pos-rel">
+      <image class="img pos-abs" src="https://oss.kuaitongkeji.com/static/img/app/home/ss.png" mode=""></image>
+      <input class="input" bindconfirm='confirm' bindinput="inputchange" type="text" value="{{value}}" />
+    </view>
+    <view bindtap="remove" class="pos-abs  rig">
+      取消
+    </view>
+  </view>
+  <view class="topLine"></view>
+
+  <view wx:if="{{locdata.length>0}}" class="top flex-d al-center">
+    <view bindtap="gotoo" class="item" wx:for="{{locdata}}" wx:key="id">
+      <view class="name flex al-center ju-between">
+        {{item.name}}
+        <image src="https://oss.kuaitongkeji.com/static/img/app/address/retrue.png" class="nameimg" mode=""></image>
+      </view>
+      <view class="syntext">
+        <view class="">
+          小区介绍
+        </view>
+        <view class="synback flex al-center">
+          <view class="aa">
+            {{item.brief}}
+          </view>
+        </view>
+      </view>
+      <view class="syntext">
+        <view class="">
+          交通方式
+        </view>
+        <view class="synback flex al-center">
+          <view class="aa">
+            暂无
+          </view>
+        </view>
+      </view>
+    </view>
+    <view wx:if="{{isLoding == true}}" class=" flex ju-center al-center lodbox">
+      <image class="lodimg" src="https://oss.kuaitongkeji.com/static/img/app/address/loading.gif" mode=""></image>
+      加载中...
+    </view>
+    <view class="flex ju-center m-b2 fz-12" wx:if="{{hasMore == false}}">
+      {{text}}
+    </view>
+
+  </view>
+  <view wx:if="{{isLoding == true&&locdata.length==0}}" class="showloding flex al-center ju-center">
+    <view class="loding flex-d al-center ju-center">
+      <view class=" ">
+        <image class="loimg" src="https://oss.kuaitongkeji.com/static/img/app/address/loading.gif" mode=""></image>
+      </view>
+      搜索中
+    </view>
+  </view>
+  <view class="nono flex al-center ju-center" wx:if="{{locdata.length == 0&&isLoding == false}}">
+    没有您搜索的小区哦~~~
+  </view>
 </view>
