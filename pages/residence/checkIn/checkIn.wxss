@@ -1,0 +1,144 @@
+.message {
+  margin-top: 40rpx;
+  width: 644rpx;
+  padding-bottom: 40rpx;
+  background: #FFFFFF;
+  border-radius: 10rpx;
+  box-shadow: 1rpx 2rpx 10rpx 0 rgb(220, 220, 220);
+  padding-left: 20rpx;
+  padding-right: 26rpx;
+}
+
+.content {
+  position: absolute;
+  right: 0;
+  margin-top: 10rpx;
+  padding: 0 20rpx;
+  width: 120rpx;
+  height: 200rpx;
+  background: #FFFFFF;
+  border-radius: 10rpx;
+  border: 1px solid #EEEEEE;
+  box-shadow: 0px 4px 4px 0px rgba(9, 9, 9, 0.1);
+  z-index: 9;
+}
+
+.itemBox {
+  height: 60rpx;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.text {
+  height: 69rpx;
+  font-size: 30rpx;
+  color: #666666;
+  border-bottom: 1rpx solid #BFBFBF;
+}
+   
+ .zIndex{
+  z-index: 99999;
+  background: #FFFFFF; 
+ }
+ 
+.item {
+  height: 75rpx;
+  font-size: 24rpx;
+  color: #666666;
+  border-bottom: 1rpx solid #BFBFBF;
+  
+
+
+}
+
+.dv {
+ 
+}
+
+.righ {
+  right: 0;
+}
+
+.xiala {
+  width: 16rpx;
+  height: 16rpx;
+  margin-right: 15rpx;
+}
+
+.Submit {
+  width: 358rpx;
+  height: 68rpx;
+}
+
+.subtext {
+  font-size: 30rpx;
+  color: #FFFFFF;
+}
+
+.posp {
+  position: fixed;
+}
+
+.bot {
+  margin-bottom: 80rpx;
+}
+
+.a {
+  font-size: 24rpx;
+
+}
+
+.move {
+  top: 82rpx;
+  right: 50rpx;
+  color: #F07535;
+  font-size: 30rpx;
+  text-align: right;
+  margin-top: 20rpx;
+}
+
+
+
+.guideBox{
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 100vh;
+  background: rgba(0,0,0,0.75);  
+  z-index: 999;
+}
+  
+.Gitem{
+  width: 100%;
+  height: 100vh;
+}
+
+.arrowsLU{
+  width: 120rpx;
+  height: 88rpx;
+}
+
+.Lutext{
+  position: absolute;
+  left: 50rpx;
+  top: 90rpx;
+}
+
+.enclText{
+  z-index: 99999;
+}
+
+.llText{
+  margin-top: -100rpx;
+}
+
+.leftLower{
+  width: 100rpx;
+  height: 88rpx;
+}
+
+.pushMsg{
+  margin-left: 170rpx;
+  margin-top: -40rpx;
+}

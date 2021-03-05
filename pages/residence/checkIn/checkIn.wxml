@@ -1,0 +1,45 @@
+<view class="flex-d al-center">
+	
+		<view class=" message">
+      <view bindtap="Application" class="  move">
+			申请记录
+		</view> 
+			<view class="text flex al-center">
+				基本信息
+			</view>
+			<view>
+				<view class="item flex al-center pos-rel {{index==record.length-1?'dv':''}}" wx:for="{{record}}" data-index="{{index}}" bindtap="Onshow" wx:key='id' >
+					<!-- <u-field  v-model="item.value " :placeholder="item.placeholder" :label="item.label" :clearable=false :required='item.required'
+					 input-align='right' :disabled="item.disabled">
+					</u-field> -->
+					<view class="pos-abs righ" wx:if="{{index===record.length-2}}">
+						<image src="https://oss.kuaitongkeji.com/static/img/app/home/xiala.png" class="xiala" mode=""></image>
+						<view wx:if="{{iSidentity==true}}" class="content">
+							<view class="itemBox" bindtap="selectOne" wx:for="{{options}}" wx:key='id'>
+								{{item.label}}
+							</view>
+						</view>
+					</view>
+					<view wx:if="{{index===record.length-1}}" class="pos-abs righ">
+						<image src="https://oss.kuaitongkeji.com/static/img/app/home/xiala.png" class="xiala" mode=""></image>
+					</view>
+				</view>
+			</view>
+			
+		</view>
+
+		<!-- 附件 -->
+	
+           
+		<!-- 备注 -->
+	
+		<!-- 提交 -->
+		<view class="pos-rel m-t4 bot flex al-center ju-center" bindtap="Submit">
+			<image class="Submit" src="https://oss.kuaitongkeji.com/static/img/app/login/ccuc.png" mode=""></image>
+			<view class="pos-abs subtext">
+				提交
+			</view>
+		</view>
+
+    
+	</view>

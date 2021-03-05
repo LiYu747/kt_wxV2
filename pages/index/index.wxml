@@ -40,7 +40,7 @@
 	<view class="swper">
 		<swiper indicator-dots="{{indicatorDots}}" previous-margin='50rpx' next-margin='50rpx' bindchange='onchange'
 			autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
-			<swiper-item class="u-swiper-item  " wx:for="{{list}}" wx:key="id" data-item="item" data-index="index">
+			<swiper-item class="u-swiper-item  " wx:for="{{list}}" wx:key="id" bindtap="addswiper" data-item="{{item}}" data-index="{{index}}">
 				<view class="ono {{index!=current?'dcc':''}}">
 					<image src="{{item.image}}" mode="aspectFill" class="imgsrc"></image>
 				</view>
@@ -51,7 +51,7 @@
 	<view class=" flex-d al-center">
 		<!-- 用户操作栏 -->
 		<view class="flex operation ju-between">
-			<view class="flex-d al-center" wx:for="{{localdata}}" bindtap="operation" data-item="item" wx:key='id'>
+			<view class="flex-d al-center" wx:for="{{localdata}}" bindtap="operation" data-item="{{item}}" wx:key='id'>
 				<image src="{{item.image}}" class="itemimg" mode=""></image>
 				<view class="itemtext">
 					{{item.name}}
@@ -103,15 +103,24 @@
 					社区新闻
 				</view>
 			</view>
-			<view class="comNotice flex-d ju-center">
-				<view wx:if="{{text}}" class=" ">
-					<van-notice-bar left-icon="volume-o" scrollable="{{ iScroll }}" background="#ffffff" color='#F07535'
-						speed='30' text="{{text}}" />
-				</view>
+			<view class="comNotice flex al-center">
+				<block wx:if="{{newData.length>0}}">
+					<image src="../../image/laba.png"  class="imgss" mode=""></image>
+            <swiper class="conNswiper" autoplay="true" circular='true' vertical="true">
+							<block wx:for="{{newData}}" wx:key='id'>
+								<swiper-item class=" flex al-center">
+								<view bindtap="goComm"  data-item="{{item}}" class="swpeirTxt">
+									{{item.title}}
+								</view>
+							</swiper-item>
+							</block>
+						</swiper>
+				</block>
 				<view class="comnonews" wx:else>
 					暂无社区新闻...
 				</view>
 			</view>
+			
 		</view>
 
 		<!-- 周边消息 -->
@@ -127,8 +136,9 @@
 				</view>
 			</view>
 			<view wx:if="{{perlocdata.length>0}}" class="perconten flex ju-between flex-w">
-				<view class="peritem flex pos-rel" bindtap="godils" wx:for="{{perlocdata}}" wx:key='id'>
-					<image src="{{item.faceimg}}" mode="" class="peritemimg"></image>
+				<view class="peritem flex pos-rel" bindtap="godils" data-item="{{item}}" wx:for="{{perlocdata}}" wx:key='id'>
+					<image wx:if="{{item.faceimg}}" src="{{item.faceimg}}" mode="aspectFill" class="peritemimg"></image>
+					<image wx:else src="https://oss.kuaitongkeji.com/static/img/app/forum/timg.jpg" mode="aspectFill" class="peritemimg"></image>
 					<view class="perfont">
 						<view class="perfonts">
 							{{item.title}}
@@ -155,4 +165,12 @@
 			刷新中
 		</view>
 	</view>
+
+		<!-- 视频播放 -->
+		<view wx:if="{{paly == true}}"   class=" pos-abs moive flex-d al-center ju-center">
+			<view bindtap="close" class="showback pos-abs">
+			</view>
+			<video src="{{videoUrl}}" ></video>
+			<image bindtap="close" src="https://oss.kuaitongkeji.com/static/img/app/home/close.png" class="closeimg" mode=""></image>
+		</view>
 </view>

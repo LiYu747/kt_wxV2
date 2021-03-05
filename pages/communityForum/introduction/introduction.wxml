@@ -1,0 +1,69 @@
+<view wx:if="{{code == 200}}" class="fz-12">
+  <view class="swipeBox">
+    <swiper class="my-swipe" autoplay='true' indicator-dots='true' indicator-active-color='#ffffff'>
+      <block wx:for="{{list}}" data-item="{{item}}" wx:key='id'>
+           <swiper-item>
+            <image src="{{item}}" class="lbimg" mode="aspectFill"></image>
+           </swiper-item>
+      </block>
+   </swiper>
+  </view>
+  <view class="flex-d al-center">
+    <view class="nav flex-d al-center pos-rel">
+      <view class="tex1">
+        {{arr.name}}
+      </view>
+      <view class="tex2 flex al-center ju-center {{idx==0?'te2':''}}">
+        <view  wx:for="{{titel}}" wx:key='id' bindtap="add" data-item="{{item}}" data-index="{{index}}" class=" item {{index===1?'dv':''}} {{idx===index?'colr':''}}">
+          {{item}}
+        </view>
+        <view bindtap="goforum" class="">
+          论坛
+        </view>
+      </view>
+      <!-- 小区简介 -->
+      <view wx:if="{{idx===0}}" class="content">
+        <view class="addressBox flex pos-rel">
+          <view class="addText">
+            小区地址：
+            {{detailedAddress}}
+          </view>
+          <view class="goHere flex pos-abs">
+            <!-- 去这里 -->
+            <image bindtap="navigation" src="https://oss.kuaitongkeji.com/static/img/app/forum/addicon.png"
+              class="addicon" mode=""></image>
+          </view>
+        </view>
+        <view class="m-t2">
+          {{arr.brief}}
+        </view>
+      </view>
+      <!-- 小区公告 -->
+      <view wx:if="{{idx === 1}}" class="twbx m-t2">
+        <view wx:if="{{Notice.length>0}}" class="">
+          <view class="" wx:for="{{Notice}}"  wx:key='id' >
+            <view bindtap="godils" data-item="{{item}}" class="wid m-b1">
+              {{index+1}} . {{item.title}}
+            </view>
+          </view>
+        </view>
+        <view wx:else class="">
+          暂无公告
+        </view>
+      </view>
+    </view>
+    <view wx:if="{{idx===0&&arr.desc}}" class="foot">
+      <rich-text nodes="{{arr.desc}}"></rich-text>
+    </view>
+  </view>
+
+
+</view>
+<view wx:if="{{isLoding == true}}" class="showloding flex al-center ju-center">
+    <view class="loding flex-d al-center ju-center">
+      <view class=" ">
+        <image class="loimg" src="https://oss.kuaitongkeji.com/static/img/app/address/loading.gif" mode=""></image>
+      </view>
+      加载中
+    </view>
+  </view>

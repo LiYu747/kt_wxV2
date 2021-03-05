@@ -7,7 +7,10 @@
     "pages/loginAndR/login/login",
     "pages/userAddress/userAddress",
     "pages/userinfo/userinfo",
-    "pages/homeSearch/search"
+    "pages/homeSearch/search",
+    "pages/communityForum/introduction/introduction",
+    "pages/InformationDetails/InformationDetails",
+    "pages/residence/checkIn/checkIn"
   ],
   "window": {
     "backgroundTextStyle": "light",

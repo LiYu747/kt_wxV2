@@ -1,10 +1,12 @@
 //index.js
 //获取应用实例
 import home from '../../vendor/home/home'
+import urlUtil from '../../vendor/common/url.js';
 const app = getApp()
 
 Page({
   data: {
+    arr:['撒旦撒但是看见年代开始就和觉得还是看或多或少但是u','但刷你的卡剑三点卡九十年代开始缴纳肯定就能使空间你松开你的手'],
     list: [], //轮播图
     indicatorDots: false,
     vertical: false,
@@ -15,8 +17,7 @@ Page({
     localdata: [], //操作数据
     clalists:[],//分类数据
     infoloctext:[], //社区资讯数据
-    iScroll:false, //社区新闻是否滚动
-    text:'', //社区新闻数据
+    newData:[], //社区新闻数据
     perlocdata:[],//周边消息数据
   	userType: [{
       name: '用户',
@@ -47,7 +48,118 @@ Page({
      wx.navigateTo({
        url: '/pages/loginAndR/login/login',
      })
-  },
+  },  
+     // 表单跳转
+			operation(e) {
+        let item = e.currentTarget.dataset.item
+				if (item.page) {
+					urlUtil.to({
+						pageAlias: item.page,
+						options: item.params,
+					})
+					return;
+				}
+				if (item.web_url) {
+					wx.navigateTo({
+						url: '/pages/web/index/index?url=' + encodeURIComponent(item.web_url),
+					})
+				}
+			},
+     // 去周边消息详情页面
+			godils(e) {
+        let id = e.currentTarget.dataset.item.id
+				home.surroundingDetails({
+				data: {
+						id: id
+					},
+					fail: () => {
+						uni.showToast({
+							title: '网络错误',
+							icon: 'none'
+						})
+					},
+					success: (res) => {
+						if (res.statusCode != 200) return
+            if (res.data.code != 200) return
+					  let content = {title:res.data.data.title,content:res.data.data.desc}
+            app.redInfo = content
+            wx.navigateTo({
+              url: '/pages/InformationDetails/InformationDetails'
+            })
+					}
+				})
+			},  
+     // 查看社区新闻详情
+			goComm(e) {
+        let id = e.currentTarget.dataset.item.id
+				home.NewsDils({
+					data: {
+						id: id
+					},
+					fail: () => {
+						wx.showToast({
+							title: '网络错误',
+							icon: 'none'
+						})
+					},
+					success: (res) => {
+						if (res.statusCode != 200) return
+						if (res.data.code != 200) return
+						// console.log(res.data.data);
+            let content = {title:res.data.data.title,content:res.data.data.content}
+            app.redInfo = content
+            wx.navigateTo({
+              url: '/pages/InformationDetails/InformationDetails'
+            })
+					}
+				})
+			},
+  	//社区资讯 查看详情
+    lookup() {
+      home.infordils({
+        data: {
+          id: this.data.infoloctext[0].id
+        },
+        fail: () => {
+          wx.showToast({
+            title: '网络错误',
+            icon: 'none'
+          })
+        },
+        success: (res) => {
+          if (res.statusCode != 200) return
+          if (res.data.code != 200) return
+            let content = {title:res.data.data.title,content:res.data.data.content}
+      app.redInfo = content
+      wx.navigateTo({
+        url: '/pages/InformationDetails/InformationDetails'
+      })
+        }
+      })
+    },
+    // 关闭视频
+			close() {
+        this.setData({
+          paly : false
+        })
+			},
+  	// 点击轮播图
+    addswiper(e) {
+      let movie = e.currentTarget.dataset.item
+      if (movie.video) {
+        this.setData({
+          videoUrl:movie.video,
+          cover:movie.image,
+          paly:true
+        })
+        return;
+      } else {
+        urlUtil.to({
+          pageAlias: movie.page,
+          options: movie.params,
+        })
+      }
+    },
   // 显示物业外卖
   ShowType () {
     this.setData({
@@ -176,7 +288,7 @@ Page({
     home.CommunityNews({
       data: {
         page:1,
-				pageSize:1
+				pageSize:15
       },
       fail: () => {
         wx.showToast({
@@ -187,17 +299,10 @@ Page({
       success: (res) => {
         if (res.statusCode != 200) return
         if (res.data.code != 200) return
-        if(res.data.data.data.length>0){
-          let text = res.data.data.data[0].title
-          if(text.length > 15){
-            this.setData({
-              iScroll : true
-            })
-          }
+          let data = res.data.data.data
           this.setData({
-            text: text
+            newData: data
           })
-        }
       }
     })
   },

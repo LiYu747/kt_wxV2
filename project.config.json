@@ -157,6 +157,41 @@
           "pathName": "pages/homeSearch/search",
           "query": "text=山",
           "scene": null
+        },
+        {
+          "id": 12,
+          "name": "pages/communityForum/introduction/introduction",
+          "pathName": "pages/communityForum/introduction/introduction",
+          "query": "id=1",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "pages/InformationDetails/InformationDetails",
+          "pathName": "pages/InformationDetails/InformationDetails",
+          "query": "id=1",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "pages/index/index",
+          "pathName": "pages/index/index",
+          "query": "id=1",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "pages/communityForum/introduction/introduction",
+          "pathName": "pages/communityForum/introduction/introduction",
+          "query": "id=1",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "pages/residence/checkIn/checkIn",
+          "pathName": "pages/residence/checkIn/checkIn",
+          "query": "id=1",
+          "scene": null
         }
       ]
     }

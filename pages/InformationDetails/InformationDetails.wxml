@@ -1,0 +1,8 @@
+<view class="flex-d al-center ovov">
+		<view class="titel">
+			{{title}}
+		</view>
+		<view  class="desc">
+		<rich-text nodes="{{content}}"></rich-text>
+		</view>
+	</view>

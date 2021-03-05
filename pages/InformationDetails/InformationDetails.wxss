@@ -1,0 +1,16 @@
+page {
+  background: #FFFFFF !important;
+}
+.titel {
+  margin-top: 60rpx;
+  width: 612rpx;
+  height: 66rpx;
+  font-size: 36rpx;
+  margin-bottom: 100rpx;
+  color: #666666;
+}
+
+.desc {
+  padding: 30rpx;
+
+}

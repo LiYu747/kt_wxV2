@@ -4,7 +4,7 @@ class url {
 	
 	route = {
 		//APP首页
-		app_home_index : '/page/index/index',
+		app_home_index : '/pages/index/index',
 		
 		// 填写入住小区申请的页面
 		apply_move_in_form : '/pages/residence/checkIn/checkIn',
@@ -85,17 +85,17 @@ class url {
 		
 		switch( type ){
 			case 'navigateTo':
-				uni.navigateTo({
+			    wx.navigateTo({
 					url : u + '?'+opt,
 				});
 				break;
 			case 'redirectTo':
-				uni.redirectTo({
+				wx.redirectTo({
 					url : u + '?'+opt,
 				});
 				break;
 			case 'switchTab':
-				uni.switchTab({
+				wx.switchTab({
 					url : u 
 				});
 				break;

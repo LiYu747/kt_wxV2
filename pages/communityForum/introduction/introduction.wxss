@@ -1,0 +1,159 @@
+.fixed {
+  position: fixed;
+  z-index: 9;
+}
+
+.line {
+  height: 148rpx;
+}
+
+/deep/ .u-swiper-indicator[data-v-a5b2d580] {
+  bottom: 60rpx !important;
+}
+
+.nav {
+  top: -42rpx;
+  width: 690rpx;
+  background: #FFFFFF;
+  border-radius: 20rpx;
+  box-shadow: 0px 4px 4px 0px rgba(9, 9, 9, 0.1);
+}
+
+.tex1 {
+  width: 98%;
+  font-size: 36rpx;
+  color: #F07535;
+  margin-top: 34rpx;
+  margin-left: 25rpx;
+}
+
+.tex2 {
+  width: 100%;
+  height: 100rpx;
+  font-size: 28rpx;
+  color: #666666;
+}
+
+.te2 {
+  border-bottom: 1px solid #BFBFBF;
+}
+
+.item {
+  height: 45rpx;
+}
+
+.dv {
+  margin-left: 181rpx;
+  margin-right: 162rpx;
+}
+
+.colr {
+  color: #F07535;
+  border-top: 4rpx solid #FFFFFF;
+  border-bottom: 4rpx solid #F07535;
+}
+
+.nono {
+  border-top: 4rpx solid #FFFFFF;
+  border-bottom: 4rpx solid #FFFFFF;
+}
+
+.content {
+  margin-top: 31rpx;
+  width: 608rpx;
+  color: #666666;
+  font-size: 24rpx;
+  margin-bottom: 60rpx;
+}
+.addText{
+  width: 500rpx;
+  word-break:break-all
+}
+
+.addicon{	
+  width: 40rpx;
+  height: 40rpx;
+}
+.goHere{
+  margin-top: -40rpx;
+  color: #F07535;
+  width: 140rpx;
+  justify-content: flex-end;
+  margin-top: -6rpx;
+  right: 20rpx;
+}
+
+.foot {
+  width: 614rpx;
+  background: #FFFFFF;
+  border-radius: 20rpx;
+  margin-bottom: 140rpx;
+  padding: 20rpx 38rpx;
+  box-shadow: 0px 4px 4px 0px rgba(9, 9, 9, 0.1);
+  font-size: 24rpx;
+  color: #666666;
+  padding-bottom: 40rpx;
+}
+
+.fotex1 {
+  margin-top: 46rpx;
+}
+
+.img1 {
+  margin-top: 37rpx;
+  width: 613rpx;
+  height: 333rpx;
+}
+
+.twbx {
+  width: 622rpx;
+  background: #E6E6E6;
+  padding: 20rpx 14rpx;
+  color: #666666;
+  margin-bottom: 60rpx;
+}
+
+.wid {
+  width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+}
+
+.showloding {
+  position: absolute;
+  width: 100%;
+  height: 100vh;
+  top: 0;
+  color: #FFFFFF;
+}
+
+.loimg {
+  width: 50rpx;
+  height: 50rpx;
+}
+
+.loding {
+  width: 260rpx;
+  height: 200rpx;
+  background: rgba(88, 88, 88, 0.8);
+  border-radius: 10rpx;
+}
+
+.swipeBox{
+width: 100%;
+height: 350rpx;
+}
+.my-swipe{
+  width: 100%;
+  height: 350rpx;
+}
+
+.lbimg{
+  width: 100%;
+  height: 350rpx;
+}
+
+

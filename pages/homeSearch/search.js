@@ -10,8 +10,17 @@ Page({
     page:1,
     hasMore: true,
     locdata:[],
-    isLoding: false
+    isLoding: false,
+    text:''
   },
+  //  去详情页面
+  gotoo(e){
+    let id = e.currentTarget.dataset.item.id
+    wx.navigateTo({
+      url: '/pages/communityForum/introduction/introduction?id=' + id,
+    })
+  },
+
   // 搜索数据
   getData() {
     this.setData({
@@ -116,6 +125,10 @@ Page({
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function () {
+    this.setData({
+      text:'没有更多了'
+    })
+    if (this.data.isLoding == true || this.data.hasMore == false) return;
     this.getData()
   },
 

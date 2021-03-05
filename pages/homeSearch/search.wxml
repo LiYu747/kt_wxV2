@@ -11,7 +11,8 @@
   <view class="topLine"></view>
 
   <view wx:if="{{locdata.length>0}}" class="top flex-d al-center">
-    <view bindtap="gotoo" class="item" wx:for="{{locdata}}" wx:key="id">
+    <block wx:for="{{locdata}}" wx:key="id"    >
+    <view class="item"  bindtap="gotoo"  data-item="{{item}}" >
       <view class="name flex al-center ju-between">
         {{item.name}}
         <image src="https://oss.kuaitongkeji.com/static/img/app/address/retrue.png" class="nameimg" mode=""></image>
@@ -37,6 +38,7 @@
         </view>
       </view>
     </view>
+  </block>
     <view wx:if="{{isLoding == true}}" class=" flex ju-center al-center lodbox">
       <image class="lodimg" src="https://oss.kuaitongkeji.com/static/img/app/address/loading.gif" mode=""></image>
       加载中...
