@@ -1,0 +1,31 @@
+<view class="">
+		<view class="cont">
+			<view class="nav flex al-center">
+				<image src="https://oss.kuaitongkeji.com/static/img/app/visit/gnt.png" class="img" mode=""></image>
+				<view  class="text">
+					{{text}}
+				</view> 
+			</view>
+			<view class="flex al-center pos-rel ipt" wx:for="{{locadata}}" wx:key='id'>
+				<view class="">
+					{{item.titel}}
+				</view>
+				<view class="pos-abs rig">
+					{{item.value}}
+				</view>
+			</view>
+			<view class="line">
+
+			</view>
+			<view class="tex1">
+				备注
+			</view>
+			<textarea value="{{remark}}" disabled='true' class="frame">
+			</textarea>
+			<view class="tex1">
+				申请结果
+			</view>
+			<textarea value="{{result}}" disabled='true' class="frame">
+			</textarea>
+		</view>
+	</view>

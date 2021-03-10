@@ -10,7 +10,16 @@
     "pages/homeSearch/search",
     "pages/communityForum/introduction/introduction",
     "pages/InformationDetails/InformationDetails",
-    "pages/residence/checkIn/checkIn"
+    "pages/residence/checkIn/checkIn",
+    "pages/residence/checkRecord/checkRecord",
+    "pages/residence/checkdetails/checkdetails",
+    "pages/qrcode/qrcode",
+    "pages/visitapplication/newDetalis/newDetalis",
+    "pages/visitapplication/visit/visit",
+    "pages/visitapplication/goRecord/goRecord",
+    "pages/visitapplication/goDetails/goDetails",
+    "pages/operation/visitRecord/visitRecord",
+    "pages/operation/details/details"
   ],
   "window": {
     "backgroundTextStyle": "light",

@@ -1,0 +1,121 @@
+.card {
+  margin-top: 30rpx;
+  width: 690rpx;
+  background: #FFFFFF;
+  border-radius: 10rpx;
+  box-shadow: 1rpx 2rpx 10rpx 0 rgb(220, 220, 220);
+  font-size: 26rpx;
+}
+
+.bx1 {
+  height: 80rpx;
+  border-bottom: 1rpx solid #cccccc;
+}
+
+.bx2 {
+  height: 80rpx;
+}
+
+.left {
+  width: 70rpx;
+}
+
+.itemimg {
+  width: 28rpx;
+  height: 28rpx;
+}
+
+.dv1 {
+  width: 22rpx;
+  height: 30rpx;
+  margin: 0 24rpx;
+}
+
+.dv2 {
+  width: 30rpx;
+  height: 22rpx;
+  margin: 0 20rpx;
+}
+
+.dv3 {
+  width: 30rpx;
+  height: 30rpx;
+  margin: 0 20rpx;
+}
+
+.dv4 {
+  width: 32rpx;
+  height: 32rpx;
+  margin: 0 20rpx;
+}
+
+.item {
+  height: 80rpx;
+  color: #666666;
+  border-bottom: 1rpx solid #cccccc;
+}
+
+.bot {
+  border: none;
+}
+
+.rig {
+  right: 30rpx;
+  color: rgb(229, 75, 68);
+}
+
+.fled {
+  position: fixed;
+  z-index: 9;
+}
+
+.top {
+  margin-top: 148rpx;
+}
+
+.bottom {
+  margin-bottom: 40rpx;
+}
+
+.nono {
+  width: 100%;
+  height: 300rpx;
+  font-size: 14px;
+  color:#ccc;
+}
+
+.notext{
+  padding: 30rpx;
+  font-size: 12px;
+}
+
+.lodimg {
+  width: 30rpx;
+  height: 30rpx;
+  margin-right: 20rpx;
+}
+
+.lodbox {
+  padding: 20rpx 0;
+  font-size: 24rpx;
+}
+
+.showloding {
+  position: absolute;
+  width: 100%;
+  height: 100vh;
+  top: 0;
+  color: #FFFFFF;
+}
+
+.loimg {
+  width: 50rpx;
+  height: 50rpx;
+}
+
+.loding {
+  width: 260rpx;
+  height: 200rpx;
+  background: rgba(88, 88, 88, 0.8);
+  border-radius: 10rpx;
+}

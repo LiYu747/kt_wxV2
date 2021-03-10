@@ -1,11 +1,11 @@
 {
   "usingComponents": {
     "van-popup": "../../../@vant/weapp/popup/index",
-    "van-picker": "../../../@vant/weapp/picker/index"
+    "van-datetime-picker": "../../../@vant/weapp/datetime-picker/index"
   },
   "navigationBarBackgroundColor": "#F07535",
   "navigationBarTextStyle": "white",
-  "navigationBarTitleText": "申请入住",
+  "navigationBarTitleText": "详情",
   "backgroundColor": "#eeeeee",
   "backgroundTextStyle": "light"
 }

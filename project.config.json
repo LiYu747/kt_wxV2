@@ -192,6 +192,104 @@
           "pathName": "pages/residence/checkIn/checkIn",
           "query": "id=1",
           "scene": null
+        },
+        {
+          "id": -1,
+          "name": "pages/residence/checkIn/checkIn",
+          "pathName": "components/ss/ss",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "pages/residence/checkIn/checkIn",
+          "pathName": "pages/residence/checkIn/checkIn",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "pages/residence/checkRecord/checkRecord",
+          "pathName": "pages/residence/checkRecord/checkRecord",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "pages/residence/checkdetails/checkdetails",
+          "pathName": "pages/residence/checkdetails/checkdetails",
+          "query": "id=52",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "pages/index/index",
+          "pathName": "pages/index/index",
+          "query": "id=52",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "pages/qrcode/qrcode",
+          "pathName": "pages/qrcode/qrcode",
+          "query": "id=52",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "pages/index/index",
+          "pathName": "pages/index/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "pages/visitapplication/newDetalis/newDetalis",
+          "pathName": "pages/visitapplication/newDetalis/newDetalis",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "pages/visitapplication/visit/visit",
+          "pathName": "pages/visitapplication/visit/visit",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "pages/visitapplication/goRecord/goRecord",
+          "pathName": "pages/visitapplication/goRecord/goRecord",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "pages/visitapplication/goDetails/goDetails",
+          "pathName": "pages/visitapplication/goDetails/goDetails",
+          "query": "id=23",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "pages/index/index",
+          "pathName": "pages/index/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "pages/operation/visitRecord/visitRecord",
+          "pathName": "pages/operation/visitRecord/visitRecord",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "pages/operation/details/details",
+          "pathName": "pages/operation/details/details",
+          "query": "id=22",
+          "scene": null
         }
       ]
     }

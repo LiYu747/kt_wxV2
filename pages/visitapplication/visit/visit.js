@@ -12,39 +12,25 @@ Page({
    * 页面的初始数据
    */
   data: {
-    options: [{
-      value: '1',
-      label: '户主'
-    },
-    {
-      value: '2',
-      label: '家庭成员'
-    },
-    {
-      value: '3',
-      label: '租户'
-    }
-  ],
     record: [{
-      label: '姓名',
+      label: '拜访人姓名',
       value: '',
       disabled: true
     },
     {
-      label: '手机号',
+      label: '拜访人手机号',
       value: '',
       disabled: true
     },
     {
-      label: '身份证号',
+      label: '拜访人身份证',
       value: '',
       disabled: true
     },
     {
-      label: '入住身份',
+      label: '被访问人姓名',
       value: '',
-      placeholder: '请选择',
-      disabled: true
+      placeholder: '请输入被访问人姓名',
     },
     {
       label: '地址',
@@ -62,7 +48,7 @@ Page({
   show: false,//地址
   household: '',// 住户选择
   id:[],//选择地址的id
-  image:[], //图片上传
+  image:'', //图片上传
   mark:'',//备注
   isLoding:false,
   },
@@ -70,15 +56,15 @@ Page({
   //申请记录
   Application(){
    wx.navigateTo({
-     url: '/pages/residence/checkRecord/checkRecord',
+     url: '/pages/visitapplication/goRecord/goRecord',
    })
   },
    //提交
    Submit(){
      if(this.data.isLoding != false) return
-     if (this.data.household == '') {
+     if (this.data.record[3].value == '') {
       wx.showToast({
-        title: '请选择住户类型',
+        title: '请输入被访问人姓名',
         icon: 'none'
       })
       return;
@@ -93,16 +79,16 @@ Page({
     wx.showLoading({
       title: '提交中...'
     })
-    home.moveInApply({
+    home.VisitApplication({
       data: {
-        type: this.data.household,
+        hostName: this.data.record[3].value,
         villageId: this.data.id[0],
         buildingId: this.data.id[1],
         apartmentId: this.data.id[2],
         floorId: this.data.id[3],
         roomId: this.data.id[4],
-        user_remark: this.data.mark,
-        files: this.data.image
+        visitorRemark: this.data.mark,
+        ext_img: this.data.image
       },
       fail: () => {
         wx.hideLoading()
@@ -133,7 +119,7 @@ Page({
         });
         const time = setTimeout(() => {
           wx.redirectTo({
-            url: '/pages/residence/checkRecord/checkRecord'
+            url: '/pages/visitapplication/goRecord/goRecord'
           })
           clearTimeout(time)
         }, 2000)
@@ -143,7 +129,7 @@ Page({
    //备注
    changeInput(e){
      this.setData({
-       mark : e.detail.value
+      mark : e.detail.value
      })
    },
    //上传图片
@@ -201,10 +187,8 @@ Page({
             rej(jres.msg);
             return;
           }
-         const { image } = that.data
-         image.push(jres.data.url)
           that.setData({
-            image :  image
+            image : jres.data.url
           })
           res(jres);
         }
@@ -214,7 +198,6 @@ Page({
   // 确认地址选择
   onConfirm(e){
    let value = e.detail.value
-   console.log(value)
    let add = ''
    let id = []
    value.map(item => {
@@ -262,27 +245,22 @@ Page({
     }
   },
  
-    // 选择住户类型
-			selectOne(e) {
-        let item = e.currentTarget.dataset.item
-        let label = 'record[3].value'
-        this.setData({
-          [label]:item.label,
-          household:item.value
-        })
-			},
+    // 输入姓名
+    Onchange(e){
+      let value = 'record[3].value'
+      this.setData({
+        [value] : e.detail.value
+      })
+
+    },
   	// 显示选择小区
     Onshow(e) {
       let index = e.currentTarget.dataset.index
-      if (index == this.data.record.length - 2) {
-        this.setData({
-          iSidentity : !this.data.iSidentity
-        })
-      }
       if (index == this.data.record.length - 1) {
         this.setData({
           show : true
         })
+
       }
     },
    	// 获取用户资料
@@ -481,7 +459,7 @@ Page({
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-     
+       
        this.loadVillageLists()
   },
 

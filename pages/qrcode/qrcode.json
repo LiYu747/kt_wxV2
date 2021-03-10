@@ -1,11 +1,9 @@
 {
   "usingComponents": {
-    "van-popup": "../../../@vant/weapp/popup/index",
-    "van-picker": "../../../@vant/weapp/picker/index"
   },
   "navigationBarBackgroundColor": "#F07535",
   "navigationBarTextStyle": "white",
-  "navigationBarTitleText": "申请入住",
+  "navigationBarTitleText": "我的二维码",
   "backgroundColor": "#eeeeee",
   "backgroundTextStyle": "light"
 }

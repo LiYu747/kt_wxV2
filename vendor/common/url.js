@@ -25,7 +25,7 @@ class url {
 		friends_visit_self_detail : '/pages/operation/details/details',
 		
 		// 用户的回家二维码页面
-		back_home_qr : '/pages/qrcode/qrCode/qrCode',
+		back_home_qr : '/pages/qrcode/qrcode',
 		
 		// 旅行
 		travel : '/pages/classification/scenicArea/scenicArea',

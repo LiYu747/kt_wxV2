@@ -14,15 +14,7 @@
 					<view class="c-red fz-16 m-t1 m-r1">*</view>
 					{{item.label}}
 				</view>
-				<input type="text" class="ipt" placeholder="{{item.placeholder}}" disabled="{{item.disabled}}" value="{{item.value}}" />
-				<view class="pos-abs righ" wx:if="{{index===record.length-2}}">
-					<image src="https://oss.kuaitongkeji.com/static/img/app/home/xiala.png" class="xiala" mode=""></image>
-					<view wx:if="{{iSidentity==true}}" class="content">
-						<view class="itemBox" bindtap="selectOne" wx:for="{{options}}" data-item="{{item}}" wx:key='id'>
-							{{item.label}}
-						</view>
-					</view>
-				</view>
+				<input type="text" class="ipt" placeholder="{{item.placeholder}}"  bindinput="Onchange" disabled="{{item.disabled}}" value="{{item.value}}" />
 				<view wx:if="{{index===record.length-1}}" class="pos-abs righ flex ">
 					<image src="https://oss.kuaitongkeji.com/static/img/app/home/xiala.png" class="xiala" mode=""></image>
 				</view>
@@ -39,15 +31,10 @@
 	<view>
 		<view class="pos-rel messagess">
 			<view class="text flex al-center">
-				请添加附件
-				<view class="fz-12 m-l2 c-red">
-					(房产证或租房合同照片,仅用于审核)
-				</view>
+				上传图片
 			</view>
 			<view class="flex al-center fujbox">
-				<view class="" wx:for="{{image}}" wx:key='id'>
-					<image src="{{item}}" class="itemimg" mode="aspectFill"></image>
-				</view>
+				<image wx:if="{{image}}" src="{{image}}" class="itemimg" mode="aspectFill"></image>
 				<view bindtap="succ" class="puls flex-d al-center ju-center">
 					<image src="https://oss.kuaitongkeji.com/static/img/app/home/push.png" class="pushimg" mode=""></image>
 					添加

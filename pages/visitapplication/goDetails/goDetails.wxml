@@ -1,0 +1,49 @@
+<view class="">
+		<view class="cont">
+			<view class="nav flex al-center">
+				<image src="https://oss.kuaitongkeji.com/static/img/app/visit/gnt.png" class="img" mode=""></image>
+				<view class="text">
+					{{username}}
+				</view>
+			</view>
+			<view class="flex al-center pos-rel ipt" wx:for="{{locadata}}" wx:key='id'>
+				<view class="">
+					{{item.titel}}
+				</view>
+				<view class="pos-abs rig">
+					{{item.value}}
+				</view>
+			</view>
+			<view class="line">
+
+			</view>
+			<!-- 二维码 -->
+			<view wx:if="{{qrcodeURL}}"  class="qrimg flex ju-center">
+			  <image style="width:300rpx;height:300rpx;" src="{{ qrcodeURL }}"></image>
+			</view>
+			<view wx:if="{{redIMG}}" class="">
+				<view class="tex1">
+				  补充图片
+				</view>
+				<view class="imgBox">
+					<image src="{{redIMG}}" class="redImg" mode="aspectFill"></image>
+				</view>
+			</view>
+			<view class="tex1">
+				备注
+			</view>
+			<view class="frame">
+				{{remark}}
+			</view>
+
+			<view class="tex1">
+				申请结果
+			</view>
+			<view class="frame">
+				{{result}}
+			</view>
+			<view class="linet">
+
+			</view>
+		</view>
+	</view>

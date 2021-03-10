@@ -1,0 +1,53 @@
+<view class="flex-d al-center">
+		<view wx:if="{{lists.length > 0}}" class="">
+			<view class="card" wx:for="{{lists}}" bindtap="godetails" data-item="{{item}}" wx:key='id' >
+				<view class="bx1 flex al-center pos-rel">
+					<image src="https://oss.kuaitongkeji.com/static/img/app/visit/user.png" class="dv3" mode=""></image>
+					<view class="">
+						{{item.own_visitor.username}}
+					</view>
+					<view class=" pos-abs rig">
+						{{item.verify_text}}
+						>
+					</view>
+				</view>
+				<view class="bx1 flex al-center">
+					<image src="https://oss.kuaitongkeji.com/static/img/app/visit/phone.png" class="dv1" mode=""></image>
+					<view class="">
+						{{item.own_visitor.tel}}
+					</view>
+				</view>
+				<view class="bx1 flex al-center">
+					<image src="https://oss.kuaitongkeji.com/static/img/app/visit/time.png" class="dv3" mode=""></image>
+					<view class="">
+						{{item.created_at}}
+					</view>
+				</view>
+				<view class="bx2 flex al-center">
+					<image src="https://oss.kuaitongkeji.com/static/img/app/visit/pos.png" class="dv3" mode=""></image>
+					<view class="" v-if="item.own_village">
+						{{item.own_village.name}}
+					</view>
+				</view>
+			</view>
+			<view wx:if="{{isLoding == true}}" class=" flex ju-center al-center lodbox">
+				<image class="lodimg" src="https://oss.kuaitongkeji.com/static/img/app/address/loading.gif" mode=""></image>
+				加载中...
+			</view>
+			<view class="flex ju-center notext fz-14" wx:if="{{hasMore == false}}">
+				{{text}}
+			</view>
+		</view>
+		<view wx:if='{{notInfo == true && isLoding == false}}' class="nono flex al-center ju-center">
+			您还没有来访记录
+		</view>
+		
+		<view wx:if="{{isLoding == true&&lists.length==0}}" class="showloding flex al-center ju-center">
+			<view class="loding flex-d al-center ju-center">
+				<view class=" ">
+					<image class="loimg" src="https://oss.kuaitongkeji.com/static/img/app/address/loading.gif" mode=""></image>
+				</view>
+				加载中
+			</view>
+		</view>
+	</view>

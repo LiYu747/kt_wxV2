@@ -1,0 +1,8 @@
+{
+  "usingComponents": {},
+  "navigationBarBackgroundColor": "#F07535",
+  "navigationBarTextStyle": "white",
+  "navigationBarTitleText": "来访记录",
+  "backgroundColor": "#eeeeee",
+  "backgroundTextStyle": "light"
+}
