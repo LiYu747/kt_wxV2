@@ -118,7 +118,6 @@ class JWT{
 					wx.navigateTo({
 						url : `/pages/loginAndR/login/login`,
 					})
-					wx.hideLoading()
 				}else{
 					utils.doIfIsFunc(params.fail)
 				}

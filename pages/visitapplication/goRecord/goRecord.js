@@ -36,7 +36,7 @@ Page({
         this.setData({
           isLoding : false
         })
-        uni.showToast({
+        wx.showToast({
           title: '网络错误',
           icon: 'none'
         })

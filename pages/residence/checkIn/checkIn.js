@@ -28,17 +28,20 @@ Page({
     record: [{
       label: '姓名',
       value: '',
-      disabled: true
+      disabled: true,
+      placeholder: '请输入姓名',
     },
     {
       label: '手机号',
       value: '',
-      disabled: true
+      disabled: true,
+      placeholder: '请输入手机号',
     },
     {
       label: '身份证号',
       value: '',
-      disabled: true
+      disabled: true,
+      placeholder: '请输入身份证号',
     },
     {
       label: '入住身份',
@@ -337,7 +340,7 @@ Page({
 						})
 					},
 					fail: () => {
-						uni.switchTab({
+						wx.switchTab({
 							url: '/pages/index/index'
 						})
 					}

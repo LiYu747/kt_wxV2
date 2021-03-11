@@ -36,5 +36,6 @@ App({
   globalData: {
     userInfo: null
   },
-  redInfo:{} 
+  redInfo:{} ,//资讯详情
+  comeToVisit: 0, //判断是否有来访操作 
 })

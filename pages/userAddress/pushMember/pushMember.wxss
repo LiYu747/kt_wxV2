@@ -1,0 +1,146 @@
+.fidex{
+  width: 100%;
+  position: fixed;
+  z-index: 99;
+}
+
+.topLine{
+  height: 380rpx;
+}
+
+.searchBox {
+  width: 94%;
+  padding: 0 3%;
+  height: 260rpx;
+  background: #FFFFFF;
+}
+
+.timeBox{
+  margin-top: 10rpx;
+  width: 170rpx;
+  background: #FFFFFF;
+  z-index: 9;
+  border-radius: 10rpx;
+  border: 1px solid #EEEEEE;
+  box-shadow: 0px 4px 4px 0px rgba(9, 9, 9, 0.1);
+  padding-bottom: 20rpx;
+}
+
+.itemBox {
+  height: 80rpx;
+  border-bottom: 1px solid #CCCCCC;
+  font-size: 14px;
+  color: #666666;
+}
+
+.ipt {
+  width: 360rpx;
+  font-size: 14px;
+  color: #666666;
+  border: none;
+  outline: none;
+}
+
+.searchBtn {
+  width: 180rpx;
+  height: 50rpx;
+  background: rgb(240, 117, 53);
+  border-radius: 40rpx;
+  color: #FFFFFF;
+  font-size: 14px;
+}
+
+.resultBox {
+  color: #666666;
+}
+
+.resultTil {
+  width: 100%;
+  height: 60rpx;
+  background: rgb(247,247,247);
+  font-size: 12px;
+}
+
+.listsBox{
+  width: 650rpx;
+  padding: 0 20rpx;
+  background: #FFFFFF;
+  border-radius: 10rpx;
+  box-shadow: 0px 4px 4px 0px rgba(9, 9, 9, 0.1);
+}
+
+.resultItem{
+  height: 80rpx;
+  border-bottom: 1px solid #CCCCCC;
+  font-size: 14px;
+}
+
+.noBtm{
+  border-bottom: none;
+}
+
+
+.showCentent{
+  width: 500rpx;
+  height: 380rpx;
+  border-radius: 20rpx;
+  padding: 30rpx;
+  background: #FFFFFF;
+  font-size: 15px;
+  color: #666666;
+}
+
+.zrimg {
+  width: 30rpx;
+  height: 30rpx;
+}
+
+.blckpdImg{
+  width: 28rpx;
+  height: 20rpx;
+  }
+  
+.remarkTxt{
+   margin-left: 50rpx;
+  }
+  
+.reArea{
+  margin-left: 20rpx;
+  width: 350rpx;
+  height: 40rpx;
+  font-size: 15px;
+}	
+
+.btnr {
+  margin-top: 20rpx;
+  color: #FFFFFF;
+  font-size: 28rpx;
+}
+
+.btnimg {
+  width: 200rpx;
+  height: 60rpx;
+}
+
+.nofind{
+  margin-top: 50rpx;
+  font-size: 14px;
+}
+
+.nobtm{
+  border-bottom: none;
+}
+
+.typeBox{
+  margin-top: 10rpx;
+  width: 170rpx;
+  background: #FFFFFF;
+  z-index: 9;
+  border-radius: 10rpx;
+  border: 1px solid #EEEEEE;
+  box-shadow: 0px 4px 4px 0px rgba(9, 9, 9, 0.1);
+  padding-bottom: 20rpx;
+}
+.itemType{
+  margin-top: 20rpx;
+}

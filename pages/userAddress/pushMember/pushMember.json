@@ -1,0 +1,10 @@
+{
+  "usingComponents": {
+    "van-popup": "../../../@vant/weapp/popup/index",
+    "van-datetime-picker": "../../../@vant/weapp/datetime-picker/index"
+  },
+  "navigationBarBackgroundColor": "#F07535",
+  "navigationBarTextStyle": "white",
+  "navigationBarTitleText": "添加用户",
+  "backgroundColor": "#eeeeee"
+}

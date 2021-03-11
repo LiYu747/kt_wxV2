@@ -1,0 +1,54 @@
+<view>
+		<view class="contenBox flex-d al-center pos-rel">
+			<view class="itemBox flex al-center ju-between" bindtap="addItem" data-index="{{index}}" wx:for="{{locdata}}" wx:key='id'>
+				<view class="">
+					{{item.label}}
+				</view>
+				<view class="itemValue">
+					{{item.value}}
+				</view>
+			</view>
+			<view wx:if="{{jurShow == true}}" class="iSjurisdiction pos-abs flex-d al-center ">
+				<view class="juritem" bindtap="seljur" wx:for="{{jurList}}"  data-item="{{item}}" wx:key='id'>
+					{{item.label}}
+				</view>
+			</view>
+
+			<view bindtap="celTime" class="deadline flex al-center ju-between pos-rel">
+				<view class="">
+					有效期限
+				</view>
+				<view class="itemValue"> 
+					{{time}}
+					<image src="https://oss.kuaitongkeji.com/static/img/app/address/blckpd.png" class="blckpdImg" mode=""></image>
+				</view>
+				<view wx:if="{{tiemShow}}" class="timeShow pos-abs flex-d al-center">
+					<view class="juritem" bindtap="seltime" wx:for="{{timeList}}" wx:key='id'>
+						{{item.label}}
+					</view>
+				</view>
+			</view>
+			<!-- <u-picker @confirm="ok" mode="time" v-model="show" :default-time='defaultTime' :params="params"></u-picker> -->
+			<view class="remarkBox">
+				<view class="">
+					备注
+				</view>
+				<view class="remarkCen">
+					<textarea value="" v-model="value" class="reArea" placeholder="" />
+					</view>
+			</view>
+			
+			<!-- 提交 -->
+			<view class="pos-rel m-t4 bot flex al-center ju-center" bindtap="Submit">
+				<image class="Submit" src="https://oss.kuaitongkeji.com/static/img/app/login/ccuc.png" mode=""></image>
+				<view class="pos-abs subtext">
+					保存
+				</view>
+			</view>
+			
+			<!-- 删除 -->
+			<view bindtap="delMember" class="delBox flex al-center ju-center ">
+				删除
+			</view>
+		</view>
+	</view>

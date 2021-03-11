@@ -1,0 +1,127 @@
+<view>
+  <view class="fidex">
+    <view class="searchBox">
+      <view class="itemBox flex al-center" wx:for="{{locdata}}" wx:key='id'>
+        <view class="flex al-center">
+          <view class="c-red">
+            *
+          </view>
+          <view class="">
+            {{item.label}}
+          </view>
+        </view>
+        <view class="m-l2">
+          <input class="ipt" type="{{item.type}}" placeholder="{{item.placeholder}}" bindinput="Onchange"
+            data-index="{{index}}" />
+        </view>
+      </view>
+      <view class="flex ju-center">
+        <view bindtap="search" class="searchBtn flex al-center ju-center m-t2">
+          搜索
+        </view>
+      </view>
+    </view>
+    <view class="resultTil al-center flex ju-center">
+      搜索结果
+    </view>
+  </view>
+
+  <view class="topLine">
+  </view>
+
+  <view class="resultBox flex-d al-center">
+    <view wx:if="{{result.username}}" class="listsBox">
+      <view class=" flex-d  ju-center">
+        <view class=" resultItem flex al-center">
+          <view class="">
+            姓名
+          </view>
+          <view class="m-l2">
+            {{result.username}}
+          </view>
+        </view>
+        <view class="resultItem flex al-center">
+          <view class="">
+            手机号码
+          </view>
+          <view class="m-l2">
+            {{result.tel}}
+          </view>
+        </view>
+        <view class="resultItem flex al-center nobtm">
+          <view class="">
+            身份证号
+          </view>
+          <view class="m-l2">
+            {{result.id_card_no}}
+          </view>
+        </view>
+      </view>
+    </view>
+
+  </view>
+
+  <view  wx:if="{{result.username}}" class="showBox m-t3  flex al-center ju-center">
+    <view class="showCentent">
+      <view bindtap="addYse" class="flex al-center m-t1">
+        <image wx:if="{{isYse==true}}" class="zrimg" src="https://oss.kuaitongkeji.com/static/img/app/address/yes.png"
+          mode=""></image>
+        <image wx:if="{{isYse==false}}" class="zrimg" src="https://oss.kuaitongkeji.com/static/img/app/address/zro.png"
+          mode=""></image>
+        <view class="m-l2">
+          是否允许添加其他成员
+        </view>
+      </view>
+      <view bindtap="showTime" class="flex m-t3 al-center">
+        <image src="https://oss.kuaitongkeji.com/static/img/app/address/blckpd.png" class="blckpdImg" mode=""></image>
+        <view class="m-l2">
+          有效期限
+        </view>
+        <view class="m-l2">
+          {{time}}
+        </view>
+      </view>
+      <view wx:if="{{timeshow == true}}" class="timeBox pos-abs flex-d al-center">
+        <view class="itemType" bindtap="selTime" wx:for="{{timeList}}" data-item="{{item}}" wx:key='id'>
+          {{item.label}}
+        </view>
+      </view>
+      <van-popup show="{{ show }}" position="bottom" custom-style="height: 40%;" bind:close="onClose">
+        <van-datetime-picker type="date" bind:cancel='cancel' bind:confirm='confirm' value="{{ currentDate }}"
+          min-date="{{ minDate }}" max-date="{{ maxDate }}" />
+      </van-popup>
+      <view bindtap="celUserType" class="flex m-t3 al-center">
+        <image src="https://oss.kuaitongkeji.com/static/img/app/address/blckpd.png" class="blckpdImg" mode=""></image>
+        <view class="m-l2">
+          选择用户类型
+        </view>
+        <view class="m-l2">
+          {{typeTet}}
+        </view>
+      </view>
+      <view wx:if="{{showType == true}}" class="typeBox pos-abs flex-d al-center">
+        <view class="itemType" bindtap="selType" data-item="{{item}}" wx:for="{{types}}" wx:key='id'>
+          {{item.label}}
+        </view>
+      </view>
+      <view class="m-t3 flex">
+        <view class="remarkTxt">
+          备注
+        </view>
+        <view class="">
+          <textarea class="reArea" placeholder="(10字以内)" bindinput="areaChange" maxlength="10" />
+          </view>
+				</view>
+				
+				<view  class="flex al-center ju-around m-t2">
+					<view bindtap="affirm" class="btnr flex al-center ju-center">
+					<image src="https://oss.kuaitongkeji.com/static/img/app/qrcode/2.png" class="btnimg" mode=""></image>
+						<view class=" pos-abs">
+						  确认
+						</view>
+					</view>
+				</view>
+			 </view>
+		</view>
+		
+	</view>

@@ -19,7 +19,10 @@
     "pages/visitapplication/goRecord/goRecord",
     "pages/visitapplication/goDetails/goDetails",
     "pages/operation/visitRecord/visitRecord",
-    "pages/operation/details/details"
+    "pages/operation/details/details",
+    "pages/userAddress/addediting/ADDediting",
+    "pages/userAddress/pushMember/pushMember",
+    "pages/userAddress/memberInfo/memberInfo"
   ],
   "window": {
     "backgroundTextStyle": "light",

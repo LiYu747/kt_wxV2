@@ -3,10 +3,8 @@
 	<view class="navtil flex ju-center ">
 		入住信息
 		<view class="">
-			<image src="https://oss.kuaitongkeji.com/static/img/app/address/plus.png" bindtap="push"
-				class="setimg {{rotateTimes%2===0?'dssv':''}}"></image>
-			<image hidden="{{pushshow}}" class="addshowimg " bindtap="getto"
-				src="https://oss.kuaitongkeji.com/static/img/app/address/ads.png" mode=""></image>
+			<image src="https://oss.kuaitongkeji.com/static/img/app/address/plus.png"  bindtap="getto"
+				class="setimg "></image>
 		</view>
 	</view>
 	<image src="https://oss.kuaitongkeji.com/static/img/app/home/jx.png" class="img" mode=""></image>
@@ -30,7 +28,7 @@
 						</view>
 					</view>
 					<view class="line"></view>
-					<view wx:if="{{item.address}}" class="text" bindtap="look">
+					<view wx:if="{{item.address}}" class="text" data-item="{{item}}" bindtap="look">
 						{{item.address}}
 					</view>
 				</view>

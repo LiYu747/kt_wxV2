@@ -1,6 +1,6 @@
 <view class="flex-d al-center">
 		<view wx:if="{{lists.length > 0}}" class="">
-			<view class="card" wx:for="{{lists}}" bindtap="godetails" data-item="{{item}}" wx:key='id' >
+			<view class="card" wx:for="{{lists}}" bindtap="godetails" data-item="{{item}}" data-index="{{index}}" wx:key='id' >
 				<view class="bx1 flex al-center pos-rel">
 					<image src="https://oss.kuaitongkeji.com/static/img/app/visit/user.png" class="dv3" mode=""></image>
 					<view class="">

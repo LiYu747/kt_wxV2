@@ -22,6 +22,19 @@ Page({
     showPullDownRefreshIcon: false,
 
   },
+  // 编辑
+  look(e) {
+    let item = e.currentTarget.dataset.item
+    wx.navigateTo({
+      url: `/pages/userAddress/addediting/ADDediting?id=${item.id}`
+    })
+  },
+  // 添加地址
+  getto() {
+    wx.navigateTo({
+      url: '/pages/residence/checkIn/checkIn'
+    })
+  },
   //预约电梯
   order(e) {
     let id = e.currentTarget.dataset.item.id
@@ -56,7 +69,7 @@ Page({
             flag : true
             })
         }
-        console.log(res.data.code);
+     
       }
     })
   },
@@ -69,25 +82,14 @@ Page({
   //进入论坛
   Select(e) {
     let val = e.currentTarget.dataset
-    console.log(e.currentTarget.dataset)
+    wx.navigateTo({
+      url: '/pages/communityForum/introduction/introduction?id=' + val.item.village_id,
+    })
     this.setData({
       idx: val.index
     })
   },
-  push() {
-    this.setData({
-      rotateTimes: this.data.rotateTimes + 1
-    })
-    if (this.data.rotateTimes % 2 === 0) {
-      this.setData({
-        pushshow: false
-      })
-    } else {
-      this.setData({
-        pushshow: true
-      })
-    }
-  },
+   
   // 用户所有地址
   loadPageData() {
     jwt.doOnlyTokenValid({
@@ -107,7 +109,7 @@ Page({
               isLoding: false
             })
             this.stopRefreshIcon();
-            uni.showToast({
+            wx.showToast({
               title: '网络错误',
               icon: 'none'
             })

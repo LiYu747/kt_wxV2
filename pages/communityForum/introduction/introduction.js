@@ -66,7 +66,6 @@ godils(e) {
       success: (res) => {
         if (res.statusCode != 200) return
         if (res.data.code != 200) return
-        // console.log(res.data.data.data);
         let data = res.data.data.data
         this.setData({
           Notice: data
@@ -121,6 +120,7 @@ godils(e) {
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    console.log(options)
     this.setData({
       id:options.id
     })

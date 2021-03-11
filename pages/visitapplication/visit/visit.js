@@ -315,7 +315,7 @@ Page({
 						})
 					},
 					fail: () => {
-						uni.switchTab({
+						wx.switchTab({
 							url: '/pages/index/index'
 						})
 					}

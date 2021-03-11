@@ -1,0 +1,127 @@
+.fixed {
+  position: fixed;
+  z-index: 9;
+}
+
+.topLine {
+  height: 148rpx;
+}
+
+
+.content {
+  margin-top: 40rpx;
+  width: 650rpx;
+  padding: 10rpx 20rpx;
+  border-radius: 10rpx;
+  background: #FFFFFF;
+  box-shadow: 2rpx 2rpx 6rpx 1rpx #d9d9d9;
+}
+
+.fied {
+  width: 100%;
+  height: 80rpx;
+  background: #FFFFFF;
+  font-size: 14px;
+  color: #666666;
+}
+
+.line {
+  width: 100%;
+  height: 1px;
+  background: rgba(191, 191, 191, 0.5);
+  bottom: 0;
+  z-index: 9;
+}
+
+.dv {
+  margin-bottom: 40rpx;
+}
+
+.preimg {
+  width: 358rpx;
+  height: 68rpx;
+}
+
+
+.pretext {
+  font-size: 30rpx;
+  color: #FFFFFF;
+}
+
+.memberBox {
+  margin-top: 40rpx;
+  width: 650rpx;
+  border-radius: 10rpx;
+  padding: 20rpx;
+  background: #FFFFFF;
+  box-shadow: 2rpx 2rpx 6rpx 1rpx #d9d9d9;
+  font-size: 15px;
+  color: #666666;
+  padding-bottom: 30rpx;
+}
+
+.memberTil {
+  height: 80rpx;
+  border-bottom: 1px solid #CCCCCC;
+}
+
+.pushtagimg {
+  width: 40rpx;
+  height: 40rpx;
+}
+
+.itemBox {
+  padding: 20rpx 0;
+  border-bottom: 1px solid #CCCCCC;
+  font-size: 14px;
+}
+
+.reimg {
+  width: 18rpx;
+  height: 28rpx;
+  margin-right: 10rpx;
+}
+
+.itemBtm {
+  border-bottom: none;
+}
+
+.Submit {
+  width: 358rpx;
+  height: 68rpx;
+}
+
+.subtext {
+  font-size: 30rpx;
+  color: #FFFFFF;
+}
+
+.bot {
+  margin-bottom: 40rpx;
+}
+
+.nomen {
+  margin-top: 30rpx;
+  font-size: 14px;
+  color: #999999;
+}
+
+.showloding {
+  position: absolute;
+  width: 100%;
+  height: 100vh;
+  top: 0;
+  color: #FFFFFF;
+}
+
+.loimg {
+  width: 50rpx;
+  height: 50rpx;
+}
+
+.loding {
+  width: 260rpx;
+  height: 200rpx;
+  background: rgba(88, 88, 88, 0.8);
+  border-radius: 10rpx;
+}
