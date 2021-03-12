@@ -23,18 +23,22 @@
 					<image src="https://oss.kuaitongkeji.com/static/img/app/address/blckpd.png" class="blckpdImg" mode=""></image>
 				</view>
 				<view wx:if="{{tiemShow}}" class="timeShow pos-abs flex-d al-center">
-					<view class="juritem" bindtap="seltime" wx:for="{{timeList}}" wx:key='id'>
+					<view class="juritem" bindtap="seltime" wx:for="{{timeList}}" data-item="{{item}}" wx:key='id'>
 						{{item.label}}
 					</view>
 				</view>
 			</view>
-			<!-- <u-picker @confirm="ok" mode="time" v-model="show" :default-time='defaultTime' :params="params"></u-picker> -->
+
+			<van-popup show="{{ show }}" position="bottom" custom-style="height: 40%;" bind:close="onClose">
+        <van-datetime-picker type="date" bind:cancel='cancel' bind:confirm='confirm' value="{{ currentDate }}"
+          min-date="{{ minDate }}" max-date="{{ maxDate }}" />
+      </van-popup>
 			<view class="remarkBox">
 				<view class="">
 					备注
 				</view>
 				<view class="remarkCen">
-					<textarea value="" v-model="value" class="reArea" placeholder="" />
+					<textarea value="{{value}}" bindinput="Onchange" class="reArea" placeholder="" />
 					</view>
 			</view>
 			

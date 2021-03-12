@@ -274,7 +274,49 @@
         {
           "name": "pages/userAddress/memberInfo/memberInfo",
           "pathName": "pages/userAddress/memberInfo/memberInfo",
-          "query": "id=10",
+          "query": "id=11",
+          "scene": null
+        },
+        {
+          "name": "pages/userAddress/pushMember/pushMember",
+          "pathName": "pages/userAddress/pushMember/pushMember",
+          "query": "id=11",
+          "scene": null
+        },
+        {
+          "name": "pages/userinfo/userinfo",
+          "pathName": "pages/userinfo/userinfo",
+          "query": "id=11",
+          "scene": null
+        },
+        {
+          "name": "pages/userinfo/realInformation/realInformation",
+          "pathName": "pages/userinfo/realInformation/realInformation",
+          "query": "id=11",
+          "scene": null
+        },
+        {
+          "name": "pages/userinfo/setPassword/setPassword",
+          "pathName": "pages/userinfo/setPassword/setPassword",
+          "query": "id=11",
+          "scene": null
+        },
+        {
+          "name": "pages/userinfo/personal/personal",
+          "pathName": "pages/userinfo/personal/personal",
+          "query": "id=11",
+          "scene": null
+        },
+        {
+          "name": "pages/userinfo/userphoto/userphoto",
+          "pathName": "pages/userinfo/userphoto/userphoto",
+          "query": "photo=https://oss.kuaitongkeji.com/upload/2021/01/08/48a2Gf7Mxblm7u8odNhRKiTNTy2F86l3SBUhrDXK.jpeg",
+          "scene": null
+        },
+        {
+          "name": "pages/index/index",
+          "pathName": "pages/index/index",
+          "query": "photo=https://oss.kuaitongkeji.com/upload/2021/01/08/48a2Gf7Mxblm7u8odNhRKiTNTy2F86l3SBUhrDXK.jpeg",
           "scene": null
         }
       ]

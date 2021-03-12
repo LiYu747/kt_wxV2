@@ -42,7 +42,13 @@ Page({
       })
       return;
     }
-
+    if(!this.data.phone){
+      wx.showToast({
+        title: '请删上传人像照片',
+        icon: 'none'
+      })
+      return;
+    }
     if (this.data.phone == '') {
       wx.showToast({
         title: '请输入手机号',

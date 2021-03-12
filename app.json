@@ -22,7 +22,11 @@
     "pages/operation/details/details",
     "pages/userAddress/addediting/ADDediting",
     "pages/userAddress/pushMember/pushMember",
-    "pages/userAddress/memberInfo/memberInfo"
+    "pages/userAddress/memberInfo/memberInfo",
+    "pages/userinfo/realInformation/realInformation",
+    "pages/userinfo/setPassword/setPassword",
+    "pages/userinfo/personal/personal",
+    "pages/userinfo/userphoto/userphoto"
   ],
   "window": {
     "backgroundTextStyle": "light",

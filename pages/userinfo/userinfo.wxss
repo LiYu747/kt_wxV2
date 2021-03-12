@@ -1,11 +1,11 @@
 .navtil{
   width: 100%;
-  padding-top: 20rpx;
+  padding: 10rpx  0;
   background: #F07535;
   color:#fff;
   position: fixed;
   font-size: 20px;
-  z-index: 9;
+  z-index: 99;
 }
 .setimg{
   width: 40rpx;
@@ -78,8 +78,6 @@
 .informBox {
   right: 50rpx;
 }
-
-
 
 .munber {
   width: 34rpx;

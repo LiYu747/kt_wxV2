@@ -168,7 +168,7 @@ Page({
         show: false
       })
     },
-	//时间选择
+	//打开时间
   selTime(e){
     let item = e.currentTarget.dataset.item
     this.setData({

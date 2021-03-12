@@ -1,0 +1,31 @@
+<view>
+		<view class="flex-d al-center">
+			<view class="contenBox">
+				<view class="flex al-center ju-between itemBox pos-rel" bindtap="settingPsw" data-index="{{index}}" wx:for="{{locdata}}" wx:key='id'>
+					<view class="">
+						{{item.label}}
+					</view>
+					<view class="">
+						<input type="text" class="ipt" focus="{{item.focus}}" bindinput="Onchange"  data-index="{{index}}" disabled="{{item.disabled}}" placeholder="{{item.placeholder}}"
+						 value="{{item.value}}" />
+					</view>
+					<view wx:if="{{index==2}}" class="pos-abs rigth">
+						<image class="reimg" src="https://oss.kuaitongkeji.com/static/img/app/address/retrue.png" mode=""></image>
+					</view>
+				</view>
+			</view>
+
+			<!-- 保存 -->
+			<view bindtap="save" class="flex al-center ju-center save">
+				<image src="https://oss.kuaitongkeji.com/static/img/app/login/ccuc.png" class="enimg" mode=""></image>
+				<view class="pos-abs">
+					保存
+				</view>
+			</view>
+
+			<!-- 退出登录 -->
+			<view bindtap="logOut" class="end flex al-center ju-center">
+				退出登录
+			</view>
+		</view>
+	</view>

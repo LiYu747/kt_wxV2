@@ -52,7 +52,6 @@ Page({
     this.setData({
       img : cache.get('photo')
     })
-    console.log(this.data.srcss) 
     if(this.data.srcss){
       this.setData({
         isLoding: true

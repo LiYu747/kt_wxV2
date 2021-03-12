@@ -43,16 +43,19 @@ Page({
 		  },
 	  ]
   },
-  goto () {
+    	//用户基本信息
+			userinfo() {
+				wx.navigateTo({
+					url: '/pages/userinfo/personal/personal'
+				})
+			},
+  	// 去设置
+    install() {
+      wx.navigateTo({
+        url: '/pages/userinfo/realInformation/realInformation'
+      })
+    },
 
-    wx.navigateTo({
-      url: '/pages/loginAndR/login/login',
-    })
-  },
-  add:function (e) {
-     console.log(e)
-  },
- 
      // 获取消息通知数量
 			getInform() {
 				home.unread({

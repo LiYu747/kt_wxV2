@@ -1,10 +1,10 @@
 {
   "usingComponents": {
     "van-popup": "../../../@vant/weapp/popup/index",
-    "van-datetime-picker": "../../../@vant/weapp/datetime-picker/index"
+    "van-picker": "../../../@vant/weapp/picker/index"
   },
   "navigationBarBackgroundColor": "#F07535",
   "navigationBarTextStyle": "white",
-  "navigationBarTitleText": "详情",
+  "navigationBarTitleText": "个人信息",
   "backgroundColor": "#eeeeee"
 }

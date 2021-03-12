@@ -11,7 +11,7 @@
           </view>
         </view>
         <view class="m-l2">
-          <input class="ipt" type="{{item.type}}" placeholder="{{item.placeholder}}" bindinput="Onchange"
+          <input class="ipt" type="{{item.type}}" placeholder="{{item.placeholder}}" value="{{item.value}}" bindinput="Onchange"
             data-index="{{index}}" />
         </view>
       </view>
