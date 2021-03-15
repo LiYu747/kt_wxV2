@@ -1,0 +1,15 @@
+
+<view class="mapBox" hover-class="none" hover-stop-propagation="false"  >
+
+  <map id="map" longitude="{{longitude}}" latitude=" {{latitude}}" markers="{{markers}}" scale="13" show-location style="width: 100%; height: 100%;"></map>
+
+</view>
+
+<view class=" flex ju-center">
+			<view class="botombox flex al-center ju-center">
+				<view class="flex ju-center ">
+					<image bindtap="start" src="https://oss.kuaitongkeji.com/static/img/app/classification/Travel/start.png" class="startimg"
+					 mode=""></image>
+				</view>
+			</view>
+		</view>

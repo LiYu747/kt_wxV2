@@ -1,0 +1,8 @@
+<view class="booy ">
+  	<view class=" itemBox"  wx:for="{{icondata}}"  wx:key='id' > 
+  	        <image  bindtap="add" src="{{item.icon}}" data-item="{{item}}" class="oic1 {{index==1?'oic2':''}}" mode=""></image>
+  			 <view bindtap="add" data-item="{{item}}"  class="itemtext {{index==2?'calor':''}}">
+  			 	{{item.titel}}
+  			 </view> 
+  	</view>
+  </view>

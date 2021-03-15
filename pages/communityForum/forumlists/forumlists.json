@@ -1,0 +1,5 @@
+{
+  "usingComponents": {
+    "subbotn" : "../../../components/tabbar/subbotn/subbotn"
+  }
+}

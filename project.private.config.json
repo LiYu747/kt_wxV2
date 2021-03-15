@@ -318,6 +318,48 @@
           "pathName": "pages/index/index",
           "query": "photo=https://oss.kuaitongkeji.com/upload/2021/01/08/48a2Gf7Mxblm7u8odNhRKiTNTy2F86l3SBUhrDXK.jpeg",
           "scene": null
+        },
+        {
+          "name": "pages/userinfo/travelRecords/travelRecords",
+          "pathName": "pages/userinfo/travelRecords/travelRecords",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/userinfo/userInform/userInform",
+          "pathName": "pages/userinfo/userInform/userInform",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/index/index",
+          "pathName": "pages/index/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/classification/travel/travel",
+          "pathName": "pages/classification/travel/travel",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/index/index",
+          "pathName": "pages/index/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/communityForum/forumlists/forumlists",
+          "pathName": "pages/communityForum/forumlists/forumlists",
+          "query": "id=2",
+          "scene": null
+        },
+        {
+          "name": "pages/communityForum/release/release",
+          "pathName": "pages/communityForum/release/release",
+          "query": "id=2",
+          "scene": null
         }
       ]
     }

@@ -27,22 +27,31 @@ Page({
 		  },
 		  {image:'https://oss.kuaitongkeji.com/static/img/app/user/scan.png',
 		   titel:'回家二维码',
-		   	url:'/pages/qrcode/qrCode/qrCode'
+		   	url:'/pages/qrcode/qrcode'
 		  },
 		  {image:'https://oss.kuaitongkeji.com/static/img/app/user/Trecords.png',
 		   titel:'出行记录',
-		   url:'/pages/user/travelRecords/travelRecords'
+		   url:'/pages/userinfo/travelRecords/travelRecords'
 		  },
 		  {image:'https://oss.kuaitongkeji.com/static/img/app/address/msgtz.png', 
 		   titel:'消息通知',
-		   url:'/pages/user/userInform/userInform' 
+		   url:'/pages/userinfo/userInform/userInform' 
 		  },
 		  {image:'https://oss.kuaitongkeji.com/static/img/app/user/about.png', 
 		   titel:'关于快通',
 		   url:'/pages/user/versionNumber/versionNumber'
 		  },
 	  ]
-  },
+  },   
+
+  	// 点击每一栏事件
+    add(e) {
+      let item = e.currentTarget.dataset.item
+      if (!item.url) return;
+      wx.navigateTo({
+        url: item.url
+      })
+    },
     	//用户基本信息
 			userinfo() {
 				wx.navigateTo({

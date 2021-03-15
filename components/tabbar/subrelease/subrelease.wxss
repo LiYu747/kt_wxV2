@@ -1,0 +1,50 @@
+.booy{
+	width: 100%;
+	height: 110rpx;
+	color: #666666;
+	position: fixed;
+	background: #FFFFFF;
+	bottom: 0;
+  box-shadow: -4rpx 0  4rpx #cccccc;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.itemBox{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.oic1{
+	width: 42rpx;
+	height: 48rpx;
+}
+.oic2{
+	position: relative;
+	top: -28rpx;
+	width: 150rpx;
+	height: 150rpx; 
+	margin-left: 100rpx;
+	margin-right: 130rpx;
+}
+.itemtext{
+	font-size: 26rpx;
+}
+.oic3{
+	width: 41rpx;
+	height: 44rpx;
+}
+.top{
+	position: relative;
+	top: -90rpx;
+	font-size: 18rpx;
+}
+.sff{
+	margin-top: 5rpx;
+	-webkit-transform: scale(0.9);
+	-webkit-transform-origin: 2
+}
+.calor{
+		color: #F95454;
+}

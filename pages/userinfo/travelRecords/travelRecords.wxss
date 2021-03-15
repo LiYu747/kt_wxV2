@@ -1,0 +1,78 @@
+.pos {
+  position: fixed;
+  z-index: 99;
+}
+
+.line {
+  height: 148rpx;
+}
+
+.dv3 {
+  width: 30rpx;
+  height: 30rpx;
+  margin: 0 20rpx;
+}
+
+.item {
+  font-size: 28rpx;
+  width: 90%;
+  box-shadow: 1rpx 2rpx 10rpx 0 rgb(220, 220, 220);
+  margin-top: 30rpx;
+  background: #FFFFFF;
+  border-radius: 10rpx;
+  color: #666666;
+}
+
+.bx1 {
+  padding: 20rpx 0;
+  border-bottom: 1rpx solid #cccccc;
+
+}
+
+.bx2 {
+  padding: 20rpx;
+  font-size: 24rpx;
+  color: #999999;
+}
+
+.nono {
+  height: 300rpx;
+  font-size: 14px;
+  color: #ccc;
+}
+
+.notext{
+  padding: 30rpx 0;
+  font-size: 12px;
+}
+
+.lodimg {
+  width: 30rpx;
+  height: 30rpx;
+  margin-right: 20rpx;
+}
+
+.lodbox {
+  font-size: 24rpx;
+  padding: 20rpx 0;
+}
+
+.showloding {
+  position: absolute;
+  width: 100%;
+  height: 100vh;
+  top: 0;
+  color: #FFFFFF;
+}
+
+.loimg {
+  width: 50rpx;
+  height: 50rpx;
+}
+
+.loding {
+  width: 260rpx;
+  height: 200rpx;
+  background: rgba(88, 88, 88, 0.8);
+  border-radius: 10rpx;
+}

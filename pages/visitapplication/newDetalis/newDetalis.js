@@ -71,6 +71,11 @@ Page({
                 notInfo : true
               })
               return;
+            }
+            else{
+              this.setData({
+                notInfo : false
+              })
             } 
             this.drawImg(data.qr.content)
             let name = ''

@@ -26,7 +26,7 @@
   <!-- 操作栏 -->
   <view class="boxss">
     <view class="item flex al-center  {{index<3?'dv':''}} {{index>3?'top':''}}" wx:for="{{locdata}}" bindtap="add"
-      wx:key='id'>
+      wx:key='id' data-item="{{item}}">
       <image src="{{item.image}}" class="itemimg" mode=""></image>
       <view class="itemtext">
         {{item.titel}}

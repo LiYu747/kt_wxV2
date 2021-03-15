@@ -259,7 +259,7 @@ Page({
           [tel] : data.tel.slice(0,3) + '****' +data.tel.slice(7,11),
           faceimg : data.faceimg,
           image :  data.avatar,
-          sex : data.sex
+          sex : String(data.sex)
         })
         if(data.id_card_no){
           let idCard = 'parameter[5].value'

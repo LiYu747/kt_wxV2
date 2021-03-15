@@ -61,7 +61,7 @@
 
 		<!-- 分类 -->
 		<view class="clabox flex flex-w">
-			<view class="flex-d al-center loyout ju-around" wx:for="{{clalists}}" wx:key='id' data-index='index'
+			<view class="flex-d al-center loyout ju-around" wx:for="{{clalists}}" wx:key='id' data-item="{{item}}" data-index='index'
 				bindtap="goclass">
 				<image src="{{item.image}}" class="claitemimg" mode=""></image>
 				<view class="clatext">

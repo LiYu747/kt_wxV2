@@ -1,0 +1,134 @@
+.mapBox{
+  width: 100%;
+  height: 70vh;
+}
+
+.topbox {
+  width: 100%;
+  height: 200rpx;
+  background: #FFFFFF;
+}
+
+.inbox {
+  width: 620rpx;
+  height: 146rpx;
+  background: #F5F5F5;
+  border-radius: 10rpx;
+}
+
+.left {
+  width: 66rpx;
+  color: #999999;
+  font-size: 26rpx;
+  height: 146rpx;
+}
+
+.come {
+  margin-top: 20rpx;
+}
+
+.go {
+  bottom: 26rpx;
+}
+
+.rigth {
+  margin-top: 10rpx;
+  width: 488rpx;
+  height: 110rpx;
+}
+
+.line {
+  width: 100%;
+  height: 1px;
+  background: #CCCCCC;
+}
+
+input {
+  height: 62rpx;
+  font-size: 30rpx;
+  color: #333333;
+}
+
+.jiaoimg {
+  margin-top: 50rpx;
+  margin-left: 20rpx;
+  width: 30rpx;
+  height: 36rpx;
+}
+
+.tabar {
+  width: 100%;
+  height: 64rpx;
+  background: #FFFFFF;
+  color: #999999;
+  font-size: 24rpx;
+  box-shadow: 0px 4px 4px 0px rgba(9, 9, 9, 0.1);
+}
+
+.item {
+  height: 64rpx;
+}
+
+.dv {
+  color: #FF9C00;
+  height: 62rpx;
+  border-top: 1px solid #FFFFFF;
+  border-bottom: 1px solid #FF9C00;
+}
+
+.mapimg {
+  width: 100%;
+  height: 800rpx;
+}
+
+.botombox {
+  top: -50rpx;
+  position: relative;
+  width: 690rpx;
+  height: 280rpx;
+  background: #FFFFFF;
+  border-radius: 10rpx;
+}
+
+.advantage {
+  color: #999999;
+  font-size: 24rpx;
+}
+
+.time {
+  color: #333333;
+  font-size: 36rpx;
+}
+
+.distance {
+  color: #999999;
+  font-size: 24rpx;
+}
+
+.itmmbox {
+  flex: 1;
+  margin-top: 10rpx;
+}
+
+.colr {
+  color: #FF9C00 !important;
+}
+
+.ged {
+  border-right: 2rpx solid #cccccc;
+}
+
+.startimg {
+  margin-top: 35rpx;
+  width: 423rpx;
+  height: 64rpx;
+}
+
+.simulation {
+  display: flex;
+  justify-content: center;
+  height: 80rpx;
+  align-items: center;
+  font-size: 30rpx;
+  color: #b3b3b3;
+}

@@ -1,0 +1,5 @@
+{
+  "usingComponents": {
+    "submy" : "../../../components/tabbar/submy/submy"
+  }
+}

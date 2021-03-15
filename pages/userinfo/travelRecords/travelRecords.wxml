@@ -1,0 +1,39 @@
+<view class="">
+		<view wx:if="{{lists.length>0}}" class=" flex-d al-center">
+			<view class="item" wx:for="{{lists}}" wx:key='id'>
+				<!-- 时间 -->
+				<view class="bx1 flex al-center">
+					<image src="https://oss.kuaitongkeji.com/static/img/app/visit/time.png" class="dv3" mode=""></image>
+					{{item.open_gate_at}}
+				</view>
+				<!-- 地点 -->
+				<view class="bx1 flex al-center">
+					<image src="https://oss.kuaitongkeji.com/static/img/app/visit/pos.png" class="dv3" mode=""></image>
+					{{item.village_name}}
+				</view>
+				<!-- 提示 -->
+				<view class="bx2 flex al-center">
+					{{item.desc}}
+				</view>
+			</view>
+			<view wx:if="{{isLoding == true}}" class=" flex ju-center al-center lodbox">
+				<image class="lodimg" src="https://oss.kuaitongkeji.com/static/img/app/address/loading.gif" mode=""></image>
+				加载中...
+			</view>
+			<view class="flex ju-center notext fz-14" wx:if="{{hasMore == false}}">
+				{{text}}
+			</view>
+		</view>
+		<view class="nono flex al-center ju-center" wx:if='{{lists.length==0&&code == 200}}'>
+			暂无出行记录
+		</view>
+		
+		<view wx:if="{{isLoding == true && lists.length==0}}" class="showloding flex al-center ju-center">
+			<view class="loding flex-d al-center ju-center">
+				<view class=" ">
+					<image class="loimg" src="https://oss.kuaitongkeji.com/static/img/app/address/loading.gif" mode=""></image>
+				</view>
+				加载中
+			</view>
+		</view>
+	</view>

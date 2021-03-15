@@ -6,7 +6,6 @@ const app = getApp()
 
 Page({
   data: {
-    arr:['撒旦撒但是看见年代开始就和觉得还是看或多或少但是u','但刷你的卡剑三点卡九十年代开始缴纳肯定就能使空间你松开你的手'],
     list: [], //轮播图
     indicatorDots: false,
     vertical: false,
@@ -49,6 +48,53 @@ Page({
        url: '/pages/loginAndR/login/login',
      })
   },  
+  
+
+  //去详情
+  goclass(e){
+    let item = e.currentTarget.dataset.item
+    if(item.page){
+      urlUtil.to({
+        pageAlias : item.page,
+        options : item.params,
+      })
+      return;
+    }
+    if(item.web_url){
+      wx.navigateTo({
+        url : '/pages/web/index/index?url='+encodeURIComponent(item.web_url),
+      })
+    }
+  },
+  	// 消息通知
+    goInform() {
+      wx.navigateTo({
+        url: '/pages/userinfo/userInform/userInform'
+      })
+    },
+    // 未读获取消息通知
+    getInform() {
+      home.unread({
+        data: {},
+        fail: () => {
+          this.stopRefreshIcon()
+          wx.showToast({
+            title: '网络出错',
+            icon: 'none'
+          })
+        },
+        success: (res) => {
+          this.stopRefreshIcon()
+          if (res.statusCode != 200) return
+          if (res.data.code != 200) return
+          let data = res.data.data
+          // console.log(data);
+          this.setData({
+            informmsg : data
+          })
+        }
+      })
+    },
      // 表单跳转
 			operation(e) {
         let item = e.currentTarget.dataset.item
@@ -73,7 +119,7 @@ Page({
 						id: id
 					},
 					fail: () => {
-						uni.showToast({
+						wx.showToast({
 							title: '网络错误',
 							icon: 'none'
 						})
@@ -363,7 +409,9 @@ Page({
 
    //周边消息
       this.pergetData()   
+  
   },
+   
 
   
 
@@ -373,6 +421,8 @@ Page({
       value : '',
       isShowType : false
     })
+        //消息通知
+        this.getInform()
   },
    // 下拉刷新
    onPullDownRefresh() {
@@ -385,6 +435,7 @@ Page({
      this.Datainfo()
      this.comgetData()
      this.pergetData()     
+     this.getInform()
   },
   onLoad: function () {
     if (app.globalData.userInfo) {

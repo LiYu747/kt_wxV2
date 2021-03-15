@@ -18,6 +18,25 @@ Page({
         isLoding: false,
         code:0
   },
+
+   
+
+  // 去论坛
+  goforum() {
+    wx.navigateTo({
+      url: `/pages/communityForum/forumlists/forumlists?id=${this.data.id}`
+    })
+  },
+  //查看小区位置
+  navigation(){
+    let latitude = Number(this.data.arr.lat)
+    let longitude = Number(this.data.arr.lng) 
+    wx.openLocation({
+      latitude,
+      longitude,
+      scale: 18
+    })
+  },
 // 查看详情
 godils(e) {
   let id = e.currentTarget.dataset.item.id
@@ -120,7 +139,6 @@ godils(e) {
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    console.log(options)
     this.setData({
       id:options.id
     })
