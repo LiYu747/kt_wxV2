@@ -1,1 +1,115 @@
-<subbotn ID="{{id}}"></subbotn>
+<view class="">
+  <view class="navBox">
+    <view class="ipt  ju-center flex al-center pos-rel">
+      <image class="img pos-abs" src="https://oss.kuaitongkeji.com/static/img/app/home/ss.png" mode=""></image>
+      <input class="input" bindconfirm="Onchange" type="text" value="{{value}}" placeholder="请输入帖子关键词" />
+      <image bindtap="empty" src="https://oss.kuaitongkeji.com/static/img/app/forum/clier.png" class="clierimg" mode="">
+      </image>
+      <view wx:if="{{value !=''&&flag==true}}" bindtap="remove" class="fixed  rig">
+        取消
+      </view>
+    </view>
+  </view>
+  <view class="topLine"></view>
+  <!-- tag标签 -->
+  <view wx:if="{{flag == false}}" class="back">
+    <view class="wid">
+      <van-tabs animated ellipsis="{{false}}" color='#F07535' bind:click="celtags" active="{{ active }}">
+        <block wx:for="{{tagdata}}" wx:key='id'>
+          <van-tab title="{{item.name}}">
+            <scroll-view class="backctext" scroll-y="true" style="height:calc(100vh - 260rpx);"
+              bindscrolltolower="lower" scroll-into-view="{{toView}}" scroll-top="{{scrollTop}}">
+              <block wx:if="{{item.list.length>0}}">
+                <view class="item" bindtap="gotoD" data-item="{{item}}" wx:for="{{item.list}}" wx:key='id'>
+                  <view class="flex">
+                    <!-- 头像 -->
+                    <image src="{{item.own_user.avatar}}" class="itemimg" mode=""></image>
+                    <view class="name m-l1 m-t1">
+                      {{item.own_user.nickname}}
+                      <view class="time">
+                        {{item.created_at}}
+                      </view>
+                    </view>
+                  </view>
+                  <!-- 内容 -->
+                  <view class="content">
+                    <view class="show">
+                      {{item.title}}
+                    </view>
+                  </view>
+                  <!-- 图片 -->
+                  <view class="flex al-center m-t4">
+                    <view wx:for="{{item.album}}" wx:key='id'>
+                      <image src="{{item.url}}" class="items" mode="aspectFill"></image>
+                    </view>
+                  </view>
+                </view>
+                <view wx:if="{{item.text}}" class="flex ju-center noMore fz-12">
+                  {{item.text}}
+                </view>
+                <view wx:if="{{!item.text && isLoding == true}}" class="noMore flex ju-center al-center lodbox">
+                  <image class="lodimg" src="https://oss.kuaitongkeji.com/static/img/app/address/loading.gif" mode="">
+                  </image>
+                  加载中...
+                </view>
+              </block>
+              <block wx:else>
+                <view class="noPost">没有您想看的帖子，试试其他类型的吧</view>
+              </block>
+            </scroll-view>
+
+          </van-tab>
+        </block>
+      </van-tabs>
+    </view>
+    <view class="posclassfiy flex al-center ju-center">
+      <image bindtap="custom" src="https://oss.kuaitongkeji.com/static/img/app/forum/classfiy.png" class="classfiyimg"
+        mode=""></image>
+    </view>
+  </view>
+
+
+  <!-- 搜索 -->
+  <view wx:if="{{flag == true}}" class="searchend">
+    <view class="item" bindtap="gotoD" data-item="{{item}}" wx:for="{{lists}}" wx:key='id'>
+      <view class="flex">
+        <!-- 头像 -->
+        <image src="{{item.own_user.avatar}}" class="itemimg" mode=""></image>
+        <view class="name m-l1 m-t1">
+          {{item.own_user.nickname}}
+          <view class="time">
+            {{item.created_at}}
+          </view>
+        </view>
+      </view>
+      <!-- 内容 -->
+      <view class="content">
+        <view class="show">
+          {{item.title}}
+        </view>
+      </view>
+      <!-- 图片 -->
+      <view class="flex al-center m-t4">
+        <view wx:for="{{item.album}}" wx:key='id'>
+          <image src="{{item.url}}" class="items" mode="aspectFill"></image>
+        </view>
+      </view>
+    </view>
+    <view wx:if="{{ssloding == true&&lists.length!=0}}" class="noMore flex ju-center al-center lodbox">
+      <image class="lodimg" src="https://oss.kuaitongkeji.com/static/img/app/address/loading.gif" mode=""></image>
+      加载中...
+    </view>
+    <view class="flex ju-center noMore fz-12" wx:if="{{sshasMore == false && lists.length!=0}}">
+      {{sstext}}
+    </view>
+    <view class="btoms">
+
+    </view>
+    <view class="nono flex al-center ju-center" wx:if="{{lists.length==0&&ssloding==false}}">
+      没有您搜索的帖子哦~
+    </view>
+  </view>
+
+
+  <subbotn ID="{{id}}"></subbotn>
+</view>

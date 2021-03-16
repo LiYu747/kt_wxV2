@@ -360,6 +360,12 @@
           "pathName": "pages/communityForum/release/release",
           "query": "id=2",
           "scene": null
+        },
+        {
+          "name": "pages/communityForum/forum/forum",
+          "pathName": "pages/communityForum/forum/forum",
+          "query": "id=5",
+          "scene": null
         }
       ]
     }

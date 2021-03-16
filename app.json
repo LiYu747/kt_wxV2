@@ -32,7 +32,8 @@
     "pages/classification/travel/travel",
     "pages/communityForum/forumlists/forumlists",
     "pages/communityForum/release/release",
-    "pages/communityForum/submy/submy"
+    "pages/communityForum/submy/submy",
+    "pages/communityForum/forum/forum"
   ],
   "window": {
     "backgroundTextStyle": "light",

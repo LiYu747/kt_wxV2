@@ -1,0 +1,85 @@
+<view class="">
+		<view class="woer">
+			<view class="nav flex">
+				<image class="img" src="{{user.avatar}}" mode=""></image>
+				<view class="m-l2 text">
+					<view class="">
+						{{user.nickname}}
+					</view>
+					<view class="small">
+						{{arr.created_at}}
+					</view>
+				</view>
+			</view>
+			<!-- 标题 -->
+			<view class="title">
+				{{arr.title}}
+			</view>
+			<!-- 内容 -->
+			<view class=" flex ju-center">
+				<view class="content">
+					{{arr.content}}
+				</view>
+			</view>
+			<!-- 图片 -->
+			<view class="flex al-center imgbx">
+				<view class="" v-for="{{arr.album}}" wx:key='id'>
+					<image class="itemimg" src="{{item.url}}" mode="aspectFill"></image>
+				</view>
+			</view>
+			<view class="layou">
+				<view class=" move pos-abs">
+					<image bindtap="open" src="https://oss.kuaitongkeji.com/static/img/app/forum/pinlun.png" class="plimg" mode=""></image>
+				</view>
+			</view>
+		</view>
+		<!-- 评论 -->
+		<view wx:if="{{comments.length>0}}" class="">
+			<view class="line flex pos-rel" wx:for="{{comments}}" wx:key='id'>
+				<view class="flex-d al-center marg">
+					<image wx:if="{{item.own_user}}" class="img" src="{{item.own_user.avatar}}" mode=""></image>
+					<view wx:if="{{item.own_user}}" class="nickname ">
+						{{item.own_user.nickname}}
+					</view>
+				</view>
+				<view class="">
+					<view class="texbox">
+						{{item.content}}
+					</view>
+					<!-- 时间 -->
+					<view class="postime m-t1">
+						{{item.created_at}}
+					</view>
+				</view>
+			</view>
+			<view wx:if="{{isLoding == true}}" class="m-t2 flex ju-center al-center lodbox">
+				<image class="lodimg" src="https://oss.kuaitongkeji.com/static/img/app/address/loading.gif" mode=""></image>
+				加载中...
+			</view>
+			<view class="flex btom ju-center m-t3  fz-12" wx:if="{{hasMore == false}}">
+				{{text}}
+			</view>
+		</view>
+		<view class="nono flex al-center ju-center" wx:if="{{comments.length==0&&isLoding==false}}">
+			还没有任何评论哦~
+		</view>
+		<view wx:if="{{flag===true}}" class="btom">
+
+		</view>
+		<view wx:if="{{flag===true}}" class="posbot flex al-center pos-rel">
+			<textarea autoHeight="true" placeholder='评论' v-model="context" class="ch flex al-center"></textarea>
+			<view bindtap="send" class="btn flex pos-abs al-center ju-center">
+				发送
+			</view>
+		</view>
+
+
+		<view wx:if="{{isLoding == true&&comments.length==0}}" class="showloding flex al-center ju-center">
+			<view class="loding flex-d al-center ju-center">
+				<view class=" ">
+					<image class="loimg" src="https://oss.kuaitongkeji.com/static/img/app/address/loading.gif" mode=""></image>
+				</view>
+				加载中
+			</view>
+		</view>
+	</view>

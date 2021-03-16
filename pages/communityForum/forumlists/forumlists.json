@@ -1,5 +1,11 @@
 {
   "usingComponents": {
-    "subbotn" : "../../../components/tabbar/subbotn/subbotn"
-  }
+    "subbotn" : "../../../components/tabbar/subbotn/subbotn",
+    "van-tab": "../../../@vant/weapp/tab/index",
+    "van-tabs": "../../../@vant/weapp/tabs/index"
+  },
+  "navigationBarBackgroundColor": "#F07535",
+  "navigationBarTextStyle": "white",
+  "navigationBarTitleText": "小区论坛",
+  "backgroundColor": "#eeeeee"
 }
