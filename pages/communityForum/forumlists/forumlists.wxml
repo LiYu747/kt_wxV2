@@ -14,9 +14,9 @@
   <!-- tag标签 -->
   <view wx:if="{{flag == false}}" class="back">
     <view class="wid">
-      <van-tabs animated ellipsis="{{false}}" color='#F07535' bind:click="celtags" active="{{ active }}">
+      <van-tabs  animated ellipsis="{{false}}" color='#F07535' bind:click="celtags" active="{{ active }}">
         <block wx:for="{{tagdata}}" wx:key='id'>
-          <van-tab title="{{item.name}}">
+          <van-tab   title="{{item.name}}">
             <scroll-view class="backctext" scroll-y="true" style="height:calc(100vh - 260rpx);"
               bindscrolltolower="lower" scroll-into-view="{{toView}}" scroll-top="{{scrollTop}}">
               <block wx:if="{{item.list.length>0}}">

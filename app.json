@@ -33,7 +33,9 @@
     "pages/communityForum/forumlists/forumlists",
     "pages/communityForum/release/release",
     "pages/communityForum/submy/submy",
-    "pages/communityForum/forum/forum"
+    "pages/communityForum/forum/forum",
+    "pages/communityForum/mypostdeta/mypostdeta",
+    "pages/communityForum/tags/tags"
   ],
   "window": {
     "backgroundTextStyle": "light",

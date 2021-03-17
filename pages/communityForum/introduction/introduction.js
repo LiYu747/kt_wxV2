@@ -1,5 +1,6 @@
 // pages/communityForum/introduction/introduction.js
 import village from '../../../vendor/village/village.js'
+import jwt from '../../../vendor/auth/jwt.js'
 const app = getApp()
 Page({
   /**
@@ -23,8 +24,20 @@ Page({
 
   // 去论坛
   goforum() {
-    wx.navigateTo({
-      url: `/pages/communityForum/forumlists/forumlists?id=${this.data.id}`
+     // 判断是否登录
+    jwt.doOnlyTokenValid({
+      keepSuccess: false,
+      showModal: true,
+      fail: () => {
+        wx.switchTab({
+          url: '/pages/index/index'
+        })
+      },
+      success: () => {
+        wx.navigateTo({
+          url: `/pages/communityForum/forumlists/forumlists?id=${this.data.id}`
+        })
+      }
     })
   },
   //查看小区位置

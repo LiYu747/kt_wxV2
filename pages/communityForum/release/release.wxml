@@ -1,1 +1,108 @@
-<subrelease ID="{{id}}"></subrelease>
+<view>
+  <view class="flex-d color al-center">
+    <image src="https://oss.kuaitongkeji.com/static/img/app/home/jx.png" class="img" mode=""></image>
+    <view class="nav flex-d al-center">
+      <view wx:if="{{image.length===0}}" class="top flex al-center ju-center">
+        <image class="timg" src="https://oss.kuaitongkeji.com/static/img/app/forum/tuceng.png" mode=""></image>
+      </view>
+      <view wx:else class="back flex al-center">
+        <view class="" wx:for="{{image}}" wx:key='id'>
+          <image wx:if="{{index<3}}" class="itemimg" src="{{item}}" mode="aspectFill"></image>
+        </view>
+      </view>
+      <view bindtap="add" class="btn flex al-center ju-center">
+        <image class="btnimg" src="https://oss.kuaitongkeji.com/static/img/app/address/plus.png" mode=""></image>
+        选择文件
+      </view>
+    </view>
+    <!-- //标题 -->
+    <view class="titel flex al-center">
+      <view class="tex1">
+        标题 ：
+      </view>
+      <textarea value="{{title}}" bindinput="onTitle" class="ipt"></textarea>
+    </view>
+    <!-- 标签 -->
+    <view bindtap="celTags" class="tagbox flex pos-rel">
+      <view class="tex1">
+        选择类别 :
+      </view>
+      <view class="optbox flex">
+        <view class="choiceitem" wx:for="{{choiceData}}" wx:key='id'>
+          {{item.name}}
+        </view>
+      </view>
+      <view class="pushtagpos pos-abs">
+        <image src="https://oss.kuaitongkeji.com/static/img/app/forum/pushtag.png" class="pushtagimg" mode=""></image>
+      </view>
+    </view>
+
+    <van-popup show="{{ show }}" position='bottom' custom-style=" padding-bottom: 100rpx;" bind:close="onClose">
+      <view class="operation flex al-center pos-rel">
+        <view bindtap="clier" class="m-t2 m-l2">
+          取消
+        </view>
+        <view bindtap="ok" class="affirm pos-abs">
+          确认
+        </view>
+      </view>
+      <view class="flex showbox">
+        <view class="tagitem {{item.type==true?'pitchon':''}}" bindtap="choice" data-item="{{item}}" data-index="{{index}}" wx:for="{{tagdata}}" wx:key='id'>
+          {{item.name}}
+        </view>
+      </view>
+    </van-popup>
+    <!-- 内容 -->
+    <view class="content flex">
+      <view class="tex1">
+        内容 :
+      </view>
+      <textarea class="are" value="{{content}}" bindinput="OnContent" maxlength='1000'></textarea>
+    </view>
+    <!-- //自己可见 -->
+    <view bindtap="Only" class="celShow flex al-center pos-rel">
+      <image src="{{seeTet.img}}" class="uplockImg" mode=""></image>
+      <view class=" fz-14 m-l2">
+        {{seeTet.text}}
+      </view>
+      <image class="reimg" src="https://oss.kuaitongkeji.com/static/img/app/address/retrue.png" mode=""></image>
+    </view>
+    <van-popup position='bottom' custom-style=" padding-bottom: 100rpx;" bind:close="onSeeClose" show="{{seeShow}}">
+				<view class="seeBox">
+					<view class="flex al-center seeItem" bindtap="addCel" wx:for="{{seeList}}" data-item="{{item}}" data-index="{{index}}" wx:key='id'>
+						<image src="{{item.ref}}" class="uplockImg" mode=""></image>
+						<view class="itemLb">
+							{{item.label}}
+						</view>
+						<image wx:if="{{index==idx}}" src="../../../image/forum/sclyse.png" class="sclyseImg" mode=""></image>
+					</view>
+				</view>
+				<view class="flex-d al-center">
+					<view bindtap="onSeeClose" class="cancelBox flex al-center ju-center">
+						取消
+					</view>
+				</view>
+			 </van-popup>
+
+    <!-- 提交 -->
+    <view bindtap="Submit" class="matop flex al-center ju-center">
+      <image class="Submit" src="https://oss.kuaitongkeji.com/static/img/app/login/ccuc.png" mode=""></image>
+      <view class="bai pos-abs">
+        确认提交
+      </view>
+    </view>
+    <view class="boot">
+
+    </view>
+
+    <view wx:if="{{isLoding == true}}" class="showloding flex al-center ju-center">
+      <view class="loding flex-d al-center ju-center">
+        <view class=" ">
+          <image class="loimg" src="https://oss.kuaitongkeji.com/static/img/app/address/loading.gif" mode=""></image>
+        </view>
+        上传中
+      </view>
+    </view>
+  </view>
+  <subrelease ID="{{id}}"></subrelease>
+</view>

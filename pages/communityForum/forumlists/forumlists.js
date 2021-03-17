@@ -1,6 +1,7 @@
 // pages/communityForum/forumlists/forumlists.js
 
 import village from '../../../vendor/village/village.js'
+const app = getApp()
 Page({
 
   /**
@@ -27,7 +28,12 @@ Page({
   },
   
 
-
+   //自定义
+   custom(){
+       wx.navigateTo({
+         url: '/pages/communityForum/tags/tags',
+       })
+   },
    //去详情页面
    gotoD(e){
    let item = e.currentTarget.dataset.item
@@ -262,14 +268,14 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+  
   },
 
   /**
    * 生命周期函数--监听页面隐藏
    */
   onHide: function () {
-
+    
   },
 
   /**

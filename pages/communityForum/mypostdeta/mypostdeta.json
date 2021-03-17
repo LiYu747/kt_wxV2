@@ -1,10 +1,9 @@
 {
   "usingComponents": {
-    "subrelease" : "../../../components/tabbar/subrelease/subrelease",
     "van-popup": "../../../@vant/weapp/popup/index"
   },
   "navigationBarBackgroundColor": "#F07535",
   "navigationBarTextStyle": "white",
-  "navigationBarTitleText": "发布",
+  "navigationBarTitleText": "详情",
   "backgroundColor": "#eeeeee"
 }

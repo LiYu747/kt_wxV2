@@ -1,1 +1,262 @@
-/* pages/communityForum/release/release.wxss */
+.fidex{
+  position: fixed;
+  z-index: 9;
+}
+.line{
+  height: 148rpx;
+}
+.color {
+  color: #666666;
+}
+
+.img {
+  width: 100%;
+  height: 156rpx;
+}
+
+.nav {
+  width: 689rpx;
+  padding: 30rpx 0;
+  border-radius: 20rpx;
+  background: #FFFFFF;
+  position: relative;
+  top: -125rpx;
+  box-shadow: 0px 4px 4px 0px rgba(9, 9, 9, 0.1);
+}
+
+.top {
+  margin-top: 28rpx;
+  width: 328rpx;
+  height: 182rpx;
+  background: rgba(9, 9, 9, 0.1);
+}
+
+.back {
+  margin-top: 28rpx;
+  background: #FFFFFF;
+  height: 182rpx;
+}
+
+.itemimg {
+  width: 180rpx;
+  height: 180rpx;
+  margin-right: 10rpx;
+}
+
+.timg {
+  width: 152rpx;
+  height: 131rpx;
+}
+
+.btn {
+  margin-top: 24rpx;
+  width: 326rpx;
+  height: 56rpx;
+  border-radius: 28rpx;
+  background: #F07535;
+  color: #FFFFFF;
+}
+
+.btnimg {
+  width: 29rpx;
+  height: 29rpx;
+  margin-right: 20rpx;
+}
+
+.titel {
+  margin-top: -100rpx;
+  width: 649rpx;
+  height: 80rpx;
+  background: #FFFFFF;
+  border-radius: 10rpx;
+  box-shadow: 0px 4px 4px 0px rgba(9, 9, 9, 0.1);
+  padding: 0 20rpx;
+  color: #666666;
+}
+
+.tex1 {
+  font-size: 28rpx;
+ 
+}
+
+.ipt {
+  font-size: 24rpx;
+  width: 550rpx;
+  height: 50rpx;
+  margin-top: 20rpx;
+}
+
+.celShow{
+  margin-top: 20rpx;
+  width: 649rpx;
+  height: 80rpx;
+  background: #FFFFFF;
+  border-radius: 10rpx;
+  box-shadow: 0px 4px 4px 0px rgba(9, 9, 9, 0.1);
+  padding: 0 20rpx;
+  color: #666666;
+}
+
+.content {
+  margin-top: 30rpx;
+  width: 649rpx;
+  height: 210rpx;
+  padding: 20rpx;
+  background: #FFFFFF;
+  border-radius: 10rpx;
+  box-shadow: 0px 4px 4px 0px rgba(9, 9, 9, 0.1);
+}
+
+.are {
+  margin-top: 4rpx;
+  margin-left: 10rpx;
+  height: 200rpx;
+  width: 550rpx;
+  font-size: 24rpx;
+  align-content: center;
+}
+
+.matop {
+  margin-top: 40rpx;
+  font-size: 30rpx;
+}
+
+.Submit {
+  width: 400rpx;
+  height: 70rpx;
+
+}
+
+.showloding {
+  position: absolute;
+  width: 100%;
+  height: 100vh;
+  top: 0;
+  color: #FFFFFF;
+}
+
+.loimg {
+  width: 50rpx;
+  height: 50rpx;
+}
+
+.loding {
+  width: 260rpx;
+  height: 200rpx;
+  background: rgba(88, 88, 88, 0.8);
+  border-radius: 10rpx;
+}
+
+.tagbox {
+  margin-top: 20rpx;
+  padding: 20rpx;
+  width: 649rpx;
+  background: #FFFFFF;
+  border-radius: 10rpx;
+  box-shadow: 0px 4px 4px 0px rgba(9, 9, 9, 0.1);
+}
+
+.pushtagimg {
+  width: 40rpx;
+  height: 40rpx;
+}
+
+.pushtagpos {
+  right: 20rpx;
+}
+
+.showbox {
+  flex-wrap: wrap;
+  color: #666666;
+}
+
+.tagitem {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 148rpx;
+  height: 70rpx;
+  font-size: 13px;
+  border-radius: 10rpx;
+  background: #EEEEEE;
+  margin-left: 30rpx;
+  margin-top: 30rpx;
+}
+
+.pitchon {
+  background: #F07535;
+  color: #fff;
+}
+
+.affirm{
+  top: 20rpx;
+  right: 20rpx;
+  color: rgb(50,150,250);
+}
+
+.optbox{
+  width: 480rpx;
+  flex-wrap: wrap;
+}
+
+.choiceitem{
+  display: flex;
+  justify-content: center;
+  margin-left: 10rpx;
+  margin-bottom: 10rpx;
+  align-items: center;
+  border: 1px solid #CCCCCC;
+  font-size: 24rpx;
+  width: 140rpx;
+  height: 40rpx;		
+}
+.boot{
+  height: 150rpx;
+}
+
+.uplockImg{
+  width: 30rpx;
+  height: 30rpx;
+  }
+  
+ .reimg {
+   position: absolute;
+   right: 30rpx;
+   width: 18rpx;
+   height: 25rpx;
+ }	
+ 
+ .seeBox{
+   padding: 40rpx;
+   padding-right: 0;
+ }
+ 
+ .seeItem{
+   height: 90rpx;
+   font-size: 14px;
+ }
+ 
+ .itemLb{
+   margin-left: 10rpx;
+   display: flex;
+   align-items: center;
+   width: 100%;
+   height: 90rpx;
+   border-bottom: 1px solid #EEEEEE;
+ }
+ 
+ .sclyseImg{
+   width: 44rpx;
+   height: 44rpx;
+   position: absolute;
+   right: 30rpx;
+ }
+ 
+ .cancelBox {
+   width: 90%;
+   height: 80rpx;
+   background: rgb(236, 234, 245);
+   position: absolute;
+   bottom: 20rpx;
+   border-radius: 10rpx;
+ }

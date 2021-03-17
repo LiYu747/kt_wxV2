@@ -50,6 +50,10 @@ position: relative;
   border-radius: 50%;
 }
 
+.aa{
+  width: 90% !important;
+}
+
 .backctext{
   background: rgb(247,247,247);
 }
@@ -247,7 +251,7 @@ position: relative;
 }
 
 .posclassfiy {
-  width: 90rpx;
+  width: 70rpx;
   height: 44px;
   background: #FFFFFF;
   position: absolute;
@@ -265,9 +269,7 @@ position: relative;
   margin-right: 120rpx;
 }
 
-.searchend {
-  width: 100%;
-}
+
 
 .btoms {
   height: 120rpx;

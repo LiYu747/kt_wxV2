@@ -1,0 +1,61 @@
+<view class="">
+		<view class="woer">
+			<!-- 标题 -->
+			<view class="title">
+				{{arr.title}}
+			</view>
+			<!-- 内容 -->
+			<view class=" flex ju-center">
+				<view class="content">
+					{{arr.content}}
+				</view>
+			</view>
+			<!-- 图片 -->
+			<view class="flex al-center imgbx">
+				<view class="" wx:for="{{arr.album}}" wx:key='id'>
+					<image class="itemimg" src="{{item.url}}" mode="aspectFill"></image>
+				</view>
+			</view>
+			<view class="fz-12 m-t2 time">
+				{{arr.created_at}}
+			</view>
+
+
+			<view class=" flex-d al-center m-t4">
+				<view bindtap="celShow" class="contentBox pos-rel">
+					<view class="tabbar flex al-center">
+						谁能看见
+						<view class=" pos-abs rig flex al-center">
+							<image src="{{seeList[idx].ref}}" class="uplockImg" mode=""></image>
+							{{seeList[idx].label}}
+						</view>
+						<image class="reimg" src="https://oss.kuaitongkeji.com/static/img/app/address/retrue.png" mode=""></image>
+					</view>
+				</view>
+				<!-- 提交 -->
+				<view bindtap="delt" class="matop flex al-center ju-center">
+					<image class="Submit" src="https://oss.kuaitongkeji.com/static/img/app/login/ccuc.png" mode=""></image>
+					<view class="bai pos-abs">
+						删除帖子
+					</view>
+				</view>
+				<van-popup position='bottom' custom-style=" padding-bottom: 100rpx;" bind:close="onSeeClose" show="{{seeShow}}">
+					<view class="seeBox">
+						<view class="flex al-center seeItem" bindtap="addCel" data-item="{{item}}" data-index="{{index}}" wx:for="{{seeList}}" wx:key='id'>
+							<image src="{{item.ref}}" class="uplockImg" mode=""></image>
+							<view class="itemLb">
+								{{item.label}}
+							</view>
+							<image wx:if="{{index==idx}}" src="../../../image/forum/sclyse.png" class="sclyseImg" mode=""></image>
+						</view>
+					</view>
+					<view class="flex-d al-center">
+						<view bindtap="onSeeClose" class="cancelBox flex al-center ju-center">
+							取消
+						</view>
+					</view>
+				</van-popup>
+			</view>
+		</view>
+
+	</view>

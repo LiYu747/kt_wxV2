@@ -1,5 +1,12 @@
 {
   "usingComponents": {
-    "submy" : "../../../components/tabbar/submy/submy"
-  }
+    "submy" : "../../../components/tabbar/submy/submy",
+    "van-tab": "../../../@vant/weapp/tab/index",
+    "van-tabs": "../../../@vant/weapp/tabs/index"
+  },
+  "navigationBarBackgroundColor": "#F07535",
+  "navigationBarTextStyle": "white",
+  "navigationBarTitleText": "我的",
+  "backgroundColor": "#eeeeee"
+
 }

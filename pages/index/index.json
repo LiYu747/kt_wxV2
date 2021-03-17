@@ -1,6 +1,5 @@
 {
   "usingComponents": {
-   "swpper":"../../components/swpper/index/index",
    "van-notice-bar": "/@vant/weapp/notice-bar/index"
   },
   "navigationBarBackgroundColor": "#F07535",

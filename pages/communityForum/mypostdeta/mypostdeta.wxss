@@ -1,0 +1,213 @@
+.fixed {
+  position: fixed;
+  z-index: 66;
+}
+
+.topLine {
+  height: 160rpx;
+}
+
+.actfixed {
+  position: fixed;
+  top: 88rpx;
+  z-index: 66;
+  right: 50rpx;
+}
+
+.actionBar {
+  width: 40rpx;
+  height: 40rpx;
+}
+
+.retunt {
+  margin-top: 30rpx;
+  width: 60rpx;
+  height: 24rpx;
+}
+
+.time {
+  text-align: right;
+}
+
+.cancelBox {
+  width: 90%;
+  height: 80rpx;
+  background: rgb(236, 234, 245);
+  position: absolute;
+  bottom: 20rpx;
+  border-radius: 10rpx;
+}
+
+.compile {
+  width: 40rpx;
+  height: 30rpx;
+  margin: 0 30rpx;
+}
+
+.delete {
+  width: 40rpx;
+  height: 40rpx;
+  margin: 0 30rpx;
+}
+
+.tagbox {
+  width: 100%;
+  height: 90rpx;
+}
+
+.tagTex {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: 90rpx;
+  border-bottom: 1px solid #EEEEEE;
+}
+
+.woer {
+  width: 92%;
+  padding: 0 4%;
+  color: #666666;
+}
+
+.nav {
+  width: 100%;
+  height: 60rpx;
+}
+
+.img {
+  width: 74rpx;
+  height: 74rpx;
+  border-radius: 50%;
+}
+
+.text {
+  font-size: 28rpx;
+  color: #F07535;
+}
+
+.small {
+  font-size: 24rpx;
+  color: #B3B3B3;
+}
+
+.layou {
+  width: 100%;
+  height: 100rpx;
+}
+
+.title {
+  margin-top: 30rpx;
+  font-size: 28rpx;
+}
+
+.content {
+  margin-top: 20rpx;
+  width: 680rpx;
+  font-size: 24rpx;
+}
+
+.imgbx {
+  margin-top: 60rpx;
+  flex-wrap: wrap;
+}
+
+.itemimg {
+  width: 150rpx;
+  height: 170rpx;
+  margin-right: 20rpx;
+  margin-bottom: 10rpx;
+}
+
+.move {
+  margin-top: 30rpx;
+  right: 40rpx;
+}
+
+.plimg {
+
+  width: 30rpx;
+  height: 27rpx;
+}
+
+.line {
+  width: 100%;
+  padding: 30rpx 0;
+  border-top: 1px solid #BFBFBF;
+}
+
+.contentBox {
+  margin-top: 30rpx;
+  width: 100%;
+  background: #FFFFFF;
+  font-size: 28rpx;
+  color: #666666;
+  border-radius: 10rpx;
+}
+
+.tabbar {
+  height: 80rpx;
+  padding: 0 20rpx;
+}
+
+.reimg {
+  position: absolute;
+  right: 30rpx;
+  width: 18rpx;
+  height: 25rpx;
+}
+
+.rig {
+  position: absolute;
+  right: 60rpx;
+}
+
+.seeBox {
+  padding: 40rpx;
+  padding-right: 0;
+}
+
+.uplockImg {
+  width: 30rpx;
+  height: 30rpx;
+}
+
+.seeItem {
+  height: 90rpx;
+  font-size: 14px;
+}
+
+.itemLb {
+  margin-left: 10rpx;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: 90rpx;
+  border-bottom: 1px solid #EEEEEE;
+}
+
+.sclyseImg {
+  width: 44rpx;
+  height: 44rpx;
+  position: absolute;
+  right: 30rpx;
+}
+
+.cancelBox {
+  width: 90%;
+  height: 80rpx;
+  background: rgb(236, 234, 245);
+  position: absolute;
+  bottom: 20rpx;
+  border-radius: 10rpx;
+}
+
+.matop {
+  margin-top: 100rpx;
+  font-size: 30rpx;
+}
+
+.Submit {
+  width: 400rpx;
+  height: 70rpx;
+
+}

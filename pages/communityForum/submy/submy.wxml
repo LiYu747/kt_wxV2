@@ -1,1 +1,97 @@
-<submy ID="{{id}}"></submy>
+<view>
+	<view >
+		<van-tabs swipeable  >
+			<van-tab title="我发布的">
+				<scroll-view scroll-y="true" style="height: calc(100vh - 200rpx)" bindscrolltolower="onreachBottom1">
+					<view wx:if="{{lists.length>0}}" class="">
+						<view class="item" bindtap="gotoD" data-item="{{item}}" data-index="{{index}}" wx:for="{{lists}}"
+							wx:key='id'>
+							<view class="titel">
+								{{item.title}}
+							</view>
+							<view class="content">
+								{{item.content}}
+							</view>
+							<!-- 图片 -->
+							<view class="flex al-center m-t4">
+								<view wx:for="{{item.album}}" wx:key='id'>
+									<image src="{{item.url}}" class="items" mode="aspectFill"></image>
+								</view>
+							</view>
+							<view class="time">
+								{{item.created_at}}
+							</view>
+						</view>
+					</view>
+					<view wx:if="{{isLoding == true&&lists.length >0}}" class=" flex ju-center m-t2 al-center lodbox">
+						<image class="lodimg" src="https://oss.kuaitongkeji.com/static/img/app/address/loading.gif" mode=""></image>
+						加载中...
+					</view>
+
+					<view class="flex ju-center m-b2 m-t3 fz-12" wx:if="{{hasMore == false}}">
+						{{text}}
+					</view>
+					<view class="nono flex ju-center cl9 fz-14" wx:if="{{lists.length == 0 && isLoding==false}}">
+						您还没有任何发布
+					</view>
+					<view class="btom">
+
+					</view>
+				</scroll-view>
+			</van-tab>
+			<van-tab title="我参与的">
+				<scroll-view scroll-y style="height: calc(100vh - 200rpx)" bindscrolltolower="onreachBottom2">
+					<view class="" wx:if="{{data1.length>0}}">
+						<view class="itemtext" bindtap="reply" wx:for="{{data1}}" wx:key='id' data-item="{{item}}">
+							<view class="flex color ju-between">
+								<view class="">
+									{{username}}:
+								</view>
+								<view class="name ">
+									{{item.content}}
+								</view>
+							</view>
+
+							<view class=" flex m-t1 ju-between">
+								<view class="">
+									回复的主题：
+								</view>
+								<view class="conten">
+									<view wx:if="{{item.own_village_tribune}}" class="">
+										{{item.own_village_tribune.title}}
+									</view>
+									<view wx:else class="nonoTet">
+										*该帖子已被用户删除
+									</view>
+								</view>
+							</view>
+						</view>
+					</view>
+
+					<view class="nono flex ju-center  cl9 fz-14" wx:if="{{data1.length==0 && isLoding1==false}}">
+						您还没有发表评论
+					</view>
+					<view wx:if="{{isLoding1 == true&&data1.length>0}}" class="m-t2 flex ju-center al-center lodbox">
+						<image class="lodimg" src="https://oss.kuaitongkeji.com/static/img/app/address/loading.gif" mode=""></image>
+						加载中...
+					</view>
+					<view class="flex ju-center m-b2 m-t3 fz-12" wx:if="{{hasMore1 == false}}">
+						{{text1}}
+					</view>
+					<view class="btom">
+
+					</view>
+				</scroll-view>
+			</van-tab>
+		</van-tabs>
+		<view wx:if="{{isLoding == true&&lists.length == 0&&data1.length==0}}" class="showloding flex al-center ju-center">
+			<view class="loding flex-d al-center ju-center">
+				<view class=" ">
+					<image class="loimg" src="https://oss.kuaitongkeji.com/static/img/app/address/loading.gif" mode=""></image>
+				</view>
+				加载中
+			</view>
+		</view>
+	</view>
+	<submy ID="{{id}}"></submy>
+</view>

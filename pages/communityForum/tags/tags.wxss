@@ -1,0 +1,14 @@
+.nav{
+  justify-content: space-around;
+  position: fixed;
+  width: 100%;
+  background: #fff;
+  z-index: 99;
+}
+.topLIne{
+  height: 100rpx;
+}
+.n1{
+  background: red;
+  height: 2000rpx;
+}

@@ -35,7 +35,7 @@
 .van-tabs__scroll--line {
   box-sizing: initial;
   height: calc(100% + 15px);
-  width: 90%;
+  width: 100%;
 }
 
 .van-tabs__scroll--card {

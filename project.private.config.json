@@ -364,7 +364,43 @@
         {
           "name": "pages/communityForum/forum/forum",
           "pathName": "pages/communityForum/forum/forum",
-          "query": "id=5",
+          "query": "id=1",
+          "scene": null
+        },
+        {
+          "name": "pages/communityForum/release/release",
+          "pathName": "pages/communityForum/release/release",
+          "query": "id=2",
+          "scene": null
+        },
+        {
+          "name": "pages/communityForum/submy/submy",
+          "pathName": "pages/communityForum/submy/submy",
+          "query": "id=2",
+          "scene": null
+        },
+        {
+          "name": "pages/communityForum/mypostdeta/mypostdeta",
+          "pathName": "pages/communityForum/mypostdeta/mypostdeta",
+          "query": "id=8",
+          "scene": null
+        },
+        {
+          "name": "pages/communityForum/forumlists/forumlists",
+          "pathName": "pages/communityForum/forumlists/forumlists",
+          "query": "id=8",
+          "scene": null
+        },
+        {
+          "name": "pages/communityForum/forumlists/forumlists",
+          "pathName": "pages/communityForum/forumlists/forumlists",
+          "query": "id=2",
+          "scene": null
+        },
+        {
+          "name": "pages/communityForum/tags/tags",
+          "pathName": "pages/communityForum/tags/tags",
+          "query": "id=2",
           "scene": null
         }
       ]
