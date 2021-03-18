@@ -1,0 +1,37 @@
+<view class="">
+		<view wx:if="{{lists.length>0}}" class="flex-d al-center ">
+			<view class="itemBox" wx:for="{{lists}}" wx:key='id'>
+				   <view class="layoutBox">
+				   	 地址：{{item.village_name}}
+				   </view>
+				   <view class="layoutBox">
+				   	 入门时间： {{item.open_gate_at}}
+				   </view>
+				   <view class="layoutBox">
+				   出门时间： 	{{item.created_at}}
+				   </view>
+				   <view class="m-t2 descTex">
+				   {{item.desc}}
+				   </view>
+			</view>
+		</view>
+		<view class="noaccess flex ju-center" wx:if="{{lists.length==0&&isLoading==false}}">
+			  暂无出行记录
+		</view>
+
+		<view wx:if="{{hasMore == false}}" class="bomLine flex ju-center al-center">
+			{{noText}}
+		</view>
+		<view wx:if="{{isLoading == true && lists.length>0}}" class=" flex ju-center al-center lodbox">
+			<image class="lodimg" src="https://oss.kuaitongkeji.com/static/img/app/address/loading.gif" mode=""></image>
+			加载中...
+		</view>
+		<view wx:if="{{isLoading == true&&lists.length==0}}" class="showloding flex al-center ju-center">
+			<view class="loding flex-d al-center ju-center">
+				<view class=" ">
+					<image class="loimg" src="https://oss.kuaitongkeji.com/static/img/app/address/loading.gif" mode=""></image>
+				</view>
+				加载中
+			</view>
+		</view>
+	</view>

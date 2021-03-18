@@ -23,8 +23,8 @@ Page({
     keyword: '',
     flag: false, //判断有没有搜索结果
     tagdata: [],
-    idx: 2, //选择类型
-    active: 2
+    idx: 1, //选择类型
+    active: 1
   },
   
 

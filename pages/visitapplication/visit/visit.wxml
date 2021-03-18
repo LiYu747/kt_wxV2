@@ -32,6 +32,9 @@
 		<view class="pos-rel messagess">
 			<view class="text flex al-center">
 				上传图片
+				<view wx:if="{{textShow==true}}" class="fz-12 m-l1 c-red">
+					(*您可以上传外卖或者快递的图片给用户)
+				</view>
 			</view>
 			<view class="flex al-center fujbox">
 				<image wx:if="{{image}}" src="{{image}}" class="itemimg" mode="aspectFill"></image>
@@ -59,7 +62,7 @@
 				备注
 			</view>
 			<view class="">
-				<textarea class="rematar" maxlength="1000" bindinput='changeInput'></textarea>
+				<textarea class="rematar" maxlength="1000" value="{{mark}}" bindinput='changeInput'></textarea>
 			</view>
 		</view>
 	</view>

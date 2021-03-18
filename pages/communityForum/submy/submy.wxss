@@ -1,4 +1,13 @@
 
+.liness{
+  position: absolute;
+  z-index: 99;
+  width: 2px;
+  height: 70rpx;
+  background: #C0C0C0;
+  margin-left: 50%;
+  margin-top: 15rpx;
+}
 .wid{
   width: 100%;
 }

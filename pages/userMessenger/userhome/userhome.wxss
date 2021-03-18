@@ -1,0 +1,103 @@
+.userSelection {
+  top: 90rpx;
+  left: 40rpx;
+}
+
+.navBox{
+  width: 100%;
+  height: 148rpx;
+  background: #F07535;
+}
+
+.navText{
+  margin-top: 60rpx;
+  font-size: 18px;
+}
+
+.sjxlIcon {
+  width: 34rpx;
+  height: 22rpx;
+  margin-left: 28rpx;
+}
+
+.xljxImg {
+  margin-top: 5rpx;
+  width: 140rpx;
+  height: 200rpx;
+  position: absolute;
+  z-index: 9;
+}
+
+.typeLine {
+  height: 20rpx;
+}
+
+.typeBox {
+  margin-top: 5rpx;
+  width: 140rpx;
+  height: 200rpx;
+  color: #666666;
+}
+
+.itemType {
+  z-index: 9;
+  margin-top: 10rpx;
+  width: 100%;
+  height: 40rpx;
+  border-bottom: 1px solid #E6E6E6;
+}
+
+.contenBox {
+  margin-top: 20rpx;
+  width: 100%;
+  padding: 30rpx;
+}
+
+.passQrCode {
+  width: 335rpx;
+  height: 420rpx;
+  color: #FFFFFF;
+}
+
+.back1Img {
+  width: 335rpx;
+  height: 420rpx;
+}
+
+.prcline {
+  height: 40rpx;
+}
+
+.prctext {
+  margin-left: 20rpx;
+  font-size: 20px;
+  opacity: 0.99;
+}
+
+.qecodeImg {
+  margin-top: 97rpx;
+  margin-left: 97rpx;
+  width: 140rpx;
+  height: 140rpx;
+}
+
+
+.ApplyingTo {
+  width: 335rpx;
+  height: 200rpx;
+}
+
+.pathImg{
+  margin-top: -20rpx;
+  width: 690rpx;
+  height: 200rpx;
+}
+
+.nointo{
+  margin-top: 50rpx;
+  color: #666666;
+  }
+  
+.gointo{
+  color: #01AAED;
+}	

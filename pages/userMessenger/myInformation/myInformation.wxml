@@ -1,0 +1,30 @@
+<view>
+  <view class="contentBox">
+    <view class="infoBox">
+      <view class="itemBox flex al-center ju-between" wx:for="{{locdata}}" wx:key='id'>
+        <view class="itemLb">
+          {{item.label}}
+        </view>
+        <view class="">
+          {{item.value}}
+        </view>
+      </view>
+    </view>
+
+    <view class="accessoryBox">
+      <view class="accessoryTxt">
+        附件
+      </view>
+      <view class="filesBox">
+       <block wx:if="{{files.length>0}}">
+        <view  class="" wx:for="{{files}}" wx:key='id'>
+          <image src="{{item}}" class="itemImg" mode="aspectFill"></image>
+        </view>
+       </block>
+       <block wx:else>
+           <view class="nofil"></view>
+       </block>
+      </view>
+    </view>
+  </view>
+</view>

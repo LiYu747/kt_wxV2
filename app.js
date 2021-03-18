@@ -39,4 +39,6 @@ App({
   redInfo:{} ,//资讯详情
   comeToVisit: 0, //判断是否有来访操作 
   myPostisDel: 0,//判断是否删除了我自己发布的帖子
+  checkSeePass : '',//是否同意进行入住
+  IsPostpass : '',//帖子是否通过
 })

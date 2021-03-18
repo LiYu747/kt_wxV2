@@ -49,7 +49,16 @@ Page({
      })
   },  
   
+   
 
+  //选择用户类型
+  selecType(e) {
+    let item = e.currentTarget.dataset.item
+    if (item.type == 'user') return;
+    wx.reLaunch({
+      url: item.url
+    })
+  },
   //去详情
   goclass(e){
     let item = e.currentTarget.dataset.item

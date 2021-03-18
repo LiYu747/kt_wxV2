@@ -1,0 +1,71 @@
+<view class="">
+    <view class="navBox flex al-center ju-center bai">
+      <view class="navText">物业</view>
+    </view>
+		<view class="userSelection pos-abs">
+			<image bindtap="celType" src="https://oss.kuaitongkeji.com/static/img/app/home/sjxl.png" class="sjxlIcon" mode=""></image>
+			<view wx:if="{{isShowType == true}}" class="typeBox flex-d al-center">
+				<image src="https://oss.kuaitongkeji.com/static/img/app/home/xljx.png" class="xljxImg" mode=""></image>
+				<view class="typeLine">
+				</view>
+				<view class="fz-12 itemType flex ju-center al-center"
+				 wx:for="{{userType}}"
+         bindtap="selecType"
+         data-item="{{item}}"
+				  wx:key='id'>
+					{{item.name}}
+				</view>
+		
+			</view>
+		</view>
+		<view class="contenBox flex">
+			<view bindtap="goQuery" class="userQuery pos-rel">
+				<image src="https://oss.kuaitongkeji.com/static/img/app/propertyManagement/userBack.png" class="userBack pos-abs" mode=""></image>
+				<view class="zidx">
+					用户查询
+				</view>
+				<view class="userText">
+					查询用户信息
+				</view>
+				<view class="">
+					<image src="https://oss.kuaitongkeji.com/static/img/app/propertyManagement/userlook.png" class="userlookImg" mode=""></image>
+				</view>
+			</view>
+
+			<view class=" m-l2">
+				<view bindtap="CheckTo" class="CheckToSee flex fz-12 pos-rel">
+					<image src="https://oss.kuaitongkeji.com/static/img/app/propertyManagement/checkBack.png" class="checkBack pos-abs" mode=""></image>
+					<view class="">
+						<image src="https://oss.kuaitongkeji.com/static/img/app/propertyManagement/Checklook.png" class="ChecklookImg pos-abs" mode=""></image>
+					</view>
+					<view class="textBox">
+						<view class="checktex1">
+							入住查看
+						</view>
+						<view class="checktex2">
+							用户入住申请查看及审核
+						</view>
+					</view>
+				</view>
+				<view bindtap="comeAndGo" class="recordOfAccess flex pos-rel">
+					<image src="https://oss.kuaitongkeji.com/static/img/app/propertyManagement/accessBack.png" class="checkBack pos-abs" mode=""></image>
+					<view class="">
+						<image src="https://oss.kuaitongkeji.com/static/img/app/propertyManagement/contract.png" class="contractImg pos-abs" mode=""></image>
+					</view>
+					<view class="textBox">
+						<view class="checktex1">
+							进出记录
+						</view>
+						<view class="checktex2">
+							用户入住申请查看及审核
+						</view>
+					</view>
+				</view>
+				
+			</view>
+		</view>
+		
+		<view bindtap="PostManagement" class=" flex ju-center">
+			<image src="https://oss.kuaitongkeji.com/static/img/app/propertyManagement/postManagement.png" class="postManagement" mode=""></image>
+		</view>
+	</view>

@@ -9,7 +9,7 @@
 					<view class="typeLine">
 					</view>
 					<view class="fz-12 itemType flex ju-center al-center" wx:for="{{userType}}" bindtap="selecType"
-						data-item="item" wx:key='id'>
+						data-item="{{item}}" wx:key='id'>
 						{{item.name}}
 					</view>
 				</view>

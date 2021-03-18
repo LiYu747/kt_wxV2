@@ -1,0 +1,150 @@
+.navBox{
+  width: 100%;
+  height: 148rpx;
+  background: #F07535;
+}
+
+.navText{
+  margin-top: 60rpx;
+  font-size: 18px;
+}
+
+.contenBox {
+  margin-top: 20rpx;
+  width: 100%;
+  padding: 30rpx;
+}
+
+.userQuery {
+  padding-left: 20rpx;
+  padding-top: 40rpx;
+  width: 315rpx;
+  height: 380rpx;
+  border-radius: 10rpx;
+  font-size: 22px;
+  color: #FFFFFF;
+}
+
+.userBack {
+  top: 0;
+  left: 0;
+  width: 335rpx;
+  height: 420rpx;
+}
+
+.zidx {
+  opacity: 0.99;
+}
+
+.userText {
+  margin-top: 20rpx;
+  font-size: 14px;
+  opacity: 0.5;
+}
+
+.userlookImg {
+  width: 142rpx;
+  height: 160rpx;
+  position: absolute;
+  top: 200rpx;
+  left: 104rpx;
+}
+
+.CheckToSee {
+  width: 295rpx;
+  height: 200rpx;
+  border-radius: 10rpx;
+  padding: 0 20rpx;
+  color: #fff;
+}
+
+.checkBack{
+  top: 0;
+  right: 0;
+  width: 335rpx;
+  height: 200rpx;
+}
+
+.ChecklookImg {
+  margin-top: 50rpx;
+  width: 105rpx;
+  height: 97rpx;
+}
+.textBox{
+  position: absolute;
+  width: 200rpx;
+  z-index: 99;
+  right: 0;
+}
+
+.checktex1 {
+  margin-top: 30rpx;
+  margin-left: 10rpx;
+  font-size: 22px;
+  opacity: 0.99;
+}
+
+.checktex2 {
+  margin-left: 10rpx;
+  margin-top: 10rpx;
+  font-size: 14px;
+  opacity: 0.5;
+}
+
+.recordOfAccess {
+  margin-top: 20rpx;
+  width: 295rpx;
+  height: 200rpx;
+  border-radius: 10rpx;
+  padding: 0 20rpx;
+  color: #FFFFFF;
+}
+
+.contractImg {
+  width: 104rpx;
+  height: 104rpx;
+  margin-top: 40rpx;
+}
+.userSelection {
+  top: 90rpx;
+  left: 40rpx;
+}
+
+.sjxlIcon {
+  width: 34rpx;
+  height: 22rpx;
+  margin-left: 28rpx;
+}
+
+.xljxImg {
+  margin-top: 5rpx;
+  width: 140rpx;
+  height: 200rpx;
+  position: absolute;
+  z-index: 9;
+}
+
+.typeLine {
+  height: 20rpx;
+}
+
+.typeBox {
+  margin-top: 5rpx;
+  width: 140rpx;
+  height: 200rpx;
+  color: #666666;
+}
+
+.itemType {
+  z-index: 9;
+  margin-top: 10rpx;
+  width: 100%;
+  height: 40rpx;
+  border-bottom: 1px solid #E6E6E6;
+}
+
+.postManagement{
+  margin-top: -10rpx;
+  width: 690rpx;
+  height: 200rpx;
+}

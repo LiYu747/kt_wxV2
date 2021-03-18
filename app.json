@@ -35,7 +35,18 @@
     "pages/communityForum/submy/submy",
     "pages/communityForum/forum/forum",
     "pages/communityForum/mypostdeta/mypostdeta",
-    "pages/communityForum/tags/tags"
+    "pages/communityForum/tags/tags",
+    "pages/propertyManagement/propertyhome/propertyhome",
+    "pages/userMessenger/userhome/userhome",
+    "pages/propertyManagement/userQuery/userQuery",
+    "pages/propertyManagement/CheckToSee/CheckToSee",
+    "pages/propertyManagement/CheckToSee/seeDetails/seeDetails",
+    "pages/propertyManagement/accessToInformation/accessToInformation",
+    "pages/propertyManagement/postManagement/postManagement",
+    "pages/propertyManagement/postManagement/postDetails/postDetails",
+    "pages/userMessenger/goQrCode/goQrCode",
+    "pages/userMessenger/applyingTo/applyingTo",
+    "pages/userMessenger/myInformation/myInformation"
   ],
   "window": {
     "backgroundTextStyle": "light",

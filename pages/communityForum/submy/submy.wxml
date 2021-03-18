@@ -1,6 +1,7 @@
 <view>
 	<view >
-		<van-tabs swipeable  >
+			<view class="liness"></view>
+		<van-tabs swipeable  color='#F07535'>
 			<van-tab title="我发布的">
 				<scroll-view scroll-y="true" style="height: calc(100vh - 200rpx)" bindscrolltolower="onreachBottom1">
 					<view wx:if="{{lists.length>0}}" class="">

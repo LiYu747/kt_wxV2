@@ -51,6 +51,7 @@ Page({
   image:'', //图片上传
   mark:'',//备注
   isLoding:false,
+  textShow: false,
   },
   
   //申请记录
@@ -452,7 +453,12 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    if(options.text){
+      this.setData({
+        mark : options.text,
+        textShow : true
+      })
+    }
   },
 
   /**

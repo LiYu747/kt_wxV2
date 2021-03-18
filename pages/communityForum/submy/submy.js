@@ -130,7 +130,6 @@ Page({
         if (res.data.code != 200) return;
         
         let data = res.data.data;
-        console.log(data.data)
         data.data.map( item => {
             item.album = item.album.slice(0,3)
         })
@@ -229,14 +228,14 @@ Page({
    * 生命周期函数--监听页面隐藏
    */
   onHide: function () {
-    app.myPostisDel = 0
+   
   },
 
   /**
    * 生命周期函数--监听页面卸载
    */
   onUnload: function () {
-
+    app.myPostisDel = 0
   },
 
   /**

@@ -402,6 +402,90 @@
           "pathName": "pages/communityForum/tags/tags",
           "query": "id=2",
           "scene": null
+        },
+        {
+          "name": "pages/propertyManagement/propertyhome/propertyhome",
+          "pathName": "pages/propertyManagement/propertyhome/propertyhome",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/propertyManagement/userQuery/userQuery",
+          "pathName": "pages/propertyManagement/userQuery/userQuery",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/propertyManagement/CheckToSee/CheckToSee",
+          "pathName": "pages/propertyManagement/CheckToSee/CheckToSee",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/propertyManagement/CheckToSee/seeDetails/seeDetails",
+          "pathName": "pages/propertyManagement/CheckToSee/seeDetails/seeDetails",
+          "query": "id=11",
+          "scene": null
+        },
+        {
+          "name": "pages/propertyManagement/CheckToSee/CheckToSee",
+          "pathName": "pages/propertyManagement/CheckToSee/CheckToSee",
+          "query": "id=11",
+          "scene": null
+        },
+        {
+          "name": "pages/propertyManagement/propertyhome/propertyhome",
+          "pathName": "pages/propertyManagement/propertyhome/propertyhome",
+          "query": "id=11",
+          "scene": null
+        },
+        {
+          "name": "pages/propertyManagement/accessToInformation/accessToInformation",
+          "pathName": "pages/propertyManagement/accessToInformation/accessToInformation",
+          "query": "id=11",
+          "scene": null
+        },
+        {
+          "name": "pages/propertyManagement/postManagement/postManagement",
+          "pathName": "pages/propertyManagement/postManagement/postManagement",
+          "query": "id=11",
+          "scene": null
+        },
+        {
+          "name": "pages/propertyManagement/postManagement/postDetails/postDetails",
+          "pathName": "pages/propertyManagement/postManagement/postDetails/postDetails",
+          "query": "id=3",
+          "scene": null
+        },
+        {
+          "name": "pages/userMessenger/userhome/userhome",
+          "pathName": "pages/userMessenger/userhome/userhome",
+          "query": "id=3",
+          "scene": null
+        },
+        {
+          "name": "pages/userMessenger/userhome/userhome",
+          "pathName": "pages/userMessenger/userhome/userhome",
+          "query": "id=3",
+          "scene": null
+        },
+        {
+          "name": "pages/userMessenger/goQrCode/goQrCode",
+          "pathName": "pages/userMessenger/goQrCode/goQrCode",
+          "query": "id=3",
+          "scene": null
+        },
+        {
+          "name": "pages/userMessenger/myInformation/myInformation",
+          "pathName": "pages/userMessenger/myInformation/myInformation",
+          "query": "id=3",
+          "scene": null
+        },
+        {
+          "name": "pages/userMessenger/applyingTo/applyingTo",
+          "pathName": "pages/userMessenger/applyingTo/applyingTo",
+          "query": "id=3",
+          "scene": null
         }
       ]
     }

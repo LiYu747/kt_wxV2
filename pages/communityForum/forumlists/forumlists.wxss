@@ -14,9 +14,7 @@ position: relative;
   height: 70rpx;
 }
 
-.wid {
-  width: 100%;
-}
+
 
 .noPost{
   position: relative;

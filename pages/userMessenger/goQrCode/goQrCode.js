@@ -1,7 +1,6 @@
-// pages/qrcode/qrcode.js
-const   QR = require("../../utils/weapp-qrcode.js");
-import home from '../../vendor/home/home.js'
-import jwt from '../../vendor/auth/jwt.js'
+// pages/userMessenger/goQrCode/goQrCode.js
+const   QR = require("../../../utils/weapp-qrcode.js");
+import home from '../../../vendor/home/home.js'
 Page({
 
   /**
@@ -17,11 +16,11 @@ Page({
     isLoding:false,
     code:0,
   },
+   
 
-
-  	// 手动刷新
-    add() {
-      this.loadUserData()
+   	// 手动刷新
+     add() { 
+      this.getdata()
 
     },
   // 倒计时
@@ -42,27 +41,13 @@ Page({
       }
     }, 1000)
   },
-  // 判断是否登录
-  loadUserData() {
-    jwt.doOnlyTokenValid({
-      showModal: true,
-      keepSuccess: false,
-      success: () => {
-        this.getdata()
-      },
-      fail: () => {
-        wx.switchTab({
-          url: '/pages/index/index'
-        })
-      }
-    })
-  },
+
   // 获取二维码
   getdata() {
    this.setData({
     isLoding : true
    })
-    home.obtaincode({
+    home.passQr({
       data: {},
       fail: () => {
         this.setData({
@@ -140,15 +125,14 @@ Page({
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-   
-   
+   this.getdata()
   },
 
   /**
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    this.loadUserData()
+
   },
 
   /**
