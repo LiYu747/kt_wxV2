@@ -1,0 +1,106 @@
+<view class="page">
+		<view class="flex-d al-center">
+			<view class="backBox pos-rel m-t2 flex al-center ju-center">
+				<swiper class="swiper" indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
+					<swiper-item wx:for="{{roomInof.album}}" wx:key="id" class="flex ju-center">
+						<image src="{{item}}" class="logoImg " mode="aspectFill"></image>
+					</swiper-item>
+				</swiper>
+			</view>
+
+			<view class="contenBox">
+				<view class="nameDetail">
+					{{roomInof.title}}
+				</view>
+				<view class="pritext flex m-t1">
+					{{roomInof.rents}}
+					<view class="fz-12">
+						元/月
+					</view>
+				</view>
+			</view>
+
+			<view class="houseType flex al-center ju-between">
+				<view class="flex al-center itemwidth ju-center pos-rel" wx:for="{{locdata}}" wx:key='id'>
+					<view class="flex-d al-center">
+						<view class="fz-14 itemvalue">
+							{{item.value}}
+						</view>
+						<view class="fz-12  itemtil">
+							{{item.title}}
+						</view>
+					</view>
+					<view class="line" wx:if="{{locdata.length-1 != index}}">
+
+					</view>
+				</view>
+			</view>
+
+			<view class="isHave">
+				<view class="fz-14 m-b1 flex al-center">
+					电梯
+					<view class="isResult m-l2">
+						{{roomInof.ele}}
+					</view>
+				</view>
+				<view class="fz-14  m-b1 flex al-center">
+					装修
+					<view class="isResult m-l2">
+						{{roomInof.zx}}
+					</view>
+				</view>
+			</view>
+
+			<view bindtap="Address" class="addressBox m-t3 flex  fz-14">
+				<image src="https://oss.kuaitongkeji.com/static/img/app/lookroom/add.png" class="addImg" mode=""></image>
+				<view class="m-l2 addressmsg">
+					{{roomInof.village}}
+				</view>
+			</view>
+
+			<view class="briefRoom">
+				<view class="itemvalue">
+					房屋概况
+				</view>
+				<view class="fz-12 m-t2 m-b2" style="white-space:pre-wrap">
+					{{roomInof.desc}}
+				</view>
+			</view>
+
+			<view class="isHave flex">
+				<view class="fz-16 haveBox isResult flex al-center">
+					联系人
+					<view class="fz-12 m-l2 conName">
+						<view wx:if="{{roomInof.contact_name}}" class="">
+							{{roomInof.contact_name}}
+						</view>
+						<view class="" wx:else>
+							暂无
+						</view>
+					</view>
+				</view>
+				<view class="fz-16   flex haveBox isResult al-center">
+					联系电话
+					<view class="fz-12 m-l2 userTel">
+						<view class="" wx:if="{{roomInof.tel}}">
+							{{roomInof.tel}}
+						</view>
+						<view class="isResult" wx:else>
+							暂无
+						</view>
+					</view>
+				</view>
+			</view>
+             <view class="fz-12 cl3 m-t3 texttip">
+             	声明：本网站所刊载的内容来源于用户上传；该等物业信息不包含购买要约意图，文字、图片信息不构成物业交付标准或配套； 相关物业信息供参考，请致电相关负责人了解详情，请以用户提供信息为准。
+             </view>
+			<view bindtap="consult" class="">
+				<image src="https://oss.kuaitongkeji.com/static/img/app/lookroom/consult.png" class="consultImg" mode=""></image>
+			</view>
+
+			<view class="btmLine">
+
+			</view>
+		</view>
+
+	</view>

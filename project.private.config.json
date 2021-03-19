@@ -13,181 +13,6 @@
     "miniprogram": {
       "list": [
         {
-          "id": 0,
-          "name": "pages/loginAndR/register/register",
-          "pathName": "pages/loginAndR/register/register",
-          "query": "",
-          "scene": null
-        },
-        {
-          "id": -1,
-          "name": "components/u-avatar-cropper/u-avatar-cropper",
-          "pathName": "components/u-avatar-cropper/u-avatar-cropper",
-          "query": "",
-          "scene": null
-        },
-        {
-          "id": -1,
-          "name": "pages/loginAndR/register/photo/photo",
-          "pathName": "pages/loginAndR/register/photo/photo",
-          "query": "",
-          "scene": null
-        },
-        {
-          "id": -1,
-          "name": "pages/loginAndR/login/login",
-          "pathName": "pages/loginAndR/login/login",
-          "query": "",
-          "scene": null
-        },
-        {
-          "id": -1,
-          "name": "pages/index/index",
-          "pathName": "pages/index/index",
-          "query": "",
-          "scene": null
-        },
-        {
-          "id": -1,
-          "name": "pages/userAddress/userAddress",
-          "pathName": "pages/userAddress/userAddress",
-          "query": "",
-          "scene": null
-        },
-        {
-          "id": -1,
-          "name": "pages/userinfo/userinfo",
-          "pathName": "pages/userinfo/userinfo",
-          "query": "",
-          "scene": null
-        },
-        {
-          "id": -1,
-          "name": "pages/homeSearch/search",
-          "pathName": "pages/homeSearch/search",
-          "query": "",
-          "scene": null
-        },
-        {
-          "id": -1,
-          "name": "pages/homeSearch/search",
-          "pathName": "pages/homeSearch/search",
-          "query": "",
-          "scene": null
-        },
-        {
-          "id": -1,
-          "name": "pages/homeSearch/search",
-          "pathName": "pages/homeSearch/search",
-          "query": "text='山'",
-          "scene": null
-        },
-        {
-          "id": 10,
-          "name": "pages/homeSearch/search",
-          "pathName": "pages/homeSearch/search",
-          "query": "text=''",
-          "scene": null
-        },
-        {
-          "id": -1,
-          "name": "pages/homeSearch/search",
-          "pathName": "pages/homeSearch/search",
-          "query": "text=山",
-          "scene": null
-        },
-        {
-          "id": 12,
-          "name": "pages/communityForum/introduction/introduction",
-          "pathName": "pages/communityForum/introduction/introduction",
-          "query": "id=1",
-          "scene": null
-        },
-        {
-          "id": -1,
-          "name": "pages/InformationDetails/InformationDetails",
-          "pathName": "pages/InformationDetails/InformationDetails",
-          "query": "id=1",
-          "scene": null
-        },
-        {
-          "id": -1,
-          "name": "pages/index/index",
-          "pathName": "pages/index/index",
-          "query": "id=1",
-          "scene": null
-        },
-        {
-          "id": -1,
-          "name": "pages/communityForum/introduction/introduction",
-          "pathName": "pages/communityForum/introduction/introduction",
-          "query": "id=1",
-          "scene": null
-        },
-        {
-          "id": -1,
-          "name": "pages/residence/checkIn/checkIn",
-          "pathName": "pages/residence/checkIn/checkIn",
-          "query": "id=1",
-          "scene": null
-        },
-        {
-          "id": -1,
-          "name": "pages/residence/checkIn/checkIn",
-          "pathName": "components/ss/ss",
-          "query": "",
-          "scene": null
-        },
-        {
-          "id": -1,
-          "name": "pages/residence/checkIn/checkIn",
-          "pathName": "pages/residence/checkIn/checkIn",
-          "query": "",
-          "scene": null
-        },
-        {
-          "id": -1,
-          "name": "pages/residence/checkRecord/checkRecord",
-          "pathName": "pages/residence/checkRecord/checkRecord",
-          "query": "",
-          "scene": null
-        },
-        {
-          "id": -1,
-          "name": "pages/residence/checkdetails/checkdetails",
-          "pathName": "pages/residence/checkdetails/checkdetails",
-          "query": "id=52",
-          "scene": null
-        },
-        {
-          "id": -1,
-          "name": "pages/index/index",
-          "pathName": "pages/index/index",
-          "query": "id=52",
-          "scene": null
-        },
-        {
-          "id": -1,
-          "name": "pages/qrcode/qrcode",
-          "pathName": "pages/qrcode/qrcode",
-          "query": "id=52",
-          "scene": null
-        },
-        {
-          "id": -1,
-          "name": "pages/index/index",
-          "pathName": "pages/index/index",
-          "query": "",
-          "scene": null
-        },
-        {
-          "id": -1,
-          "name": "pages/visitapplication/newDetalis/newDetalis",
-          "pathName": "pages/visitapplication/newDetalis/newDetalis",
-          "query": "",
-          "scene": null
-        },
-        {
           "id": -1,
           "name": "pages/visitapplication/visit/visit",
           "pathName": "pages/visitapplication/visit/visit",
@@ -482,14 +307,45 @@
           "scene": null
         },
         {
-          "name": "pages/userMessenger/applyingTo/applyingTo",
-          "pathName": "pages/userMessenger/applyingTo/applyingTo",
+          "name": "pages/userMessenger/applyingRecord/applyingRecord",
+          "pathName": "pages/userMessenger/applyingRecord/applyingRecord",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/classification/lookRoom/lookRoom",
+          "pathName": "pages/classification/lookRoom/lookRoom",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/classification/lookRoom/rentRoom/moreRoom/moreRoom",
+          "pathName": "pages/classification/lookRoom/rentRoom/moreRoom/moreRoom",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/classification/lookRoom/rentRoom/detailRoom/detailRoom",
+          "pathName": "pages/classification/lookRoom/rentRoom/detailRoom/detailRoom",
           "query": "id=3",
           "scene": null
         },
         {
-          "name": "pages/userMessenger/applyingRecord/applyingRecord",
-          "pathName": "pages/userMessenger/applyingRecord/applyingRecord",
+          "name": "pages/classification/lookRoom/buyHouse/moreBuy/moreBuy",
+          "pathName": "pages/classification/lookRoom/buyHouse/moreBuy/moreBuy",
+          "query": "id=3",
+          "scene": null
+        },
+        {
+          "name": "pages/classification/lookRoom/buyHouse/buyDetails/buyDetails",
+          "pathName": "pages/classification/lookRoom/buyHouse/buyDetails/buyDetails",
+          "query": "id=4",
+          "scene": null
+        },
+        {
+          "name": "pages/classification/lookRoom/rentalForm/rentalForm",
+          "pathName": "pages/classification/lookRoom/rentalForm/rentalForm",
+          "query": "id=4",
           "scene": null
         }
       ]

@@ -1,0 +1,87 @@
+<view class="">
+		<view class="flex-d al-center">
+			<view class="contenBox">
+				<view class="flex al-center m-t3 ju-between">
+					<view bindtap="myRental" class="rentOut flex al-center">
+						<image src="https://oss.kuaitongkeji.com/static/img/app/lookroom/sell.png" class="sellImg" mode=""></image>
+						<view class="sellMsg">
+							我要出租
+						</view>
+					</view>
+					<view bindtap="mySellers" class="sellers m-l2 flex al-center">
+						<image src="https://oss.kuaitongkeji.com/static/img/app/lookroom/buy.png" class="buyImg" mode=""></image>
+						<view class="sellMsg">
+							我要卖房
+						</view>
+					</view>
+				</view>
+				<view class="item m-t3">
+					<view class="titel flex al-center ju-between">
+						租房
+						<view wx:if="{{rentingRoom.length>0}}" bindtap="addmore" class="bricolor fz-14 flex al-center">
+							更多
+							<image src="https://oss.kuaitongkeji.com/static/img/app/lookroom/more.png" class="moreimg" mode=""></image>
+						</view>
+					</view>
+					<view wx:if="{{rentingRoom.length>0}}" class="flex ">
+						<view class="items m-b1" bindtap="gotoDetails" data-item="{{item}}" wx:for="{{rentingRoom}}" wx:key='id'>
+							<image wx:if="{{item.faceimg}}" src="{{item.faceimg}}" class="itemsimg" mode="aspectFill"></image>
+							<image wx:else src="https://oss.kuaitongkeji.com/upload/2021/02/20/Kztg485iqwsrKNrDLXKIeQ7apbhuyi4v1SHpslOv.jpeg"
+							 class="itemsimg" mode="aspectFill"></image>
+							<view class="itemsname m-t1 fz-14">
+								{{item.title}}
+							</view>
+							<view class="fz-12 bricolor">
+								{{item.introduce}}/{{item.area}}㎡
+							</view>
+							<view class="pritext flex m-t1">
+								{{item.rents}}
+								<view class="fz-12">
+									元/月
+								</view>
+
+							</view>
+						</view>
+					</view>
+					<view wx:if="{{rentingRoom.length == 0}}" class="flex ju-center fz-12 nomsg">
+						{{notext}}
+					</view>
+				</view>
+				<view class="item m-t3">
+					<view class="titel flex al-center ju-between">
+						买房
+						<view wx:if="{{sellRoom.length>0}}" bindtap="moreBuye" class="bricolor fz-14 flex al-center">
+							更多
+							<image src="https://oss.kuaitongkeji.com/static/img/app/lookroom/more.png" class="moreimg" mode=""></image>
+						</view>
+					</view>
+					<view wx:if="{{sellRoom.length>0}}" class="flex ">
+						<view class="items" bindtap="gotoBuy" wx:for="{{sellRoom}}"  wx:for-item="items" data-item="{{items}}" wx:key='id'>
+							<image wx:if="{{items.faceimg}}" src="{{items.faceimg}}" class="itemsimg" mode="aspectFill"></image>
+							<image wx:else src="https://oss.kuaitongkeji.com/upload/2021/02/20/Kztg485iqwsrKNrDLXKIeQ7apbhuyi4v1SHpslOv.jpeg"
+							 class="itemsimg" mode="aspectFill"></image>
+							<view class="itemsname m-t1 fz-14">
+								{{items.title}}
+							</view>
+							<view class="fz-12 bricolor">
+								{{items.introduce}}/{{items.area}}㎡
+							</view>
+							<view class="pritext flex m-t1">
+								{{items.sale_price}}
+								<view class="fz-12">
+									万
+								</view>
+							</view>
+						</view>
+					</view>
+					<view wx:if="{{sellRoom.length == 0}}" class="flex ju-center fz-12 nomsg">
+						{{notext2}}
+					</view>
+				</view>
+			</view>
+		</view>
+
+		<view class="btmLine">
+
+		</view>
+	</view>

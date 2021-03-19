@@ -210,5 +210,101 @@ class Home {
 	 	params.url = routes.propertyManagement.passQr
 	 	req.get(params)
 	 }
+
+	 //发布出租房消息
+	releaseRent(params) {
+		params.url = routes.home.classifyPost.releaseRent;
+		req.post(params);
+	}
+
+	// 发布出售房屋信息
+	releaseSellers(params) {
+		params.url = routes.home.classifyPost.releaseSellers;
+		req.post(params);
+	}
+
+	// 自己发布的所有出租房信息
+	postrentMsg(params) {
+		params.url = routes.home.classifyPost.postrentMsg;
+		req.get(params);
+	}
+
+	// 查看自己发布的房屋出售记录
+	postsellMsg(params) {
+		params.url = routes.home.classifyPost.postsellMsg;
+		req.get(params);
+	}
+
+	// 出租房详情
+	rentDils(params) {
+		params.url = routes.home.classifyPost.rentDils;
+		req.get(params);
+	}
+
+	// 房屋出售记录的详情
+	saleDils(params) {
+		params.url = routes.home.classifyPost.saleDils;
+		req.get(params);
+	}
+
+	// 设置出租房可见性
+	rentShow(params) {
+		params.url = routes.home.classifyPost.rentShow;
+		req.patch(params);
+	}
+
+	//更新租房数据
+	updataRoom(params) {
+		params.url = routes.home.classifyPost.updataRoom;
+		req.patch(params);
+	}
+
+	//删除租房数据
+	delrenRoom(params) {
+		params.url = routes.home.classifyPost.delrenRoom;
+		req.delete(params);
+	}
+
+	// 出售记录的可见性
+	saleShow(params) {
+		params.url = routes.home.classifyPost.saleShow;
+		req.patch(params);
+	}
+
+	//更新卖房数据
+	houseSaleUp(params) {
+		params.url = routes.home.classifyPost.houseSaleUp;
+		req.patch(params);
+	}
+
+	//删除卖房
+	delSale(params) {
+		params.url = routes.home.classifyPost.delSale;
+		req.delete(params);
+	}
+
+	// 查看所有的出租房信息
+	allRoom(params) {
+		params.url = routes.home.classifyPost.allRoom;
+		req.get(params);
+	}
+
+	// 租房信息详情
+	roomDateils(params) {
+		params.url = routes.home.classifyPost.roomDateils;
+		req.get(params);
+	}
+
+	// 查看平台所有房屋出售记录
+	sellRecords(params) {
+		params.url = routes.home.classifyPost.sellRecords;
+		req.get(params);
+	}
+
+	// 出售房屋的记录详情
+	sellDetails(params) {
+		params.url = routes.home.classifyPost.sellDetails;
+		req.get(params);
+	}
 }
 module.exports = new Home

@@ -47,7 +47,13 @@
     "pages/userMessenger/goQrCode/goQrCode",
     "pages/userMessenger/applyingTo/applyingTo",
     "pages/userMessenger/myInformation/myInformation",
-    "pages/userMessenger/applyingRecord/applyingRecord"
+    "pages/userMessenger/applyingRecord/applyingRecord",
+    "pages/classification/lookRoom/lookRoom",
+    "pages/classification/lookRoom/rentRoom/moreRoom/moreRoom",
+    "pages/classification/lookRoom/rentRoom/detailRoom/detailRoom",
+    "pages/classification/lookRoom/buyHouse/moreBuy/moreBuy",
+    "pages/classification/lookRoom/buyHouse/buyDetails/buyDetails",
+    "pages/classification/lookRoom/rentalForm/rentalForm"
   ],
   "window": {
     "backgroundTextStyle": "light",

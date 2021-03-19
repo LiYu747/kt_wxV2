@@ -5,7 +5,6 @@ let host = 'http://local.kt.cn/';
 // let host = 'https://api.kuaitongkeji.com/';  
 let apiPath = host + 'api/';
 
-
 module.exports = {
 
 	host: host,
@@ -90,6 +89,58 @@ module.exports = {
 			// 标为已读
 			userRead  : apiPath + 'user/msg/read'
 		},
+			
+		// 分类接口
+		classifyPost : {
+			//发布出租房消息
+			releaseRent : apiPath + 'user/rental',
+			
+			// 发布出售房屋信息
+			releaseSellers : apiPath + 'user/houseSale',
+			
+			// 查看所有的出租房信息
+			allRoom : apiPath + 'rental/rental' ,
+			
+			// 租房信息详情
+			roomDateils : apiPath + 'rental/rental/show',
+			
+			// 查看平台所有房屋出售记录
+			sellRecords : apiPath + 'house/sale',
+			
+			// 出售房屋的记录详情
+			sellDetails : apiPath + 'house/sale/show',
+			
+			// 自己发布的所有出租房信息
+			postrentMsg : apiPath + 'user/rental',
+			
+			// 查看自己发布的房屋出售记录
+			postsellMsg : apiPath + 'user/houseSale',
+			
+			// 出租房详情
+			rentDils : apiPath + 'user/rental/show',
+			
+			// 房屋出售记录的详情
+			saleDils : apiPath + 'user/houseSale/show',
+			
+			// 设置出租房可见性
+			rentShow : apiPath + 'user/rental/setVisible',
+			
+			//更新租房数据
+			updataRoom : apiPath + 'user/rental',
+			
+			//删除租房数据
+			delrenRoom : apiPath + 'user/rental',
+			
+			// 出售记录的可见性
+			saleShow : apiPath + 'user/houseSale/setVisible',
+			
+			//更新卖房数据
+			houseSaleUp : apiPath + 'user/houseSale',
+			
+			//删除卖房
+			delSale : apiPath + 'user/houseSale'
+		},
+
 
 		// 社区资讯
 		infortion: {

@@ -1,0 +1,10 @@
+{
+  "usingComponents": {
+    "van-popup": "../../../../@vant/weapp/popup/index",
+    "van-picker": "../../../../@vant/weapp/picker/index"
+  },
+  "navigationBarBackgroundColor": "#F07535",
+  "navigationBarTextStyle": "white",
+  "navigationBarTitleText": "我要出租",
+  "backgroundColor": "#eeeeee"
+}

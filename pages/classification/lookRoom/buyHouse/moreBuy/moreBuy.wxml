@@ -1,0 +1,60 @@
+<view class="">
+		<view class="fixed">
+			<view class="tilBox  flex al-center ju-between">
+				<view class="flex al-center" wx:for="{{keyword}}" wx:key='id'>
+					{{item.name}}
+					<view class=" nextimg">
+						▼
+					</view>
+				</view>
+			</view>
+		</view>
+		<view class="topLine">
+
+		</view>
+		<view class="flex-d al-center">
+			<view wx:if="{{rentingRoom.length > 0}}" class="flex-d al-center">
+				<view class="contenBox m-t3 flex ju-between" bindtap="gotoDetails" data-item="{{item}}" wx:for="{{rentingRoom}}" wx:key='id'>
+					<image wx:if="{{item.faceimg}}" src="{{item.faceimg}}" class="itemImg" mode="aspectFill"></image>
+					<image wx:else src="https://oss.kuaitongkeji.com/upload/2021/02/20/Kztg485iqwsrKNrDLXKIeQ7apbhuyi4v1SHpslOv.jpeg"
+					 class="itemImg" mode="aspectFill"></image>
+					<view class="msgBox">
+						<view class="itemName">
+							{{item.title}}
+						</view>
+						<view class="fz-12 szcolor">
+							{{item.area}}㎡ {{item.brief}} /{{item.zx}}/{{item.village}}
+						</view>
+						<view class=" szcolor  pritext flex al-center pos-rel">
+							<view class=" fz-16">
+								{{item.sale_price}}万
+							</view>
+							<view class="fz-12 m-l2 pricolor">
+								{{item.avg_price}}元/平
+							</view>
+							<view class="nextTex  pos-abs fz-12 flex al-center">
+								<image src="https://oss.kuaitongkeji.com/static/img/app/classification/Healthcare/next.png" class="nextImg"
+								 mode=""></image>
+							</view>
+						</view>
+					</view>
+				</view>
+				<view wx:if="{{hasMore == false}}" class="notext fz-12">
+					{{text}}
+				</view>
+				<view wx:if="{{isLoding == true}}" class=" flex ju-center al-center lodbox">
+					<image class="lodimg" src="https://oss.kuaitongkeji.com/static/img/app/address/loading.gif" mode=""></image>
+					加载中...
+				</view>
+			</view>
+		</view>
+
+		<view wx:if="{{isLoding == true && rentingRoom.length==0}}" class="showloding flex al-center ju-center">
+			<view class="loding flex-d al-center ju-center">
+				<view class=" ">
+					<image class="loimg" src="https://oss.kuaitongkeji.com/static/img/app/address/loading.gif" mode=""></image>
+				</view>
+				加载中
+			</view>
+		</view>
+	</view>

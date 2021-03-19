@@ -1,0 +1,105 @@
+.contenBox {
+  width: 690rpx;
+}
+
+.item {
+  width: 650rpx;
+  background: #FFFFFF;
+  border-radius: 20rpx;
+  padding: 0rpx 20rpx;
+  padding-bottom: 20rpx;
+}
+
+.titel {
+  height: 90rpx;
+  font-size: 34rpx;
+  color: #333333;
+}
+
+.itemsname {
+  width: 200rpx;
+  display: -webkit-box;
+  overflow: hidden;
+  /*超出部分隐藏*/
+  text-overflow: ellipsis;
+  /* 超出部分显示省略号 */
+  white-space: normal;
+  /*规定段落中的文本不进行换行 */
+  word-wrap: break-word;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+}
+
+.items{
+  margin-left: 14rpx;
+}
+
+.itemsimg {
+  width: 200rpx;
+  height: 160rpx;
+}
+
+.bricolor {
+  color: #666666;
+}
+
+.pritext {
+  color: #F07535;
+  font-size: 34rpx;
+  align-items: baseline;
+}
+
+.moreimg {
+  width: 15rpx;
+  height: 21rpx;
+  margin-left: 8rpx;
+}
+
+.btmLine {
+  height: 50rpx;
+}
+
+.simulation {
+  display: flex;
+  justify-content: center;
+  margin-top: 20rpx;
+  font-size: 30rpx;
+  color: #b3b3b3;
+}
+
+.rentOut {
+  width: 335rpx;
+  height: 100rpx;
+  background: #F84E4E;
+  border-radius: 10rpx;
+}
+
+.sellers {
+  width: 335rpx;
+  height: 100rpx;
+  background: #FF9126;
+  border-radius: 10rpx;
+}
+
+.sellImg {
+  width: 66rpx;
+  height: 66rpx;
+  margin-left: 60rpx;
+}
+
+.buyImg {
+  width: 58rpx;
+  height: 65rpx;
+  margin-left: 60rpx;
+}
+
+.sellMsg {
+  color: #ffffff;
+  font-size: 34rpx;
+  margin-left: 20rpx;
+}
+
+.nomsg {
+  color: #CCCCCC;
+  padding: 20rpx 0;
+}
