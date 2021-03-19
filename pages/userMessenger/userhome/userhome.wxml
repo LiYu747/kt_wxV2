@@ -1,4 +1,4 @@
-<view class="">
+<view  class="">
   <view class="navBox flex al-center ju-center bai">
       <view class="navText">物业</view>
     </view>
@@ -14,7 +14,7 @@
 					</view>
 				</view>
 			</view>
-			<view wx:if="{{code==200}}" class="">
+			<view  wx:if="{{code==200}}" class="">
 			<view class="contenBox flex">
 				<!-- 左边 -->
 				<view class="">

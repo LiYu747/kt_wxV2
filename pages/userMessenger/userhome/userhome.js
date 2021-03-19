@@ -23,9 +23,16 @@ Page({
     }
   ],
   isShowType: false,
-  code:'403'
+  code:''
   },
-   
+    
+ 
+  //申请进度
+  application(){
+    wx.navigateTo({
+      url: '/pages/userMessenger/applyingRecord/applyingRecord'
+    })
+  },
   // 申请成为
   ApplyingTo() {
     wx.navigateTo({
@@ -87,7 +94,7 @@ Page({
           return;
         }
         this.setData({
-          // code : res.data.code
+          code : res.data.code
         })
       }
     })

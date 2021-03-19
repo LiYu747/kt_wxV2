@@ -30,9 +30,78 @@ Page({
       },
     ]
   },
-  
-  submit(){
 
+
+  // 去申请进度
+  //申请记录
+  goRecord() {
+    wx.navigateTo({
+      url: '/pages/userMessenger/applyingRecord/applyingRecord'
+    })
+  },
+  // 提交
+  submit(){    
+    if (this.data.locdata[1].value == '') {
+      wx.showToast({
+        title: "请填写所属平台",
+        icon: 'none'
+      })
+      return;
+    }
+    if (this.data.locdata[2].value == '') {
+      wx.showToast({
+        title: "请填写平台工号",
+        icon: 'none'
+      })
+      return;
+    }
+    if (this.data.isLoding == true) return;
+    wx.showLoading({
+      title: '加载中'
+    })
+    home.applyToBecome({
+      data: {
+        platform: this.data.locdata[1].value,
+        code: this.data.locdata[2].value,
+        files: this.data.image,
+        user_remark: this.data.remark
+      },
+      fail: () => {
+        wx.hideLoading()
+        wx.showToast({
+          title: '网络错误',
+          icon: "none"
+        })
+      },
+      success: (res) => {
+        wx.hideLoading()
+        if (res.statusCode != 200) {
+          wx.showToast({
+            title: '网络出错了',
+            icon: "none"
+          })
+          return;
+        }
+        if (res.data.code != 200) {
+          wx.showToast({
+            title: res.data.msg,
+            icon: "none"
+          })
+          return;
+        }
+        wx.showToast({
+          title: res.data.msg
+        })
+        let val = 'locdata[1].value'
+        let value = 'locdata[2].value'
+        this.setData({
+          [val] : '',
+          [value] : '',
+          image : [],
+          remark : ''
+        })
+      }
+    })
   },
     //备注
     Onareachenge(e){

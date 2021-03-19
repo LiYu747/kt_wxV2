@@ -1,0 +1,37 @@
+<view>
+		<view class="contentBox">
+			<view class="state flex al-center">
+				<image src="https://oss.kuaitongkeji.com/static/img/app/visit/gnt.png" class="stateimg" mode=""></image>
+				<view class="m-l1 flex al-center">
+					<view wx:if="{{userInfo.verify_res_msg}}" class="">
+						{{userInfo.verify_res_msg}}
+					</view> 
+					<view class="m-l1">
+						{{ userInfo.verify_status_text}}
+					</view>
+				</view>
+			</view>
+			
+			<view class="">
+				<view class="itemBox flex al-center ju-between" wx:for="{{locdata}}" wx:key='id'>
+					<view class="">
+						{{item.label}}
+					</view>
+					<view class="">
+						{{item.value}}
+					</view>
+				</view>
+			</view>
+			
+			<view class="midLine">
+				
+			</view>
+			
+			<view class="">
+				<view class="remarkTxt">
+					备注
+				</view>
+				<textarea value="{{userInfo.user_remark}}" disabled="true"  class="reArea" placeholder="" />
+			</view>
+		</view>
+	</view>

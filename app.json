@@ -46,7 +46,8 @@
     "pages/propertyManagement/postManagement/postDetails/postDetails",
     "pages/userMessenger/goQrCode/goQrCode",
     "pages/userMessenger/applyingTo/applyingTo",
-    "pages/userMessenger/myInformation/myInformation"
+    "pages/userMessenger/myInformation/myInformation",
+    "pages/userMessenger/applyingRecord/applyingRecord"
   ],
   "window": {
     "backgroundTextStyle": "light",

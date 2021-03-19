@@ -486,6 +486,11 @@
           "pathName": "pages/userMessenger/applyingTo/applyingTo",
           "query": "id=3",
           "scene": null
+        },
+        {
+          "name": "pages/userMessenger/applyingRecord/applyingRecord",
+          "pathName": "pages/userMessenger/applyingRecord/applyingRecord",
+          "scene": null
         }
       ]
     }
