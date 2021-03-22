@@ -1,0 +1,189 @@
+.page {
+  background: #FFFFFF;
+}
+  
+.seticon{
+  width: 100%;
+  height: 60rpx;
+  background: #F07535;
+  position: fixed;
+  z-index: 99;
+  display: flex;
+   justify-content: flex-end;
+}
+
+.fidex {
+  position: fixed;
+  z-index: 9;
+}
+
+.topLine {
+  height: 60rpx;
+}
+
+.backBox {
+  width: 690rpx;
+  height: 360rpx;
+}
+
+.swiper {
+  width: 690rpx;
+  height: 360rpx;
+}
+
+
+.logoImg {
+  width: 690rpx;
+  height: 360rpx;
+}
+
+.cutBox {
+  width: 650rpx;
+  padding: 0 20rpx;
+}
+
+.leftImg {
+  width: 32rpx;
+  height: 60rpx;
+}
+
+.contenBox {
+  width: 690rpx;
+}
+
+.tags {
+  margin-top: 10rpx;
+  width: 100rpx;
+  height: 30rpx;
+}
+
+.nameDetail {
+  margin-top: 40rpx;
+  font-size: 18px;
+  color: #333333;
+}
+
+.pritext {
+  color: #F07535;
+  font-size: 34rpx;
+  align-items: baseline;
+}
+
+.houseType {
+  margin-top: 30rpx;
+  width: 690rpx;
+  background: #FFFFFF;
+  box-shadow: 0px 4px 4px 0px rgba(9, 9, 9, 0.1);
+  border-radius: 10rpx;
+  padding: 20rpx 0rpx;
+}
+
+.itemwidth {
+  width: 33%;
+}
+
+.line {
+  width: 1px;
+  height: 50rpx;
+  background: #BFBFBF;
+  position: absolute;
+  right: 0;
+}
+
+.itemvalue {
+  color: #F07535;
+  font-size: 34rpx;
+}
+
+.itemtil {
+  margin-top: 10rpx;
+  color: #999999;
+}
+
+.isHave {
+  margin-top: 30rpx;
+  width: 650rpx;
+  background: #FFFFFF;
+  box-shadow: 0px 4px 4px 0px rgba(9, 9, 9, 0.1);
+  border-radius: 10rpx;
+  padding: 20rpx;
+  color: #999999;
+}
+
+.isResult {
+  color: #333333;
+  align-items: baseline;
+}
+
+.addressBox {
+  width: 630rpx;
+  padding: 30rpx;
+  background: #F5F5F5;
+  border-radius: 10rpx;
+}
+
+.addImg {
+  margin-top: 5rpx;
+  width: 30rpx;
+  height: 30rpx;
+}
+
+.briefRoom {
+  margin-top: 30rpx;
+  width: 650rpx;
+  padding: 20rpx;
+  box-shadow: 0px 4px 4px 0px rgba(9, 9, 9, 0.1);
+  color: #4D4D4D;
+  border-radius: 10rpx;
+}
+
+.consultImg {
+  margin-top: 100rpx;
+  width: 250rpx;
+  height: 75rpx;
+}
+
+.addressmsg {
+  width: 560rpx;
+}
+
+.btmLine {
+  height: 100rpx;
+}
+
+.showBox {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 100vh;
+  background: #000000;
+  z-index: 99;
+}
+
+.showSwiper {
+  width: 100%;
+  height: 360rpx;
+}
+
+.showImg {
+  width: 100%;
+  height: 360rpx;
+}
+
+.haveBox {
+  width: 50%;
+}
+
+.conName {
+  color: #4D4D4D;
+}
+
+.userTel {
+  color: #0078FF;
+}
+
+.setimg {
+  width: 40rpx;
+  height: 40rpx;
+  margin-right: 50rpx;
+}

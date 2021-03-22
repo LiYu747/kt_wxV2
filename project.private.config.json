@@ -347,6 +347,60 @@
           "pathName": "pages/classification/lookRoom/rentalForm/rentalForm",
           "query": "id=4",
           "scene": null
+        },
+        {
+          "name": "pages/classification/lookRoom/sellersForm/sellersForm",
+          "pathName": "pages/classification/lookRoom/sellersForm/sellersForm",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/classification/lookRoom/rentAndsale/rentAndsale",
+          "pathName": "pages/classification/lookRoom/rentAndsale/rentAndsale",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/classification/lookRoom/rentAndsale/rentroomDils/rentroomDils",
+          "pathName": "pages/classification/lookRoom/rentAndsale/rentroomDils/rentroomDils",
+          "query": "id=14",
+          "scene": null
+        },
+        {
+          "name": "pages/classification/lookRoom/rentAndsale/saleroomDils/saleroomDils",
+          "pathName": "pages/classification/lookRoom/rentAndsale/saleroomDils/saleroomDils",
+          "query": "id=10",
+          "scene": null
+        },
+        {
+          "name": "pages/classification/lookRoom/rentAndsale/setSale/setSale",
+          "pathName": "pages/classification/lookRoom/rentAndsale/setSale/setSale",
+          "query": "id=10",
+          "scene": null
+        },
+        {
+          "name": "pages/classification/lookRoom/sellersForm/sellersForm",
+          "pathName": "pages/classification/lookRoom/sellersForm/sellersForm",
+          "query": "id=10",
+          "scene": null
+        },
+        {
+          "name": "pages/classification/lookRoom/rentAndsale/setRent/setRent",
+          "pathName": "pages/classification/lookRoom/rentAndsale/setRent/setRent",
+          "query": "id=14",
+          "scene": null
+        },
+        {
+          "name": "pages/classification/lookRoom/rentalForm/rentalForm",
+          "pathName": "pages/classification/lookRoom/rentalForm/rentalForm",
+          "query": "id=14",
+          "scene": null
+        },
+        {
+          "name": "pages/classification/lookRoom/rentAndsale/rentAndsale",
+          "pathName": "pages/classification/lookRoom/rentAndsale/rentAndsale",
+          "query": "id=14",
+          "scene": null
         }
       ]
     }

@@ -1,0 +1,138 @@
+<view class="">
+  <view class="layoutBox flex ">
+    标题
+    <textarea auto-height="{{true}}" class="textBox" maxlength="30" bindinput="Onvalue" value="{{value}}"
+      placeholder="请输入标题(30字以内)"></textarea>
+  </view>
+  <view class="contentBox m-t3">
+    <view class="itemBox flex al-center ju-between {{index==formlist.length-1?'dv':''}}" bindtap="fillIn"
+      wx:for="{{formlist}}" wx:key="id" data-item="{{item}}" data-index="{{index}}">
+      {{item.titel}}
+      <view class="flex al-center">
+        <input type="{{item.style}}" placeholder="{{item.placeholder}}" value="{{item.value}}" bindinput="Onchange" data-index="{{index}}"
+            disabled="{{item.disabled}}" class="ipt" />
+        <image wx:if="{{index!=4}}" class="reimg" src="https://oss.kuaitongkeji.com/static/img/app/address/retrue.png"
+          mode=""></image>
+        <view wx:if="{{index==4}}" class=" m-l2">
+          ㎡
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 户型 -->
+  <van-popup show="{{ houseType }}" position="bottom" custom-style="height: 40%;" bind:close="onClose">
+    <van-picker columns="{{ listType }}"    show-toolbar bind:cancel="onClose" value-key="{{'label'}}"
+  bind:confirm="onConfirm" title='请选择户型' />
+  </van-popup>
+    <!-- 楼层 -->
+    <van-popup show="{{ Isfloor }}" position="bottom" custom-style="height: 40%;" bind:close="onfloor">
+    <van-picker columns="{{ listFloor }}"  bind:change='flChange'   show-toolbar bind:cancel="onfloor" value-key="{{'label'}}"
+  bind:confirm="onCfloor" title='请选择楼层' />
+  </van-popup>
+    <!-- 装修 -->
+    <van-popup show="{{ fitmentShow }}" position="bottom" custom-style="height: 40%;" bind:close="onfitment">
+    <van-picker columns="{{ fitmentList }}"   show-toolbar bind:cancel="onfitment" value-key="{{'label'}}"
+  bind:confirm="confirmFitment" title='请选择装修' />
+  </van-popup>
+    <!-- 电梯 -->
+    <van-popup show="{{ elevatorShow }}" position="bottom" custom-style="height: 40%;" bind:close="onEle">
+    <van-picker columns="{{ elevatorList }}"   show-toolbar bind:cancel="onEle" value-key="{{'label'}}"
+  bind:confirm="confirmElevator" title='请选择是否有电梯' />
+  </van-popup>
+    <!-- 押金 -->
+    <van-popup show="{{ cashShow }}" position="bottom" custom-style="height: 40%;" bind:close="onCash">
+    <van-picker columns="{{ cashList }}"   show-toolbar bind:cancel="onCash" value-key="{{'label'}}"
+  bind:confirm="confirmCash" title='请选择押金' />
+  </van-popup>
+    <view class="contentBox m-t3">
+      <view class="itemBox flex al-center ju-between dv">
+        售价
+        <view class="flex al-center">
+          <input type="number" value="{{rentNum}}" bindinput="Onrent" placeholder="请填写" class="ipt" />
+          <view class="fz-14 m-l2">
+            万
+          </view>
+        </view>
+      </view>
+     
+    </view>
+
+    <view class="contentBox m-t3 ">
+      <view class="roomtetx">
+        房屋照片
+      </view>
+      <view class="flex al-center flex-w">
+        <view class=" pos-rel" wx:for="{{image}}" data-item="{{item}}"  wx:key='id'>
+          <image src="{{item}}" mode="aspectFill" class="itemImg"></image>
+          <view bindtap="delImage" data-index="{{index}}" class="delBox flex al-center ju-center">
+            <image src="https://oss.kuaitongkeji.com/static/img/app/lookroom/del.png" class="delImg" mode=""></image>
+          </view>
+        </view>
+        <view bindtap="selPhoto" class="selphoto flex al-center ju-center">
+          <image src="https://oss.kuaitongkeji.com/static/img/app/lookroom/photo.png" class="photoImg" mode=""></image>
+        </view>
+      </view>
+      <view class="roomtetx">
+        封面图片
+      </view>
+      <view class="p-b2 flex">
+        <view wx:if="{{coverImg}}" class="pos-rel">
+          <image src="{{coverImg}}" class="itemImg" mode="aspectFill"></image>
+          <view bindtap="clarImg" class="delBox flex al-center ju-center">
+            <image src="https://oss.kuaitongkeji.com/static/img/app/lookroom/del.png" class="delImg" mode=""></image>
+          </view>
+        </view>
+        <view bindtap="celCover" class="selphoto flex al-center ju-center">
+          <image src="https://oss.kuaitongkeji.com/static/img/app/lookroom/cover.png" class="coverImg" mode=""></image>
+        </view>
+      </view>
+    </view>
+
+    <view class="contentBox m-t3">
+      <view class="roomtetx">
+        房源简介
+      </view>
+      <view class="pushTxt p-b3">
+        <textarea class="textAr" auto-height="{{true}}" bindinput="OnText" maxlength="1000"  value="{{textvalue}}"
+          placeholder="请填写" ></textarea>
+        </view>
+		</view>
+	
+		<view class="contentBox m-t3">
+			<view class="roomtetx">
+				<view class="flex al-center">
+					联系人
+					<view class=" m-l3 fz-14">
+						{{username}}
+					</view>
+				</view>
+				<view class="Hline">
+					
+				</view>
+			    <view class=" flex al-center">
+			    	联系电话
+					<view class=" m-l3 fz-14">
+						{{tel}}
+					</view>
+			    </view>
+			</view>
+		</view>
+		
+		<view class="flex ju-center ">
+			<view  bindtap="iSfill"  class="submit flex al-center ju-center">
+				<image src="https://oss.kuaitongkeji.com/static/img/app/lookroom/submit.png" class="submitImg" mode=""></image>
+				<view class="pos-abs fz-16 bai">
+					提交
+				</view>
+			</view>
+		</view>
+		<view wx:if="{{isLoding == true}}" class="showloding flex al-center ju-center">
+			<view class="loding flex-d al-center ju-center">
+				<view class=" ">
+					<image class="loimg" src="https://oss.kuaitongkeji.com/static/img/app/address/loading.gif" mode=""></image>
+				</view>
+				上传中
+			</view>
+		</view>
+  </view>

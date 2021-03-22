@@ -31,12 +31,15 @@
       <view class="itemtext">
         {{item.titel}}
       </view>
-      <view wx:if="{{index==5}}" class="">
+      <view wx:if="{{index==6}}" class="">
         <view wx:if="{{0<informmsg && user}}" class="munber flex al-center ju-center">
           {{informmsg}}
         </view>
 
       </view>
     </view>
+  </view>
+  <view class="btoLine">
+
   </view>
 </view>

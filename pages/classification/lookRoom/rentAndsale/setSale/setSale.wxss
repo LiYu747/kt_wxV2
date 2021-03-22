@@ -1,0 +1,25 @@
+.conBox{
+	margin-top: 30rpx;
+	width: 650rpx;
+	padding: 30rpx 20rpx;
+	background: #FFFFFF;
+}
+.item{
+	height: 100rpx;
+	border-bottom: 1rpx solid #CCCCCC;
+}
+
+.reimg{
+	width: 16rpx;
+	height: 30rpx;
+	margin-right: 20rpx;
+}
+
+.delBox{
+	width: 360rpx;
+	height: 80rpx;
+	border-radius: 10rpx;
+	background: #DD6161;
+	color: #FFFFFF;
+	margin: 50rpx;
+}

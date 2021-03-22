@@ -32,7 +32,12 @@ Page({
 		  {image:'https://oss.kuaitongkeji.com/static/img/app/user/Trecords.png',
 		   titel:'出行记录',
 		   url:'/pages/userinfo/travelRecords/travelRecords'
-		  },
+      },
+      {
+        image: "https://oss.kuaitongkeji.com/static/img/app/lookroom/zoom.png",
+        titel: '房屋租售',
+        url: '/pages/classification/lookRoom/rentAndsale/rentAndsale'
+      },
 		  {image:'https://oss.kuaitongkeji.com/static/img/app/address/msgtz.png', 
 		   titel:'消息通知',
 		   url:'/pages/userinfo/userInform/userInform' 

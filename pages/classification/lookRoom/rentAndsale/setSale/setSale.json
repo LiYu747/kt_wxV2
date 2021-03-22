@@ -1,0 +1,9 @@
+{
+  "usingComponents": {
+    "van-switch": "../../../../../@vant/weapp/switch/index"
+  },
+  "navigationBarBackgroundColor": "#F07535",
+  "navigationBarTextStyle": "white",
+  "navigationBarTitleText": "设置",
+  "backgroundColor": "#eeeeee"
+}

@@ -1,0 +1,19 @@
+<view>
+		<view class="flex-d al-center">
+			<view class="conBox cl3 fz-14">
+				<view class="item  flex al-center ju-between">
+          更改可见性
+          <van-switch checked="{{ checked }}" bind:change="onChange"    inactive-color="#eeeeee" active-color='#F07535' size="40rpx" />
+				</view>
+				<view  bindtap="updatamsg" class="item flex al-center ju-between">
+					更新数据
+					<image class="reimg" src="https://oss.kuaitongkeji.com/static/img/app/address/retrue.png" mode=""></image>
+				</view>
+				<view class="flex-d al-center">
+					<view bindtap="aadDel" class="delBox fz-16 flex al-center ju-center">
+						删除
+					</view>
+				</view>
+			</view>
+		</view>
+    </view>

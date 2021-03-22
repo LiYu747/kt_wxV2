@@ -107,79 +107,79 @@ Page({
   },
 
 
-    // 提交
-    subunit(){
-		  let faceimg = this.data.coverImg
-		   if(!this.data.coverImg){
-			   faceimg = this.data.image[0]
-		   }
-		   wx.showLoading({
-		   	title:'提交中'
-       })
-		 home.releaseRent({
-			 data:{
-				 // 必传
-				 title: this.data.value,
-				 room:this.data.defaultType[0] ,
-				 hall:this.data.defaultType[1] ,
-				 bathroom:this.data.defaultType[2],
-				 area:this.data.formlist[4].value,
-				 ele:this.data.defaultElevator[0],
-				 floor:this.data.floor,
-				 total_floor:this.data.totalFloor,
-				 zx:this.data.celFit,
-				 rents:this.data.rentNum,
-				 album:this.data.image,
-				 village:this.data.formlist[0].value,
-				 desc:this.data.textvalue,
-				 tel:this.data.tel,
-				 contact_name:this.data.username,
-				// 可选
-				  rents_bet: this.data.rents_bet,
-				  rents_pay: this.data.rents_pay,
-				  location:this.data.addDetails,
-				  lgt:this.data.lgt,
-				  lat:this.data.lat,
-				  faceimg:faceimg
-			 },
-			 fail: () => {
-				 wx.hideLoading()
-				 wx.showToast({
-				 	title: '网络错误',
-				 	icon: 'none'
-				 })
-			 },
-			 success:(res) => {
-				  wx.hideLoading()
-				  if (res.statusCode != 200) {
-				  	wx.showToast({
-				  		title: '网络出错了',
-				  		icon: 'none'
-				  	})
-				  	return;
-				  }
-				  if (res.data.code != 200) {
-				  	wx.showToast({
-				  		title: res.data.msg,
-				  		icon: 'none'
-				  	})
-				  	return;
-				  }
-				  wx.showToast({
-				  	title: res.data.msg,
-				  	icon: 'none',
-					duration:3000
-				  })
-				  let settime = setTimeout(() =>{
-					 wx.navigateBack({
-					 	delta:1
-					 })
-					 clearTimeout(settime)
-				  },3000)
-					  
-				 }
-		 })  
-	   },
+  // 提交
+  subunit() {
+    let faceimg = this.data.coverImg
+    if (!this.data.coverImg) {
+      faceimg = this.data.image[0]
+    }
+    wx.showLoading({
+      title: '提交中'
+    })
+    home.releaseRent({
+      data: {
+        // 必传
+        title: this.data.value,
+        room: this.data.defaultType[0],
+        hall: this.data.defaultType[1],
+        bathroom: this.data.defaultType[2],
+        area: this.data.formlist[4].value,
+        ele: this.data.defaultElevator[0],
+        floor: this.data.floor,
+        total_floor: this.data.totalFloor,
+        zx: this.data.celFit,
+        rents: this.data.rentNum,
+        album: this.data.image,
+        village: this.data.formlist[0].value,
+        desc: this.data.textvalue,
+        tel: this.data.tel,
+        contact_name: this.data.username,
+        // 可选
+        rents_bet: this.data.rents_bet,
+        rents_pay: this.data.rents_pay,
+        location: this.data.addDetails,
+        lgt: this.data.lgt,
+        lat: this.data.lat,
+        faceimg: faceimg
+      },
+      fail: () => {
+        wx.hideLoading()
+        wx.showToast({
+          title: '网络错误',
+          icon: 'none'
+        })
+      },
+      success: (res) => {
+        wx.hideLoading()
+        if (res.statusCode != 200) {
+          wx.showToast({
+            title: '网络出错了',
+            icon: 'none'
+          })
+          return;
+        }
+        if (res.data.code != 200) {
+          wx.showToast({
+            title: res.data.msg,
+            icon: 'none'
+          })
+          return;
+        }
+        wx.showToast({
+          title: res.data.msg,
+          icon: 'none',
+          duration: 3000
+        })
+        let settime = setTimeout(() => {
+          wx.navigateBack({
+            delta: 1
+          })
+          clearTimeout(settime)
+        }, 3000)
+
+      }
+    })
+  },
   // 选择
   fillIn(e) {
     let index = e.currentTarget.dataset.index
@@ -207,115 +207,115 @@ Page({
       })
     }
   },
-     //判断
-     iSfill(){
-      if(!this.data.value){
-        wx.showToast({
-          title:"请输入标题",
-          icon:"none"
-        })
-        return;		
-      } 
-      if(!this.data.formlist[0].value) {
-         wx.showToast({
-          title:"请选择小区",
-          icon:"none"
-         })
-         return;
-          } 
-      if(this.data.defaultType.length == 0){
-         wx.showToast({
-          title:"请选择户型",
-          icon:"none"
-         })
-         return;
-      }
-      if(!this.data.floor){
-         wx.showToast({
-          title:"请选择楼层",
-          icon:"none"
-         })
-         return;
-      }
-      if(!this.data.celFit){
-         wx.showToast({
-          title:"请选择装修",
-          icon:"none"
-         })
-         return;
-      }
-      if(!this.data.formlist[4].value){
-         wx.showToast({
-          title:"请填写面积",
-          icon:"none"
-         })
-         return;
-      }
-      if( this.data.defaultElevator.length == 0){
-         wx.showToast({
-          title:"请选择是否有电梯",
-          icon:"none"
-         })
-         return;
-      }
-      if( !this.data.rentNum){
-         wx.showToast({
-          title:"请填写租金",
-          icon:"none"
-         })
-         return;
-      }
-      if( this.data.image.length == 0){
-         wx.showToast({
-          title:"请上传房屋照片",
-          icon:"none"
-         })
-         return;
-      }
-      if( !this.data.textvalue){
-         wx.showToast({
-          title:"请填写房屋简介",
-          icon:"none"
-         })
-         return;
-      } 
-      if(this.data.id){
-        this.upData()
-        return;
-      }
-      this.subunit()
-    },
-   //房屋简介
-   OnText(e){
-    this.setData({
-      textvalue : e.detail.value
-    })
-   },
-  //删除图片
-	delImage(e){
-    let index = e.currentTarget.dataset.index
-    this.data.image.splice(index,1)
-    this.setData({
-      image : this.data.image
-    })
-	},
-  //删除封面
-  clarImg(){
-   this.setData({
-    coverImg : ''
-   })
+  //判断
+  iSfill() {
+    if (!this.data.value) {
+      wx.showToast({
+        title: "请输入标题",
+        icon: "none"
+      })
+      return;
+    }
+    if (!this.data.formlist[0].value) {
+      wx.showToast({
+        title: "请选择小区",
+        icon: "none"
+      })
+      return;
+    }
+    if (this.data.defaultType.length == 0) {
+      wx.showToast({
+        title: "请选择户型",
+        icon: "none"
+      })
+      return;
+    }
+    if (!this.data.floor) {
+      wx.showToast({
+        title: "请选择楼层",
+        icon: "none"
+      })
+      return;
+    }
+    if (!this.data.celFit) {
+      wx.showToast({
+        title: "请选择装修",
+        icon: "none"
+      })
+      return;
+    }
+    if (!this.data.formlist[4].value) {
+      wx.showToast({
+        title: "请填写面积",
+        icon: "none"
+      })
+      return;
+    }
+    if (this.data.defaultElevator.length == 0) {
+      wx.showToast({
+        title: "请选择是否有电梯",
+        icon: "none"
+      })
+      return;
+    }
+    if (!this.data.rentNum) {
+      wx.showToast({
+        title: "请填写租金",
+        icon: "none"
+      })
+      return;
+    }
+    if (this.data.image.length == 0) {
+      wx.showToast({
+        title: "请上传房屋照片",
+        icon: "none"
+      })
+      return;
+    }
+    if (!this.data.textvalue) {
+      wx.showToast({
+        title: "请填写房屋简介",
+        icon: "none"
+      })
+      return;
+    }
+    if (this.data.id) {
+      this.upData()
+      return;
+    }
+    this.subunit()
   },
-   //选择图片
-   selPhoto(){
+  //房屋简介
+  OnText(e) {
     this.setData({
-      flag : false
+      textvalue: e.detail.value
+    })
+  },
+  //删除图片
+  delImage(e) {
+    let index = e.currentTarget.dataset.index
+    this.data.image.splice(index, 1)
+    this.setData({
+      image: this.data.image
+    })
+  },
+  //删除封面
+  clarImg() {
+    this.setData({
+      coverImg: ''
+    })
+  },
+  //选择图片
+  selPhoto() {
+    this.setData({
+      flag: false
     })
     this.succ()
   },
   //选择封面
-  celCover(){
+  celCover() {
     this.setData({
-      flag : true
+      flag: true
     })
     this.succ()
   },
@@ -508,74 +508,74 @@ Page({
     })
   },
   // 图片
-  succ(){
+  succ() {
     wx.chooseImage({
       extension: ['jpg', 'jpeg', 'png', 'gif'],
       success: (chooseImageRes) => {
         const files = chooseImageRes.tempFilePaths;
-       this.setData({
-         isLoding : true
-       })
+        this.setData({
+          isLoding: true
+        })
         let that = this;
         if (files.length == 0) return;
         let func = [];
         files.forEach((item) => {
           func.push(that.upload(item));
         });
-    
+
         Promise.all(func).then((res) => {
           that.setData({
-            isLoding : false
+            isLoding: false
           })
         }).catch((err) => {
           that.setData({
-            isLoding : false
+            isLoding: false
           })
           wx.showModal({
             title: "上传文件出错:" + err,
           })
         })
       }
-    })  
-   },
-   upload(fileItem) {
-     let that = this;
-     return new Promise((res, rej) => {
-       wx.uploadFile({
-         url: route.services.file.upload,
-         filePath: fileItem,
-         name: 'file',
-         fail: (err) => {
-           rej('网络出错');
-         },
-         success: (val) => {
-           if (val.statusCode != 200) {
-             rej(val.statusCode);
-             return;
-           }
-   
-           let jres = JSON.parse(val.data);
-   
-           if (jres.code != 200) {
-             rej(jres.msg);
-             return;
-           }
-         if(that.data.flag == false){
-           that.data.image.push(jres.data.url)
-           that.setData({
-            image :   that.data.image
-           })
-         }
-         if(that.data.flag == true) {
+    })
+  },
+  upload(fileItem) {
+    let that = this;
+    return new Promise((res, rej) => {
+      wx.uploadFile({
+        url: route.services.file.upload,
+        filePath: fileItem,
+        name: 'file',
+        fail: (err) => {
+          rej('网络出错');
+        },
+        success: (val) => {
+          if (val.statusCode != 200) {
+            rej(val.statusCode);
+            return;
+          }
+
+          let jres = JSON.parse(val.data);
+
+          if (jres.code != 200) {
+            rej(jres.msg);
+            return;
+          }
+          if (that.data.flag == false) {
+            that.data.image.push(jres.data.url)
             that.setData({
-              coverImg : jres.data.url
+              image: that.data.image
             })
-         }
-           res(jres);
-         }
-       })
-     })
-   },
+          }
+          if (that.data.flag == true) {
+            that.setData({
+              coverImg: jres.data.url
+            })
+          }
+          res(jres);
+        }
+      })
+    })
+  },
   all() {
     // 户型数据
     let lists = [{
@@ -667,11 +667,172 @@ Page({
     })
 
   },
+
+  getData(id) {
+    wx.showLoading({
+      title: "加载中"
+    })
+    home.rentDils({
+      data: {
+        id: id
+      },
+      fail: () => {
+        wx.hideLoading()
+        wx.showToast({
+          title: '网络错误',
+          icon: 'none'
+        })
+      },
+      success: (res) => {
+        wx.hideLoading()
+        if (res.statusCode != 200) {
+          wx.showToast({
+            title: '网络出错了',
+            icon: 'none'
+          })
+          return;
+        }
+        if (res.data.code != 200) {
+          wx.showToast({
+            title: res.data.msg,
+            icon: 'none'
+          })
+          return;
+        }
+        let data = res.data.data
+        this.setData({
+          celFit: data.zx,
+          defaultElevator: [data.ele]
+        })
+        if (data.zx == 'low') {
+          data.zx = '清水房'
+        }
+        if (data.zx == 'simple') {
+          data.zx = '简装'
+        }
+        if (data.zx == 'well') {
+          data.zx = '精装'
+        }
+        if (data.ele == 0) {
+          data.ele = '无'
+        }
+        if (data.ele == 1) {
+          data.ele = '有'
+        }
+        let village = 'formlist[0].value'
+        let room = 'formlist[1].value'
+        let floor = 'formlist[2].value'
+        let zx = 'formlist[3].value'
+        let area = 'formlist[4].value'
+        let ele = 'formlist[5].value'
+        let rents = data.rents_bet ? '押' + data.rents_bet : ''
+        this.setData({
+          value: data.title,
+          [village]: data.village,
+          [room]: data.room + '室' + data.hall + '厅' + data.bathroom + '卫',
+          [floor]: data.floor + '/' + data.total_floor,
+          [zx]: data.zx,
+          [area]: data.area,
+          [ele]: data.ele,
+          rentNum: data.rents,
+          cash: rents + '付' + data.rents_pay,
+          textvalue: data.desc,
+          image: data.album,
+          coverImg: data.faceimg,
+          floor: data.floor,
+          totalFloor: data.total_floor,
+          rents_bet: data.rents_bet,
+          rents_pay: data.rents_pay,
+          addDetails: data.location,
+          lgt: data.lgt,
+          lat: data.lat,
+
+          defaultType: [data.room, data.hall, data.bathroom],
+        })
+      }
+    })
+  },
+  upData() {
+    let faceimg = this.data.coverImg
+    if (!this.data.coverImg) {
+      faceimg = this.data.image[0]
+    }
+    wx.showLoading({
+      title: '提交中'
+    })
+    home.updataRoom({
+      data: {
+        id: this.data.id,
+        // 必传
+        title: this.data.value,
+        room: this.data.defaultType[0],
+        hall: this.data.defaultType[1],
+        bathroom: this.data.defaultType[2],
+        area: this.data.formlist[4].value,
+        ele: this.data.defaultElevator[0],
+        floor: this.data.floor,
+        total_floor: this.data.totalFloor,
+        zx: this.data.celFit,
+        rents: this.data.rentNum,
+        album: this.data.image,
+        village: this.data.formlist[0].value,
+        desc: this.data.textvalue,
+        tel: this.data.tel,
+        contact_name: this.data.username,
+        // 可选
+        rents_bet: this.data.rents_bet,
+        rents_pay: this.data.rents_pay,
+        location: this.data.addDetails,
+        lgt: this.data.lgt,
+        lat: this.data.lat,
+        faceimg: faceimg
+      },
+      fail: () => {
+        wx.hideLoading()
+        wx.showToast({
+          title: '网络错误',
+          icon: 'none'
+        })
+      },
+      success: (res) => {
+        wx.hideLoading()
+        if (res.statusCode != 200) {
+          wx.showToast({
+            title: '网络出错了',
+            icon: 'none'
+          })
+          return;
+        }
+        if (res.data.code != 200) {
+          wx.showToast({
+            title: res.data.msg,
+            icon: 'none'
+          })
+          return;
+        }
+        wx.showToast({
+          title: res.data.msg,
+          icon: 'none',
+          duration: 3000
+        })
+
+        let settime = setTimeout(() => {
+          wx.navigateBack({
+            delta: 3
+          })
+        }, 3000)
+      }
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    if (!options.id) return;
+    this.getData(options.id)
+    this.setData({
+      id: options.id
+    })
   },
 
   /**

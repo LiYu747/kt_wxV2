@@ -53,7 +53,13 @@
     "pages/classification/lookRoom/rentRoom/detailRoom/detailRoom",
     "pages/classification/lookRoom/buyHouse/moreBuy/moreBuy",
     "pages/classification/lookRoom/buyHouse/buyDetails/buyDetails",
-    "pages/classification/lookRoom/rentalForm/rentalForm"
+    "pages/classification/lookRoom/rentalForm/rentalForm",
+    "pages/classification/lookRoom/sellersForm/sellersForm",
+    "pages/classification/lookRoom/rentAndsale/rentAndsale",
+    "pages/classification/lookRoom/rentAndsale/rentroomDils/rentroomDils",
+    "pages/classification/lookRoom/rentAndsale/saleroomDils/saleroomDils",
+    "pages/classification/lookRoom/rentAndsale/setSale/setSale",
+    "pages/classification/lookRoom/rentAndsale/setRent/setRent"
   ],
   "window": {
     "backgroundTextStyle": "light",

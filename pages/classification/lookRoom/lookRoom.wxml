@@ -1,5 +1,5 @@
 <view class="">
-		<view class="flex-d al-center">
+		<view  class="flex-d al-center">
 			<view class="contenBox">
 				<view class="flex al-center m-t3 ju-between">
 					<view bindtap="myRental" class="rentOut flex al-center">

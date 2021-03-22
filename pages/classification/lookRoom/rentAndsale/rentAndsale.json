@@ -1,0 +1,10 @@
+{
+  "usingComponents": {
+    "van-tab": "../../../../@vant/weapp/tab/index",
+    "van-tabs": "../../../../@vant/weapp/tabs/index"
+  },
+  "navigationBarBackgroundColor": "#F07535",
+  "navigationBarTextStyle": "white",
+  "navigationBarTitleText": "房屋租售",
+  "backgroundColor": "#eeeeee"
+}

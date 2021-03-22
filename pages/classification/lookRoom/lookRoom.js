@@ -6,44 +6,51 @@ Page({
    * 页面的初始数据
    */
   data: {
-  	rentingRoom: [],
-				sellRoom: [],
-				notext: '',
-				notext2: ''
+    rentingRoom: [],
+    sellRoom: [],
+    notext: '',
+    notext2: ''
   },
-   
-    	// 我要出租
-			myRental() {
-				wx.navigateTo({
-					url: '/pages/classification/lookRoom/rentalForm/rentalForm'
-				})
-			},
-   	// 去租房详情
-     gotoDetails(e) {
-       let item = e.currentTarget.dataset.item
+
+
+  //我要卖房
+  mySellers() {
     wx.navigateTo({
-        url: '/pages/classification/lookRoom/rentRoom/detailRoom/detailRoom?id=' + item.id
-      })
-    },
-    //去买房详情
-    gotoBuy(e) {
-      let item = e.currentTarget.dataset.item
-      wx.navigateTo({
-        url: '/pages/classification/lookRoom/buyHouse/buyDetails/buyDetails?id=' + item.id
-      })
-    },
-   //更多买房
-   moreBuye() {
+      url: '/pages/classification/lookRoom/sellersForm/sellersForm'
+    })
+  },
+  // 我要出租
+  myRental() {
+    wx.navigateTo({
+      url: '/pages/classification/lookRoom/rentalForm/rentalForm'
+    })
+  },
+  // 去租房详情
+  gotoDetails(e) {
+    let item = e.currentTarget.dataset.item
+    wx.navigateTo({
+      url: '/pages/classification/lookRoom/rentRoom/detailRoom/detailRoom?id=' + item.id
+    })
+  },
+  //去买房详情
+  gotoBuy(e) {
+    let item = e.currentTarget.dataset.item
+    wx.navigateTo({
+      url: '/pages/classification/lookRoom/buyHouse/buyDetails/buyDetails?id=' + item.id
+    })
+  },
+  //更多买房
+  moreBuye() {
     wx.navigateTo({
       url: '/pages/classification/lookRoom/buyHouse/moreBuy/moreBuy'
     })
   },
-  	// 更多租房
-    addmore() {
-      wx.navigateTo({
-        url: '/pages/classification/lookRoom/rentRoom/moreRoom/moreRoom'
-      })
-    },
+  // 更多租房
+  addmore() {
+    wx.navigateTo({
+      url: '/pages/classification/lookRoom/rentRoom/moreRoom/moreRoom'
+    })
+  },
   // 所有的出租房信息
   getRoom() {
     home.allRoom({
@@ -79,11 +86,11 @@ Page({
         })
         if (data.length == 0) {
           this.setData({
-            notext : '还没有人发布租房信息'
+            notext: '还没有人发布租房信息'
           })
         }
         this.setData({
-          rentingRoom : data
+          rentingRoom: data
         })
       }
     })
@@ -123,11 +130,11 @@ Page({
         })
         if (data.length == 0) {
           this.setData({
-            notext2 : '还没有人发布卖房信息'
+            notext2: '还没有人发布卖房信息'
           })
         }
         this.setData({
-          sellRoom :  data
+          sellRoom: data
         })
       }
     })
@@ -144,8 +151,8 @@ Page({
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-   this.getRoom()
-   this.getSell()
+    this.getRoom()
+    this.getSell()
   },
 
   /**

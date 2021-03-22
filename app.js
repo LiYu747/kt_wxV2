@@ -41,4 +41,5 @@ App({
   myPostisDel: 0,//判断是否删除了我自己发布的帖子
   checkSeePass : '',//是否同意进行入住
   IsPostpass : '',//帖子是否通过
+  roomIsDel : 0,//我发布的房屋是否删除
 })
