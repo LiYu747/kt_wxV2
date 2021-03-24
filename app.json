@@ -59,7 +59,9 @@
     "pages/classification/lookRoom/rentAndsale/rentroomDils/rentroomDils",
     "pages/classification/lookRoom/rentAndsale/saleroomDils/saleroomDils",
     "pages/classification/lookRoom/rentAndsale/setSale/setSale",
-    "pages/classification/lookRoom/rentAndsale/setRent/setRent"
+    "pages/classification/lookRoom/rentAndsale/setRent/setRent",
+    "pages/residence/houseOwner/houseOwner",
+    "pages/userinfo/versionNumber/versionNumber"
   ],
   "window": {
     "backgroundTextStyle": "light",

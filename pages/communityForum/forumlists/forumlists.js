@@ -1,6 +1,7 @@
 // pages/communityForum/forumlists/forumlists.js
 
-import village from '../../../vendor/village/village.js'
+import village from '../../../vendor/village/village.js';
+import jwt from '../../../vendor/auth/jwt.js'
 const app = getApp()
 Page({
 
@@ -23,24 +24,25 @@ Page({
     keyword: '',
     flag: false, //判断有没有搜索结果
     tagdata: [],
-    idx: 1, //选择类型
-    active: 1
+    idx: 0, //选择类型
+    active: 0
   },
-  
 
-   //自定义
-   custom(){
-       wx.navigateTo({
-         url: '/pages/communityForum/tags/tags',
-       })
-   },
-   //去详情页面
-   gotoD(e){
-   let item = e.currentTarget.dataset.item
-   wx.navigateTo({
-    url: `/pages/communityForum/forum/forum?id=${item.id}`
-  })
-   },
+
+  //自定义
+  custom() {
+    return;
+    wx.navigateTo({
+      url: '/pages/communityForum/tags/tags',
+    })
+  },
+  //去详情页面
+  gotoD(e) {
+    let item = e.currentTarget.dataset.item
+    wx.navigateTo({
+      url: `/pages/communityForum/forum/forum?id=${item.id}`
+    })
+  },
   // 清空
   empty() {
     this.setData({
@@ -248,10 +250,27 @@ Page({
 
 
   },
+
+  // 判断是否登录
+  ISuserlogin(){
+    jwt.doOnlyTokenValid({
+      keepSuccess: false,
+      showModal: true,
+      fail: () => {
+       wx.navigateBack({
+         delta: 1,
+       })
+      },
+      success: () => {
+       
+      }
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    if (!options.id) return;
     this.setData({
       id: options.id
     })
@@ -268,14 +287,14 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-  
+    this.ISuserlogin()
   },
 
   /**
    * 生命周期函数--监听页面隐藏
    */
   onHide: function () {
-    
+
   },
 
   /**
@@ -296,53 +315,7 @@ Page({
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function () {
-    this.setData({
-      sstext: '没有更多了'
-    })
-    if (this.data.ssloding == true || this.data.sshasMore == false) return;
-    this.setData({
-      ssloding: true
-    })
-    village.communityPost({
-      data: {
-        villageId: this.data.id,
-        tribune_cat: '',
-        kw: this.data.value,
-        page: this.data.page + 1,
-        pageSize: this.data.sspz
-      },
-      fail: () => {
-        this.setData({
-          ssloding: false
-        })
-        wx.showToast({
-          title: '网络错误',
-          icon: 'none'
-        })
-      },
-      success: (res) => {
-        this.setData({
-          ssloding: false
-        })
-        if (res.statusCode != 200) return;
 
-        if (res.data.code != 200) return;
-
-        let data = res.data.data;
-        data.data.map(item => {
-          item.created_at = item.created_at.slice(0, 16)
-          item.album = item.album.slice(0, 3)
-        })
-        let lists = this.data.lists
-        lists = lists.concat(data.data)
-        this.setData({
-          lists: lists,
-          flag: true,
-          sshasMore: data.next_page_url ? true : false
-        })
-      },
-
-    })
   },
 
   /**

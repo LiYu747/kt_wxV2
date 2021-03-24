@@ -1,0 +1,44 @@
+<view class="">
+		<view class="cont">
+			<view class="nav flex al-center">
+				<image src="https://oss.kuaitongkeji.com/static/img/app/visit/gnt.png" class="img" mode=""></image>
+				<view  class="text">
+					{{text}}
+				</view> 
+			</view>
+			<view class="flex al-center pos-rel ipt" wx:for="{{locadata}}" wx:key='id'>
+				<view class="">
+					{{item.titel}}
+				</view>
+				<view class="pos-abs rig">
+					{{item.value}}
+				</view>
+			</view>
+			<view class="line">
+
+			</view>
+			<view class="tex1">
+				备注
+			</view>
+			<textarea value="{{remark}}" disabled='true' class="frame">
+			</textarea>
+			<view class="tex1">
+				申请结果
+			</view>
+			<textarea value="{{result}}" bindinput="Ochenge"  placeholder="您可以在这里告诉他申请结果" class="frame">
+			</textarea>
+		</view>
+		<!-- 按钮 -->
+		
+		<view wx:if="{{text=='审核中'}}"  class=" flex al-center ju-around m-t4 ">
+			<view bindtap="pass" class="btnr flex al-center ju-center">
+				<image src="https://oss.kuaitongkeji.com/static/img/app/login/ccuc.png" class="btnimg" mode=""></image>
+				<view class=" pos-abs">
+					通过
+				</view>
+			</view>
+			<view bindtap="nopass" class="btnl flex al-center ju-center">
+				不通过
+			</view>
+		</view>
+	</view>

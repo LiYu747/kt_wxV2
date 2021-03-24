@@ -25,7 +25,7 @@ class Clients {
 
 	constructor() {
 
-		//#ifdef APP-PLUS
+		//#ifdef APP-PLUS.
 		// this.version = plus.runtime.version
 		// console.log('version',this.version);
 		//#endif 
@@ -36,7 +36,7 @@ class Clients {
 
 		//是否需要更新客户端
 		//#ifdef APP-PLUS 
-		this.askUpdateClient();
+		// this.askUpdateClient();
 		//#endif 
 
 	}

@@ -13,8 +13,8 @@
   <view class="topLine"></view>
   <!-- tag标签 -->
   <view wx:if="{{flag == false}}" class="back">
-    <view class="wid">
-      <van-tabs  animated ellipsis="{{false}}" color='#F07535' bind:click="celtags" active="{{ active }}">
+    <view wx:if="{{tagdata.length>0}}" class="wid">
+      <van-tabs  animated  ellipsis="{{false}}" color='#F07535' bind:click="celtags" active="{{ active }}">
         <block wx:for="{{tagdata}}" wx:key='id'>
           <van-tab   title="{{item.name}}">
             <scroll-view class="backctext" scroll-y="true" style="height:calc(100vh - 260rpx);"
@@ -50,7 +50,7 @@
                 <view wx:if="{{!item.text && isLoding == true}}" class="noMore flex ju-center al-center lodbox">
                   <image class="lodimg" src="https://oss.kuaitongkeji.com/static/img/app/address/loading.gif" mode="">
                   </image>
-                  加载中...
+                  加载中
                 </view>
               </block>
               <block wx:else>

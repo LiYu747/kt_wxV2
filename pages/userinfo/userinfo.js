@@ -44,7 +44,7 @@ Page({
 		  },
 		  {image:'https://oss.kuaitongkeji.com/static/img/app/user/about.png', 
 		   titel:'关于快通',
-		   url:'/pages/user/versionNumber/versionNumber'
+		   url:'/pages/userinfo/versionNumber/versionNumber'
 		  },
 	  ]
   },   

@@ -24,21 +24,10 @@ Page({
 
   // 去论坛
   goforum() {
-     // 判断是否登录
-    jwt.doOnlyTokenValid({
-      keepSuccess: false,
-      showModal: true,
-      fail: () => {
-        wx.switchTab({
-          url: '/pages/index/index'
-        })
-      },
-      success: () => {
-        wx.navigateTo({
-          url: `/pages/communityForum/forumlists/forumlists?id=${this.data.id}`
-        })
-      }
+     wx.navigateTo({
+      url: `/pages/communityForum/forumlists/forumlists?id=${this.data.id}`
     })
+  
   },
   //查看小区位置
   navigation(){

@@ -2,6 +2,7 @@
 //获取应用实例
 import home from '../../vendor/home/home'
 import urlUtil from '../../vendor/common/url.js';
+import cache from '../../vendor/cache/cache.js'
 const app = getApp()
 
 Page({
@@ -432,6 +433,16 @@ Page({
     })
         //消息通知
         this.getInform()
+        let user = cache.get('jwt')
+        if (user) {
+          this.setData({
+            user : {}
+          })
+        } else {
+          this.setData({
+            user : null
+          })
+        }  
   },
    // 下拉刷新
    onPullDownRefresh() {

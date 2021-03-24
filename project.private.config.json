@@ -401,6 +401,24 @@
           "pathName": "pages/classification/lookRoom/rentAndsale/rentAndsale",
           "query": "id=14",
           "scene": null
+        },
+        {
+          "name": "pages/residence/houseOwner/houseOwner",
+          "pathName": "pages/residence/houseOwner/houseOwner",
+          "query": "id=7",
+          "scene": null
+        },
+        {
+          "name": "pages/userinfo/versionNumber/versionNumber",
+          "pathName": "pages/userinfo/versionNumber/versionNumber",
+          "query": "id=7",
+          "scene": null
+        },
+        {
+          "name": "pages/communityForum/tags/tags",
+          "pathName": "pages/communityForum/tags/tags",
+          "query": "photo=https://oss.kuaitongkeji.com/upload/2021/01/08/48a2Gf7Mxblm7u8odNhRKiTNTy2F86l3SBUhrDXK.jpeg",
+          "scene": null
         }
       ]
     }

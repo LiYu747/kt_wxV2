@@ -168,7 +168,11 @@ module.exports = {
 			// 申请记录
 			applerecord: apiPath + 'user/moveInApply',
 			// 记录详情
-			recordDils: apiPath + 'user/moveInApply/show'
+			recordDils: apiPath + 'user/moveInApply/show',
+				// 审核入住申请
+				audit : apiPath + 'user/moveInApply/deal',
+			//房东查看入住申请
+			userLook :  apiPath + 'user/moveInApply/detail'
 		},
 
 		//拜访申请Visit record

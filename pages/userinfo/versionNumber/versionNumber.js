@@ -1,32 +1,15 @@
-// pages/communityForum/tags/tags.js
-import village from '../../../vendor/village/village.js'
+// pages/userinfo/versionNumber/versionNumber.js
+import clients from '../../../vendor/clients/clients.js'
+import cache from '../../../vendor/cache/cache.js'
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    getData:[]
+    version:'1.0.2' //版本号
   },
-	getCustomLists() {
-    village.customLists({
-      data: {},
-      fail: () => {
-        wx.showToast({
-          title: '网络出错',
-          icon: 'none'
-        })
-      },
-      success: (res) => {
-        if (res.statusCode != 200) return;
-        if (res.data.code !== 200) return;
-        this.setData({
-          getData : res.data.data.tribune_cat
-        })
 
-      }
-    })
-  },
   /**
    * 生命周期函数--监听页面加载
    */
@@ -38,7 +21,6 @@ Page({
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-   this.getCustomLists()
   },
 
   /**

@@ -1,0 +1,20 @@
+<view class="">
+		<view class="tabar flex al-center">
+			关于
+			<view class=" flex al-center pos-abs posrigth">
+				 <view class="">
+				 	版本号 {{version}} 
+				 </view>
+				<image src="https://oss.kuaitongkeji.com/static/img/app/address/retrue.png"  class="abimg" mode=""></image>
+			</view>
+		</view>
+		<view bindtap="guidance" class="tabar flex al-center">
+			 新手指导
+			<view class=" flex al-center pos-abs posrigth">
+				 <view class="">
+					
+				 </view>
+				<image src="https://oss.kuaitongkeji.com/static/img/app/address/retrue.png"  class="abimg" mode=""></image>
+			</view>
+		</view>
+    </view>

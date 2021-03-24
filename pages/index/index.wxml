@@ -94,7 +94,7 @@
 		</view>
 
 		<!-- 社区新闻 -->
-		<view class="comconten">
+		<view wx:if="{{user}}" class="comconten">
 			<view class="flex al-center">
 				<view class="">
 					<image src="https://oss.kuaitongkeji.com/static/img/app/home/news.png" class="comimgss" mode=""></image>

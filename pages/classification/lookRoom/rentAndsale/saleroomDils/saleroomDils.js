@@ -47,7 +47,6 @@ Page({
       latitude: latitude,
       longitude: longitude,
       success: function () {
-        console.log('success');
       }
     });
   },

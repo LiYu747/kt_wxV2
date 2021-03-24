@@ -138,7 +138,8 @@
 }
 
 .nono {
-  margin-top: 50rpx;
+  position: relative;
+  top: 50rpx;
 }
 
 .lodimg {
