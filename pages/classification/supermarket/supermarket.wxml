@@ -1,0 +1,51 @@
+<view class="">
+		<view class="tabbar flex al-center ju-around">
+			<view class="item flex al-center  {{index == idx?'dv':''}}" bindtap="add" data-index="{{index}}" wx:for="{{till}}" wx:key='id'>
+				{{item}}
+			</view>
+    </view>
+    <view class="top"></view>
+         <view class="simulation">
+         	以下均为模拟数据
+         </view>
+		<view class="flex-d  al-center">
+			<view class="flex itembox pos-rel" wx:for="{{getData}}"  wx:key='id'>
+				<image src="{{item.image}}" class="itemimg" mode=""></image>
+				<view class="m-t2 m-l2 name">
+					{{item.name}}
+					<view class="score  flex al-center">
+						<image src="https://oss.kuaitongkeji.com/static/img/app/classification/Healthcare/wujiao.png" class="wujiaoimg" mode=""></image>
+						<view class="m-l1">
+							{{item.score}}
+						</view>
+						<view class="timer pos-abs">
+							39分钟 2.9km
+						</view>
+					</view>
+					<view wx:if="{{item.time}}" class="Hours flex al-center ju-center">
+						<image src="https://oss.kuaitongkeji.com/static/img/app/classification/Healthcare/jianb.png" class="jianbimg " mode=""></image>
+						<view class="pos-abs">
+							{{item.time}}
+						</view>
+					</view>
+					<view class="details m-t1 flex">
+						<view class="flex-d flex al-center" wx:for="{{item.images}}" wx:key='id'>
+							<image class="itemsimg" src="{{item.img}}" mode=""></image>
+							{{items.titel}}
+						</view>
+					</view>
+					<view class="m-t2 flex">
+						<view class="Views pos-abs flex al-center">
+							{{item.Views}}
+							<image src="https://oss.kuaitongkeji.com/static/img/app/classification/Healthcare/next.png" class="nextimg" mode=""></image>
+						</view>
+					</view>
+				</view>
+			</view>
+		</view>
+
+		<view class="line">
+
+		</view>
+ 
+	</view>

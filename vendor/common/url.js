@@ -55,7 +55,7 @@ class url {
 	car : '/pages/classification/vehicle/vehicle',
 	
 	// 茶饮 
-	tea : '/pages/classification/teaBasedDrink/teaDrink',
+	tea : '/pages/classification/teaBasedDrink/teaBasedDrink',
 	
 	// 上门服务
 	door_to_door_service : '/pages/classification/service/service'

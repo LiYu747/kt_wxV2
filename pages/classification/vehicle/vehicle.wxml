@@ -1,0 +1,64 @@
+<view class="">
+		<view class="tabbar flex al-center ju-around">
+			<view class="item flex al-center  {{index == idx?'dv':''}}" bindtap="add"  data-index="{{index}}" wx:for="{{till}}" wx:key='id'>
+				{{item}}
+			</view>
+    </view>
+    <view class="top"></view>
+        <view class="simulation">
+        	以下均为模拟数据
+        </view>
+		<view class="flex-d  al-center">
+			<view class="flex itembox pos-rel" wx:for="{{getData}}" wx:key='id'>
+				<image src="{{item.image}}" class="itemimg" mode=""></image>
+				<view class="m-t2 m-l2 name">
+					{{item.name}}
+					<view class="score  flex al-center">
+						<view wx:if='{{item.score}}' class="flex al-center">
+							<image src="https://oss.kuaitongkeji.com/static/img/app/classification/Healthcare/wujiao.png" class="wujiaoimg" mode=""></image>
+							<view class="m-l1">
+								{{item.score}}
+							</view>
+						</view>
+						<view class="Monthly" v-else>
+							{{item.Monthly}}
+						</view>
+						<view class="Price">
+							{{item.Price}}
+						</view>
+						<view class="timer pos-abs">
+							7.8km
+						</view>
+					</view>
+					<view class="details flex">
+						{{item.titel}}
+						<view class="databox">
+							{{item.address}}
+						</view>
+					</view>
+					<view class="Monthly">
+						{{item.xxadd}}
+					</view>
+					<view wx:if="{{item.label}}" class="details m-t1">
+						{{item.label}}
+					</view>
+					<view wx:if="{{item.tag}}" class="m-t1 flex al-center">
+						<view class="items" wx:for="{{item.tag}}" wx:key='id'>
+							<image src="{{items}}" class="tagimg" mode=""></image>
+						</view>
+					</view>
+					<view class="m-t1 flex">
+						<view class="Views pos-abs flex al-center">
+							{{item.Views}}
+							<image src="https://oss.kuaitongkeji.com/static/img/app/classification/Healthcare/next.png" class="nextimg" mode=""></image>
+						</view>
+					</view>
+				</view>
+			</view>
+		</view>
+
+		<view class="line">
+
+		</view>
+
+	</view>

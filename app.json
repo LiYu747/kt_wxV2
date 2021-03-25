@@ -61,7 +61,15 @@
     "pages/classification/lookRoom/rentAndsale/setSale/setSale",
     "pages/classification/lookRoom/rentAndsale/setRent/setRent",
     "pages/residence/houseOwner/houseOwner",
-    "pages/userinfo/versionNumber/versionNumber"
+    "pages/userinfo/versionNumber/versionNumber",
+    "pages/web/index/index",
+    "pages/classification/shopping/shopping",
+    "pages/classification/supermarket/supermarket",
+    "pages/classification/motion/motion",
+    "pages/classification/deliciousFood/deliciousFood",
+    "pages/classification/vehicle/vehicle",
+    "pages/classification/teaBasedDrink/teaBasedDrink",
+    "pages/classification/service/service"
   ],
   "window": {
     "backgroundTextStyle": "light",

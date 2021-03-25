@@ -1,0 +1,44 @@
+<view class="">
+        <view class="simulation">
+        	以下均为模拟数据
+        </view>
+		<view class="flex-d top al-center">
+			<view class="flex itembox pos-rel" wx:for="{{locadata}}" wx:key='id'>
+				<image src="{{item.image}}" class="itemimg" mode=""></image>
+				<view class="m-t2 m-l2 name">
+					{{item.name}}
+					<view class="score  flex al-center">
+						<view  class="flex al-center">
+							<image src="https://oss.kuaitongkeji.com/static/img/app/classification/Healthcare/wujiao.png" class="wujiaoimg" mode=""></image>
+							<view class="m-l1">
+								{{item.score}}
+							</view>
+						</view>
+						<view class="Price">
+							{{item.price}}
+						</view>
+						<view class="timer pos-abs">
+							{{item.distance}}
+						</view>
+					</view>
+					<view  class="details m-t1">
+						{{item.label}}
+					</view>
+					<view class="m-t1 details flex al-center">
+                       {{item.introduce}}
+					</view>
+					<view class="m-t1 flex">
+						<view class="Views pos-abs flex al-center">
+							{{item.Views}}
+							<image src="https://oss.kuaitongkeji.com/static/img/app/classification/Healthcare/next.png" class="nextimg" mode=""></image>
+						</view>
+					</view>
+				</view>
+			</view>
+		</view>
+
+		<view class="line">
+
+		</view>
+
+	</view>

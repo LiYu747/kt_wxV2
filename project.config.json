@@ -45,7 +45,7 @@
     "minifyWXSS": true
   },
   "compileType": "miniprogram",
-  "libVersion": "2.14.1",
+  "libVersion": "2.16.0",
   "appid": "wxc7e2e247d7594448",
   "projectname": "kt_wx.com",
   "debugOptions": {

@@ -165,12 +165,12 @@
 			刷新中
 		</view>
 	</view>
-
+ 
 		<!-- 视频播放 -->
 		<view wx:if="{{paly == true}}"   class=" pos-abs moive flex-d al-center ju-center">
 			<view bindtap="close" class="showback pos-abs">
 			</view>
-			<video src="{{videoUrl}}" ></video>
+			<video  src="{{videoUrl}}"  custom-cache="{{false}}"></video>
 			<image bindtap="close" src="https://oss.kuaitongkeji.com/static/img/app/home/close.png" class="closeimg" mode=""></image>
 		</view>
 </view>
