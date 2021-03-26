@@ -1,6 +1,7 @@
 {
-  "usingComponents": {
-    "van-tab": "../../../@vant/weapp/tab/index",
-    "van-tabs": "../../../@vant/weapp/tabs/index"
-  }
+  "usingComponents": {},
+  "navigationBarBackgroundColor": "#F07535",
+  "navigationBarTextStyle": "white",
+  "navigationBarTitleText": "",
+  "backgroundColor": "#eeeeee"
 }

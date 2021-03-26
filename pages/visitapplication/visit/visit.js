@@ -295,7 +295,7 @@ Page({
 										success: function(res) {
 											if (res.confirm) {
 												wx.navigateTo({
-													url: '/pages/user/realInformation/realInformation'
+													url: '/pages/userinfo/realInformation/realInformation'
 												})
 											} else if (res.cancel) {
 												wx.navigateBack({

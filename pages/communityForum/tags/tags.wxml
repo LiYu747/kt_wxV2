@@ -1,0 +1,19 @@
+<view class="flex-d al-center">
+		<subunit titel=''></subunit>
+		<view class="wraps">
+			<view class="title flex pos-rel">
+				<view class=" m-l2">
+					分类
+				</view>
+				<view bindtap="redact" class="rigth pos-abs">
+					编辑
+				</view>
+			</view>
+	<view class="flex flex-w">
+    <view class=""  wx:for="{{getData}}"  wx:key='id'>
+        <view style="background:{{item.background}}" class="itemBox">  {{item.name}}</view>
+			</view>
+  </view>
+		</view>
+
+	</view>

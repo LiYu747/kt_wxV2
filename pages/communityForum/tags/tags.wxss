@@ -1,14 +1,37 @@
-.nav{
-  justify-content: space-around;
-  position: fixed;
-  width: 100%;
-  background: #fff;
-  z-index: 99;
+.wraps {
+  margin-top: 50rpx;
+  width: 690rpx;
+  height: 400rpx;
+  background: #FFFFFF;
+  flex-wrap: wrap;
+  font-size: 13px;
+  border-radius: 20rpx;
 }
-.topLIne{
-  height: 100rpx;
+
+.title {
+  font-size: 16px;
+  margin-top: 30rpx;
+  margin-bottom: 40rpx;
 }
-.n1{
-  background: red;
-  height: 2000rpx;
+
+.rigth {
+  right: 20rpx;
+  color: #F07535;
+  font-size: 14px;
+}
+
+.itemBox{
+padding: 15rpx 20rpx;
+margin: 10rpx 20rpx;
+border-radius: 10rpx;
+}
+
+.itemcenten {
+  margin-top: 20rpx;
+  margin-left: 20rpx;
+  width: 148rpx;
+  height: 70rpx;
+  background: #F0F0F0;
+  border-radius: 5rpx;
+ 
 }

@@ -8,11 +8,13 @@ Page({
   data: {
     getData:[]
   },
-	getCustomLists() {
+
+
+  getCustomLists() {
     village.customLists({
       data: {},
       fail: () => {
-        wx.showToast({
+        uni.showToast({
           title: '网络出错',
           icon: 'none'
         })
@@ -20,6 +22,13 @@ Page({
       success: (res) => {
         if (res.statusCode != 200) return;
         if (res.data.code !== 200) return;
+        res.data.data.tribune_cat.map((item, index) => {
+          let r = parseInt(Math.random() * 256)
+          let g = parseInt(Math.random() * 256)
+          let b = parseInt(Math.random() * 256)
+          let bgColor = `rgba(${r},${g},${b},0.3)`
+          item.background =  bgColor
+        })
         this.setData({
           getData : res.data.data.tribune_cat
         })

@@ -217,7 +217,6 @@ Page({
   // 确认地址选择
   onConfirm(e){
    let value = e.detail.value
-   console.log(value)
    let add = ''
    let id = []
    value.map(item => {
@@ -319,7 +318,7 @@ Page({
 										success: function(res) {
 											if (res.confirm) {
 												wx.navigateTo({
-													url: '/pages/user/realInformation/realInformation'
+													url: '/pages/userinfo/realInformation/realInformation'
 												})
 											} else if (res.cancel) {
 												wx.navigateBack({

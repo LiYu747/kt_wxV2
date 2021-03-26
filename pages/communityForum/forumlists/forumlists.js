@@ -31,7 +31,6 @@ Page({
 
   //自定义
   custom() {
-    return;
     wx.navigateTo({
       url: '/pages/communityForum/tags/tags',
     })

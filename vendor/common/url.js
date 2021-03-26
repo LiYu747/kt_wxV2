@@ -28,7 +28,7 @@ class url {
 	friends_visit_self_detail : '/pages/operation/details/details',
 	
 	// 用户的回家二维码页面
-	back_home_qr : '/pages/qrcode/qrCode/qrCode',
+	back_home_qr : '/pages/qrcode/qrcode',
 	
 	// 找房
 	looking_for_room : '/pages/classification/lookRoom/lookRoom',
