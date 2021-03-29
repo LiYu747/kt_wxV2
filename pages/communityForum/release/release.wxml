@@ -16,11 +16,11 @@
       </view>
     </view>
     <!-- //标题 -->
-    <view class="titel flex al-center">
+    <view class="titel flex">
       <view class="tex1">
-        标题 ：
+        标题 :
       </view>
-      <textarea value="{{title}}" bindinput="onTitle" class="ipt"></textarea>
+      <textarea value="{{title}}" bindinput="onTitle" maxlength="50" auto-height="{{true}}" class="ipt"></textarea>
     </view>
     <!-- 标签 -->
     <view bindtap="celTags" class="tagbox flex pos-rel">

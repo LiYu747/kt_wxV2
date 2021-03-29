@@ -23,7 +23,7 @@
                 <view class="item" bindtap="gotoD" data-item="{{item}}" wx:for="{{item.list}}" wx:key='id'>
                   <view class="flex">
                     <!-- 头像 -->
-                    <image src="{{item.own_user.avatar}}" class="itemimg" mode=""></image>
+                    <image src="{{item.own_user.avatar}}" class="itemimg" mode="aspectFill"></image>
                     <view class="name m-l1 m-t1">
                       {{item.own_user.nickname}}
                       <view class="time">

@@ -43,6 +43,7 @@ Page({
   cover: '', //视频封面
   showPullDownRefreshIcon: true,
   informmsg:{},//用户未读消息数量
+  Gshow:null,
   },
   add:function(){
      wx.navigateTo({
@@ -51,7 +52,13 @@ Page({
   },  
   
    
-
+  GgoAdd() {
+    let num = this.data.Gshow+1
+    cache.set('Gshow',{key:'步骤'+ num,value: num})
+    wx.switchTab({
+      url: '/pages/userAddress/userAddress'
+    })
+  },
   //选择用户类型
   selecType(e) {
     let item = e.currentTarget.dataset.item
@@ -427,6 +434,35 @@ Page({
 
 
   onShow: function (){
+    if(cache.get("Gshow")){
+      this.setData({
+        Gshow : cache.get("Gshow").value
+      })
+      wx.hideTabBar()
+     if(cache.get("Gshow").value == 0){
+      wx.showModal({
+        title:'提示',
+        content:'我们将为您开启新手指导教程',
+        cancelText:'跳过',
+        success: (res) => {
+          if(res.confirm){
+            this.setData({
+              Gshow : this.data.Gshow + 1
+            })
+            cache.set('Gshow',{key:'步骤'+ this.data.Gshow,value: this.data.Gshow})
+          }
+          if(res.cancel){
+            cache.set('first',true)
+            cache.forget('Gshow')
+            this.setData({
+              Gshow : null
+            })
+            wx.showTabBar()
+          }
+        }
+      })
+     }
+    }
     this.setData ({
       value : '',
       isShowType : false

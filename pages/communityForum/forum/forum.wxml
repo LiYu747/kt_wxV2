@@ -1,7 +1,7 @@
 <view class="">
 	<view class="woer">
 		<view class="nav flex">
-			<image class="img" src="{{user.avatar}}" mode=""></image>
+			<image class="img" src="{{user.avatar}}" mode="aspectFill"></image>
 			<view class="m-l2 text">
 				<view class="">
 					{{user.nickname}}
@@ -23,7 +23,7 @@
 		</view>
 		<!-- 图片 -->
 		<view class="flex al-center imgbx">
-			<view class="" wx:for="{{arr.album}}" wx:key='id'>
+			<view class="" bindtap="lookUp" data-item="{{item}}" wx:for="{{arr.album}}" wx:key='id'>
 				<image class="itemimg" src="{{item.url}}" mode="aspectFill"></image>
 			</view>
 		</view>
@@ -38,8 +38,8 @@
 	<view wx:if="{{comments.length>0}}" class="">
 		<view class="line flex pos-rel" wx:for="{{comments}}" wx:key='id'>
 			<view class="flex-d al-center marg">
-				<image wx:if="{{item.own_user}}" class="img" src="{{item.own_user.avatar}}" mode=""></image>
-				<view wx:if="{{item.own_user}}" class="nickname ">
+				<image wx:if="{{item.own_user}}" class="img" src="{{item.own_user.avatar}}" mode="aspectFill"></image>
+				<view wx:if="{{item.own_user}}" class="nickname"> 
 					{{item.own_user.nickname}}
 				</view>
 			</view>
@@ -69,7 +69,7 @@
 	</view>
 	<view wx:if="{{flag===true}}" class="posbot flex al-center pos-rel">
 		<textarea autoHeight="true"  placeholder='评论' value="{{context}}" bindinput="Onchange" class="chear"></textarea>
-		<view bindtap="send" class="btn flex pos-abs al-center ju-center">
+		<view bindtap="send" class="btn flex pos-abs al-center ju-center {{context != ''?'sendType':''}}">
 			发送
 		</view>
 	</view>
@@ -83,4 +83,9 @@
 			加载中
 		</view>
 	</view>
+
+<!-- 查看图片 -->
+<view wx:if="{{isLook == true}}" bindtap="off" class="look flex al-center ju-center">
+			<image src="{{lookImg}}" class="srcimg" mode="aspectFit"></image>
+		</view>	
 </view>

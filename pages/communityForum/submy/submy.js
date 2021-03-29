@@ -222,13 +222,21 @@ Page({
         })
         this.SelfPost()
     }
+    if(app.userIscomment == 200) {
+     this.setData({
+         page1 : 1,
+        data1 : []
+     })
+     this.SelfPost()
+    }
   },
 
   /**
    * 生命周期函数--监听页面隐藏
    */
   onHide: function () {
-   
+    app.myPostisDel = 0
+    app.userIscomment = 0
   },
 
   /**
@@ -236,6 +244,7 @@ Page({
    */
   onUnload: function () {
     app.myPostisDel = 0
+    app.userIscomment = 0
   },
 
   /**

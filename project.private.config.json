@@ -425,6 +425,24 @@
           "pathName": "pages/communityForum/tags/tags",
           "query": "",
           "scene": null
+        },
+        {
+          "name": "pages/communityForum/forum/forum",
+          "pathName": "pages/communityForum/forum/forum",
+          "query": "id=30",
+          "scene": null
+        },
+        {
+          "name": "pages/communityForum/release/release",
+          "pathName": "pages/communityForum/release/release",
+          "query": "id=2",
+          "scene": null
+        },
+        {
+          "name": "pages/communityForum/forum/forum",
+          "pathName": "pages/communityForum/forum/forum",
+          "query": "id=34",
+          "scene": null
         }
       ]
     }

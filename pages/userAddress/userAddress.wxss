@@ -10,8 +10,14 @@
 .setimg{
   width: 40rpx;
   height: 40rpx;
-  position: absolute;
-  right: 70rpx;
+}
+
+
+.locationss {
+  position: fixed;
+  top: 0rpx;
+  right: 60rpx;
+  z-index: 99;
 }
 .img {
   margin-top: 70rpx;
@@ -207,6 +213,72 @@
 .dssv{
   transform:  rotate(45deg);
 }
+
+.guideBox {
+  position: fixed;
+  top: 0rpx;
+  width: 100%;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.75);
+  z-index: 999;
+}
+
+.arrowsRU {
+  width: 120rpx;
+  height: 80rpx;
+}
+
+.Gposr {
+  margin-top: 70rpx;
+  position: fixed;
+  right: 100rpx;
+}
+
+.Gtext {
+  margin-top: 50rpx;
+  margin-right: 20rpx;
+}
+
+.addressT {
+  position: fixed;
+  top: 0;
+  z-index: 999;
+  width: 100%;
+  height: 100vh;
+}
+
+.addLogo {
+  width: 100%;
+  height: 100rpx;
+  position: fixed;
+  bottom: 0;
+}
+
+.Gpush{
+	display: flex;
+		align-items: center;
+		justify-content: center;
+		width: 70rpx;
+		height: 70rpx;
+		border-radius: 50%;
+		background: #F07535;
+		z-index: 9999;
+		margin-top: -20rpx;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

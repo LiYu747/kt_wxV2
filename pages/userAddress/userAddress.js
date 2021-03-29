@@ -1,6 +1,7 @@
 // pages/userAddress/userAddress.js
 import jwt from '../../vendor/auth/jwt.js'
 import address from '../../vendor/address/address.js'
+import cache from '../../vendor/cache/cache'
 //  import cache from '../../vendor/cache/cache.js'
 Page({
 
@@ -20,7 +21,8 @@ Page({
     isLoding: false,
     hasMore: true,
     showPullDownRefreshIcon: false,
-
+    Gshow: 0,
+    flag:false,
   },
   // 编辑
   look(e) {
@@ -96,6 +98,13 @@ Page({
       showModal: true,
       keepSuccess: false,
       success: () => {
+        if (cache.get('Gshow')) {
+          this.setData({
+            Gshow : cache.get('Gshow').value
+          })
+        }else{
+             wx.showTabBar()								
+        } 
         this.setData({
           isLoding: true
         })
@@ -177,6 +186,15 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
+    if(cache.get('Gshow')){
+      this.setData({
+        flag :  true
+      })
+    }else{
+      this.setData({
+        flag :  false
+      })
+    }
     this.loadPageData()
   },
 

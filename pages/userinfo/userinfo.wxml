@@ -11,7 +11,7 @@
   <!-- 头像 -->
   <view class="flex-d al-center">
     <view bindtap="userinfo" class="portrait flex  ju-center pos-rel">
-      <image wx:if="{{user}}" src="{{user.avatar}}" mode="scaleToFill" class="headimg pos-abs"></image>
+      <image wx:if="{{user}}" src="{{user.avatar}}" mode="aspectFill" class="headimg pos-abs"></image>
       <image wx:else src="https://oss.kuaitongkeji.com/static/img/app/user/headportrait.png" class="headimg pos-abs"
         mode="scaleToFill"></image>
     </view>

@@ -176,7 +176,6 @@ Page({
     this.setData({
       id : options.id
     })
-    console.log(options)
   },
 
   /**

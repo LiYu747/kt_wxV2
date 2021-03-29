@@ -1,12 +1,12 @@
 <!--pages/userAddress/userAddress.wxml-->
-<view class=" flex-d al-center">
+<view class="">
 	<view class="navtil flex ju-center ">
 		入住信息
-		<view class="">
+	</view>
+	<view class="locationss {{Gshow == 2?'Gpush':''}}">
 			<image src="https://oss.kuaitongkeji.com/static/img/app/address/plus.png"  bindtap="getto"
 				class="setimg "></image>
 		</view>
-	</view>
 	<image src="https://oss.kuaitongkeji.com/static/img/app/home/jx.png" class="img" mode=""></image>
 
 	<!-- 地址列表 -->
@@ -73,4 +73,16 @@
 			刷新中
 		</view>
 	</view>
+
+	<view wx:if="{{Gshow == 2}}" class="">
+			<view class="guideBox">
+				<view class="Gposr flex">
+					<view class="bai Gtext">
+						填写地址详细信息
+					</view>
+					<image src="https://oss.kuaitongkeji.com/static/img/app/Newguidance/arrowsRU.png" class="arrowsRU" mode=""></image>
+				</view>
+			</view>
+		</view>
+		<image wx:if="{{flag == true}}" src="https://oss.kuaitongkeji.com/static/img/app/Newguidance/addLogo.png" class="addLogo" mode=""></image> 
 </view>

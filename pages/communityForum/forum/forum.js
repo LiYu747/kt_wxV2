@@ -1,5 +1,6 @@
 // pages/communityForum/forum/forum.js
 import village from '../../../vendor/village/village.js'
+const app = getApp()
 Page({
 
   /**
@@ -17,9 +18,23 @@ Page({
     isLoding: false,
     hasMore: true,
     text: '',
+    lookImg:'',//查看的图片
+    isLook : false,
   },
 
-
+  
+  off(){
+    this.setData({
+      isLook : false
+     })
+  },
+   //查看图片
+   lookUp(e){
+     this.setData({
+      lookImg : e.currentTarget.dataset.item.url,
+      isLook : true
+     })
+   },
   //获取输入文本
   Onchange(e) {
     this.setData({
@@ -28,6 +43,13 @@ Page({
   },
   // 发送评论
   send() {
+    if(this.data.context == ''){
+      wx.showToast({
+        title: '请输入评论内容',
+        icon:'none'
+      })
+      return;
+    }
     wx.showLoading({
       title: '发送中'
     })
@@ -52,6 +74,7 @@ Page({
             duration: 2000,
             icon: 'none'
           })
+          return;
         }
         this.setData({
           page: 1,
@@ -63,6 +86,7 @@ Page({
           title: res.data.msg,
           duration: 2000
         })
+        app.userIscomment = res.data.code
       }
     })
   },

@@ -1,6 +1,16 @@
 //app.js
+import cache from './vendor/cache/cache.js'
 App({
   onLaunch: function () {
+    if(!cache.get('first')){
+      cache.set('Gshow',{'key':'开启',value:0})
+    }
+    // #ifdef APP-PLUS
+    if(cache.get('first')){
+      cache.forget('Gshow')
+    }
+    // #endif
+
     const updateManager = wx.getUpdateManager() 
     updateManager.onCheckForUpdate(
       function(res){// 请求完新版本信息的回调            
@@ -33,13 +43,15 @@ App({
     var logs = wx.getStorageSync('logs') || []
     logs.unshift(Date.now())
     wx.setStorageSync('logs', logs)
-
+     
+    
     // 登录
     wx.login({
       success: res => {
         // 发送 res.code 到后台换取 openId, sessionKey, unionId
       }
     })
+     
     // 获取用户信息
     wx.getSetting({
       success: res => {
@@ -65,6 +77,7 @@ App({
     userInfo: null
   },
   redInfo:{} ,//资讯详情
+  userIscomment : 0, //判断用户是否在参与页面评论
   comeToVisit: 0, //判断是否有来访操作 
   myPostisDel: 0,//判断是否删除了我自己发布的帖子
   checkSeePass : '',//是否同意进行入住

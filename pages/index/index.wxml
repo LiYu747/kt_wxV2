@@ -173,4 +173,22 @@
 			<video  src="{{videoUrl}}"  custom-cache="{{false}}"></video>
 			<image bindtap="close" src="https://oss.kuaitongkeji.com/static/img/app/home/close.png" class="closeimg" mode=""></image>
 		</view>
+
+		<view wx:if="{{Gshow == 0}}" class="guideBox"  catchtouchmove="true"  >
+			<image src="https://oss.kuaitongkeji.com/static/img/app/Newguidance/home.png"  class="addLogo" mode=""></image>
+		</view>
+		<view wx:if="{{Gshow == 1}}" catchtouchmove="true"  class="guideBox">  
+			<view class="flex-d al-center bai guidePush">
+				添加地址
+				<image src="https://oss.kuaitongkeji.com/static/img/app/Newguidance/arrowsD.png" mode="" class="arrowsDimg"></image>
+			</view>
+			<view class="btmbox flex ju-center">
+				<view bindtap="GgoAdd" class="addBox">
+				</view>
+				<image src="https://oss.kuaitongkeji.com/static/img/app/Newguidance/homeLogo.png" class="btmImg" mode=""></image>
+			</view>
+			<view class="">
+
+			</view>
+		</view>
 </view>
