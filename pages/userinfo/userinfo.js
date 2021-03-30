@@ -2,6 +2,7 @@
 import userDetails from '../../vendor/user/userDetails.js';
 import jwt from '../../vendor/auth/jwt.js';
 import home from '../../vendor/home/home'
+import cache from '../../vendor/cache/cache.js'
 Page({
 
   /**
@@ -46,11 +47,31 @@ Page({
 		   titel:'关于快通',
 		   url:'/pages/userinfo/versionNumber/versionNumber'
 		  },
-	  ]
+    ],
+    Gshow: 0,
+    idx: 0
   },   
+    
+  move(){
 
+  },
+  //完成
+  finish() {
+    cache.set('first',true)
+    cache.forget('Gshow')
+    wx.switchTab({
+      url: '/pages/index/index'
+    })
+  },
+  nextT() {
+    if(this.data.idx==2)return;
+    this.setData({
+      idx :  this.data.idx + 1
+    })
+  },
   	// 点击每一栏事件
     add(e) {
+      if(this.data.Gshow == 7) return;
       let item = e.currentTarget.dataset.item
       if (!item.url) return;
       wx.navigateTo({
@@ -59,12 +80,18 @@ Page({
     },
     	//用户基本信息
 			userinfo() {
+        if(this.data.Gshow == 7) {
+          this.nextT()
+          return;}
 				wx.navigateTo({
 					url: '/pages/userinfo/personal/personal'
 				})
 			},
   	// 去设置
     install() {
+      if(this.data.Gshow == 7) {
+        this.nextT()
+        return;}
       wx.navigateTo({
         url: '/pages/userinfo/realInformation/realInformation'
       })
@@ -140,6 +167,11 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
+    if (cache.get('Gshow')) {
+      this.setData({
+        Gshow : cache.get('Gshow').value
+      })
+    } 
     this.getUser()
     this.loadUserData()
     this.getInform()
@@ -149,14 +181,17 @@ Page({
    * 生命周期函数--监听页面隐藏
    */
   onHide: function () {
-
+    this.setData({
+      idx : 0,
+      Gshow: 0
+    })
   },
 
   /**
    * 生命周期函数--监听页面卸载
    */
   onUnload: function () {
-
+  
   },
 
   /**
@@ -176,7 +211,5 @@ Page({
   /**
    * 用户点击右上角分享
    */
-  // onShareAppMessage: function () {
 
-  // }
 })

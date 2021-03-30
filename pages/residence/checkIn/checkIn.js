@@ -68,8 +68,26 @@ Page({
   image:[], //图片上传
   mark:'',//备注
   isLoding:false,
+  Gshow:0,
+  idx:0,
+able:false
   },
-  
+   
+  move(){
+
+  },
+  nextTo(){
+    if(this.data.Gshow == 4) return;
+    this.setData({
+      idx :  this.data.idx +1
+    })
+    if(this.data.idx == 3){
+      this.setData({
+        Gshow : 4
+      })
+      cache.set('Gshow',{key:'步骤'+ 4,value: 4})
+    }
+  },
   //申请记录
   Application(){
    wx.navigateTo({
@@ -78,6 +96,16 @@ Page({
   },
    //提交
    Submit(){
+    if(cache.get('Gshow')){
+      const time = setTimeout(() => {
+       wx.switchTab({
+         url:'/pages/userAddress/userAddress'
+       })
+       cache.set('Gshow',{key:'步骤'+ 5,value: 5})
+       clearTimeout(time)
+      }, 2000)
+      return;
+     }
      if(this.data.isLoding != false) return
      if (this.data.household == '') {
       wx.showToast({
@@ -134,6 +162,7 @@ Page({
           title: res.data.msg,
           duration: 2000
         });
+       
         const time = setTimeout(() => {
           wx.redirectTo({
             url: '/pages/residence/checkRecord/checkRecord'
@@ -151,6 +180,9 @@ Page({
    },
    //上传图片
   succ() {
+    if (this.data.Gshow == 3) {
+      this.nextTo()
+      return;}
     wx.chooseImage({
       extension: ['jpg', 'jpeg', 'png', 'gif'],
       success: (chooseImageRes) => {
@@ -275,6 +307,9 @@ Page({
 			},
   	// 显示选择小区
     Onshow(e) {
+      if (this.data.Gshow == 3) {
+        this.nextTo()
+        return;}
       let index = e.currentTarget.dataset.index
       if (index == this.data.record.length - 2) {
         this.setData({
@@ -471,7 +506,8 @@ Page({
           columns:columns,
         });
       
-			},  
+      },  
+     
   /**
    * 生命周期函数--监听页面加载
    */
@@ -483,7 +519,11 @@ Page({
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-     
+    if(cache.get('Gshow')){
+      this.setData({
+        Gshow : cache.get('Gshow').value,
+      })
+    }
        this.loadVillageLists()
   },
 
@@ -505,7 +545,25 @@ Page({
    * 生命周期函数--监听页面卸载
    */
   onUnload: function () {
-
+    if(!cache.get('Gshow')) return;
+    if(cache.get('Gshow').value == 3||cache.get('Gshow').value == 4){
+      wx.navigateTo({
+        url: '/pages/residence/checkIn/checkIn',
+      })
+          wx.showModal({
+            content: '您确定要退出新手指导？您也可以到个人中心、关于快通中重新开启',
+            success: function (res) {
+              if (res.confirm) {
+                cache.forget('Gshow')
+                wx.navigateBack({
+                  delta: 1
+                });
+              } else if (res.cancel) {
+              }
+            }
+          })
+    }
+    
   },
 
   /**
@@ -528,4 +586,6 @@ Page({
   onShareAppMessage: function () {
 
   }
+
+  
 })

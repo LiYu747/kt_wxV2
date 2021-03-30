@@ -9,6 +9,21 @@ Page({
   data: {
     version:'1.0.2' //版本号
   },
+  
+   // 新手指导
+   guidance(){
+	  wx.showModal({
+	  	content:'您确定要开启新手指导',
+		success: (res) => {
+			if(res.confirm){
+				cache.set('Gshow',{'key':'开启',value:0})
+				wx.switchTab({
+					url:'/pages/index/index'
+				})
+			}
+		}
+	  })
+  },
 
   /**
    * 生命周期函数--监听页面加载

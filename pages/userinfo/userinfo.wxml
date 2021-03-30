@@ -1,45 +1,83 @@
-<view class="flex-d al-center">
+<view class="">
   <view class="navtil flex ju-center ">
     个人中心
-    <view class="">
-      <image bindtap="install" src="https://oss.kuaitongkeji.com/static/img/app/user/Settings.png" class="setimg"
-        mode=""></image>
+  </view>
+  <view class=" topLine"></view>
+  <view class="location {{Gshow==7&&idx==0?'zIndex':''}}">
+    <image bindtap="install" src="https://oss.kuaitongkeji.com/static/img/app/user/Settings.png" class="setimg" mode="">
+    </image>
+    <view wx:if='{{idx==0&&Gshow==7}}' class="pos-abs flex staTex">
+      <view class="flex-d al-center m-l3 m-r2 m-t4 setTex">
+        信息设置
+        <view class="bai">
+          修改密码以及退出登录等。
+        </view>
+      </view>
+      <image src="https://oss.kuaitongkeji.com/static/img/app/Newguidance/arrowsRU.png" mode="" class="arrowsRU ">
+      </image>
     </view>
   </view>
   <image src="https://oss.kuaitongkeji.com/static/img/app/home/jx.png" class="img" mode=""></image>
 
   <!-- 头像 -->
   <view class="flex-d al-center">
-    <view bindtap="userinfo" class="portrait flex  ju-center pos-rel">
-      <image wx:if="{{user}}" src="{{user.avatar}}" mode="aspectFill" class="headimg pos-abs"></image>
-      <image wx:else src="https://oss.kuaitongkeji.com/static/img/app/user/headportrait.png" class="headimg pos-abs"
-        mode="scaleToFill"></image>
-    </view>
-    <view bindtap="userinfo" wx:if="{{user}}" class="text">
-      {{user.nickname}}
-    </view>
-    <view wx:else class="text">
-      {{text}}
+    <view class= "Dwei  flex-d al-center {{Gshow==7&&idx==1?'ative':''}}">
+      <view bindtap="userinfo" class="portrait flex  ju-center pos-rel ">
+        <image wx:if="{{user}}" src="{{user.avatar}}" mode="aspectFill" class="headimg pos-abs"></image>
+        <image wx:else src="https://oss.kuaitongkeji.com/static/img/app/user/headportrait.png" class="headimg pos-abs"
+          mode="scaleToFill"></image>
+        <view wx:if="{{idx==1&&Gshow==7}}" class="pos-abs infoT flex-d al-center">
+          <image src="https://oss.kuaitongkeji.com/static/img/app/Newguidance/upward.png" class="upward" mode="">
+          </image>
+          <view class="setTex flex-d al-center m-t2">
+            个人信息
+            <view class="bai">
+              修改个人信息
+            </view>
+          </view>
+        </view>
+      </view>
+      <view bindtap="userinfo" wx:if="{{user}}" class="text">
+        {{user.nickname}}
+      </view>
+      <view wx:else class="text">
+        {{text}}
+      </view>
     </view>
   </view>
 
   <!-- 操作栏 -->
-  <view class="boxss">
-    <view class="item flex al-center  {{index<3?'dv':''}} {{index>3?'top':''}}" wx:for="{{locdata}}" bindtap="add"
-      wx:key='id' data-item="{{item}}">
-      <image src="{{item.image}}" class="itemimg" mode=""></image>
-      <view class="itemtext">
-        {{item.titel}}
-      </view>
-      <view wx:if="{{index==6}}" class="">
-        <view wx:if="{{0<informmsg && user}}" class="munber flex al-center ju-center">
-          {{informmsg}}
+  <view class="{{idx==2?'aceZindex':''}}">
+    <view wx:if="{{idx == 2}}" class="pos-abs find bai">
+      精彩功能，正在等你发现！
+    </view>
+    <view class="boxss ">
+      <view class="item flex al-center  {{index<3?'dv':''}} {{index>3?'top':''}}" wx:for="{{locdata}}" bindtap="add"
+        wx:key='id' data-item="{{item}}">
+        <image src="{{item.image}}" class="itemimg" mode=""></image>
+        <view class="itemtext">
+          {{item.titel}}
         </view>
+        <view wx:if="{{index==6}}" class="">
+          <view wx:if="{{0<informmsg && user}}" class="munber flex al-center ju-center">
+            {{informmsg}}
+          </view>
 
+        </view>
+      </view>
+    </view>
+    <view wx:if="{{idx == 2}}" class="fildn pos-abs">
+      <view bindtap="finish" class="explore flex al-center ju-center bai">
+        去探索
       </view>
     </view>
   </view>
   <view class="btoLine">
 
+  </view>
+  <view wx:if="{{Gshow == 7}}" catchtouchmove="move" class="">
+    <view bindtap="nextT" class="guideBox">
+    </view>
+    <image src="https://oss.kuaitongkeji.com/static/img/app/Newguidance/user.png" class="addLogo" mode=""></image>
   </view>
 </view>

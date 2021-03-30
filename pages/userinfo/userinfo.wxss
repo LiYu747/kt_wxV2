@@ -3,18 +3,26 @@
   height: 70rpx;
   background: #F07535;
   color:#fff;
+  padding-top: 10rpx;
   position: fixed;
   font-size: 20px;
   z-index: 99;
 }
+
+.location {
+  position: fixed;
+  top: 10rpx;
+  right: 50rpx;
+  z-index: 99;
+}
+.topLine{
+  height: 70rpx;
+}
 .setimg{
   width: 40rpx;
   height: 40rpx;
-  position: absolute;
-  right: 70rpx;
 }
 .img {
-  margin-top: 70rpx;
   width: 100%;
   height: 160rpx;
 }
@@ -30,10 +38,7 @@
   background: #F07535;
 }
 
-.setimg {
-  width: 40rpx;
-  height: 40rpx;
-}
+
 
 .title {
   top: 40rpx;
@@ -42,9 +47,7 @@
   height: 88rpx;
 }
 
-.location {
-  right: 50rpx;
-}
+
 
 .jximg {
   width: 100%;
@@ -56,8 +59,7 @@
   height: 148rpx;
   background: #FFFFFF;
   border-radius: 50%;
-  position: relative;
-  top: -82rpx;
+
 }
 
 .headimg {
@@ -68,7 +70,6 @@
 }
 
 .text {
-  margin-top: -70rpx;
   font-size: 36rpx;
   font-weight: 400;
   font-family: Microsoft YaHei;
@@ -104,9 +105,9 @@
 }
 
 .boxss{
-	margin-top: 48rpx;
+  margin-top: -40rpx;
 	width: 690rpx;
-	padding: 0 30rpx;
+  padding: 0 30rpx;
 }
 .itemimg{
 	width: 30rpx;
@@ -146,3 +147,159 @@
   .btoLine{
     height: 50rpx;
   }
+
+  .zIndex{
+    top: 0;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		width: 60rpx;
+		height: 60rpx;
+		border-radius: 50%;
+		background:#F07535;
+		z-index: 99999;
+  }
+  
+  .top0{
+    top: 0;
+    }
+    .top1{
+      margin-top: 0;
+      z-index: 999;
+    }
+  
+    .informBox {
+      right: 50rpx;
+    }
+  
+    .munber {
+      width: 34rpx;
+      height: 34rpx;
+      background: red;
+      border-radius: 50%;
+      font-size: 12px;
+      color: #FFFFFF;
+      z-index: 2;
+      margin-top: -12rpx;
+      margin-left: 16rpx;
+    }
+  
+    .munMore {
+      width: 50rpx;
+      height: 34rpx;
+      background: red;
+      border-radius: 20rpx;
+      font-size: 12px;
+      color: #FFFFFF;
+      z-index: 2;
+      margin-top: -12rpx;
+      margin-left: 16rpx;
+    }
+  
+    .guideBox {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      height: 100vh;
+      background: rgba(0, 0, 0, 0.75);
+      z-index: 99;
+    }
+  
+    .Gitemimg {
+      width: 100%;
+      height: 100vh;
+    }
+  
+    .itemText {
+      width: 100%;
+      position: absolute;
+      z-index: 9999;
+      color: #FFFFFF;
+      bottom: 80rpx;
+    }
+  
+    .textZ {
+      width: 230rpx;
+      height: 72rpx;
+    }
+    
+    
+    .arrowsRU{
+      width: 120rpx;
+      height: 88rpx;
+      position: relative;
+      right: 40rpx;
+    }
+    
+    .staTex{
+      right: 0rpx;
+      top: 80rpx;
+      width: 750rpx;
+      display: flex;
+      justify-content: flex-end;
+    }
+      
+    .setTex{
+      color: #FFD428;
+    }	
+    
+    .Dwei{
+      position: relative;
+      top: -82rpx;
+    }
+    
+    .ative{
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 250rpx;
+      height: 220rpx;
+      background: #FFFFFF; 
+      z-index: 99999;
+    }	
+    
+    .upward{
+      width: 60rpx;
+      height: 100rpx;
+    }
+    
+    .infoT{
+      width: 750rpx;
+      top: 230rpx;
+    }
+    
+    .aceZindex{
+      position: relative;
+      top: -120rpx;
+      background: rgb(245, 245, 245);
+      z-index: 99999;
+    }
+    
+    .find{
+      width: 750rpx;
+      margin-top: -70rpx;
+      display: flex;
+      justify-content: center;
+    }
+    
+    .fildn{
+      width: 750rpx;
+      margin-top: 40rpx;
+      display: flex;
+      justify-content: center;
+    }
+    
+    .explore{
+      width: 300rpx;
+      height: 80rpx;
+      border-radius: 10rpx;
+      background: rgb(240,117,53);
+      margin-bottom: 40rpx;
+    }
+    
+    .addLogo{
+      width: 100%;
+      height: 100rpx;
+      position: fixed;
+      bottom: 0;
+    }

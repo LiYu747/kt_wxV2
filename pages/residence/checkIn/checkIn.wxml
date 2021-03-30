@@ -8,7 +8,7 @@
 			基本信息
 		</view>
 		<view>
-			<view class="item flex al-center pos-rel {{index==record.length-1?'dv':''}}" wx:for="{{record}}"
+			<view class="item flex al-center pos-rel {{index==record.length-1?'dv':''}}  {{index==4&&idx==0&&Gshow==3?'zIndex':''}}" wx:for="{{record}}"
 				data-index="{{index}}" bindtap="Onshow" wx:key='id'>
 				<view class=" flex al-center">
 					<view class="c-red fz-16 m-t1 m-r1">*</view>
@@ -23,13 +23,17 @@
 						</view>
 					</view>
 				</view>
+				<view wx:if="{{Gshow == 3&&idx==0}}"  class="Lutext bai fz-16 ">
+						 <image src="https://oss.kuaitongkeji.com/static/img/app/Newguidance/arrowsLU.png" class="arrowsLU m-r1" mode=""></image>
+						 选择您的小区地址
+					</view>
 				<view wx:if="{{index===record.length-1}}" class="pos-abs righ flex ">
 					<image src="https://oss.kuaitongkeji.com/static/img/app/home/xiala.png" class="xiala" mode=""></image>
 				</view>
 			</view>
 		</view>
 	</view>
-	<van-popup show="{{ show }}"   position="bottom"
+	<van-popup  show="{{ show }}"   position="bottom"
   custom-style="height: 40%" bind:close="onClose">
 		<van-picker columns="{{ columns }}"  value-key="{{'label'}}"  bind:cancel="onCancel"
   bind:confirm="onConfirm" show-toolbar  bind:change="onChange" />
@@ -37,7 +41,7 @@
 
 	<!-- 附件 -->
 	<view>
-		<view class="pos-rel messagess">
+		<view  bindtap="nextTo"  class="pos-rel messagess {{idx==1?'enclText':''}}">
 			<view class="text flex al-center">
 				请添加附件
 				<view class="fz-12 m-l2 c-red">
@@ -51,6 +55,12 @@
 				<view bindtap="succ" class="puls flex-d al-center ju-center">
 					<image src="https://oss.kuaitongkeji.com/static/img/app/home/push.png" class="pushimg" mode=""></image>
 					添加
+				</view>
+			</view>
+			<view wx:if="{{Gshow == 3}}" class="pos-abs">
+				<image src="https://oss.kuaitongkeji.com/static/img/app/Newguidance/arrowsLU.png" mode="" class="arrowsLU m-l4 m-t4"></image>
+				<view class="bai pushMsg">
+					添加附件，租房合同、房产证等
 				</view>
 			</view>
 		</view>
@@ -67,12 +77,19 @@
 
 	<!-- 备注 -->
 	<view class="">
-		<view class="pos-rel remaBox">
+		<view class="pos-rel remaBox {{idx==2?'enclText':''}}">
+			<view wx:if="{{Gshow == 3}}" class=" m-l4 pos-abs llTextss flex bai">
+				<image src="https://oss.kuaitongkeji.com/static/img/app/Newguidance/leftLower.png" class="leftLower m-t2" mode=""></image>
+				<view class="m-l1">
+					备注文字，审核人员可以看到
+				</view>
+			</view>
 			<view class="rematext flex al-center">
 				备注
 			</view>
 			<view class="">
-				<textarea class="rematar" maxlength="1000" bindinput='changeInput'></textarea>
+				<textarea wx:if="{{Gshow==3}}" bindtap="nextTo" disabled="true"  class="rematar"   maxlength="1000" ></textarea>
+				<textarea wx:else class="rematar" maxlength="1000" bindinput='changeInput'></textarea>
 			</view>
 		</view>
 	</view>
@@ -84,5 +101,7 @@
 		</view>
 	</view>
 
-
+	<view wx:if="{{Gshow == 3}}" bindtap="nextTo"  catchtouchmove="move" class="guideBox">
+       
+		</view>
 </view>

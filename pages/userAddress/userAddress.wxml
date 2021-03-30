@@ -74,7 +74,7 @@
 		</view>
 	</view>
 
-	<view wx:if="{{Gshow == 2}}" class="">
+	<view wx:if="{{Gshow == 2}}" catchtouchmove="move" class="">
 			<view class="guideBox">
 				<view class="Gposr flex">
 					<view class="bai Gtext">
@@ -82,6 +82,11 @@
 					</view>
 					<image src="https://oss.kuaitongkeji.com/static/img/app/Newguidance/arrowsRU.png" class="arrowsRU" mode=""></image>
 				</view>
+			</view>
+		</view>
+		<view wx:if="{{Gshow == 5}}" catchtouchmove="move" class="">
+			<view bindtap="gotohome"  class="guideBox2">
+				<image src="https://oss.kuaitongkeji.com/static/img/app/Newguidance/ele.png" mode="" class="ele"></image>
 			</view>
 		</view>
 		<image wx:if="{{flag == true}}" src="https://oss.kuaitongkeji.com/static/img/app/Newguidance/addLogo.png" class="addLogo" mode=""></image> 

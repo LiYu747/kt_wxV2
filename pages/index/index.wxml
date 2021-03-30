@@ -51,11 +51,64 @@
 	<view class=" flex-d al-center">
 		<!-- 用户操作栏 -->
 		<view class="flex operation ju-between">
-			<view class="flex-d al-center" wx:for="{{localdata}}" bindtap="operation" data-item="{{item}}" wx:key='id'>
+			<view class="flex-d al-center  pos-rel {{Gshow == 6&&index==idx?'Gitem':''}}" wx:for="{{localdata}}" bindtap="operation" data-item="{{item}}" wx:key='id'>
 				<image src="{{item.image}}" class="itemimg" mode=""></image>
 				<view class="itemtext">
 					{{item.name}}
 				</view>
+				<view  wx:if="{{Gshow == 6}}" class="">
+						<view wx:if="{{idx==0&&index==0}}" class="flex pos-abs m-ln1">
+							<image src="https://oss.kuaitongkeji.com/static/img/app/Newguidance/arrowsLU.png" class="arrowsLU" mode=""></image>
+							<view class="Lutext">
+								入住申请
+								<view class="bai">
+									填写入住地址详细信息
+								</view>
+							</view>
+						</view>
+						<view wx:if="{{idx == 1&&index==1}}" class="m-ln2 pos-abs">
+							<image src="https://oss.kuaitongkeji.com/static/img/app/Newguidance/upward.png" class="upward" mode=""></image>
+							<view class="upText fz-16">
+								<view class="al-center">
+									拜访申请
+									<view class="bai">
+										朋友做客等可填写信息，房主通过后小区大门自动识别打开
+									</view>
+								</view>
+								
+							</view>
+						</view>
+						<view wx:if="{{idx == 2&&index==2}}" class="m-ln3 pos-abs">
+							<image src="https://oss.kuaitongkeji.com/static/img/app/Newguidance/upward.png" class="upward" mode=""></image>
+							<view class="upText2 fz-16">
+								<view class=" al-center flex-d">
+									来访记录
+									<view class="bai">
+									可查看来访记录详细信息，所有亲戚朋友的来访记录都在这里！
+									</view>
+								</view>
+								
+							</view>
+						</view>
+						<view class="m-ln4 pos-abs" wx:if="{{idx==3&&index==3}}">
+							<image src="https://oss.kuaitongkeji.com/static/img/app/Newguidance/arrowsRU.png" class="arrowsLU" mode=""></image>
+							<view class="goHome flex-d al-center">
+								<view class="">
+									回家二维码，
+									<view class="bai">
+										安全无接触，可直接扫码进入小区
+									</view>
+								</view>
+								
+							</view>
+							<view class="lowRight">
+								<view class="bai lowT">
+									进入个人中心
+								</view>
+								<image src="https://oss.kuaitongkeji.com/static/img/app/Newguidance/lowRight.png" class="lowImg" mode=""></image>
+							</view>
+						</view>
+					</view>
 			</view>
 		</view>
 
@@ -67,6 +120,7 @@
 				<view class="clatext">
 					{{item.name}}
 				</view>
+
 			</view>
 		</view>
 
@@ -174,10 +228,10 @@
 			<image bindtap="close" src="https://oss.kuaitongkeji.com/static/img/app/home/close.png" class="closeimg" mode=""></image>
 		</view>
 
-		<view wx:if="{{Gshow == 0}}" class="guideBox"  catchtouchmove="true"  >
+		<view wx:if="{{Gshow == 0}}" class="guideBox"  catchtouchmove="move"  >
 			<image src="https://oss.kuaitongkeji.com/static/img/app/Newguidance/home.png"  class="addLogo" mode=""></image>
 		</view>
-		<view wx:if="{{Gshow == 1}}" catchtouchmove="true"  class="guideBox">  
+		<view wx:if="{{Gshow == 1}}" catchtouchmove="move"  class="guideBox">  
 			<view class="flex-d al-center bai guidePush">
 				添加地址
 				<image src="https://oss.kuaitongkeji.com/static/img/app/Newguidance/arrowsD.png" mode="" class="arrowsDimg"></image>
@@ -189,6 +243,18 @@
 			</view>
 			<view class="">
 
+			</view>
+		</view>
+		<view wx:if="{{Gshow == 6}}" catchtouchmove="move"  class="">
+			<view  bindtap="nextT" class="guideBox">
+				<view wx:if="{{idx == 3}}" class="btmbox flex ju-center">
+					<view class="addBox">
+					</view>
+					<image src="https://oss.kuaitongkeji.com/static/img/app/Newguidance/userLogo.png" class="btmImg" mode=""></image>
+				</view>
+			</view>
+			<view class="" wx:id="{{idx!==3}}">
+				<image src="https://oss.kuaitongkeji.com/static/img/app/Newguidance/home.png" class="addLogo" mode=""></image>
 			</view>
 		</view>
 </view>

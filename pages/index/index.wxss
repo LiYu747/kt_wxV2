@@ -606,3 +606,33 @@ video {
 .lowT{
   margin-left: -200rpx;
 }
+
+.Gitem {
+  z-index: 99999;
+  background: #FFFFFF;
+  padding: 5rpx;
+}
+
+.m-ln1{
+  left: 0rpx;
+  top: 160rpx;
+  width: 600rpx;
+  padding-left: 50rpx;
+}
+.m-ln2{
+  padding-left: 40rpx;
+  width: 350rpx;
+  left: 0rpx;
+  top: 160rpx;
+}
+.m-ln3{
+  width: 250rpx ;
+  padding-left: 240rpx;
+  left: -200rpx;
+  top: 160rpx;
+}
+.m-ln4{
+  width: 150rpx;
+  left: -20rpx;
+  top: 160rpx;
+}

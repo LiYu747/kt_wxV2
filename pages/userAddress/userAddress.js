@@ -31,8 +31,26 @@ Page({
       url: `/pages/userAddress/addediting/ADDediting?id=${item.id}`
     })
   },
+  
+
+  move(){
+
+  },
+  gotohome() {
+    if(this.data.Gshow == 5){
+      let num = this.data.Gshow+1
+      cache.set('Gshow',{key:'步骤'+ num,value: num})
+    }
+    wx.switchTab({
+      url: '/pages/index/index'
+    })
+  },
   // 添加地址
   getto() {
+    if(this.data.Gshow == 2){
+      let num = this.data.Gshow+1
+      cache.set('Gshow',{key:'步骤'+ num,value: num})
+    }
     wx.navigateTo({
       url: '/pages/residence/checkIn/checkIn'
     })
@@ -203,8 +221,8 @@ Page({
    */
   onHide: function () {
     this.setData({
-      rotateTimes: 1,
-      pushshow : true
+      Gshow : 0,
+		  flag : false
     })
   },
 
