@@ -56,7 +56,7 @@ Page({
     })
   },
   //搜索
-  serachData(value, page) {
+  serachData() {
     this.setData({
       ssloding: true
     })
@@ -64,8 +64,8 @@ Page({
       data: {
         villageId: this.data.id,
         tribune_cat: '',
-        kw: value,
-        page: page,
+        kw: this.data.value,
+        page: this.data.sspg,
         pageSize: this.data.sspz
       },
       fail: () => {
@@ -91,8 +91,9 @@ Page({
           item.album = item.album.slice(0, 3)
         })
         this.setData({
-          lists: data.data,
+          lists: this.data.lists.concat(data.data),
           flag: true,
+          sspg :data.current_page + 1,
           sshasMore: data.next_page_url ? true : false
         })
       },
@@ -103,9 +104,12 @@ Page({
   Onchange(e) {
     if (e.detail.value == '') return;
     this.setData({
-      value: e.detail.value
+      lists : [],
+      sspg : 1,
+      value: e.detail.value,
+      sstext:''
     })
-    this.serachData(e.detail.value, this.data.sspg)
+    this.serachData()
   },
 
   // 选择
@@ -140,7 +144,6 @@ Page({
         if (res.statusCode != 200) return;
 
         if (res.data.code != 200) return;
-
         let data = res.data.data;
         data.data.map(item => {
           item.created_at = item.created_at.slice(0, 16)
@@ -314,7 +317,11 @@ Page({
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function () {
-
+    this.setData({
+      sstext : '没有更多了'
+    })
+    if (this.data.ssloding == true || this.data.sshasMore == false) return;
+    this.serachData();
   },
 
   /**

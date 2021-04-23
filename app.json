@@ -69,7 +69,8 @@
     "pages/classification/deliciousFood/deliciousFood",
     "pages/classification/vehicle/vehicle",
     "pages/classification/teaBasedDrink/teaBasedDrink",
-    "pages/classification/service/service"
+    "pages/classification/service/service",
+    "pages/index/peripheryMore/peripheryMore"
   ],
   "window": {
     "backgroundTextStyle": "light",

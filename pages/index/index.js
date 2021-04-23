@@ -4,7 +4,6 @@ import home from '../../vendor/home/home'
 import urlUtil from '../../vendor/common/url.js';
 import cache from '../../vendor/cache/cache.js'
 const app = getApp()
-
 Page({
   data: {
     list: [], //轮播图
@@ -47,14 +46,19 @@ Page({
     Gshow: null,
     idx:0
   },
-  add: function () {
-    wx.navigateTo({
-      url: '/pages/loginAndR/login/login',
-    })
-  },
 
    move(){
 
+   },
+   lookmore(){
+    wx.navigateTo({
+      url: '/pages/index/peripheryMore/peripheryMore',
+    })
+   },
+   offShowbox(){
+     this.setData({
+      isShowType : false
+     })
    },
   nextT() {
     this.setData({
@@ -209,10 +213,10 @@ Page({
     })
   },
   //社区资讯 查看详情
-  lookup() {
+  lookup(e) {
     home.infordils({
       data: {
-        id: this.data.infoloctext[0].id
+        id: e.currentTarget.dataset.item.id
       },
       fail: () => {
         wx.showToast({
@@ -385,7 +389,7 @@ Page({
     home.CommunityNews({
       data: {
         page: 1,
-        pageSize: 15
+        pageSize: 1
       },
       fail: () => {
         wx.showToast({
@@ -409,7 +413,7 @@ Page({
     home.news({
       data: {
         page: 1,
-        pageSize: 4
+        pageSize: 2
       },
       fail: () => {
         wx.showToast({

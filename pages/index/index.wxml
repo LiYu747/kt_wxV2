@@ -1,22 +1,24 @@
 <view>
+	<navigation-bar></navigation-bar>
 	<view class="nav ">
 		<view class="ipt  ju-center flex al-center pos-rel">
 			<view wx:if='{{user}}' class="userSelection pos-abs">
-				<image bindtap="ShowType" src="https://oss.kuaitongkeji.com/static/img/app/home/sjxl.png"
-					class="sjxlIcon" mode=""></image>
-				<view wx:if="{{isShowType == true}}" class="typeBox flex-d al-center">
-					<image src="https://oss.kuaitongkeji.com/static/img/app/home/xljx.png" class="xljxImg" mode=""></image>
-					<view class="typeLine">
+				<image bindtap="ShowType" src="../../image/Clssmenu.png" class="sjxlIcon" mode=""></image>
+				<view wx:if="{{isShowType == true}}" class="m-t1 pos-abs">
+					<view class="trilateral">
 					</view>
-					<view class="fz-12 itemType flex ju-center al-center" wx:for="{{userType}}" bindtap="selecType"
-						data-item="{{item}}" wx:key='id'>
-						{{item.name}}
+					<view class="nomenBox">
+						<view class="itemType flex al-center" wx:for="{{userType}}" wx:key='id'>
+							<view bindtap="selecType" data-item="{{item}}" class="">
+								{{item.name}}
+							</view>
+						</view>
 					</view>
 				</view>
 			</view>
 			<image class="img pos-abs" src="https://oss.kuaitongkeji.com/static/img/app/home/ss.png" mode=""></image>
-			<input class="input" type="text" bindinput="inputchange" confirm-type="search" bindconfirm='confirm' value="{{value}}"
-				placeholder="请输入小区名称关键词" />
+			<input class="input" type="text" bindinput="inputchange" confirm-type="search" bindconfirm='confirm'
+				value="{{value}}" placeholder="请输入小区名称关键词" />
 
 			<view wx:if='{{user}}' bindtap="goInform" class="informBox pos-abs">
 				<view wx:if="{{0<informmsg.total_unread && informmsg.total_unread< 100}}"
@@ -33,6 +35,8 @@
 		</view>
 	</view>
 
+	<view class=" topLine"></view>
+
 	<view class="boxss">
 		<image class="imgjx" src="https://oss.kuaitongkeji.com/static/img/app/home/jx.png" mode=""></image>
 	</view>
@@ -40,7 +44,8 @@
 	<view class="swper">
 		<swiper indicator-dots="{{indicatorDots}}" previous-margin='50rpx' next-margin='50rpx' bindchange='onchange'
 			autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
-			<swiper-item class="u-swiper-item  " wx:for="{{list}}" wx:key="id" bindtap="addswiper" data-item="{{item}}" data-index="{{index}}">
+			<swiper-item class="u-swiper-item  " wx:for="{{list}}" wx:key="id" bindtap="addswiper" data-item="{{item}}"
+				data-index="{{index}}">
 				<view class="ono {{index!=current?'dcc':''}}">
 					<image src="{{item.image}}" mode="aspectFill" class="imgsrc"></image>
 				</view>
@@ -51,71 +56,77 @@
 	<view class=" flex-d al-center">
 		<!-- 用户操作栏 -->
 		<view class="flex operation ju-between">
-			<view class="flex-d al-center  pos-rel {{Gshow == 6&&index==idx?'Gitem':''}}" wx:for="{{localdata}}" bindtap="operation" data-item="{{item}}" wx:key='id'>
+			<view class="flex-d al-center  pos-rel {{Gshow == 6&&index==idx?'Gitem':''}}" wx:for="{{localdata}}"
+				bindtap="operation" data-item="{{item}}" wx:key='id'>
 				<image src="{{item.image}}" class="itemimg" mode=""></image>
 				<view class="itemtext">
 					{{item.name}}
 				</view>
-				<view  wx:if="{{Gshow == 6}}" class="">
-						<view wx:if="{{idx==0&&index==0}}" class="flex pos-abs m-ln1">
-							<image src="https://oss.kuaitongkeji.com/static/img/app/Newguidance/arrowsLU.png" class="arrowsLU" mode=""></image>
-							<view class="Lutext">
-								入住申请
-								<view class="bai">
-									填写入住地址详细信息
-								</view>
-							</view>
-						</view>
-						<view wx:if="{{idx == 1&&index==1}}" class="m-ln2 pos-abs">
-							<image src="https://oss.kuaitongkeji.com/static/img/app/Newguidance/upward.png" class="upward" mode=""></image>
-							<view class="upText fz-16">
-								<view class="al-center">
-									拜访申请
-									<view class="bai">
-										朋友做客等可填写信息，房主通过后小区大门自动识别打开
-									</view>
-								</view>
-								
-							</view>
-						</view>
-						<view wx:if="{{idx == 2&&index==2}}" class="m-ln3 pos-abs">
-							<image src="https://oss.kuaitongkeji.com/static/img/app/Newguidance/upward.png" class="upward" mode=""></image>
-							<view class="upText2 fz-16">
-								<view class=" al-center flex-d">
-									来访记录
-									<view class="bai">
-									可查看来访记录详细信息，所有亲戚朋友的来访记录都在这里！
-									</view>
-								</view>
-								
-							</view>
-						</view>
-						<view class="m-ln4 pos-abs" wx:if="{{idx==3&&index==3}}">
-							<image src="https://oss.kuaitongkeji.com/static/img/app/Newguidance/arrowsRU.png" class="arrowsLU" mode=""></image>
-							<view class="goHome flex-d al-center">
-								<view class="">
-									回家二维码，
-									<view class="bai">
-										安全无接触，可直接扫码进入小区
-									</view>
-								</view>
-								
-							</view>
-							<view class="lowRight">
-								<view class="bai lowT">
-									进入个人中心
-								</view>
-								<image src="https://oss.kuaitongkeji.com/static/img/app/Newguidance/lowRight.png" class="lowImg" mode=""></image>
+				<view wx:if="{{Gshow == 6}}" class="">
+					<view wx:if="{{idx==0&&index==0}}" class="flex pos-abs m-ln1">
+						<image src="https://oss.kuaitongkeji.com/static/img/app/Newguidance/arrowsLU.png" class="arrowsLU" mode="">
+						</image>
+						<view class="Lutext">
+							入住申请
+							<view class="bai">
+								填写入住地址详细信息
 							</view>
 						</view>
 					</view>
+					<view wx:if="{{idx == 1&&index==1}}" class="m-ln2 pos-abs">
+						<image src="https://oss.kuaitongkeji.com/static/img/app/Newguidance/upward.png" class="upward" mode="">
+						</image>
+						<view class="upText fz-16">
+							<view class="al-center">
+								拜访申请
+								<view class="bai">
+									朋友做客等可填写信息，房主通过后小区大门自动识别打开
+								</view>
+							</view>
+
+						</view>
+					</view>
+					<view wx:if="{{idx == 2&&index==2}}" class="m-ln3 pos-abs">
+						<image src="https://oss.kuaitongkeji.com/static/img/app/Newguidance/upward.png" class="upward" mode="">
+						</image>
+						<view class="upText2 fz-16">
+							<view class=" al-center flex-d">
+								来访记录
+								<view class="bai">
+									可查看来访记录详细信息，所有亲戚朋友的来访记录都在这里！
+								</view>
+							</view>
+
+						</view>
+					</view>
+					<view class="m-ln4 pos-abs" wx:if="{{idx==3&&index==3}}">
+						<image src="https://oss.kuaitongkeji.com/static/img/app/Newguidance/arrowsRU.png" class="arrowsLU" mode="">
+						</image>
+						<view class="goHome flex-d al-center">
+							<view class="">
+								回家二维码，
+								<view class="bai">
+									安全无接触，可直接扫码进入小区
+								</view>
+							</view>
+
+						</view>
+						<view class="lowRight">
+							<view class="bai lowT">
+								进入个人中心
+							</view>
+							<image src="https://oss.kuaitongkeji.com/static/img/app/Newguidance/lowRight.png" class="lowImg" mode="">
+							</image>
+						</view>
+					</view>
+				</view>
 			</view>
 		</view>
 
 		<!-- 分类 -->
 		<view class="clabox flex flex-w">
-			<view class="flex-d al-center loyout ju-around" wx:for="{{clalists}}" wx:key='id' data-item="{{item}}" data-index='index'
-				bindtap="goclass">
+			<view class="flex-d al-center loyout ju-around" wx:for="{{clalists}}" wx:key='id' data-item="{{item}}"
+				data-index='index' bindtap="goclass">
 				<image src="{{item.image}}" class="claitemimg" mode=""></image>
 				<view class="clatext">
 					{{item.name}}
@@ -125,92 +136,95 @@
 		</view>
 
 		<!-- 社区资讯 -->
-		<view class="infobox">
-			<view class="flex al-center">
-				<image class="infoimgss" src="https://oss.kuaitongkeji.com/static/img/app/home/sq(1)@2x.png" mode=""></image>
-				<view class="infotext">
+		<view>
+			<view class="infobox">
+				<view class="text">
 					社区资讯
 				</view>
-			</view>
-			<view class="infoovertxt flex al-center">
-				<view wx:if="{{infoloctext.length > 0}}" class="infocontext">
-					<view wx:for="{{infoloctext}}" wx:key='id' class="infoltst ">
-						{{item.title}}
+				<view wx:if="{{infoloctext.length>0}}" class="cententBox flex al-center">
+					<view class=" pos-rel flex cenItem al-center" wx:for="{{infoloctext}}" wx:key="id">
+						<view class="conTxt">
+							{{item.title}}
+						</view>
+						<view bindtap="lookup" data-item="{{item}}" class="readBtn pos-abs flex al-center ju-center">
+							阅读＞
+						</view>
 					</view>
 				</view>
-				<view class="infoonmsg" wx:else>
+				<view wx:else class=" fz-12 nodata">
 					暂无社区资讯...
 				</view>
-				<view wx:if="{{infoloctext.length > 0}}" bindtap="lookup" class="infobtn flex al-center ju-center">
-					查看详情 >
-				</view>
+			</view>
+			<view class="line">
+
 			</view>
 		</view>
 
 		<!-- 社区新闻 -->
-		<view wx:if="{{user}}" class="comconten">
-			<view class="flex al-center">
-				<view class="">
-					<image src="https://oss.kuaitongkeji.com/static/img/app/home/news.png" class="comimgss" mode=""></image>
-				</view>
-				<view class="comtextss">
+		<view>
+			<view class="infobox">
+				<view class="text">
 					社区新闻
 				</view>
-			</view>
-			<view class="comNotice flex al-center">
-				<block wx:if="{{newData.length>0}}">
-					<image src="../../image/laba.png"  class="imgss" mode=""></image>
-            <swiper class="conNswiper" autoplay="true" circular='true' vertical="true">
-							<block wx:for="{{newData}}" wx:key='id'>
-								<swiper-item class=" flex al-center">
-								<view bindtap="goComm"  data-item="{{item}}" class="swpeirTxt">
-									{{item.title}}
-								</view>
-							</swiper-item>
-							</block>
-						</swiper>
-				</block>
-				<view class="comnonews" wx:else>
-					暂无社区新闻...
-				</view>
-			</view>
-			
-		</view>
-
-		<!-- 周边消息 -->
-		<view class="perboxss">
-			<view class="flex al-center  m-b1 pos-rel">
-				<image class="perimgss" src="https://oss.kuaitongkeji.com/static/img/app/home/zx@2x.png" mode=""></image>
-				<view class="pertext">
-					周边消息
-				</view>
-
-				<view bindtap="lookmore" class="perandMore pos-abs">
-					查看更多
-				</view>
-			</view>
-			<view wx:if="{{perlocdata.length>0}}" class="perconten flex ju-between flex-w">
-				<view class="peritem flex pos-rel" bindtap="godils" data-item="{{item}}" wx:for="{{perlocdata}}" wx:key='id'>
-					<image wx:if="{{item.faceimg}}" src="{{item.faceimg}}" mode="aspectFill" class="peritemimg"></image>
-					<image wx:else src="https://oss.kuaitongkeji.com/static/img/app/forum/timg.jpg" mode="aspectFill" class="peritemimg"></image>
-					<view class="perfont">
-						<view class="perfonts">
+				<view wx:if="{{newData.length>0}}" class="cententBox pos-rel flex al-center">
+					<view class="infoconTxt">
+						<view class="" bindtap="goComm" data-item="{{item}}" wx:for="{{newData}}" wx:key="id">
 							{{item.title}}
 						</view>
 					</view>
-					<view class=" pos-abs perlocation ">
-						{{item.created_at}}
-					</view>
+				</view>
+				<view wx:else class=" fz-12 nonews">
+					暂无社区新闻...
 				</view>
 			</view>
+			<view class="line">
 
-			<view class="pernomsg" wx:else>
-				还没有任何周边资讯哦~
+			</view>
+
+		</view>
+
+		<!-- 周边消息 -->
+		<view>
+			<view class="pirbox">
+				<view class="flex al-center  pos-rel">
+					<view class="pirtext">
+						周边消息
+					</view>
+					<view v-if="{{perlocdata.length>0}}" bindtap="lookmore" class="andMore pos-abs">
+						查看更多
+					</view>
+				</view>
+				<view wx:if="{{perlocdata.length>0}}" class="">
+					<view class="itemBox m-t1" bindtap="godils" data-item="{{item}}" wx:for="{{perlocdata}}" wx:key="id">
+						<view class="flex">
+							<view class="">
+								<view class="itemTil m-t2">
+									{{item.title}}
+								</view>
+							</view>
+							<image wx:if="{{item.faceimg}}" src="{{item.faceimg}}" class="itemImg" mode=""></image>
+							<image wx:else
+								src="https://oss.kuaitongkeji.com/upload/2020/12/15/AY0xTVMZBzNuJ0acHphXphi4gewrdyJeuBoypUCH.jpeg"
+								class="itemImg" mode=""></image>
+						</view>
+						<view class="fz-12 timeBox flex ju-between m-t2">
+							{{item.created_at}}
+							<view class="">
+								155787人浏览
+							</view>
+						</view>
+					</view>
+				</view>
+				<view wx:else class="fz-12 nonews">
+					<view class="m-l1">
+						还没有任何周边资讯哦~
+					</view>
+				</view>
 			</view>
 		</view>
 	</view>
 
-	<view class="btmLine"></view>
+	<!-- <view class="btmLine"></view> -->
 	<view hidden="{{showPullDownRefreshIcon}}" class="showloding flex al-center ju-center">
 		<view class="loding flex-d al-center ju-center">
 			<view class=" ">
@@ -219,42 +233,49 @@
 			刷新中
 		</view>
 	</view>
- 
-		<!-- 视频播放 -->
-		<view wx:if="{{paly == true}}"   class=" pos-abs moive flex-d al-center ju-center">
-			<view bindtap="close" class="showback pos-abs">
-			</view>
-			<video  src="{{videoUrl}}"  custom-cache="{{false}}"></video>
-			<image bindtap="close" src="https://oss.kuaitongkeji.com/static/img/app/home/close.png" class="closeimg" mode=""></image>
-		</view>
 
-		<view wx:if="{{Gshow == 0}}" class="guideBox"  catchtouchmove="move"  >
-			<image src="https://oss.kuaitongkeji.com/static/img/app/Newguidance/home.png"  class="addLogo" mode=""></image>
+	<!-- 视频播放 -->
+	<view wx:if="{{paly == true}}" class=" pos-abs moive flex-d al-center ju-center">
+		<view bindtap="close" class="showback pos-abs">
 		</view>
-		<view wx:if="{{Gshow == 1}}" catchtouchmove="move"  class="guideBox">  
-			<view class="flex-d al-center bai guidePush">
-				添加地址
-				<image src="https://oss.kuaitongkeji.com/static/img/app/Newguidance/arrowsD.png" mode="" class="arrowsDimg"></image>
-			</view>
-			<view class="btmbox flex ju-center">
-				<view bindtap="GgoAdd" class="addBox">
-				</view>
-				<image src="https://oss.kuaitongkeji.com/static/img/app/Newguidance/homeLogo.png" class="btmImg" mode=""></image>
-			</view>
-			<view class="">
+		<video src="{{videoUrl}}" custom-cache="{{false}}"></video>
+		<image bindtap="close" src="https://oss.kuaitongkeji.com/static/img/app/home/close.png" class="closeimg" mode="">
+		</image>
+	</view>
 
-			</view>
+	<view wx:if="{{Gshow == 0}}" class="guideBox" catchtouchmove="move">
+		<image src="https://oss.kuaitongkeji.com/static/img/app/Newguidance/home.png" class="addLogo" mode=""></image>
+	</view>
+	<view wx:if="{{Gshow == 1}}" catchtouchmove="move" class="guideBox">
+		<view class="flex-d al-center bai guidePush">
+			添加地址
+			<image src="https://oss.kuaitongkeji.com/static/img/app/Newguidance/arrowsD.png" mode="" class="arrowsDimg">
+			</image>
 		</view>
-		<view wx:if="{{Gshow == 6}}" catchtouchmove="move"  class="">
-			<view  bindtap="nextT" class="guideBox">
-				<view wx:if="{{idx == 3}}" class="btmbox flex ju-center">
-					<view class="addBox">
-					</view>
-					<image src="https://oss.kuaitongkeji.com/static/img/app/Newguidance/userLogo.png" class="btmImg" mode=""></image>
+		<view class="btmbox flex ju-center">
+			<view bindtap="GgoAdd" class="addBox">
+			</view>
+			<image src="https://oss.kuaitongkeji.com/static/img/app/Newguidance/homeLogo.png" class="btmImg" mode=""></image>
+		</view>
+		<view class="">
+
+		</view>
+	</view>
+	<view wx:if="{{Gshow == 6}}" catchtouchmove="move" class="">
+		<view bindtap="nextT" class="guideBox">
+			<view wx:if="{{idx == 3}}" class="btmbox flex ju-center">
+				<view class="addBox">
 				</view>
-			</view>
-			<view class="" wx:id="{{idx!==3}}">
-				<image src="https://oss.kuaitongkeji.com/static/img/app/Newguidance/home.png" class="addLogo" mode=""></image>
+				<image src="https://oss.kuaitongkeji.com/static/img/app/Newguidance/userLogo.png" class="btmImg" mode="">
+				</image>
 			</view>
 		</view>
+		<view class="" wx:id="{{idx!==3}}">
+			<image src="https://oss.kuaitongkeji.com/static/img/app/Newguidance/home.png" class="addLogo" mode=""></image>
+		</view>
+	</view>
+
+	<view hidden="{{!isShowType}}" bindtap="offShowbox" class="showBox">
+
+	</view>
 </view>

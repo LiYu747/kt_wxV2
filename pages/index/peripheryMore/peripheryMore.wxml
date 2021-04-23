@@ -1,0 +1,51 @@
+<view>
+  <view wx:if="{{locdata.length>0}}" class="conBox m-t2">
+			<view class="itemBox" bindtap="godils" data-item="{{item}}" wx:for="{{locdata}}" wx:key="id">
+				<view wx:if="{{flag == 0}}"  class="flex">
+					<image src="{{item.faceimg}}" class="itemImg" mode=""></image>
+					<view class="content m-l2 pos-rel">
+						<view class="conTex  m-t2">
+							{{item.title}}
+						</view>
+						<view class="timeBox fz-12 pos-abs flex ju-between">
+							{{item.created_at}}
+							<view class="">
+								512486人浏览
+							</view>
+						</view>
+					</view>
+				</view>
+				<view  wx:if="{{flag == 1}}" class="">
+					<view class="conTex fz-14">
+						{{item.title}}
+					</view>
+					<view class="flex m-t4">
+						<image src="{{item.faceimg}}" class="itemImg" mode=""></image>
+						<image src="{{item.faceimg}}" class="itemImg" mode=""></image>
+            <image src="{{item.faceimg}}" class="itemImg" mode=""></image>
+					</view>
+					<view class="flex timeBox fz-12 flex ju-between m-t3">
+						{{item.created_at}}
+						<view class="">
+							512486人浏览
+						</view>
+					</view>
+				</view>
+			</view>
+			<view wx:if="{{isLoding == true}}" class=" fz-12 flex ju-center al-center lodbox">
+				<image class="lodimg" src="https://oss.kuaitongkeji.com/static/img/app/address/loading.gif" mode=""></image>
+				加载中...
+			</view>
+			<view class="flex ju-center lodbox  fz-12" v-if="hasMore == false">
+				{{text}}
+			</view>
+		</view>
+		<view wx:if="{{isLoding == true&&locdata.length == 0}}" class="showloding flex al-center ju-center">
+			<view class="loding flex-d al-center ju-center">
+				<view class=" ">
+					<image class="loimg" src="https://oss.kuaitongkeji.com/static/img/app/address/loading.gif" mode=""></image>
+				</view>
+				加载中
+			</view>
+		</view>
+</view>

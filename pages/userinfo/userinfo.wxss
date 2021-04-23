@@ -11,7 +11,7 @@
 
 .location {
   position: fixed;
-  top: 10rpx;
+  margin-top: 10rpx;
   right: 50rpx;
   z-index: 99;
 }
@@ -23,6 +23,7 @@
   height: 40rpx;
 }
 .img {
+  margin-top: 70rpx;
   width: 100%;
   height: 160rpx;
 }
@@ -118,7 +119,8 @@
 .item{
 	width: 690rpx;
 	height: 90rpx;
-	background: #FFFFFF;
+  background: #FFFFFF;
+  border-bottom: 1px solid  #e7e7e7; 
 }
 .itemtext{
 	font-size: 32rpx;
@@ -145,11 +147,10 @@
   }	
   
   .btoLine{
-    height: 50rpx;
+    height: 30rpx;
   }
 
   .zIndex{
-    top: 0;
 		display: flex;
 		align-items: center;
 		justify-content: center;
@@ -202,7 +203,7 @@
       width: 100%;
       height: 100vh;
       background: rgba(0, 0, 0, 0.75);
-      z-index: 99;
+      z-index: 999;
     }
   
     .Gitemimg {
@@ -302,4 +303,11 @@
       height: 100rpx;
       position: fixed;
       bottom: 0;
+    }
+
+    .reimg {
+      width: 20rpx;
+      height: 30rpx; 
+      position: absolute;
+      right:10rpx;
     }

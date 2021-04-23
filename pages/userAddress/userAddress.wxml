@@ -1,4 +1,5 @@
 <!--pages/userAddress/userAddress.wxml-->
+<navigation-bar ></navigation-bar>
 <view class="">
 	<view class="navtil flex ju-center ">
 		入住信息
@@ -11,40 +12,44 @@
 
 	<!-- 地址列表 -->
 	<view class="flex-d al-center">
-		<view wx:if="{{locdata.length>0}}" class="boxss" ref='fied'>
-			<view class="content pos-rel" wx:for="{{locdata}}" wx:for-item="item" wx:for-index="index" wx:key='id'>
-				<view class="location pos-abs" bindtap="Select" data-index="{{index}}" data-item="{{item}}">
-					<image wx:if="{{idx===index}}" class="zrimg" src="https://oss.kuaitongkeji.com/static/img/app/address/yes.png"
-						mode=""></image>
-					<image wx:else class="zrimg" src="https://oss.kuaitongkeji.com/static/img/app/address/zro.png" mode="">
-					</image>
-				</view>
+		<view wx:if="{{locdata.length>0}}" class="boxss" >
+			<view class="content pos-rel" wx:for="{{locdata}}" wx:for-item="item" wx:for-index="index"  wx:key='id'>
 				<view class="addres">
-					<view wx:if="{{item.own_village}}" bindtap="Select" data-index="{{index}}" data-item="{{item}}"
-						class=" name flex al-center pos-rel">
+					<view wx:if="{{item.own_village}}" bindtap="Select"  data-item="{{item}}"
+						class=" name flex al-center ju-between">
 						{{item.own_village.name}}
-						<view class="pos-abs  right">
-							<image class="reimg" src="https://oss.kuaitongkeji.com/static/img/app/address/retrue.png" mode=""></image>
+						<view class="">
+							<image class="reimg" src="../../image/goIn.png" mode=""></image>
 						</view>
 					</view>
-					<view class="line"></view>
+					<view class="line m-t2"></view>
 					<view wx:if="{{item.address}}" class="text" data-item="{{item}}" bindtap="look">
 						{{item.address}}
 					</view>
-				</view>
-
-				<view bindtap="order" data-item="{{item}}" class="pos-abs botto">
-					预约电梯
+					<view class="line"></view>
+					<view  class="botto">
+						<view bindtap="callTenement" class="Yueback m-r2 flex al-center ju-center">
+							 <view class="fz-12">
+							 	联系物业
+							 </view>
+						</view>
+						<view bindtap="order" data-item="{{item}}"  class=" flex al-center ju-center elback">
+							 <view class="fz-12 bai">
+							 	预约电梯
+							 </view>
+						</view>
+					</view>
 				</view>
 			</view>
 			<view class="flex ju-center m-b2 fz-14" wx:if="{{hasMore == false}}">
 				{{text}}
 			</view>
 		</view>
-		<view wx:if="{{locdata.length==0&&isLoding==false}}" class="nono flex al-center ju-center">
-			暂无地址,快去添加吧~
+		<view wx:if="{{code == 200&&isLoding == false&&locdata.length == 0}}" class="nono flex al-center ju-center">
+			暂无地址,快去添加吧
 		</view>
-		<view wx:if='{{flag===true && msg}}' class="show pos-abs flex al-center ju-center">
+
+		<view wx:if='{{flagss===true && msg}}' class="show pos-abs flex al-center ju-center">
 			<view class="showbox flex-d al-center pos-rel">
 				<view wx:if="{{message==true}}" class="flex-d al-center">
 					<image src="https://oss.kuaitongkeji.com/static/img/app/address/scrcc.png" class="scrimg" mode=""></image>

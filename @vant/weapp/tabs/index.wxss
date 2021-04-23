@@ -122,7 +122,8 @@
 
 .van-tabs--line .van-tabs__wrap {
   height: 44px;
-  height: var(--tabs-line-height, 44px)
+  height: var(--tabs-line-height, 44px);
+  border-bottom: 1px solid #cccccc;
 }
 
 .van-tabs--card .van-tabs__wrap {

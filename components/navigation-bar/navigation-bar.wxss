@@ -1,0 +1,17 @@
+.nav-bar {
+  position: fixed;
+  width: 100%;
+  top: 0;
+  color: #fff;
+  background: #F07535;
+  z-index: 999;
+  display: flex;
+  justify-content: center;
+}
+.text{
+  position: absolute;
+  display: flex;
+  align-items: center;
+  font-size: 20px;
+}
+

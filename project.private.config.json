@@ -443,6 +443,23 @@
           "pathName": "pages/communityForum/forum/forum",
           "query": "id=34",
           "scene": null
+        },
+        {
+          "name": "pages/index/peripheryMore/peripheryMore",
+          "pathName": "pages/index/peripheryMore/peripheryMore",
+          "query": "id=34",
+          "scene": null
+        },
+        {
+          "name": "pages/userAddress/userAddress",
+          "pathName": "pages/userAddress/userAddress",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/communityForum/forumlists/forumlists",
+          "pathName": "pages/communityForum/forumlists/forumlists",
+          "scene": null
         }
       ]
     }

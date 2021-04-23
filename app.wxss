@@ -2,5 +2,5 @@
 @import "/style/common.wxss";
 
 page {
-	background-color: #f7f7f7;
+	background-color: #ffffff;
 	}

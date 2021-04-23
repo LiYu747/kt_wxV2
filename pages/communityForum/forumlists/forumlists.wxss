@@ -53,15 +53,15 @@ position: relative;
 }
 
 .backctext{
-  background: rgb(247,247,247);
+  background: #ffffff;
 }
 
 .item {
   width: 690rpx;
   padding: 30rpx;
-  border-bottom: 1rpx solid #BFBFBF;
   color: #666666;
-
+  box-shadow: 2rpx 2rpx 12rpx #d9d9d9;
+  margin-top: 30rpx;
 }
 
 .name {
@@ -77,11 +77,9 @@ position: relative;
 }
 
 .content {
-  margin-top: 20rpx;
-  width: 650rpx;
-  background: rgb(230, 230, 230);
-  padding: 20rpx 20rpx;
-  font-size: 28rpx;
+	margin-top: 30rpx;
+		width: 650rpx;
+		font-size: 28rpx;
 }
 
 .show {
@@ -93,10 +91,15 @@ position: relative;
 }
 
 .items {
-  width: 150rpx;
-  height: 170rpx;
-  margin-right: 20rpx;
-  margin-bottom: 10rpx;
+	width: 210rpx;
+		height: 210rpx;
+		margin-right: 30rpx;
+		margin-bottom: 10rpx;
+		border-radius: 10rpx;
+}
+
+.onmargin{
+  margin-right: 0;
 }
 
 .comimg {

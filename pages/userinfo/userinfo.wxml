@@ -1,8 +1,9 @@
+<navigation-bar ></navigation-bar>
 <view class="">
   <view class="navtil flex ju-center ">
     个人中心
   </view>
-  <view class=" topLine"></view>
+  <!-- <view class=" topLine"></view> -->
   <view class="location {{Gshow==7&&idx==0?'zIndex':''}}">
     <image bindtap="install" src="https://oss.kuaitongkeji.com/static/img/app/user/Settings.png" class="setimg" mode="">
     </image>
@@ -52,12 +53,13 @@
       精彩功能，正在等你发现！
     </view>
     <view class="boxss ">
-      <view class="item flex al-center  {{index<3?'dv':''}} {{index>3?'top':''}}" wx:for="{{locdata}}" bindtap="add"
+      <view class="item flex al-center pos-rel" wx:for="{{locdata}}" bindtap="add"
         wx:key='id' data-item="{{item}}">
         <image src="{{item.image}}" class="itemimg" mode=""></image>
         <view class="itemtext">
           {{item.titel}}
         </view>
+        <image src="../../image/goIn.png" class="reimg" alt=""></image>
         <view wx:if="{{index==6}}" class="">
           <view wx:if="{{0<informmsg && user}}" class="munber flex al-center ju-center">
             {{informmsg}}

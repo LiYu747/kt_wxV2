@@ -9,12 +9,12 @@ Page({
    * 页面的初始数据
    */
   data: {
+    code:0,
     rotateTimes: 1,
     pushshow: true, //是否显示添加入住申请
     message: true,//显示电梯提示
-    flag: false,
+    flagss: false,
 		msg: '', //电梯提示类容
-    idx: 0,
     locdata: [], //数据列表
     page: 1,
     ps: 15,
@@ -23,6 +23,7 @@ Page({
     showPullDownRefreshIcon: false,
     Gshow: 0,
     flag:false,
+    updata:0,
   },
   // 编辑
   look(e) {
@@ -80,13 +81,13 @@ Page({
           this.setData({
           message : true,
           msg : res.data.msg,
-          flag : true
+          flagss : true
           })
         } else {
           this.setData({
             message : false,
             msg : res.data.msg,
-            flag : true
+            flagss : true
             })
         }
      
@@ -96,7 +97,7 @@ Page({
    //知道了
    sure () {
      this.setData({
-      flag : false
+      flagss : false
      })
    },
   //进入论坛
@@ -104,9 +105,6 @@ Page({
     let val = e.currentTarget.dataset
     wx.navigateTo({
       url: '/pages/communityForum/introduction/introduction?id=' + val.item.village_id,
-    })
-    this.setData({
-      idx: val.index
     })
   },
    
@@ -150,7 +148,8 @@ Page({
             if (res.data.code != 200) return;
             let data = res.data.data;
             this.setData({
-              hasMore: data.next_page_url ? true : false
+              hasMore: data.next_page_url ? true : false,
+              page : data.current_page + 1
             })
             data.data.map(item => {
               if (item.own_village) {
@@ -158,8 +157,18 @@ Page({
               }
             })
             this.setData({
-              locdata: data.data
+              code : res.data.code
             })
+            if(this.data.updata == 0){
+              this.setData({
+                locdata: data.data 
+              })
+          }else{
+            this.setData({
+              locdata: this.data.locdata.concat(data.data)
+            })
+          }
+           
           }
         })
       },
@@ -222,7 +231,9 @@ Page({
   onHide: function () {
     this.setData({
       Gshow : 0,
-		  flag : false
+      flag : false,
+      page : 1,
+      updata : 0
     })
   },
 
@@ -250,7 +261,11 @@ Page({
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function () {
-
+    if (this.data.isLoding == true || this.data.hasMore == false) return;
+    this.setData({
+      updata : 1
+    })
+    this.loadPageData()
   },
 
   /**

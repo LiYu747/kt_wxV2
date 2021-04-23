@@ -1,0 +1,9 @@
+<!-- 自定义顶部栏 -->
+<view class="nav-bar" style="height:{{navBarHeight}}px;">
+  <view class="text " style="bottom:{{menuBotton}}px;height:{{menuHeight}}px">{{defaultData}}</view>
+</view>
+<!-- 
+    内容区域：
+    自定义顶部栏用的fixed定位，会遮盖到下面内容，注意设置好间距
+-->
+<view class="content" style="height:{{navBarHeight}}px;"></view>
