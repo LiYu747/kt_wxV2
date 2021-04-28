@@ -16,23 +16,26 @@
 							<!-- 图片 -->
 							<view class="flex al-center m-t4">
 								<view wx:for="{{item.album}}" wx:key='id'>
-									<image src="{{item.url}}" class="items" mode="aspectFill"></image>
+									<image src="{{item.url}}" class="items {{(index+1)%3 == 0?'onmargin':''}}" mode="aspectFill"></image>
 								</view>
 							</view>
 							<view class="time">
 								{{item.created_at}}
 							</view>
+							<view class="Hline">
+								
+							</view>
 						</view>
 					</view>
-					<view wx:if="{{isLoding == true&&lists.length >0}}" class=" flex ju-center m-t2 al-center lodbox">
+					<view wx:if="{{isLoding == true&&lists.length >0}}" class=" flex ju-center  al-center lodbox">
 						<image class="lodimg" src="https://oss.kuaitongkeji.com/static/img/app/address/loading.gif" mode=""></image>
 						加载中...
 					</view>
 
-					<view class="flex ju-center m-b2 m-t3 fz-12" wx:if="{{hasMore == false}}">
+					<view class="flex ju-center lodbox  fz-12" wx:if="{{hasMore == false}}">
 						{{text}}
 					</view>
-					<view class="nono flex ju-center cl9 fz-14" wx:if="{{lists.length == 0 && isLoding==false}}">
+					<view class="nono flex al-center ju-center cl9 fz-14" wx:if="{{lists.length == 0 && isLoding==false}}">
 						您还没有任何发布
 					</view>
 					<view class="btom">
@@ -69,14 +72,14 @@
 						</view>
 					</view>
 
-					<view class="nono flex ju-center  cl9 fz-14" wx:if="{{data1.length==0 && isLoding1==false}}">
+					<view class="nono flex ju-center  al-center cl9 fz-14" wx:if="{{data1.length==0 && isLoding1==false}}">
 						您还没有发表评论
 					</view>
-					<view wx:if="{{isLoding1 == true&&data1.length>0}}" class="m-t2 flex ju-center al-center lodbox">
+					<view wx:if="{{isLoding1 == true&&data1.length>0}}" class=" flex ju-center al-center lodbox">
 						<image class="lodimg" src="https://oss.kuaitongkeji.com/static/img/app/address/loading.gif" mode=""></image>
 						加载中...
 					</view>
-					<view class="flex ju-center m-b2 m-t3 fz-12" wx:if="{{hasMore1 == false}}">
+					<view class="flex ju-center lodbox  fz-12" wx:if="{{hasMore1 == false}}">
 						{{text1}}
 					</view>
 					<view class="btom">

@@ -459,6 +459,49 @@
         {
           "name": "pages/communityForum/forumlists/forumlists",
           "pathName": "pages/communityForum/forumlists/forumlists",
+          "query": "id=34",
+          "scene": null
+        },
+        {
+          "name": "pages/communityForum/forum/forum",
+          "pathName": "pages/communityForum/forum/forum",
+          "query": "id=34",
+          "scene": null
+        },
+        {
+          "name": "pages/classification/lookRoom/rentRoom/moreRoom/moreRoom",
+          "pathName": "pages/classification/lookRoom/rentRoom/moreRoom/moreRoom",
+          "query": "id=34",
+          "scene": null
+        },
+        {
+          "name": "pages/classification/lookRoom/sellersForm/sellersForm",
+          "pathName": "pages/classification/lookRoom/sellersForm/sellersForm",
+          "query": "id=34",
+          "scene": null
+        },
+        {
+          "name": "pages/userAddress/userAddress",
+          "pathName": "pages/userAddress/userAddress",
+          "query": "id=34",
+          "scene": null
+        },
+        {
+          "name": "pages/communityForum/introduction/introduction",
+          "pathName": "pages/communityForum/introduction/introduction",
+          "query": "id=2",
+          "scene": null
+        },
+        {
+          "name": "pages/propertyManagement/propertyhome/propertyhome",
+          "pathName": "pages/propertyManagement/propertyhome/propertyhome",
+          "query": "id=2",
+          "scene": null
+        },
+        {
+          "name": "pages/userMessenger/userhome/userhome",
+          "pathName": "pages/userMessenger/userhome/userhome",
+          "query": "id=2",
           "scene": null
         }
       ]

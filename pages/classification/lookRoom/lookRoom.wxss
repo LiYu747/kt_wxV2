@@ -8,6 +8,7 @@
   border-radius: 20rpx;
   padding: 0rpx 20rpx;
   padding-bottom: 20rpx;
+  box-shadow: 2rpx 2rpx 12rpx #d9d9d9;
 }
 
 .titel {
@@ -37,6 +38,7 @@
 .itemsimg {
   width: 200rpx;
   height: 160rpx;
+  border-radius: 10rpx;
 }
 
 .bricolor {

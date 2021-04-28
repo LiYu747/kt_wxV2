@@ -1,4 +1,5 @@
 // pages/propertyManagement/propertyhome/propertyhome.js
+const app = getApp()
 Page({
 
   /**
@@ -21,7 +22,8 @@ Page({
       url: '/pages/userMessenger/userhome/userhome'
     }
   ],
-  isShowType:false
+  isShowType:false,
+  navBarHeight: app.globalData.navBarHeight,
   },
      
 
@@ -57,8 +59,14 @@ Page({
       url: item.url
     })
   },
+  //关闭用户选择
+  celshowType(){
+    this.setData({
+      isShowType : false
+     })
+  },
   //打开用户选择
-  celType(){
+  ShowType(){
    this.setData({
     isShowType : !this.data.isShowType
    })

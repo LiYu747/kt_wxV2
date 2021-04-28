@@ -140,10 +140,22 @@
 	margin-bottom: 10rpx;
 }
 
+.m-b3 {
+	margin-bottom: 30rpx;
+}
+
 .flex-w {
 	flex-wrap: wrap;
 	align-content: flex-start;
 }
 .al-b{
 	align-items: baseline;
+}
+
+.cl9{
+	color: #999999 ;
+}
+
+.cl3{
+	color: #333333 ;
 }

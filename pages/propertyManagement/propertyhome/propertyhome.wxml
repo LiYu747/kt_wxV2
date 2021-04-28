@@ -1,22 +1,20 @@
 <view class="">
-    <view class="navBox flex al-center ju-center bai">
-      <view class="navText">物业</view>
-    </view>
-		<view class="userSelection pos-abs">
-			<image bindtap="celType" src="https://oss.kuaitongkeji.com/static/img/app/home/sjxl.png" class="sjxlIcon" mode=""></image>
-			<view wx:if="{{isShowType == true}}" class="typeBox flex-d al-center">
-				<image src="https://oss.kuaitongkeji.com/static/img/app/home/xljx.png" class="xljxImg" mode=""></image>
-				<view class="typeLine">
+	 <navigation-bar defaultData="物业"></navigation-bar>
+		<view class="userSelection pos-rel" style="height:{{navBarHeight}}px;">
+		<view class="navBox pos-abs ">
+			<image bindtap="ShowType" src="../../../image/Clssmenu.png" class="sjxlIcon" mode=""></image>
+			<view wx:if="{{isShowType == true}}" class="pos-abs">
+				<view class="trilateral">
 				</view>
-				<view class="fz-12 itemType flex ju-center al-center"
-				 wx:for="{{userType}}"
-         bindtap="selecType"
-         data-item="{{item}}"
-				  wx:key='id'>
-					{{item.name}}
-				</view>
-		
+					<view class="nomenBox">
+						<view class="itemType flex al-center" wx:for="{{userType}}" wx:key='id'>
+							<view bindtap="selecType" data-item="{{item}}" class="">
+								{{item.name}}
+							</view>
+						</view>
+					</view>
 			</view>
+		</view>
 		</view>
 		<view class="contenBox flex">
 			<view bindtap="goQuery" class="userQuery pos-rel">
@@ -67,5 +65,9 @@
 		
 		<view bindtap="PostManagement" class=" flex ju-center">
 			<image src="https://oss.kuaitongkeji.com/static/img/app/propertyManagement/postManagement.png" class="postManagement" mode=""></image>
+		</view>
+
+		<view wx:if="{{isShowType == true}}" bindtap="celshowType" class="showBox">
+
 		</view>
 	</view>

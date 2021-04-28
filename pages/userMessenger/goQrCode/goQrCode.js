@@ -20,6 +20,7 @@ Page({
 
    	// 手动刷新
      add() { 
+       if(this.data.flag == 0) return;
       this.getdata()
 
     },

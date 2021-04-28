@@ -47,13 +47,15 @@
                 <view wx:if="{{item.text}}" class="flex ju-center noMore fz-12">
                   {{item.text}}
                 </view>
+                <view class="itemBot">
+                </view>
                 <view wx:if="{{!item.text && isLoding == true}}" class="noMore flex ju-center al-center lodbox">
                   <image class="lodimg" src="https://oss.kuaitongkeji.com/static/img/app/address/loading.gif" mode="">
                   </image>
                   加载中
                 </view>
               </block>
-              <block wx:else>
+              <block  wx:if="{{tagdata.length==0&&isLoding==false}}">
                 <view class="noPost">没有您想看的帖子，试试其他类型的吧</view>
               </block>
             </scroll-view>

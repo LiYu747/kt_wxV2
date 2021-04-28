@@ -21,8 +21,8 @@ Page({
 
   	// 手动刷新
     add() {
+      if(this.data.flag == 0) return;
       this.loadUserData()
-
     },
   // 倒计时
   countdown() {
@@ -110,7 +110,7 @@ Page({
          
           this.countdown()
           clearTimeout(time)
-        }, 2000)
+        }, 1500)
       }
     })
   },

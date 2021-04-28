@@ -26,8 +26,7 @@ position: relative;
 }
  
 .noMore{
-  padding-top: 20rpx;
-  padding-bottom: 50rpx ;
+  padding: 30rpx;
 }
 
 .tagpos {
@@ -274,4 +273,8 @@ position: relative;
 
 .btoms {
   height: 120rpx;
+}
+
+.itemBot{
+  height: 20rpx;
 }

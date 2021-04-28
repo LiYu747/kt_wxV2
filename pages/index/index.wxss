@@ -395,10 +395,12 @@ video {
   height: 0;
   border: 14rpx solid;
   border-color: transparent transparent white white;
+  margin-top: -10rpx;
+  position: relative;
+  top: 10rpx;
 }
 
 .nomenBox {
-  margin-top: -10rpx;
   border-radius: 10rpx;
   width: 240rpx;
   padding: 20rpx 30rpx;

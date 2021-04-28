@@ -1,4 +1,5 @@
 // pages/userMessenger/userhome/userhome.js
+const app = getApp()
 import home from '../../../vendor/home/home.js'
 Page({
 
@@ -23,7 +24,8 @@ Page({
     }
   ],
   isShowType: false,
-  code:''
+  code:'',
+  navBarHeight: app.globalData.navBarHeight,
   },
     
  
@@ -112,6 +114,13 @@ Page({
    this.setData({
     isShowType : !this.data.isShowType
    })
+  },
+
+  //关闭用户选择
+  celshowType(){
+    this.setData({
+      isShowType : false
+     })
   },
   /**
    * 生命周期函数--监听页面加载

@@ -195,7 +195,11 @@ Page({
     this.getData()
     this.loadPageData()
   },
-
+  onPageScroll() {
+   this.setData({
+     flag : false
+   })
+      },
   /**
    * 生命周期函数--监听页面显示
    */

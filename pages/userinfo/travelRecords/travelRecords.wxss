@@ -16,7 +16,7 @@
 .item {
   font-size: 28rpx;
   width: 90%;
-  box-shadow: 1rpx 2rpx 10rpx 0 rgb(220, 220, 220);
+  box-shadow: 2rpx 2rpx 12rpx #d9d9d9;
   margin-top: 30rpx;
   background: #FFFFFF;
   border-radius: 10rpx;

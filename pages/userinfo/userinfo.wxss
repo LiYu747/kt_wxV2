@@ -246,7 +246,7 @@
     
     .Dwei{
       position: relative;
-      top: -82rpx;
+      top: -80rpx;
     }
     
     .ative{

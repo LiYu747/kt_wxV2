@@ -37,7 +37,7 @@
   background: #FFFFFF;
   border-radius: 10rpx;
   margin-bottom: 30rpx;
-  box-shadow: 2rpx 2rpx 6rpx #d9d9d9;
+  box-shadow: 2rpx 2rpx 12rpx #d9d9d9;
   padding-left: 60rpx;
   padding-top: 27rpx;
   padding-right: 33rpx;
