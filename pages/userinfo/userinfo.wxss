@@ -110,31 +110,38 @@
 	width: 690rpx;
   padding: 0 30rpx;
 }
+
 .itemimg{
 	width: 30rpx;
 	height: 30rpx;
 	margin-left: 19rpx;
 	margin-right: 18rpx;
 }
+
 .item{
 	width: 690rpx;
 	height: 90rpx;
   background: #FFFFFF;
   border-bottom: 1px solid  #e7e7e7; 
 }
+
 .itemtext{
 	font-size: 32rpx;
 }
+
 .dv{
 	border-bottom: 1rpx solid rgb(231,231,231);
 }
+
 .top{
 	margin-top: 20rpx;
 }
+
 .infosImg {
 		width: 34rpx;
 		height: 34rpx;
-	}
+  }
+  
 .munber {
 		padding: 2px 6px;
 		background: red;
@@ -164,6 +171,7 @@
   .top0{
     top: 0;
     }
+    
     .top1{
       margin-top: 0;
       z-index: 999;
