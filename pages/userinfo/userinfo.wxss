@@ -40,14 +40,12 @@
 }
 
 
-
 .title {
   top: 40rpx;
   font-size: 36rpx;
   color: #FFFFFF;
   height: 88rpx;
 }
-
 
 
 .jximg {
@@ -79,30 +77,6 @@
 
 .informBox {
   right: 50rpx;
-}
-
-.munber {
-  width: 34rpx;
-  height: 34rpx;
-  background: red;
-  border-radius: 50%;
-  font-size: 12px;
-  color: #FFFFFF;
-  z-index: 2;
-  margin-top: -12rpx;
-  margin-left: 16rpx;
-}
-
-.munMore{
-  width: 50rpx;
-  height: 34rpx;
-  background: red;
-  border-radius: 20rpx;
-  font-size: 12px;
-  color: #FFFFFF;
-  z-index: 2;
-  margin-top: -12rpx;
-  margin-left: 16rpx;
 }
 
 .boxss{
@@ -142,16 +116,7 @@
 		height: 34rpx;
   }
   
-.munber {
-		padding: 2px 6px;
-		background: red;
-		border-radius: 20rpx;
-		font-weight: 700;
-		font-size: 10px;
-		color: #FFFFFF;
-		z-index: 2;
-		margin-left: 20rpx;
-  }	
+
   
   .btoLine{
     height: 30rpx;
@@ -181,28 +146,16 @@
       right: 50rpx;
     }
   
-    .munber {
-      width: 34rpx;
-      height: 34rpx;
-      background: red;
-      border-radius: 50%;
-      font-size: 12px;
-      color: #FFFFFF;
-      z-index: 2;
-      margin-top: -12rpx;
-      margin-left: 16rpx;
-    }
   
     .munMore {
-      width: 50rpx;
-      height: 34rpx;
-      background: red;
-      border-radius: 20rpx;
-      font-size: 12px;
-      color: #FFFFFF;
-      z-index: 2;
-      margin-top: -12rpx;
-      margin-left: 16rpx;
+    	padding: 2px 6px;
+		background: red;
+		border-radius: 20rpx;
+		font-weight: 700;
+		font-size: 10px;
+		color: #FFFFFF;
+		z-index: 2;
+		margin-left: 20rpx;
     }
   
     .guideBox {
@@ -214,25 +167,6 @@
       z-index: 999;
     }
   
-    .Gitemimg {
-      width: 100%;
-      height: 100vh;
-    }
-  
-    .itemText {
-      width: 100%;
-      position: absolute;
-      z-index: 9999;
-      color: #FFFFFF;
-      bottom: 80rpx;
-    }
-  
-    .textZ {
-      width: 230rpx;
-      height: 72rpx;
-    }
-    
-    
     .arrowsRU{
       width: 120rpx;
       height: 88rpx;

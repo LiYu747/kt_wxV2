@@ -1,9 +1,10 @@
 <view>
+	 <navigation-bar defaultData="我的"></navigation-bar>
 	<view >
 			<view class="liness"></view>
 		<van-tabs swipeable  color='#F07535'>
 			<van-tab title="我发布的">
-				<scroll-view scroll-y="true" style="height: calc(100vh - 200rpx)" bindscrolltolower="onreachBottom1">
+				<scroll-view scroll-y="true" style="{{hig}}" bindscrolltolower="onreachBottom1">
 					<view wx:if="{{lists.length>0}}" class="">
 						<view class="item" bindtap="gotoD" data-item="{{item}}" data-index="{{index}}" wx:for="{{lists}}"
 							wx:key='id'>
@@ -44,7 +45,7 @@
 				</scroll-view>
 			</van-tab>
 			<van-tab title="我参与的">
-				<scroll-view scroll-y style="height: calc(100vh - 200rpx)" bindscrolltolower="onreachBottom2">
+				<scroll-view scroll-y style="{{hig}}" bindscrolltolower="onreachBottom2">
 					<view class="" wx:if="{{data1.length>0}}">
 						<view class="itemtext" bindtap="reply" wx:for="{{data1}}" wx:key='id' data-item="{{item}}">
 							<view class="flex color ju-between">

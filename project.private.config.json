@@ -503,6 +503,23 @@
           "pathName": "pages/userMessenger/userhome/userhome",
           "query": "id=2",
           "scene": null
+        },
+        {
+          "name": "pages/communityForum/submy/submy",
+          "pathName": "pages/communityForum/submy/submy",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/visitapplication/visit/visit",
+          "pathName": "pages/visitapplication/visit/visit",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/communityForum/forumlists/forumlists",
+          "pathName": "pages/communityForum/forumlists/forumlists",
+          "scene": null
         }
       ]
     }

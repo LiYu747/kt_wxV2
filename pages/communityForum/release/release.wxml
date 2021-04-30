@@ -1,4 +1,5 @@
 <view>
+  <navigation-bar defaultData="发布"></navigation-bar>
   <view class="flex-d color al-center">
     <image src="https://oss.kuaitongkeji.com/static/img/app/home/jx.png" class="img" mode=""></image>
     <view class="nav flex-d al-center">

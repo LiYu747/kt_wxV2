@@ -10,6 +10,7 @@ Page({
    * 页面的初始数据
    */
   data: {
+    hig:'',
     id:'',
     til: [{
       name: '我发布的',
@@ -207,6 +208,10 @@ Page({
     this.Userdata()
    this.loadPageData()
    this.SelfPost()
+   let num =  app.globalData.navBarHeight + 102 + 'px'
+   this.setData({
+    hig : `height:calc(100vh - ${num})`
+   })
   },
 
   /**

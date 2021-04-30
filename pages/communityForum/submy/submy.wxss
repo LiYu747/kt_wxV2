@@ -52,10 +52,11 @@
   width: 690rpx;
   padding: 30rpx;
   color: #666666;
-	color: #666666;
 		background: #FFFFFF;
-		margin-top: 30rpx;
-		box-shadow: 2rpx 2rpx 12rpx #d9d9d9;
+		margin-bottom: 30rpx;
+    box-shadow: 2rpx 2rpx 12rpx #d9d9d9;
+    position: relative;
+    top: 30rpx;
 }
 
 .Hline{
@@ -79,6 +80,7 @@
   margin-right: 30rpx;
   margin-bottom: 10rpx;
   border-radius: 10rpx;
+
 }
 
 .onmargin{
@@ -128,7 +130,9 @@
 }
 
 .itemtext {
-  margin-top: 30rpx;
+  position: relative;
+  top: 30rpx;
+  margin-bottom: 30rpx;
   font-size: 24rpx;
   padding: 40rpx;
   box-shadow: 2rpx 2rpx 12rpx #d9d9d9;

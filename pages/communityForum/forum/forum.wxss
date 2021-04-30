@@ -203,7 +203,6 @@
 
 
 .nono {
-  border-top: 1px solid #B3B3B3;
   width: 100%;
   font-size: 28rpx;
   color: #ccc;

@@ -152,6 +152,8 @@
 .tabbar {
   height: 80rpx;
   padding: 0 20rpx;
+  box-shadow: 2rpx 2rpx 12rpx #d9d9d9;
+  border-radius: 10rpx;
 }
 
 .reimg {
