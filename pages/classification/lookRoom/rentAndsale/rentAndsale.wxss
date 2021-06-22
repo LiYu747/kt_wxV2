@@ -188,7 +188,11 @@
 }
 
 .nextTex {
-  color: #CCCCCC;
-  display: flex;
-  justify-content: flex-end;
+  bottom: 0rpx;
+  right: 0rpx;
+}
+
+.szcolor {
+  margin-top: 10rpx;
+  color: #999999;
 }

@@ -1,5 +1,5 @@
 <view>
-  <view class="contentBox">
+  <view wx:if="{{ code == 200}}" class="contentBox">
     <view class="infoBox">
       <view class="itemBox flex al-center ju-between" wx:for="{{locdata}}" wx:key='id'>
         <view class="itemLb">
@@ -16,13 +16,10 @@
         附件
       </view>
       <view class="filesBox">
-       <block wx:if="{{files.length>0}}">
+       <block>
         <view  class="" wx:for="{{files}}" wx:key='id'>
           <image src="{{item}}" class="itemImg" mode="aspectFill"></image>
         </view>
-       </block>
-       <block wx:else>
-           <view class="nofil"></view>
        </block>
       </view>
     </view>

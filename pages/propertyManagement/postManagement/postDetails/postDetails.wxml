@@ -1,33 +1,49 @@
 <view>
-		<view class="contentBox">
+	<view class="contentBox">
 			<view class="state flex al-center">
 				<image src="https://oss.kuaitongkeji.com/static/img/app/visit/gnt.png" class="stateimg" mode=""></image>
 				<view class="m-l2">
 					{{infomsg.verify_status_text}}
 				</view>
 			</view>
-			<view class=" flex-d  m-t4">
-				<view class="">
-					<image src="{{userInfo.avatar}}" class="userAvatar" mode=""></image>
-				</view>
-				<view class="userName">
-					姓名：{{userInfo.nickname}}
-				</view>
-				<view class="margin-t5 flex  ">
-					<view class="titleTex">
-						标题：
+			<view class="conBox flex">
+				<view class="msgBox m-t1">
+					<view class="">
+						姓名：{{userInfo.username}}
 					</view>
-					<view class="fz-14 conBox">
-						{{infomsg.title}}
+					<view class="m-t2">
+						申请时间：{{infomsg.created_at}}
 					</view>
 				</view>
-				<view class="m-t4 flex">
-					<view class="titleTex">
-						内容：
+				<view class="m-l4">
+					<image src="{{userInfo.avatar}}" class="avatar" mode="aspectFill"></image>
+				</view>
+			</view>
+			<view class="conBox m-t3">
+				<view class="flex flex-w">
+					类别：
+					<view class="m-r1" wx:for="{{infomsg.cate}}" wx:key="id">
+						{{item}}
 					</view>
-					<view class="fz-14 conBox">
-						{{infomsg.content}}
+				</view>
+					<view class="m-t2 m-b2">
+						标题：{{infomsg.title}}
 					</view>
+					<view class="">
+						内容：{{infomsg.content}}
+					</view>
+					<view wx:if="{{infomsg.album}}" class="flex flex-w m-t3" > 
+						<view class="m-r2 m-b1 {{(index+1)%3==0?'dv':''}}" wx:for="{{infomsg.album}}" wx:key="id">
+							<image bindtap="lookImg" data-index="{{index}}" src="{{item}}" mode="aspectFill" class="itemImg"></image>
+						</view>
+					</view>
+			</view>
+			<view class="m-t4 fz-14">
+				<view class="cl3">
+					申请结果
+				</view>
+				<view class="conBox m-t2">
+					<textarea value="{{value}}" class="textBox" bindinput="Onchange" placeholder="您可以在这里告诉他同意或不同意的原因" />
 				</view>
 			</view>
 		</view>
@@ -43,5 +59,8 @@
 			<view bindtap="nopass" class="btnl flex al-center ju-center">
 				不通过
 			</view>
+		</view>
+		<view class="btnLine">
+			
 		</view>
 	</view>

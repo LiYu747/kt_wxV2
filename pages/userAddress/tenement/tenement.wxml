@@ -1,0 +1,54 @@
+<view class="">
+  <view class="flex-d al-center">
+    <view class="formBox fz-14">
+      <view class="itemStyle flex ju-between al-center pos-rel" bindtap="celClass" wx:for="{{formData}}"
+        data-index="{{index}}" wx:key="id">
+        <view>
+          {{item.label}}
+        </view>
+        <view class="flex al-center">
+          <input type="{{item.type}}" bindinput="Bulrchenge" data-index="{{index}}" class="ipt fz-14" placeholder="{{item.ploder}}" disabled="{{item.dised}}"
+            value="{{item.value}}" />
+          <image wx:if="{{index == 0}}" class="reimg pos-abs"
+            src="https://oss.kuaitongkeji.com/static/img/app/address/retrue.png" mode=""></image>
+        </view>
+      </view>
+      <view class="m-t2">
+        <textarea placeholder="请输入详细问题信息" maxlength="200" bindinput="Onchange" class="textAr fz-14"></textarea>
+      </view>
+    </view>
+    <van-popup show="{{ show }}" position="bottom" custom-style="height: 45%;" bind:close="onClose">
+      <van-picker value-key="name" item-height="40"  show-toolbar title="请选择小区" columns="{{ columns }}"  bind:cancel="onCancel"
+  bind:confirm="onConfirm"   />
+    </van-popup>
+    <view class="picturesBox flex al-center">
+      <view class="" wx:for="{{images}}" wx:key="id">
+        <image src="{{item}}" class="itemImg {{(index+1)%4==0?'dv':''}}"  mode="aspectFill"></image>
+      </view>
+      <view class="itemImg flex al-center ju-center">
+        <view bindtap="upPictures" class="pushBtn flex al-center ju-center">
+          <view class="Hline">
+
+          </view>
+          <view class="Sline pos-abs">
+
+          </view>
+        </view>
+      </view>
+    </view>
+
+    <view bindtap="submit" class="">
+      <view class="submit flex al-center ju-center bai">
+        提交
+      </view>
+    </view>
+  </view>
+  <view wx:if="{{isLoding == true}}" class="showloding flex al-center ju-center">
+    <view class="loding flex-d al-center ju-center">
+      <view class=" ">
+        <image class="loimg" src="https://oss.kuaitongkeji.com/static/img/app/address/loading.gif" mode=""></image>
+      </view>
+      上传中
+    </view>
+  </view>
+</view>

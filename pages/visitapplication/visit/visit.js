@@ -12,6 +12,7 @@ Page({
    * 页面的初始数据
    */
   data: {
+    Villid:"", //小区id
     record: [{
       label: '拜访人姓名',
       value: '',
@@ -48,8 +49,9 @@ Page({
   show: false,//地址
   household: '',// 住户选择
   id:[],//选择地址的id
-  image:'', //图片上传
+  image:[], //图片上传
   mark:'',//备注
+  title:'',//小区名字
   isLoding:false,
   textShow: false,
   },
@@ -82,14 +84,14 @@ Page({
     })
     home.VisitApplication({
       data: {
-        hostName: this.data.record[3].value,
-        villageId: this.data.id[0],
-        buildingId: this.data.id[1],
-        apartmentId: this.data.id[2],
-        floorId: this.data.id[3],
-        roomId: this.data.id[4],
-        visitorRemark: this.data.mark,
-        ext_img: this.data.image
+        host_name: this.data.record[3].value,
+        village_id: this.data.Villid,
+        building_id: this.data.id[0],
+        apartment_id: this.data.id[1],
+        floor_id: this.data.id[2],
+        room_id: this.data.id[3],
+        visitor_remark: this.data.mark,
+        pics: this.data.image
       },
       fail: () => {
         wx.hideLoading()
@@ -188,8 +190,10 @@ Page({
             rej(jres.msg);
             return;
           }
+        const { image } = that.data
+         image.push(jres.data.url)
           that.setData({
-            image : jres.data.url
+            image :  image
           })
           res(jres);
         }
@@ -227,22 +231,15 @@ Page({
       picker.setColumnValues(1, value[0].children);
       picker.setColumnValues(2, value[0].children[0].children);
       picker.setColumnValues(3, value[0].children[0].children[0].children);
-      picker.setColumnValues(4, value[0].children[0].children[0].children[0].children);
     }
     if(column == 1){
       const { picker, value, index } = e.detail;
       picker.setColumnValues(2, value[1].children);
       picker.setColumnValues(3, value[1].children[0].children);
-      picker.setColumnValues(4, value[1].children[0].children[0].children);
     }
     if(column == 2){
       const { picker, value, index } = e.detail;
       picker.setColumnValues(3, value[2].children);
-      picker.setColumnValues(4, value[2].children[0].children);
-    }
-    if(column == 3){
-      const { picker, value, index } = e.detail;
-      picker.setColumnValues(4, value[3].children);
     }
   },
  
@@ -281,7 +278,7 @@ Page({
 							},
 							success: (res) => {
 								if (res.statusCode != 200) return;
-								if (res.data.code != 200) return;
+								if (res.data.code != 200 && res.data.code != 4405) return;
                 let Users = res.data.data
                 var username = "record[0].value";
                 var tel = "record[1].value"
@@ -326,103 +323,91 @@ Page({
       loadVillageLists() {
 				let that = this;
 				// 小区列表
-				village.selectLists({
-					data: {},
-					fail: ()=> {
+        village.displayInformation({
+					data: {
+						id: this.data.Villid,
+						need_buildings: '1'
+					},
+					fail: () => {
 						wx.showToast({
 							title: '网络错误',
 							icon: 'none'
 						})
 					},
 					success: (res) => {
-						// console.log(res);
-						if (res.statusCode != 200) return;
-
-						if (res.data.code != 200) return;
+						if (res.statusCode != 200) return
+						if (res.data.code != 200) return
+						// console.log('小区展示', res);
+            let data = res.data.data.buildings
             this.setData({
-              orgVillageLists:res.data.data
+              orgVillageLists : data,
+              title:res.data.data.info.name
             })
 						this.renderMSelect();
-					},
+					}
 				})
 			},
 
 			//使用返回的数据进行渲染select
 			renderMSelect() {
 				//renderVillageLists
-				if (!this.data.orgVillageLists || this.data.orgVillageLists.length == 0) {
+        if (!this.data.orgVillageLists || this.data.orgVillageLists.length == 0) {
 					this.renderVillageLists = [];
 					return;
 				}
 
 				//进行修改
 				let tmp = [];
-
 				this.data.orgVillageLists.forEach((item, index) => {
+					//楼栋
 					let villages = {
 						label: item.name,
 						value: index,
 						extra: item.id,
 						children: [],
 					};
-
-					if (!item.buildings) return true;
-					//楼栋
-					item.buildings.forEach((item2, idx2) => {
-						let buildings = {
+					
+					if (!item.apartments) return true;
+					//单元
+					item.apartments.forEach((item2, idx2) => {
+						let apartments = {
 							label: item2.name,
 							value: idx2,
 							extra: item2.id,
 							children: [],
 						};
 						// console.log('buildings', item2, !item2.apartments)
-						if (!item2.apartments) return true;
-						item2.apartments.forEach((item5, idx3) => {
+						if (!item2.floors) return true;
+						   //楼层
+						item2.floors.forEach((item5, idx3) => {
 
-							//单元楼
-							let ap = {
+							//楼层
+							let floors = {
 								label: item5.name,
 								value: idx3,
 								extra: item5.id,
 								children: [],
 							};
 
-							if (!item5.floors) return true;
+							if (!item5.rooms) return true;
 
-							item5.floors.forEach((item3, index3) => {
-
-								//楼层
-								let floors = {
-									label: item3.name,
-									value: index3,
-									extra: item3.id,
-									children: [],
-								};
-
-								// console.log('item3', item3)
-								if (!item3.rooms) return true;
-								//门牌号
-								item3.rooms.forEach((item4, idx4) => {
-									floors.children.push({
-										label: item4.room_number,
-										value: idx4,
-										extra: item4.id,
-									});
-								})
-
-								ap.children.push(floors);
+							item5.rooms.forEach((item4, idx4) => {
+								floors.children.push({
+									label: item4.name,
+									value: idx4,
+									extra: item4.id,
+								});
 							})
 
-
-							buildings.children.push(ap);
+							apartments.children.push(floors);
 
 						})
+						villages.children.push(apartments);
 
-						villages.children.push(buildings);
 					})
 
 					tmp.push(villages);
-        })
+				})
        
         let columns =  [{
           values: tmp,
@@ -440,10 +425,7 @@ Page({
           values:tmp[0]['children'][0]['children'][0]['children'],
           className: 'column4',
         },
-        {
-          values:tmp[0]['children'][0]['children'][0]['children'][0]['children'],
-          className: 'column5',
-        }]
+       ]
         this.setData({
           columns:columns,
         });
@@ -452,13 +434,10 @@ Page({
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {
-    if(options.text){
-      this.setData({
-        mark : options.text,
-        textShow : true
-      })
-    }
+  onLoad: function (val) {
+    this.setData({
+      Villid : val.id
+    })
   },
 
   /**

@@ -3,26 +3,65 @@ import sms from '../../../vendor/sms/sms'
 import route from '../../../vendor/request/routes'
 import cache from '../../../vendor/cache/cache'
 import userinfo from '../../../vendor/user/userinfo.js'
+import config from '../../../vendor/config/config'
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
+    customBar:wx.getSystemInfoSync().statusBarHeight + 47 ,
     srcss: '', //判断用户是否裁剪图片
     flag: false, //验证码变量
-    toot: false, //预览变量
     text: '获取验证码',
     codebtn: true, //验证码按钮
     timer: '', //倒计时时间
     avatar: 'https://oss.kuaitongkeji.com/static/img/avatar/male_64.png', //用户头像
     nickname: '',
-    name: '',
+    password:'',
+    confirmpass:'',
     phone: '',
     code: '',
-    photo: '', //证件照
-    toot: false, //预览变量
-    isLoding: false //上传照片 
+    isLoding: false, //上传照片 
+    radio: '1', //选择的性别1为男，2为女
+  },
+   
+  //单选框
+  onChange(event) {
+    this.setData({
+      radio: event.detail,
+    });
+  },
+
+  //登录密码
+  passChange(e){
+  this.data.password = e.detail.value
+  if(e.detail.cursor < 6){
+     wx.showToast({
+       title: '密码至少6位',
+       icon:'none',
+       duration:2000
+     })
+  }
+  if(this.data.confirmpass && this.data.confirmpass != e.detail.value){
+    wx.showToast({
+      title: '两次密码不一致',
+      icon:'none',
+      duration:2000
+    })
+  }
+},
+
+  //确认密码
+  confirmChange(e){
+    this.data.confirmpass = e.detail.value
+    if(e.detail.value != this.data.password){
+      wx.showToast({
+        title: '两次密码不一致',
+        icon:'none',
+        duration:2000
+      })
+    }
   },
 
   // 注册
@@ -35,16 +74,16 @@ Page({
       })
       return;
     }
-    if (this.data.name == '') {
+    if(this.data.password == ''){
       wx.showToast({
-        title: '请输入姓名',
+        title: '请输入登录密码',
         icon: 'none'
       })
       return;
     }
-    if(!this.data.phone){
+    if (this.data.confirmpass == '') {
       wx.showToast({
-        title: '请删上传人像照片',
+        title: '请输入确认密码',
         icon: 'none'
       })
       return;
@@ -68,13 +107,13 @@ Page({
     })
     userinfo.register({
       data: {
-        tel: this.data.phone,
-        smsCode: this.data.code,
         nickname: this.data.nickname,
-        username: this.data.name,
+        secret: this.data.password,
+        secret_confirmation: this.data.confirmpass,
+        tel: this.data.phone,
+        sms_code: this.data.code,
         avatar: this.data.avatar,
-        faceimg: this.data.photo,
-        sex: 1
+        sex: this.data.radio
       },
       fail: () => {
         wx.hideLoading()
@@ -84,7 +123,6 @@ Page({
         })
       },
       success: (res) => {
-        // console.log(res);
         wx.hideLoading()
         if (res.statusCode != 200) {
           wx.showToast({
@@ -107,11 +145,11 @@ Page({
           duration: 2000
         });
         const time = setTimeout(() => {
-          wx.navigateTo({
-            url: `/pages/loginAndR/login/login?register=${true}`
-           })
-          clearTimeout(time)
-        }, 2000)
+          wx.navigateBack({
+            delta: 1,
+          })
+           clearTimeout(time)
+         }, 2000)
          
       },
     })
@@ -129,8 +167,9 @@ Page({
     wx.showLoading({
       title: '发送中...'
     })
-    sms.userRegCode({
+    sms.smsSend({
       data: {
+        use_to: 'user_reg',
         tel: this.data.phone
       },
       fail: () => {
@@ -162,7 +201,7 @@ Page({
         })
       
         var that = this;
-        var timer = 10
+        var timer = 60
         const authtime = setInterval(function () {
           that.setData({
             codebtn: false,
@@ -181,18 +220,8 @@ Page({
     })
 
   },
-  //预览图片
-  preview: function () {
-    this.setData({
-      srcss: ''
-    })
-    wx.navigateTo({
-      url: '/pages/loginAndR/register/photo/photo',
-    })
-  },
   //上传照片
-  upload: function () {
-
+  UploadAvatar: function () {
     wx.chooseImage({
       count: 1,
       sizeType: ['original', 'compressed'],
@@ -215,11 +244,6 @@ Page({
   nicknamechange: function (v) {
     this.setData({
       nickname: v.detail.value
-    })
-  },
-  namechange: function (v) {
-    this.setData({
-      name: v.detail.value
     })
   },
   phonechange: function (v) {
@@ -245,19 +269,19 @@ Page({
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-
+    config.ready( (data) => {
+      if(!data.base.user_default_avatar) return;
+      this.setData({
+        avatar :  data.base.user_default_avatar
+      })
+    })
+  
   },
 
   /**
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
-    if (cache.get('photo')) {
-      this.setData({
-        photo: cache.get('photo')
-      })
-    }
     if (this.data.srcss) {
       this.setData({
         isLoding: true
@@ -289,10 +313,8 @@ Page({
             title: '上传成功',
             icon: 'none'
           })
-          cache.set('photo', data.data.url)
           this.setData({
-            photo: data.data.url,
-            toot: true
+            avatar: data.data.url,
           })
         }
       });

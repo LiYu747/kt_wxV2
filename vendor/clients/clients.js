@@ -91,7 +91,8 @@ class Clients {
 				'client-version': that.version,
 			},
 			data: {
-				sys_info: wx.getSystemInfoSync()
+				type:wx.getSystemInfoSync().system,
+				info: wx.getSystemInfoSync()
 			},
 			fail: () => {
 				wx.showModal({
@@ -126,7 +127,7 @@ class Clients {
 	}
 
 	update() {
-
+   return;
 		let that = this;
 		wx.request({
 			url: routes.client.reg,

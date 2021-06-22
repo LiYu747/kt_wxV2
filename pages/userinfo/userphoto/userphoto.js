@@ -101,20 +101,55 @@ Page({
       }
     });
    },
+    // 获取用户资料
+  UserData() {
+    wx.showLoading({
+      title: '加载中...'
+    })
+    userDetails.userDeta({
+      fail: () => {
+        wx.hideLoading()
+        wx.showToast({
+          title: '网络错误',
+          icon:'none'
+        })
+      },
+      success: (res) => {
+        wx.hideLoading()
+        if (res.statusCode != 200) {
+          wx.showToast({
+            title: '网络请求出错',
+            icon:'none'
+          });
+          return;
+        }
+        if (res.data.code != 200) {
+          wx.showToast({
+            title:res.data.msg,
+            icon:'none'
+          });
+          return;
+        }
+        // console.log(res.data.data);
+        let data = res.data.data
+        this.setData({
+          img :  data.faceimg,
+        })
+      },
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    this.setData({
-      img : options.photo
-    })
+  
   },
    
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-
+    this.UserData()
   },
 
   /**

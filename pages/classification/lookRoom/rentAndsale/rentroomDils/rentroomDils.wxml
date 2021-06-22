@@ -26,6 +26,14 @@
           元/月
         </view>
       </view>
+      <view class="flex ju-between m-t1 fz-12 cl9 al-center">
+					<view class="  m-l1">
+						{{roomInof.rent_pay_method}}
+					</view>
+					<view class="m-r2">
+						已有{{roomInof.pv}}人浏览
+					</view>
+				</view>
     </view>
 
     <view class="houseType flex al-center ju-between">
@@ -62,15 +70,15 @@
     <view bindtap="Address" class="addressBox m-t3 flex  fz-14">
       <image src="https://oss.kuaitongkeji.com/static/img/app/lookroom/add.png" class="addImg" mode=""></image>
       <view class="m-l2 addressmsg">
-        {{roomInof.village}}
+        {{roomInof.address}}
       </view>
     </view>
 
     <view class="briefRoom">
-      <view class="itemvalue">
+      <view class="fz-18">
         房屋概况
       </view>
-      <view class="fz-12 m-t2 m-b2" style="white-space:pre-wrap">{{roomInof.desc}}</view>
+      <view class="fz-14 m-t2 m-b2" style="white-space:pre-wrap">{{roomInof.desc}}</view>
     </view>
 
     <view class="isHave flex">

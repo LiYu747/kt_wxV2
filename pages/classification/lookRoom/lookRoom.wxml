@@ -25,14 +25,17 @@
 					</view>
 					<view wx:if="{{rentingRoom.length>0}}" class="flex ">
 						<view class="items m-b1" bindtap="gotoDetails" data-item="{{item}}" wx:for="{{rentingRoom}}" wx:key='id'>
-							<image wx:if="{{item.faceimg}}" src="{{item.faceimg}}" class="itemsimg" mode="aspectFill"></image>
+							<image wx:if="{{item.cover}}" src="{{item.cover}}" class="itemsimg" mode="aspectFill"></image>
 							<image wx:else src="https://oss.kuaitongkeji.com/upload/2021/02/20/Kztg485iqwsrKNrDLXKIeQ7apbhuyi4v1SHpslOv.jpeg"
 							 class="itemsimg" mode="aspectFill"></image>
 							<view class="itemsname m-t1 fz-14">
 								{{item.title}}
 							</view>
 							<view class="fz-12 bricolor">
-								{{item.introduce}}/{{item.area}}㎡
+								{{item.introduce}}
+								<view wx:if="{{items.area}}" class="">
+									/{{items.area}}㎡
+								</view>
 							</view>
 							<view class="pritext flex m-t1">
 								{{item.rents}}
@@ -57,7 +60,7 @@
 					</view>
 					<view wx:if="{{sellRoom.length>0}}" class="flex ">
 						<view class="items" bindtap="gotoBuy" wx:for="{{sellRoom}}"  wx:for-item="items" data-item="{{items}}" wx:key='id'>
-							<image wx:if="{{items.faceimg}}" src="{{items.faceimg}}" class="itemsimg" mode="aspectFill"></image>
+							<image wx:if="{{items.cover}}" src="{{items.cover}}" class="itemsimg" mode="aspectFill"></image>
 							<image wx:else src="https://oss.kuaitongkeji.com/upload/2021/02/20/Kztg485iqwsrKNrDLXKIeQ7apbhuyi4v1SHpslOv.jpeg"
 							 class="itemsimg" mode="aspectFill"></image>
 							<view class="itemsname m-t1 fz-14">

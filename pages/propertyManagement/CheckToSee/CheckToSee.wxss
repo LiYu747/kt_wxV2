@@ -1,36 +1,30 @@
-.fiedxBox {
+.fiedx {
+  top: 0;
   width: 100%;
   position: fixed;
-  height: 60rpx;
-  background: #F07535;
   z-index: 9;
 }
 
 .topLine {
-  height: 60rpx;
-}
-
-.searchBox {
-  position: fixed;
-  right: 50rpx;
-  color: #FFFFFF;
-  font-size: 16px;
-  z-index: 9;
+  height: 88rpx;
 }
 
 .xlshow {
-  position: fixed;
+  right: -30rpx;
+  top: 50rpx;
   width: 160rpx;
   background: #FFFFFF;
-  right: 30rpx;
-  top: 50rpx;
-  display:  flex;
-  flex-direction: column;
-  align-items: center;
   border-radius: 10rpx;
-  z-index: 9;
   padding-bottom: 30rpx;
-  box-shadow: 0px 4px 4px 0px rgba(9, 9, 9, 0.1);
+  box-shadow: 2rpx 2rpx 12rpx #d9d9d9;
+}
+
+.showBox {
+  width: 100%;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  z-index: 9;
 }
 
 .itemLabel {
@@ -45,26 +39,39 @@
   color: #FFFFFF;
 }
 
+.xiala {
+  width: 20rpx;
+  height: 20rpx;
+  margin-left: 10rpx;
+  margin-top: 4rpx;
+}
+.searchBox {
+  width: 100%;
+  height: 88rpx;
+  background: #F07535;
+}
+
 .searchBack {
   width: 494rpx;
   height: 54rpx;
-  background: rgba(204, 204, 204, 0.35);
-  border-radius: 27rpx;
-  margin-left: 30rpx;
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 27rpx;	
+  margin-right: 70rpx;
 }
 
-
-.allTxt {
-  font-size: 13px;
-  left: 40rpx;
-  color: #666666;
+.timeImg {
+  width: 30rpx;
+  height: 26rpx;
 }
 
-.pullDown {
-  width: 20rpx;
-  height: 12rpx;
-  margin-left: 10rpx;
-}
+ .cancel{
+   position: fixed;
+   font-size: 14px;
+   color: #fff;
+  top: 26rpx;
+  right: 60rpx;
+  z-index: 99;
+ }
 
 .serachImg {
   width: 34rpx;
@@ -76,10 +83,12 @@
   margin-left: 20rpx;
   width: 400rpx;
   font-size: 14px;
+  color: #fff;
 }
 
-.uni-input-placeholder {
+.input-placeholder {
   font-size: 12px;
+  color: #ffffff;
 }
 
 .itemBox {

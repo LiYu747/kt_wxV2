@@ -1,15 +1,34 @@
+<view>
 
-<view class="mapBox" hover-class="none" hover-stop-propagation="false"  >
-
-  <map id="map" longitude="{{longitude}}" latitude=" {{latitude}}" markers="{{markers}}" scale="13" show-location style="width: 100%; height: 100%;"></map>
-
-</view>
-
-<view class=" flex ju-center">
-			<view class="botombox flex al-center ju-center">
-				<view class="flex ju-center ">
-					<image bindtap="start" src="https://oss.kuaitongkeji.com/static/img/app/classification/Travel/start.png" class="startimg"
-					 mode=""></image>
+	<view class="topbox flex al-center ju-center">
+		<view class="inbox flex">
+			<view class="rigth">
+				<view class="flex al-center">
+					<view class="fz-14 left m-r2 m-l2">从</view>
+					<input value="{{myPosition}}"  disabled="true"/></view>
+				<view class="line ">
+				</view>
+			  <view class="flex al-center"> 
+					<view class="fz-14 m-r2 left m-l2">到</view>
+					<input value="{{goPosition}}" bindtap="getfocus" disabled="true"  placeholder="请选择终点" />
 				</view>
 			</view>
 		</view>
+	</view>
+	<view class="mapBox" hover-class="none" hover-stop-propagation="false">
+
+		<map id="map" longitude="{{longitude}}" latitude=" {{latitude}}" markers="{{markers}}" scale="13" show-location
+			style="width: 100%; height: 100%;"></map>
+
+	</view>
+
+	<view class=" flex ju-center">
+		<view class="botombox flex-d al-center ju-center">
+			<view class="flex ju-center ">
+				<image bindtap="start" src="https://oss.kuaitongkeji.com/static/img/app/classification/Travel/start.png"
+					class="startimg" mode=""></image>
+			</view>
+		</view>
+	</view>
+
+</view>

@@ -58,7 +58,20 @@ Page({
           })
           return;
         }
-        // console.log(data);
+        data.data.map(item => {
+          item.created_at = item.created_at.slice(0,16)
+          switch (item.verify_status) {
+            case 1:
+              item.verify_status = '待处理'
+              break;
+            case 2:
+              item.verify_status = '已同意'
+              break;
+            case 3:
+              item.verify_status = '未同意'
+              break;
+          }
+        })
         let lists = this.data.lists
         lists = lists.concat(data.data)
         this.setData({

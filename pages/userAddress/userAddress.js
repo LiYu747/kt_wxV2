@@ -3,6 +3,7 @@ import jwt from '../../vendor/auth/jwt.js'
 import address from '../../vendor/address/address.js'
 import cache from '../../vendor/cache/cache'
 //  import cache from '../../vendor/cache/cache.js'
+const app = getApp()
 Page({
 
   /**
@@ -16,14 +17,11 @@ Page({
     flagss: false,
 		msg: '', //电梯提示类容
     locdata: [], //数据列表
-    page: 1,
-    ps: 15,
     isLoding: false,
-    hasMore: true,
     showPullDownRefreshIcon: false,
     Gshow: 0,
     flag:false,
-    updata:0,
+    navBarHeight: app.globalData.navBarHeight + 140,
   },
   // 编辑
   look(e) {
@@ -33,6 +31,12 @@ Page({
     })
   },
   
+  //联系物业
+  callTenement(){
+    wx.navigateTo({
+      url: '/pages/userAddress/tenement/tenement',
+    })
+  },
 
   move(){
 
@@ -51,13 +55,23 @@ Page({
     if(this.data.Gshow == 2){
       let num = this.data.Gshow+1
       cache.set('Gshow',{key:'步骤'+ num,value: num})
+      wx.redirectTo({
+        url: '/pages/residence/seachVill/seachVill?code=1'
+      })
+      return;
     }
     wx.navigateTo({
-      url: '/pages/residence/checkIn/checkIn'
+      url: '/pages/residence/seachVill/seachVill?code=1'
     })
   },
   //预约电梯
   order(e) {
+    this.setData({
+      message : true,
+      msg : '预约成功',
+      flagss : true
+      })
+      return;
     let id = e.currentTarget.dataset.item.id
     wx.showLoading({
       title:'预约中...'
@@ -109,6 +123,44 @@ Page({
   },
    
   // 用户所有地址
+   userAlladd(){
+    this.setData({
+      isLoding: true
+    })
+    address.alladd({
+      data: {
+      },
+      fail: () => {
+        this.setData({
+          isLoding: false
+        })
+        this.stopRefreshIcon();
+        wx.showToast({
+          title: '网络错误',
+          icon: 'none'
+        })
+      },
+      success: (res) => {
+        this.stopRefreshIcon();
+        this.setData({
+          isLoding: false
+        })
+        if (res.statusCode != 200) return;
+        if (res.data.code != 200) return;
+        let data = res.data.data;
+        data.map(item => {
+          if (item.own_village) {
+            item.address = item.own_village.name + item.own_building.name + item.own_apartment.name + item.own_floor.name + item.own_room.name
+          }
+        })
+          this.setData({
+            code:res.data.code,
+            locdata: data
+          })
+      }
+    })
+   },
+  //判断是否登录
   loadPageData() {
     jwt.doOnlyTokenValid({
       showModal: true,
@@ -118,66 +170,25 @@ Page({
           this.setData({
             Gshow : cache.get('Gshow').value
           })
+          wx.hideTabBar()
         }else{
-             wx.showTabBar()								
+           wx.showTabBar()
         } 
-        this.setData({
-          isLoding: true
-        })
-        address.alladd({
-          data: {
-            page: this.data.page,
-            pageSize: this.data.ps,
-          },
-          fail: () => {
-            this.setData({
-              isLoding: false
-            })
-            this.stopRefreshIcon();
-            wx.showToast({
-              title: '网络错误',
-              icon: 'none'
-            })
-          },
-          success: (res) => {
-            this.stopRefreshIcon();
-            this.setData({
-              isLoding: false
-            })
-            if (res.statusCode != 200) return;
-            if (res.data.code != 200) return;
-            let data = res.data.data;
-            this.setData({
-              hasMore: data.next_page_url ? true : false,
-              page : data.current_page + 1
-            })
-            data.data.map(item => {
-              if (item.own_village) {
-                item.address = item.own_village.name + item.own_building.name + item.own_apartment.name + item.own_floor.name + item.own_room.room_number
-              }
-            })
-            this.setData({
-              code : res.data.code
-            })
-            if(this.data.updata == 0){
-              this.setData({
-                locdata: data.data 
-              })
-          }else{
-            this.setData({
-              locdata: this.data.locdata.concat(data.data)
-            })
-          }
-           
-          }
-        })
+        this.userAlladd()
       },
       fail: () => {
         this.setData({
           isLoding: false,
-          locdata: []
+          locdata: [],
+          page:1
         })
         this.stopRefreshIcon();
+        if(cache.get('Gshow')){
+          cache.set('Gshow',{'key':'开启',value:0})
+        }
+        wx.switchTab({
+          url:'/pages/index/index'
+        })
       }
     })
 
@@ -232,8 +243,6 @@ Page({
     this.setData({
       Gshow : 0,
       flag : false,
-      page : 1,
-      updata : 0
     })
   },
 
@@ -241,7 +250,7 @@ Page({
    * 生命周期函数--监听页面卸载
    */
   onUnload: function () {
-
+  
   },
 
   /**
@@ -254,18 +263,13 @@ Page({
       hasMore: true,
       showPullDownRefreshIcon: true,
     })
-    this.loadPageData();
+    this.userAlladd();
   },
 
   /**
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function () {
-    if (this.data.isLoding == true || this.data.hasMore == false) return;
-    this.setData({
-      updata : 1
-    })
-    this.loadPageData()
   },
 
   /**

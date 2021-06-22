@@ -70,7 +70,12 @@
     "pages/classification/vehicle/vehicle",
     "pages/classification/teaBasedDrink/teaBasedDrink",
     "pages/classification/service/service",
-    "pages/index/peripheryMore/peripheryMore"
+    "pages/index/peripheryMore/peripheryMore",
+    "pages/loginAndR/findPsw/findPsw",
+    "pages/userAddress/tenement/tenement",
+    "pages/residence/seachVill/seachVill",
+    "pages/propertyManagement/Villageletter/Villageletter",
+    "pages/propertyManagement/userQuery/theUserDetails/theUserDetails"
   ],
   "window": {
     "backgroundTextStyle": "light",

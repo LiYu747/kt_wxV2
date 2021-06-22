@@ -40,9 +40,60 @@ Page({
     typeid: '', //用户类型
     isLoding: false
   },
-  
+     
+
+    //删除
+    cleaDel(e){
+      let item = e.currentTarget.dataset.item
+      let index = e.currentTarget.dataset.index
+      wx.showModal({
+        content: '您确定要删除该成员',
+        success: (res) => {
+          if (res.confirm) {
+            address.deleteMember({
+              data: {
+                house_id: item.id
+              },
+              fail: () => {
+                wx.showToast({
+                  title: "网络错误",
+                  icon: "none"
+                })
+              },
+              success: (res) => {
+                if (res.statusCode != 200) {
+                  wx.showToast({
+                    title: "网络出错了",
+                    icon: "none"
+                  })
+                  return;
+                }
+                if (res.data.code != 200) {
+                  wx.showToast({
+                    title: res.data.msg,
+                    icon: "none"
+                  })
+                  return;
+                }
+                this.data.Members.splice(index, 1)
+                this.setData({
+                  Members :  this.data.Members 
+                })
+                wx.showToast({
+                  title: res.data.msg,
+                  icon: "none"
+                })
+              }
+            })
+          }
+        }
+      })
+      
+    },
+
   	// 用户成员详情信息
     memberInfo(e) {
+      return;
       if(this.data.Islimits==0) return;
       let item = e.currentTarget.dataset.item
       wx.navigateTo({
@@ -55,40 +106,6 @@ Page({
       url: '/pages/userAddress/pushMember/pushMember?addressid=' + this.data.id + '&typeid=' + this.data.typeid
     })
   },
-  //查看住所内的所有成员
-  allMembers() {
-    address.lookMember({
-      data: {
-        id: this.data.id
-      },
-      fail: () => {
-        wx.showToast({
-          title: '网络错误',
-          icon: 'none'
-        })
-      },
-      success: (res) => {
-        if (res.statusCode != 200) {
-          wx.showToast({
-            title: '网络出错了',
-            icon: 'none'
-          })
-          return;
-        }
-        if (res.data.code != 200) {
-          wx.showToast({
-            title: res.data.msg,
-            icon: 'none'
-          })
-          return;
-        }
-        let data = res.data.data
-        this.setData({
-          Members : data
-        })
-      }
-    })
-  },
   // 用户居住信息
   getData() {
     this.setData({
@@ -96,7 +113,8 @@ Page({
     })
     address.listdetails({
       data: {
-        id: this.data.id
+        id: this.data.id,
+        mates: 1
       },
       fail: () => {
         this.setData({
@@ -125,26 +143,57 @@ Page({
           })
           return;
         }
-        let data = res.data.data
+        res.data.data.mates.map(item => {
+          switch (item.type) {
+            case 1:
+              item.type = "户主"
+              break;
+            case 2:
+              item.type = "家庭成员"
+              break;
+            case 3:
+              item.type = "租户"
+              break;
+          }
+          if (item.own_user) {
+            item.own_user.tel = item.own_user.tel.slice(0, 4) + '****' + item
+              .own_user.tel.slice(7, 11)
+          }
+          switch (item.valid_type) {
+            case 0:
+              item.valid_type = "永久"
+              break;
+          }
+          if (item.valid_begin) {
+            item.valid_begin = item.valid_begin.slice(0, 11)
+          }
+          if (item.valid_end) {
+            item.valid_end = item.valid_end.slice(0, 11)
+          }
+        })
+        let data = res.data.data.house
         let name = 'parameter[3].value'
         let value = 'parameter[4].value'
         let typeval = 'parameter[2].value'
         let userinfo = ''
-        if (data.type == 1) {
+        switch(data.type){
+          case 1:
           userinfo = '户主'
-        }
-        if (data.type == 2) {
+          break;
+          case 2:
           userinfo = '家庭成员'
-        }
-        if (data.type == 3) {
+          break;
+          case 3:
           userinfo = '租户'
+          break;
         }
         this.setData({
           Islimits :  data.allow_edit_member,
           typeid : data.type,
           [name] :  data.own_village.name,
-          [value] :  data.own_building.name + data.own_apartment.name + data.own_floor.name + data.own_room.room_number,
-          [typeval] : userinfo
+          [value] :  data.own_building.name + data.own_apartment.name + data.own_floor.name + data.own_room.name,
+          [typeval] : userinfo,
+          Members : res.data.data.mates
         })
       }
     })
@@ -185,7 +234,7 @@ Page({
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-     this.getData()
+    
      this.Userdata()
   },
 
@@ -193,7 +242,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-  this.allMembers()
+    this.getData()
   },
 
   /**

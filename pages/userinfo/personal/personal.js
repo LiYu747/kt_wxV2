@@ -7,6 +7,8 @@ Page({
    * 页面的初始数据
    */
   data: {
+    code:0,
+    srcss:'',
     image: '', //头像
     parameter: [{
         value: '',
@@ -18,24 +20,22 @@ Page({
         disabled: true
       },
       {
-        value: '预览',
-        label: '正面免冠照',
-        disabled: true
-      },
-      {
         value: '',
         label: '真实姓名',
-        disabled: true
+        disabled: true,
+        show: false
       },
       {
         value: '',
         label: '手机号码',
-        disabled: true
+        disabled: true,
+        show: false
       },
       {
         value: '',
         label: '身份证号码',
-        disabled: true
+        disabled: true,
+        show: false
       }
     ],
     show: false, //打开性别选择
@@ -50,12 +50,48 @@ Page({
     ],
     sex: '', //性别id
     flag: false, //判断用户是否选择了头像
-    faceimg: '', //证件照
     value: [], //默认选择
-    isLoding: false //上传照片
+    isLoding: false, //上传照片
+    usermsg: {} //用户资料
   },
    
-
+  add(e) {
+    let index = e.currentTarget.dataset.index
+    this.data.parameter.map((item, idx) => {
+      if (index == idx) {
+        item.show = !item.show
+        if (item.show == true) {
+          switch (index) {
+            case 2:
+              item.value = this.data.usermsg.username
+              break;
+            case 3:
+              item.value = this.data.usermsg.tel
+              break;
+            case 4:
+              item.value = this.data.usermsg.id_card_no
+          }
+        } else {
+          switch (index) {
+            case 2:
+              item.value = this.data.usermsg.username.slice(0, 1) + '**'
+              break;
+            case 3:
+              item.value = this.data.usermsg.tel.slice(0, 3) + '****' + this.data.usermsg.tel.slice(7,
+                11)
+              break;
+            case 4:
+              item.value = this.data.usermsg.id_card_no.slice(0, 3) + '**********' + this.data.usermsg
+                .id_card_no.slice(this.data.usermsg.id_card_no.length - 4, this.data.usermsg
+                  .id_card_no.length)
+          }
+        }
+      }
+    })
+    this.setData({
+      parameter: this.data.parameter
+    })
+  },
   // 提交
   Submit() {
     if (this.data.isLoding == true) return;
@@ -67,7 +103,6 @@ Page({
       data: {
         nickname: name,
         avatar: this.data.image,
-        sex: this.data.sex
       },
       fail: () => {
         wx.hideLoading()
@@ -139,71 +174,26 @@ Page({
      let index = e.currentTarget.dataset.index
     // 选择性别
     if (index == 1) {
+      return;
       this.setData({
         show : true
-      })
-    }
-    // 预览证件照
-    if (index == 2) {
-      wx.navigateTo({
-        url: `/pages/userinfo/userphoto/userphoto?photo=${this.data.faceimg}`
       })
     }
   },
   // 上传头像
   UploadAvatar() {
     wx.chooseImage({
-      success: (chooseImageRes) => {
-        this.setData({
-          isLoding : true
-        })
-        const tempFilePaths = chooseImageRes.tempFilePaths;
-        if (tempFilePaths.length == 0) return;
-        wx.uploadFile({
-          url: route.services.file.upload, 
-          filePath: tempFilePaths[0],
-          name: 'file',
-          fail : () => {
-            this.setData({
-              isLoding : false
-            })
-            wx.showToast({
-              title: '网络出错',
-              icon:'none'
-            });
-          },
-          success: (val) => {
-            this.setData({
-              isLoding : false
-            })
-            if (val.statusCode != 200) {
-              wx.showToast({
-                title: '网络请求出错',
-                icon:'none'
-              });
-              return;
-            }
-
-            let data = JSON.parse(val.data)
-            if (data.code != 200) {
-              wx.showToast({
-                title: data.msg,
-                icon:'none'
-              });
-              return;
-            }
-            wx.showToast({
-              title: '上传成功',
-              icon: "none"
-            })
-            this.setData({
-              image :  data.data.url,
-              flag : false
-            })
-          }
+      count: 1,
+      sizeType: ['original', 'compressed'],
+      sourceType: ['album', 'camera'],
+      success: res => {
+        // tempFilePath可以作为img标签的src属性显示图片
+        const tempFilePaths = res.tempFilePaths
+        wx.navigateTo({
+          url: '/components/cropper/cropper-example?img=' + tempFilePaths[0],
         })
       }
-    });
+    })
   },
   // 获取用户资料
   UserData() {
@@ -250,23 +240,40 @@ Page({
         }
         let nickname = 'parameter[0].value'
         let sex = 'parameter[1].value'
-        let username = 'parameter[3].value'
-        let tel = 'parameter[4].value'
+        let username = 'parameter[2].value'
+        let tel = 'parameter[3].value'
         this.setData({
+          usermsg:data,
           [nickname] : data.nickname,
           [sex] : msg,
-          [username] :  data.username,
+          [username] :  data.username ? data.username.slice(0, 1) + '**':'',
           [tel] : data.tel.slice(0,3) + '****' +data.tel.slice(7,11),
-          faceimg : data.faceimg,
           image :  data.avatar,
           sex : String(data.sex)
         })
-        if(data.id_card_no){
-          let idCard = 'parameter[5].value'
+        if(!data.id_card_no){
+          wx.showModal({
+            content:'请完善您的身份信息',
+            success: (res) => {
+              if (res.confirm) {
+                wx.navigateTo({
+                  url: '/pages/userinfo/realInformation/realInformation'
+                })
+              } else if (res.cancel) {
+                wx.navigateBack({
+                  delta: 1
+                })
+              }
+            }
+          })
+          return;
+        }
+          let idCard = 'parameter[4].value' 
           this.setData({
+            code: res.data.code,
             [idCard]  : data.id_card_no.slice(0,3) + '**********' + data.id_card_no.slice(data.id_card_no.length-4,data.id_card_no.length) 
           })
-        }
+       
       },
     })
   },
@@ -281,13 +288,51 @@ Page({
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-  
+   
   },
 
   /**
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
+    if (this.data.srcss) {
+      this.setData({
+        isLoding: true
+      })
+      wx.uploadFile({
+        url: route.services.file.upload,
+        filePath: this.data.srcss,
+        name: 'file',
+        complete: (res) => {
+          this.setData({
+            isLoding: false
+          })
+          if (res.statusCode != 200) {
+            wx.showToast({
+              title: '网络请求出错',
+              icon: 'none'
+            });
+            return;
+          }
+          let data = JSON.parse(res.data)
+          if (data.code != 200) {
+            wx.showToast({
+              title: data.msg,
+              icon: 'none'
+            });
+            return;
+          }
+          wx.showToast({
+            title: '上传成功',
+            icon: 'none'
+          })
+          this.setData({
+            image: data.data.url,
+          })
+        }
+      });
+    }
+    if(this.data.code == 200)return;
     this.UserData()
   },
 

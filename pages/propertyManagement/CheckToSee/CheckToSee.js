@@ -7,6 +7,7 @@ Page({
    * 页面的初始数据
    */
   data: {
+    code:0,
     xlshow: false, //是否显示筛选框
     falg: false, //判断是否有筛选内容
     idx: 0,
@@ -34,57 +35,71 @@ Page({
         status: '3'
       },
     ],
-    goIndex:0
+    goIndex: 0,
+    username: '',
   },
-     
 
-  	// 用户详情
-    goDetails(e) {
-      let item = e.currentTarget.dataset.item
-      let index = e.currentTarget.dataset.index
-      this.setData({
-        goIndex : index
-      })
-      wx.navigateTo({
-        url: '/pages/propertyManagement/CheckToSee/seeDetails/seeDetails?id=' + item.id
-      })
-    },
-   	// 筛选
-     select(e) {
-       if(e.currentTarget.dataset.index == this.data.idx) return;
-       let index = e.currentTarget.dataset.index
-       let item = e.currentTarget.dataset.item
-       this.setData({
-        idx : index ,
-        xlshow : false,
-        falg : true,
-        status : item.status,
-        page : 1 ,
-        noText : '',
-        lists : []
-       })
-      this.getData()
-    },
-  //筛选打开
-  celShow(){
-   this.setData({
-    xlshow : !this.data.xlshow
-   })
+
+  // 用户详情
+  goDetails(e) {
+    let item = e.currentTarget.dataset.item
+    let index = e.currentTarget.dataset.index
+    this.setData({
+      goIndex: index
+    })
+    wx.navigateTo({
+      url: '/pages/propertyManagement/CheckToSee/seeDetails/seeDetails?id=' + item.id
+    })
   },
-   //获取数据
+  // 筛选
+  select(e) {
+    let index = e.currentTarget.dataset.index
+    let item = e.currentTarget.dataset.item
+    this.setData({
+      idx: index,
+      xlshow: false,
+      falg: true,
+      status: item.status,
+      page: 1,
+      noText: '',
+      username:'',
+      lists: []
+    })
+    this.getData()
+  },
+
+   // 搜索
+   search() {
+    this.setData({
+      noText: '',
+      falg: true,
+      status:'',
+      lists: [],
+      page: 1,
+    })
+    this.getData()
+  },
+  //筛选打开
+  celShow() {
+    this.setData({
+      xlshow: !this.data.xlshow
+    })
+  },
+  //获取数据
   getData() {
     this.setData({
-      isLoading : true
+      isLoading: true
     })
     home.checkinRecord({
       data: {
         page: this.data.page,
         pageSize: this.data.pageSize,
-        verify_status: this.data.status
+        verify_status: this.data.status,
+        username: this.data.username
       },
       fail: () => {
         this.setData({
-          isLoading : false
+          isLoading: false
         })
         wx.showToast({
           title: '网络错误',
@@ -93,7 +108,7 @@ Page({
       },
       success: (res) => {
         this.setData({
-          isLoading : false
+          isLoading: false
         })
         if (res.statusCode != 200) {
           wx.showToast({
@@ -113,30 +128,41 @@ Page({
           })
           return;
         }
-        if (res.data.code == 200) {
-          let data = res.data.data
-          data.data.map(item => {
-            item.address = item.own_village.name + item.own_building.name + item.own_apartment.name + item.own_floor.name +
-              item.own_room.room_number
-            item.created_at = item.created_at.slice(0, 16)
-            item.own_user.tel = item.own_user.tel.slice(0, 3) + '****' + item.own_user.tel.slice(7, 11)
-          })
-          let lists = this.data.lists
-          lists = lists.concat(data.data)
-          this.setData({
-            lists : lists,
-            page : data.current_page + 1,
-            hasMore :  data.next_page_url ? true : false
-          })
-        } else {
+        if (res.data.code != 200) {
           wx.showToast({
             title: res.data.msg,
             icon: "none"
           })
         }
-
+        let data = res.data.data
+        data.data.map(item => {
+          item.created_at = item.created_at.slice(0, 16)
+          switch (item.verify_status) {
+            case 1:
+              item.verify_status = "待审核"
+              break;
+            case 2:
+              item.verify_status = "已通过"
+              break;
+            case 3:
+              item.verify_status = "未通过"
+              break;
+          }
+        })
+        this.setData({
+          code: res.data.code,
+          lists: this.data.lists.concat(data.data),
+          page: data.current_page + 1,
+          hasMore: data.next_page_url ? true : false
+        })
 
       }
+    })
+  },
+  //获取输入框的值
+  Onchange(e) {
+    this.setData({
+      username: e.detail.value
     })
   },
   /** 
@@ -157,16 +183,16 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    if(app.checkSeePass !== ''){
-       let lists =  this.data.lists
-       lists.map((item,index) => {
-         if(index == this.data.goIndex){
-           item.verify_status_text = app.checkSeePass
-         }
-       })
-       this.setData({
-        lists : lists
-       })
+    if (app.checkSeePass !== '') {
+      let lists = this.data.lists
+      lists.map((item, index) => {
+        if (index == this.data.goIndex) {
+          item.verify_status = app.checkSeePass
+        }
+      })
+      this.setData({
+        lists: lists
+      })
     }
   },
 
@@ -176,7 +202,7 @@ Page({
   onHide: function () {
     app.checkSeePass = ''
     this.setData({
-      xlshow : false
+      xlshow: false
     })
   },
 
@@ -199,7 +225,7 @@ Page({
    */
   onReachBottom: function () {
     this.setData({
-      noText : '没有更多了'
+      noText: '没有更多了'
     })
     if (this.data.isLoding == true || this.data.hasMore == false) return;
     this.getData()

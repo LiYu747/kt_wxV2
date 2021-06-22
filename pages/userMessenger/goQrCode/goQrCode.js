@@ -11,8 +11,8 @@ Page({
     text: '刷新中',
     flag: 0,
     show: 0,
-    time: 60,
-    timetext: '有效时间:60s',
+    time: 0,
+    timetext: '',
     isLoding:false,
     code:0,
   },
@@ -93,10 +93,9 @@ Page({
             flag : 1,
             show : 1
           })
-         
-          this.countdown()
           clearTimeout(time)
-        }, 2000)
+        }, 1000)
+        this.countdown()
       }
     })
   },

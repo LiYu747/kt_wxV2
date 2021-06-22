@@ -1,0 +1,10 @@
+{
+  "usingComponents": {
+    "van-field": "../../../@vant/weapp/field/index"
+  },
+  "navigationBarBackgroundColor": "#F07535",
+  "navigationBarTextStyle": "white",
+  "navigationBarTitleText": "找回密码",
+  "backgroundColor": "#eeeeee",
+  "backgroundTextStyle": "light"
+}

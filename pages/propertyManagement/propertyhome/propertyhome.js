@@ -33,10 +33,10 @@ Page({
       url:'/pages/propertyManagement/postManagement/postManagement'
     })
   },
-       //出入记录
+       //小区信息
 		 comeAndGo(){
       wx.navigateTo({
-        url:'/pages/propertyManagement/accessToInformation/accessToInformation'
+        url:'/pages/propertyManagement/Villageletter/Villageletter'
       })
     },
     	 //入住查看

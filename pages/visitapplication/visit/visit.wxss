@@ -154,10 +154,10 @@
 
 .itemimg {
   width: 140rpx;
-  height: 140rpx;
+  height: 160rpx;
+  border-radius: 10rpx;
   margin-right: 20rpx;
   margin-bottom: 10rpx;
-  border-radius: 10rpx;
 }
 
 .puls {

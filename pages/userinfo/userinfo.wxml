@@ -60,7 +60,7 @@
           {{item.titel}}
         </view>
         <image src="../../image/goIn.png" class="reimg" alt=""></image>
-        <view wx:if="{{index==6}}" class="">
+        <view wx:if="{{index==5}}" class="">
           <view wx:if="{{0<informmsg && user}}" class="munMore flex al-center ju-center">
             {{informmsg}}
           </view>

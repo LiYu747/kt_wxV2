@@ -37,6 +37,12 @@ class userd{
 		params.url = routes.user.userupdate.steNewpaw
 		req.patch(params)
 	}
+
+			//找回密码
+			findPaw(params){
+			params.url = routes.user.userupdate.findPaw
+			req.post(params)
+		}
 	
 	//获取地图导航key
 	Navigation(params){

@@ -9,6 +9,7 @@ Page({
    * 页面的初始数据
    */
   data: {
+    code:0,
     id: '',
     sspg: 1,
     sspz: 15,
@@ -29,12 +30,6 @@ Page({
   },
 
 
-  //自定义
-  custom() {
-    wx.navigateTo({
-      url: '/pages/communityForum/tags/tags',
-    })
-  },
   //去详情页面
   gotoD(e) {
     let item = e.currentTarget.dataset.item
@@ -76,7 +71,7 @@ Page({
           title: '网络错误',
           icon: 'none'
         })
-      },
+      }, 
       success: (res) => {
         this.setData({
           ssloding: false
@@ -88,7 +83,7 @@ Page({
         let data = res.data.data;
         data.data.map(item => {
           item.created_at = item.created_at.slice(0, 16)
-          item.album = item.album.slice(0, 3)
+          item.album =item.album? item.album.slice(0, 3) : []
         })
         this.setData({
           lists: this.data.lists.concat(data.data),
@@ -114,40 +109,52 @@ Page({
 
   // 选择
   celtags(e) {
-    let id = ''
     let index = e.detail.index
-    id = this.data.tagdata[index].id
+    let title = e.detail.title
     this.setData({
       idx: index
     })
     if (this.data.tagdata[index].list) return;
-    this.loadPageData(id, index)
+    this.loadPageData(title, index)
   },
   // 获取数据
-  loadPageData(id, index) {
+  loadPageData(name,index) {
+    if(name == "全部"){
+      name = ''
+    }
+    this.setData({
+      isLoding : true 
+    })
     village.communityPost({
       data: {
         villageId: this.data.id,
-        tribune_cat: id,
-        kw: this.data.keyword,
+        cate: name,
         page: this.data.page,
         pageSize: this.data.ps
       },
       fail: () => {
+        this.setData({
+          isLoding : false 
+        })
         wx.showToast({
           title: '网络错误',
           icon: 'none'
         })
       },
       success: (res) => {
-
+        this.setData({
+          isLoding : false 
+        })
         if (res.statusCode != 200) return;
 
         if (res.data.code != 200) return;
+        this.setData({
+          code : res.data.code
+        })
         let data = res.data.data;
         data.data.map(item => {
           item.created_at = item.created_at.slice(0, 16)
-          item.album = item.album.slice(0, 3)
+          item.album = item.album?item.album.slice(0, 3):[]
         })
         let lists = this.data.tagdata
         lists.map((item, idx) => {
@@ -181,12 +188,12 @@ Page({
       success: (res) => {
         if (res.statusCode != 200) return;
         if (res.data.code != 200) return;
-
+        let head =  {name:'全部'}
+        res.data.data.unshift(head)
         this.setData({
           tagdata: res.data.data
         })
-
-        this.loadPageData(res.data.data[this.data.idx].id, this.data.idx)
+        this.loadPageData('', this.data.idx)
       }
     })
   },
@@ -209,7 +216,7 @@ Page({
     village.communityPost({
       data: {
         villageId: this.data.id,
-        tribune_cat: this.data.tagdata[idx].id,
+        cate: this.data.tagdata[idx].name != "全部"?this.data.tagdata[idx].name:'',
         page: this.data.tagdata[idx].page,
         pageSize: this.data.ps
       },
@@ -264,7 +271,7 @@ Page({
        })
       },
       success: () => {
-       
+        this.grtColumn()
       }
     })
   },
@@ -282,13 +289,14 @@ Page({
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-    this.grtColumn()
+    
   },
 
   /**
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
+    if(this.data.code == 200) return;
     this.ISuserlogin()
   },
 

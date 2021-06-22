@@ -12,6 +12,7 @@ Page({
     text: '', //申请结果
     remark: '', //备注
     result: '', //结果
+    pics:[],//附件
     locadata: [{
         titel: '姓名',
         value: ''
@@ -58,18 +59,17 @@ Page({
         if (data.verify_status == 3) {
           data.verify_status_text = '未通过'
         }
-        // console.log(data);
         if (data.own_village) {
           let value = 'locadata[1].value'
           this.setData({
-            [value]: '' + data.own_village.name + data.own_building.name + data.own_apartment.name + data.own_building
-              .name + data.own_room.room_number
+            [value]: '' + data.own_village.name + data.own_building.name + data.own_apartment.name + data.own_room.name
           })
         }
         let value = 'locadata[2].value'
         this.setData({
           [value]: data.created_at.slice(0, 16),
           text: data.verify_status_text,
+          pics:data.pics?data.pics:[],
           remark: data.user_remark,
           result: data.verify_msg
         })

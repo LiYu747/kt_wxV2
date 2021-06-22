@@ -12,9 +12,9 @@
   </view>
   <view class="topLine"></view>
   <!-- tag标签 -->
-  <view wx:if="{{flag == false}}" class="back">
+  <view wx:if="{{flag == false}}" >
     <view wx:if="{{tagdata.length>0}}" class="wid">
-      <van-tabs  animated  ellipsis="{{false}}" color='#F07535' bind:click="celtags" active="{{ active }}">
+      <van-tabs  animated swipeable  ellipsis="{{false}}" bind:change="celtags" color='#F07535' bind:click="celtags" active="{{ active }}">
         <block wx:for="{{tagdata}}" wx:key='id'>
           <van-tab   title="{{item.name}}">
             <scroll-view class="backctext" scroll-y="true" style="height:calc(100vh - 260rpx);"
@@ -23,9 +23,9 @@
                 <view class="item" bindtap="gotoD" data-item="{{item}}" wx:for="{{item.list}}" wx:key='id'>
                   <view class="flex">
                     <!-- 头像 -->
-                    <image src="{{item.own_user.avatar}}" class="itemimg" mode="aspectFill"></image>
+                    <image src="{{item.own_poster.avatar}}" class="itemimg" mode="aspectFill"></image>
                     <view class="name m-l1 m-t1">
-                      {{item.own_user.nickname}}
+                      {{item.own_poster.nickname}}
                       <view class="time">
                         {{item.created_at}}
                       </view>
@@ -40,7 +40,7 @@
                   <!-- 图片 -->
                   <view class="flex al-center m-t4">
                     <view wx:for="{{item.album}}" wx:key='id'>
-                      <image src="{{item.url}}" class="items  {{(index+1)%3 == 0?'onmargin':''}}" mode="aspectFill"></image>
+                      <image src="{{item}}" class="items  {{(index+1)%3 == 0?'onmargin':''}}" mode="aspectFill"></image>
                     </view>
                   </view>
                 </view>
@@ -49,24 +49,19 @@
                 </view>
                 <view class="itemBot">
                 </view>
-                <view wx:if="{{!item.text && isLoding == true}}" class="noMore flex ju-center al-center lodbox">
+                <view wx:if="{{!item.text && isLoding == true}}" class=" flex ju-center al-center lodbox ">
                   <image class="lodimg" src="https://oss.kuaitongkeji.com/static/img/app/address/loading.gif" mode="">
                   </image>
                   加载中
                 </view>
               </block>
-              <block  wx:if="{{tagdata.length==0&&isLoding==false}}">
+              <block  wx:if="{{item.list&&item.list.length == 0 && isLoding == false}}">
                 <view class="noPost">没有您想看的帖子，试试其他类型的吧</view>
               </block>
             </scroll-view>
-
           </van-tab>
         </block>
       </van-tabs>
-    </view>
-    <view class="posclassfiy flex al-center ju-center">
-      <image bindtap="custom" src="https://oss.kuaitongkeji.com/static/img/app/forum/classfiy.png" class="classfiyimg"
-        mode=""></image>
     </view>
   </view>
 
@@ -76,9 +71,9 @@
     <view class="item" bindtap="gotoD" data-item="{{item}}" wx:for="{{lists}}" wx:key='id'>
       <view class="flex">
         <!-- 头像 -->
-        <image src="{{item.own_user.avatar}}" class="itemimg" mode=""></image>
+        <image src="{{item.own_poster.avatar}}" class="itemimg" mode=""></image>
         <view class="name m-l1 m-t1">
-          {{item.own_user.nickname}}
+          {{item.own_poster.nickname}}
           <view class="time">
             {{item.created_at}}
           </view>
@@ -93,7 +88,7 @@
       <!-- 图片 -->
       <view class="flex al-center m-t4">
         <view wx:for="{{item.album}}" wx:key='id'>
-          <image src="{{item.url}}" class="items  {{(index+1)%3 == 0?'onmargin':''}}" mode="aspectFill"></image>
+          <image src="{{item}}" class="items  {{(index+1)%3 == 0?'onmargin':''}}" mode="aspectFill"></image>
         </view>
       </view>
     </view>

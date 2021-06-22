@@ -44,9 +44,13 @@ Page({
     showPullDownRefreshIcon: true,
     informmsg: {}, //用户未读消息数量
     Gshow: null,
-    idx:0
+    idx:0,
+    localdata: [
+      {image:'/image/home/rz.png',name:'入住申请',url:'/pages/residence/seachVill/seachVill?code=1'},
+      {image:'/image/home/bf.png',name:'拜访申请',url:'/pages/residence/seachVill/seachVill?code=2'},
+      {image:'/image/home/lf.png',name:'来访记录',url:'/pages/operation/visitRecord/visitRecord'},
+      {image:'/image/home/code.png',name:'回家二维码',url:'/pages/qrcode/qrcode'}],  
   },
-
    move(){
 
    },
@@ -61,6 +65,7 @@ Page({
      })
    },
   nextT() {
+    return;
     this.setData({
       idx : this.data.idx + 1
     })
@@ -144,18 +149,9 @@ Page({
       this.nextT()
       return;}
     let item = e.currentTarget.dataset.item
-    if (item.page) {
-      urlUtil.to({
-        pageAlias: item.page,
-        options: item.params,
-      })
-      return;
-    }
-    if (item.web_url) {
-      wx.navigateTo({
-        url: '/pages/web/index/index?url=' + encodeURIComponent(item.web_url),
-      })
-    }
+   wx.navigateTo({
+     url: item.url,
+   })
   },
   // 去周边消息详情页面
   godils(e) {
@@ -175,15 +171,35 @@ Page({
         if (res.data.code != 200) return
         let content = {
           title: res.data.data.title,
-          content: res.data.data.desc
+          content: res.data.data.content
         }
         app.redInfo = content
+        this.newsRead(res.data.data.id)
         wx.navigateTo({
           url: '/pages/InformationDetails/InformationDetails'
         })
       }
     })
   },
+
+  	//阅读统计
+    newsRead(id){
+      home.newsRead({
+        data:{id:id},
+        fail: () => {
+          wx.showToast({
+            title: '网络错误',
+            icon: 'none'
+          })
+        },
+        success: (res) => {
+          if (res.statusCode != 200) return
+          if (res.data.code != 200) return
+          // console.log(res.data.data.data);
+        },
+      })
+    },
+
   // 查看社区新闻详情
   goComm(e) {
     let id = e.currentTarget.dataset.item.id
@@ -254,10 +270,17 @@ Page({
         paly: true
       })
       return;
-    } else {
+    } 
+    if(movie.page) {
       urlUtil.to({
         pageAlias: movie.page,
         options: movie.params,
+      })
+      return;
+    }
+    if(movie.web_url){
+      wx.navigateTo({
+        url : '/pages/web/index/index?url='+encodeURIComponent(movie.web_url),
       })
     }
   },
@@ -275,6 +298,7 @@ Page({
   },
   // 搜索
   confirm() {
+    if(!this.data.value) return;
     wx.navigateTo({
       url: '/pages/homeSearch/search?text=' + this.data.value,
     })
@@ -298,7 +322,7 @@ Page({
         if (res.statusCode != 200) return
         if (res.data.code != 200) return
         this.setData({
-          list: res.data.data.ads
+          list: res.data.data
         })
       },
     })
@@ -311,29 +335,6 @@ Page({
     })
   },
 
-  // 操作数据
-  operationData() {
-    home.chart({
-      data: {
-        code: 'home_quick_nav_1'
-      },
-      fail: () => {
-        this.stopRefreshIcon()
-        wx.showToast({
-          title: '网络出错',
-          icon: 'none'
-        })
-      },
-      success: (res) => {
-        this.stopRefreshIcon()
-        if (res.statusCode != 200) return
-        if (res.data.code != 200) return
-        this.setData({
-          localdata: res.data.data.ads
-        })
-      },
-    })
-  },
 
   //  分类数据
   Calss() {
@@ -353,7 +354,7 @@ Page({
         if (res.statusCode != 200) return
         if (res.data.code != 200) return
         this.setData({
-          clalists: res.data.data.ads
+          clalists: res.data.data
         })
       },
     })
@@ -450,9 +451,6 @@ Page({
     //  轮播图数据
     this.Chart()
 
-    //操作数据
-    this.operationData()
-
     //分类数据
     this.Calss()
 
@@ -535,7 +533,6 @@ Page({
       showPullDownRefreshIcon: false
     })
     this.Chart()
-    this.operationData()
     this.Calss()
     this.Datainfo()
     this.comgetData()

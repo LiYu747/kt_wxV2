@@ -9,13 +9,14 @@ Page({
    * 页面的初始数据
    */
   data: {
+    arr:{},
     text: '', //结果
     remarks: '', //备注
     textvalue: '', //结果文本域
     valuetime: '', //二维码有效时间
     show: false,
     invalid_at: '', //传的时间
-    redIMG: '', //图片
+    redIMG: [], //图片
     minHour: 10,
     maxHour: 20,
     minDate: new Date().getTime(),
@@ -44,7 +45,7 @@ Page({
 
   // 不通过
   nopass(){
-    this.operate(3,'')
+    this.operate(3,this.data.invalid_at)
   },
   //  通过
   pass() {
@@ -58,6 +59,20 @@ Page({
   },
   //  操作
   operate(status, invalid) {
+    if(!this.data.textvalue){
+      switch(status){
+        case 2:
+          this.setData({
+            textvalue : "通过"
+          })
+        break;
+        case 3:
+          this.setData({
+            textvalue : "未通过"
+          })
+        break;
+      }
+    }
     wx.showLoading({
       title: '加载中...',
     })
@@ -66,7 +81,7 @@ Page({
         id: this.data.id,
         verify_status: status,
         verify_msg: this.data.textvalue,
-        invalid_at: invalid
+        valid_end: invalid
       },
       fail: () => {
         wx.hideLoading()
@@ -111,9 +126,9 @@ Page({
     var Y = date.getFullYear();
     var M = (date.getMonth() + 1 < 10 ? '0' + (date.getMonth() + 1) : date.getMonth() + 1);
     var D = date.getDate() < 10 ? '0' + date.getDate() : date.getDate();
-    var h = date.getHours();
-    var m = date.getMinutes();
-    let time = Y + '年' + M + '月' + D + '日' + ' ' + h + ':' + m
+    var h = date.getHours() < 10 ? '0' + date.getHours() : date.getHours();
+    var m = date.getMinutes() < 10 ? '0' + date.getMinutes() : date.getMinutes();
+    let time = Y + '年' + M + '月' + D + '日' + ' ' + h + ':' + m + ":00"
     this.setData({
       valuetime: time,
       show: false,
@@ -163,32 +178,52 @@ Page({
         var M = (date.getMonth() + 1 < 10 ? '0' + (date.getMonth() + 1) : date.getMonth() + 1);
         //获取当日日期 
         var D = date.getDate() < 10 ? '0' + date.getDate() : date.getDate();
-
-        // console.log(res.data.data);
         let data = res.data.data
+        switch(data.verify_status){
+          case 1:
+            data.verify_status = "待处理"
+          break;
+          case 2:
+            data.verify_status = "已同意"
+          break;
+          case 3:
+            data.verify_status= "未同意"
+          break;
+        }
         let username = 'locadata[0].value'
         let tel = 'locadata[1].value'
         let created = 'locadata[2].value'
         this.setData({
-          valuetime: Y + '年' + M + '月' + D + '日' + '23:59',
+          valuetime: Y + '年' + M + '月' + D + '日' + '23:59:00',
           invalid_at: Y + '-' + M + '-' + D + ' ' + '23:59:00',
+          arr: data?data:{},
           [username]: data.own_visitor.username,
           [tel]: data.own_visitor.tel.slice(0, 3) + '****' + data.own_visitor.tel.slice(7, 11),
           [created]: data.created_at.slice(0, 16),
-          text: data.verify_text,
           remarks: data.visitor_remark ? data.visitor_remark : '',
-          redIMG: data.ext_img
+          redIMG: data.pics
         })
-        if (data.own_village) {
+        if (data.place) {
           let value = 'locadata[3].value'
           this.setData({
-            [value]: '' + data.own_village.name + data.own_building.name + data.own_apartment.name + data.own_floor.name + data.own_room.room_number
+            [value]: '' + data.place
           })
         }
 
       }
     })
   },
+
+     //查看图片
+     lookUp(e){
+      let index = e.currentTarget.dataset.index
+        // 预览图片
+         wx.previewImage({
+           urls:this.data.redIMG, 
+           current: this.data.redIMG[index],
+           indicator:"default", 
+         });
+    },
   /**
    * 生命周期函数--监听页面加载
    */

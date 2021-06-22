@@ -5,11 +5,28 @@ Page({
    * 页面的初始数据
    */
   data: {
+    myPosition:'我的位置',
+    goPosition:"",
+    golat:"",
+    golng:"",
     longitude : '',
     latitude : ''
   },
    
 
+  //
+  getfocus(){
+    let that = this
+    wx.chooseLocation({
+      success: function (res) {
+        that.setData({
+          goPosition: res.name,
+          golng: res.longitude.toFixed(6),
+          golat: res.latitude.toFixed(6) //纬度
+        })
+      }
+    });
+  },
   // 开始导航
   start(){
     this.userPos()

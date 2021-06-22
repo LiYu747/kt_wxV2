@@ -17,6 +17,16 @@
 			<view class="line">
 
 			</view>
+			<view wx:if="{{pics.length>0}}" class="">
+			 <view class="tex1">
+			 	附件
+			 </view>	
+			 <view class="imgBox flex">
+			 	<view class="" wx:for="{{pics}}" wx:key="id">
+			 		<image src="{{item}}" mode="aspectFill" class="itemImg"></image>
+			 	</view>
+			 </view>
+			</view>
 			<view class="tex1">
 				备注
 			</view>

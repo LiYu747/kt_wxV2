@@ -3,7 +3,7 @@
     <swiper class="my-swipe" autoplay='true' indicator-dots='true' indicator-active-color='#ffffff'>
       <block wx:for="{{list}}" data-item="{{item}}" wx:key='id'>
            <swiper-item>
-            <image src="{{item}}" class="lbimg" mode="aspectFill"></image>
+            <image data-index="{{index}}" bindtap="lookImg" src="{{item}}" class="lbimg" mode="aspectFill"></image>
            </swiper-item>
       </block>
    </swiper>
@@ -42,12 +42,12 @@
       <view wx:if="{{idx === 1}}" class="twbx m-t2">
         <view wx:if="{{Notice.length>0}}" class="">
           <view class="" wx:for="{{Notice}}"  wx:key='id' >
-            <view bindtap="godils" data-item="{{item}}" class="wid m-b1">
+            <view bindtap="godils" data-item="{{item}}" class="wid m-b2">
               {{index+1}} . {{item.title}}
             </view>
           </view>
         </view>
-        <view wx:else class="">
+        <view wx:else class="flex ju-center p-b2 p-t2">
           暂无公告
         </view>
       </view>

@@ -1,54 +1,61 @@
 <view class="">
-		<view class="tabbar flex al-center ju-around">
-			<view class="item flex al-center  {{index == idx?'dv':''}}"  data-index="{{index}}" bindtap="add" :class="" wx:for="{{till}}"  wx:key='id'>
-				{{item}}
+		<view class="search flex al-center ju-center">
+			<view class="searchBack flex al-center">
+				<image src="https://oss.kuaitongkeji.com/static/img/app/propertyManagement/serach.png" class="serachImg"
+					mode=""></image>
+				<input type="text" class="ipt" bindinput="Onchange" value="{{value}}" bindconfirm="search" placeholder="请输入关键词" />
 			</view>
-    </view>
-    <view class="top"></view>
-          <view class="simulation">
-          	以下均为模拟数据
-          </view>
-		<view class="flex-d  al-center">
-			<view class="flex itembox pos-rel" wx:for="{{getData}}"  wx:key='id'>
-				<image src="{{item.image}}" class="itemimg" mode=""></image>
-				<view class="m-t2 m-l2 name">
-					{{item.name}}
-					<view class="score  flex al-center">
-						<image src="https://oss.kuaitongkeji.com/static/img/app/classification/Healthcare/wujiao.png" class="wujiaoimg" mode=""></image>
-						<view class="m-l1">
-							{{item.score}}
-						</view>
-						<view class="Price">
-							{{item.Price}}
-						</view>
-						<view class="timer pos-abs">
-							10分钟 500m
-						</view>
+			<view bindtap="cancel" wx:if="{{ISseach==true}}" class="cancel pos-abs">
+				取消
+			</view>
+		</view>
+		<view class="topLine">
+
+		</view>
+
+		<view wx:if="{{lists.length>0}}" class="flex-d al-center">
+			<view class="itemBox m-t3 flex" wx:for="{{lists}}" wx:key="id">
+				<view class="">
+					<image src="{{item.cover}}" class="itemCover" mode=""></image>
+				</view>
+				<view class="m-l3 ">
+					<view class="fz-16">
+						{{item.name}}
 					</view>
-					<view class="details flex">
-						{{item.titel}}
-						<view class="databox">
-							{{item.address}}
+					<view class="fz-12 cl9 m-t1 flex al-center">
+						<view class="">
+							{{item.address_name}}
 						</view>
 					</view>
-					<view wx:if="{{item.label}}" class="details m-t1">
-						{{item.label}}
-					</view>
-					<view wx:if="{{item.tag}}" class="m-t1">
-						<image src="{{item.tag}}" class="tagimg" mode=""></image>
-					</view>
-					<view class=" flex">
-						<view class="Views pos-abs flex al-center">
-							{{item.Views}}
-							<image src="https://oss.kuaitongkeji.com/static/img/app/classification/Healthcare/next.png" class="nextimg" mode=""></image>
+					<view class="m-t1 flex fz-12">
+						<view class="itemBrf">
+							{{item.brief}}
 						</view>
 					</view>
 				</view>
 			</view>
+			<view wx:if="{{isLoding == true}}" class=" flex ju-center al-center lodbox">
+				<image class="lodimg" src="https://oss.kuaitongkeji.com/static/img/app/address/loading.gif" mode="">
+				</image>
+				加载中...
+			</view>
+			<view class="flex ju-center notext fz-14" wx:if="{{hasMore == false}}">
+				{{text}}
+			</view>
 		</view>
-
-		<view class="line">
-
+		<view wx:if='{{lists.length == 0 && isLoding == false && ISseach == false}}' class="noCentent fz-14 cl9 flex ju-center">
+			暂无内容
 		</view>
-
+		<view class="noCentent fz-14 cl9 flex ju-center" wx:if="{{ISseach == true && lists.length == 0}}">
+			{{noSeacht}}
+		</view>
+		<view wx:if="{{isLoding == true&&lists.length==0}}" class="showloding flex al-center ju-center">
+			<view class="loding flex-d al-center ju-center">
+				<view class=" ">
+					<image class="loimg" src="https://oss.kuaitongkeji.com/static/img/app/address/loading.gif" mode="">
+					</image>
+				</view>
+				加载中
+			</view>
+		</view>
 	</view>

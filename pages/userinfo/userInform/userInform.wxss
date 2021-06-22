@@ -23,15 +23,29 @@
   padding: 30rpx;
 }
 
+
+.delTxt{
+  width: 130rpx;
+  height: 100%;
+  background: #F07535;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.item{
+ border-radius: 10rpx;
+  box-shadow: 2rpx 2rpx 12rpx #d9d9d9;
+  margin-bottom: 30rpx;
+}
+
 .itemBox {
   width: 650rpx;
   padding: 30rpx 20rpx;
   background: #FFFFFF;
-  margin-bottom: 30rpx;
   font-size: 12px;
   color: #666666;
-  border-radius: 10rpx;
-  box-shadow: 2rpx 2rpx 12rpx #d9d9d9;
 }
 
 .itemTxt {
@@ -55,7 +69,8 @@
 }
 
 .lodbox {
-  font-size: 24rpx;
+  height: 60rpx;
+  font-size: 12px;
 }
 
 .showloding {

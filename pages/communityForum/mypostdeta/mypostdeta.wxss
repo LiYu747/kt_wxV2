@@ -74,10 +74,10 @@
   height: 60rpx;
 }
 
+
 .img {
-  width: 74rpx;
-  height: 74rpx;
-  border-radius: 50%;
+  width: 40rpx;
+  height: 40rpx;
 }
 
 .text {
@@ -97,13 +97,13 @@
 
 .title {
   margin-top: 30rpx;
-  font-size: 28rpx;
+  font-size: 16px;
 }
 
 .content {
   margin-top: 20rpx;
   width: 680rpx;
-  font-size: 24rpx;
+  font-size: 14px;
 }
 
 .imgbx {

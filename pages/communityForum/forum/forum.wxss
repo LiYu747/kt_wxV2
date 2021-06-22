@@ -93,13 +93,13 @@
 
 .title {
   margin-top: 30rpx;
-  font-size: 28rpx;
+  font-size: 16px;
 }
 
 .content {
   margin-top: 20rpx;
   width: 680rpx;
-  font-size: 24rpx;
+  font-size: 14px;
 }
 
 .imgbx {
@@ -231,6 +231,7 @@
 
 .lodbox {
   font-size: 24rpx;
+  padding-bottom: 30rpx;
 }
 
 .showloding {
@@ -250,6 +251,7 @@
   width: 260rpx;
   height: 200rpx;
   background: rgba(88, 88, 88, 0.8);
+  border-radius: 10rpx;
 }
 
 .sendType{

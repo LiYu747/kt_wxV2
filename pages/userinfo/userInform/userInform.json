@@ -1,5 +1,7 @@
 {
-  "usingComponents": {},
+  "usingComponents": {
+    "van-swipe-cell": "/@vant/weapp/swipe-cell/index"
+  },
   "navigationBarBackgroundColor": "#F07535",
   "navigationBarTextStyle": "white",
   "navigationBarTitleText": "消息",

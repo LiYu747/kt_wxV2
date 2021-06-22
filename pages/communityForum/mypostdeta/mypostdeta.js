@@ -22,7 +22,6 @@ Page({
 
     ],
     seeShow: false,
-    idx: 0,
   },
     
       // 删除
@@ -34,7 +33,7 @@ Page({
 							wx.showLoading({
 								title: '加载中'
 							})
-							village.delPost({
+							village.deluserpost({
 								data: {
 									id: this.data.id
 								},
@@ -72,66 +71,7 @@ Page({
 					}
 				})
 			},
-     // 选择是否可见
-			addCel(e) {
-        let index = e.currentTarget.dataset.index
-        let item = e.currentTarget.dataset.item
-        if (this.data.idx == index) return;
-        this.setData({
-          idx : index
-        })
-				wx.showLoading({
-					title: '加载中'
-				})
-				village.visiblePost({
-					data: {
-						id: this.data.id,
-						visible: item.value
-					},
-					fail: () => {
-						wx.hideLoading()
-						wx.showToast({
-							title: '网络错误',
-							icon: 'none'
-						})
-					},
-					success: (res) => {
-						wx.hideLoading()
-						if (res.statusCode != 200) {
-							wx.showToast({
-								title: '网络出错了',
-								icon: 'none'
-							})
-							return;
-						}
-						if (res.data.code != 200) {
-							wx.showToast({
-								title: res.data.msg,
-								icon: 'none'
-							})
-							return;
-            }
-            this.setData({
-              seeShow : false
-            })
-						wx.showToast({
-							title: res.data.msg
-						})
-					}
-				})
-			},
-    // 取消选择
-    onSeeClose(){
-      this.setData({
-        seeShow : false
-      })
-    },
-   //选择可见性
-   celShow(){
-    this.setData({
-      seeShow : true 
-    })
-   },
+    
   // 详情数据 
   getData() {
     wx.showLoading({
@@ -162,9 +102,19 @@ Page({
         } 
           let data = res.data.data
           data.created_at = data.created_at.slice(0, 16)
+          switch(data.verify_status){
+            case 1:
+            data.verify_status = "待审核"
+            break;
+            case 2:
+            data.verify_status = "已通过"
+            break;
+            case 3:
+            data.verify_status = "未通过"
+            break;
+          }
           this.setData({
             arr : data,
-            idx :data.visible
           })
       }
     })

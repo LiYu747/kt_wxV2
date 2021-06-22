@@ -42,7 +42,7 @@ Page({
   // 地址
   Address() {
     let latitude = Number(this.data.roomInof.lat)
-    let longitude = Number(this.data.roomInof.lgt)
+    let longitude = Number(this.data.roomInof.lng)
     wx.openLocation({
       latitude: latitude,
       longitude: longitude,
@@ -84,7 +84,9 @@ Page({
         }
         let data = res.data.data
         if (data.album && data.album.length > 1) {
-          this.indicatorDots = true
+          this.setData({
+            indicatorDots : true
+          })
         }
         if (data.album == [] || !data.album) {
           let album = ['https://oss.kuaitongkeji.com/upload/2021/02/20/Kztg485iqwsrKNrDLXKIeQ7apbhuyi4v1SHpslOv.jpeg']

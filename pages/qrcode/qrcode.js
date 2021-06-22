@@ -12,8 +12,8 @@ Page({
     text: '刷新中',
     flag: 0,
     show: 0,
-    time: 60,
-    timetext: '有效时间:60s',
+    time: 0, 
+    timetext: '',
     isLoding:false,
     code:0,
   },
@@ -35,7 +35,8 @@ Page({
         if (this.data.time < 0 || this.data.flag === 0) {
           this.setData({
             time : 60,
-            show : 0
+            show : 0,
+            timetext : ''
           })
           clearInterval(Urtime)
         }
@@ -77,7 +78,6 @@ Page({
         this.setData({
           isLoding : false
          })
-        // console.log(res.data.data.content);
         if (res.statusCode != 200) {
           wx.showToast({
             title: '网络出错了',
@@ -85,7 +85,23 @@ Page({
           })
           return;
         }
-
+        if(res.data.code == 4405){
+          wx.showModal({
+            content:'请完善您的身份信息',
+            success: (res) => {
+              if (res.confirm) {
+                wx.navigateTo({
+                  url: '/pages/userinfo/realInformation/realInformation'
+                })
+              } else if (res.cancel) {
+                wx.navigateBack({
+                  delta: 1
+                })
+              }
+            }
+          })
+          return;
+        }
         if (res.data.code != 200) {
           wx.showToast({
             title: res.data.msg,
@@ -107,10 +123,9 @@ Page({
             flag : 1,
             show : 1
           })
-         
-          this.countdown()
           clearTimeout(time)
-        }, 1500)
+        }, 1000)
+        this.countdown()
       }
     })
   },
@@ -148,6 +163,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
+    if(this.data.code == 200) return;
     this.loadUserData()
   },
 

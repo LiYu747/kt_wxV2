@@ -70,9 +70,8 @@
 }
 
 .nextTex {
-  right: 0;
-  top: 20rpx;
-  color: #CCCCCC;
+  bottom: 20rpx;
+  right: 30rpx;
 }
 
 .pritext {

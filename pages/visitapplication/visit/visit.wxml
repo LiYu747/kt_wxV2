@@ -23,7 +23,7 @@
 	</view>
 	<van-popup show="{{ show }}"   position="bottom"
   custom-style="height: 40%" bind:close="onClose">
-		<van-picker columns="{{ columns }}"  value-key="{{'label'}}"  bind:cancel="onCancel"
+		<van-picker columns="{{ columns }}"   title="{{title}}" value-key="{{'label'}}"  bind:cancel="onCancel"
   bind:confirm="onConfirm" show-toolbar  bind:change="onChange" />
 	</van-popup>
 
@@ -37,7 +37,9 @@
 				</view>
 			</view>
 			<view class="flex al-center fujbox">
-				<image wx:if="{{image}}" src="{{image}}" class="itemimg" mode="aspectFill"></image>
+				<view class="" wx:for="{{image}}" wx:key='id'>
+					<image src="{{item}}" class="itemimg" mode="aspectFill"></image>
+				</view>
 				<view bindtap="succ" class="puls flex-d al-center ju-center">
 					<image src="https://oss.kuaitongkeji.com/static/img/app/home/push.png" class="pushimg" mode=""></image>
 					添加

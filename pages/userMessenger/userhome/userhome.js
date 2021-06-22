@@ -56,7 +56,7 @@ Page({
 	// 拜访申请
   VisitToApply() {
     wx.navigateTo({
-      url: '/pages/visitapplication/visit/visit?text=您好,我这边是外卖快递,请您通过一下 '
+      url: '/pages/residence/seachVill/seachVill?code=2'
     })
   },
   	// 通行二维码
@@ -88,7 +88,7 @@ Page({
           })
           return;
         }
-        if(res.data.code != 200 && res.data.code != 403){
+        if(res.data.code != 200 && res.data.code != 5403){
           wx.showToast({
             title: res.data.msg,
             icon: "none"

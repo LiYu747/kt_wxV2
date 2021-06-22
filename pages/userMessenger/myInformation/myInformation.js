@@ -6,7 +6,8 @@ Page({
    * 页面的初始数据
    */
   data: {
-    files: [],
+    code:0,
+    files:[],
     locdata: [{
         label: '申请平台',
         value: ''
@@ -45,7 +46,7 @@ Page({
           })
           return;
         }
-        if (res.data.code == 403) {
+        if (res.data.code == 5403) {
           wx.showModal({
             content: res.data.msg,
             success: (res) => {
@@ -57,16 +58,16 @@ Page({
           return;
         }
         if (res.data.code == 200) {
-          // console.log(res.data.data);
           let data = res.data.data
           let platform = 'locdata[0].value'
           let code = 'locdata[1].value'
           let created = 'locdata[2].value'
           this.setData({
-            [platform]: data.info.platform,
-            [code]: data.info.code,
-            [created]: data.info.created_at.slice(0, 16),
-            files: data.files
+            code : res.data.code,
+            [platform]: data.platform,
+            [code]: data.job_number,
+            [created]: data.created_at.slice(0, 16),
+            files:data.files
           })
         } else {
           wx.showToast({

@@ -6,7 +6,7 @@
   height: 148rpx;
 }
 .color {
-  color: #666666;
+  color: #666666; 
 }
 
 .img {
@@ -15,13 +15,14 @@
 }
 
 .nav {
-  width: 689rpx;
-  padding: 30rpx 0;
+  width: 620rpx;
+  padding: 30rpx ;
   border-radius: 20rpx;
   background: #FFFFFF;
   position: relative;
   top: -125rpx;
-  box-shadow: 0px 4px 4px 0px rgba(9, 9, 9, 0.1);
+  box-shadow: 2rpx 2rpx 12rpx #d9d9d9;
+  
 }
 
 .top {
@@ -29,18 +30,35 @@
   width: 328rpx;
   height: 182rpx;
   background: rgba(9, 9, 9, 0.1);
+  margin-bottom: 20rpx;
+}
+
+.conter{
+  justify-content: center;
+  margin: 0;
 }
 
 .back {
+  width: 620rpx;
+  background: red;
   margin-top: 28rpx;
   background: #FFFFFF;
-  height: 182rpx;
+  flex-wrap: wrap;
 }
 
 .itemimg {
   width: 180rpx;
   height: 180rpx;
-  margin-right: 10rpx;
+  margin-bottom: 20rpx;
+  border-radius: 10rpx;
+}
+
+.mar{
+  margin-right: 40rpx;
+}
+
+.dv{
+  margin-right: 0;
 }
 
 .timg {
@@ -49,7 +67,6 @@
 }
 
 .btn {
-  margin-top: 24rpx;
   width: 326rpx;
   height: 56rpx;
   border-radius: 28rpx;
@@ -68,20 +85,20 @@
   width: 649rpx;
   background: #FFFFFF;
   border-radius: 10rpx;
-  box-shadow: 0px 4px 4px 0px rgba(9, 9, 9, 0.1);
+  box-shadow: 2rpx 2rpx 12rpx #d9d9d9;
   padding: 20rpx ;
   color: #666666;
 }
 
 .tex1 {
-  font-size: 30rpx;
+  font-size: 15px;
 }
 
 .ipt {
   margin-left: 10rpx;
-  font-size: 28rpx;
+  font-size: 14px;
   width: 500rpx;
-  margin-top: 8rpx;
+  margin-top: 6rpx;
 }
 
 .celShow{
@@ -90,7 +107,7 @@
   height: 80rpx;
   background: #FFFFFF;
   border-radius: 10rpx;
-  box-shadow: 0px 4px 4px 0px rgba(9, 9, 9, 0.1);
+  box-shadow: 2rpx 2rpx 12rpx #d9d9d9;
   padding: 0 20rpx;
   color: #666666;
 }
@@ -102,16 +119,16 @@
   padding: 20rpx;
   background: #FFFFFF;
   border-radius: 10rpx;
-  box-shadow: 0px 4px 4px 0px rgba(9, 9, 9, 0.1);
+  box-shadow: 2rpx 2rpx 12rpx #d9d9d9;
 }
 
 .are {
   margin-left: 10rpx;
   height: 200rpx;
   width: 550rpx;
-  font-size: 28rpx;
+  font-size: 14px;
   align-content: center;
-  padding: 8rpx 0;
+  padding: 6rpx 0;
 }
 
 .matop {
@@ -151,7 +168,7 @@
   width: 649rpx;
   background: #FFFFFF;
   border-radius: 10rpx;
-  box-shadow: 0px 4px 4px 0px rgba(9, 9, 9, 0.1);
+  box-shadow: 2rpx 2rpx 12rpx #d9d9d9;
 }
 
 .pushtagimg {

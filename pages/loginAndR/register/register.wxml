@@ -1,73 +1,83 @@
 <view class="back">
-		<view class="nav pos-rel flex al-center ju-center">
-			<image bindtap="goback" class="img pos-abs" src="https://oss.kuaitongkeji.com/static/img/app/login/fanhui.png" mode=""></image>
-			<view class="text">
+	<view class=" pos-rel flex al-center ju-center "  style="top:{{customBar}}rpx">
+		<image bindtap="goback" class="img pos-abs" src="https://oss.kuaitongkeji.com/static/img/app/login/fanhui.png"
+			mode=""></image>
+		<view class="text">
+			注册
+		</view>
+	</view>
+
+	<!-- 头像 -->
+	<view class="logo flex ju-center">
+		<image src="{{avatar}}" bindtap="UploadAvatar" class="logoimg" mode="aspectFill"></image>
+	</view>
+	<!-- 输入框 -->
+	<view class="top flex-d al-center">
+		<!-- 昵称-->
+		<view class="uiput flex al-center pos-rel">
+			<image class="nameimg pos-abs" src="https://oss.kuaitongkeji.com/static/img/app/register/my.png" mode=""></image>
+			<input class="ipt" bindinput='nicknamechange' placeholder="昵称(用于给他人展示)" />
+		</view>
+		<!-- 性别-->
+		<view class="uiput flex al-center pos-rel">
+			<image class="nameimg pos-abs" src="/image/Usersex.png" mode=""></image>
+			<input disabled="true" class="ipt" bindinput='namechange' placeholder="性别" />
+	   <view class=" pos-abs radioBox">
+			<van-radio-group  value="{{ radio }}" direction="horizontal" bind:change="onChange">
+					<van-radio checked-color="#FF773C" icon-size="34rpx" class="fz-12" name="1">男</van-radio>
+					<van-radio checked-color="#FF773C" icon-size="34rpx" class="fz-12" name="2">女</van-radio>
+			</van-radio-group> 
+		 </view>
+		</view>
+		<!-- 登录密码-->
+		<view class="uiput flex al-center pos-rel">
+			<image class="idptimg pos-abs" src="../../../image/userpawd.png" mode="">
+			</image>
+			<input class="ipt" bindblur="passChange"  placeholder="设置登录密码" type="password" />
+		</view>
+			<!-- 确认登录密码-->
+			<view class="uiput flex al-center pos-rel">
+			<image class="idptimg pos-abs" src="../../../image/userpawd.png" mode="">
+			</image>
+			<input class="ipt" bindblur="confirmChange"  placeholder="确认登录密码" type="password" />
+		</view>
+		<!-- 手机号 -->
+		<view class="uiput flex al-center pos-rel">
+			<image class="iptimg pos-abs" src="https://oss.kuaitongkeji.com/static/img/app/login/phone.png" mode=""></image>
+			<input class="ipt" type="number" bindinput='phonechange' placeholder="手机号" />
+		</view>
+		<!-- 验证码 -->
+		<view class="uiput flex al-center pos-rel">
+			<image class="iptimg2 pos-abs" src="https://oss.kuaitongkeji.com/static/img/app/login/security.png" mode="">
+			</image>
+			<input class="ipt" type="number" value="{{code}}" bindinput='codechange' placeholder="验证码" />
+			<view bindtap="addvercode" ref='code'
+				class="vcode pos-abs flex al-center ju-center {{codebtn === false?'dv':''}}">
+				<view class="tetxs ">
+					{{text}}
+				</view>
+			</view>
+		</view>
+		<u-toast ref="uToast" />
+	</view>
+
+	<!-- 注册按钮 -->
+	<view class="flex-d al-center">
+		<view bindtap="register" class="btn pos-rel flex ju-center al-center">
+			<image src="https://oss.kuaitongkeji.com/static/img/app/login/jbs.png" class="jbsimg" mode=""></image>
+			<view class="lgtext pos-abs">
 				注册
 			</view>
 		</view>
-
-		<!-- logo -->
-		<view class="logo flex ju-center">
-			<image src="https://oss.kuaitongkeji.com/static/img/app/login/logo.png" class="logoimg" mode=""></image>
-		</view>
-		<!-- 输入框 -->
-		<view class="top flex-d al-center">
-				<!-- 昵称-->
-					<view class="uiput flex al-center pos-rel">
-						<image class="nameimg pos-abs" src="https://oss.kuaitongkeji.com/static/img/app/register/my.png" mode=""></image>
-						<input class="ipt"  bindinput='nicknamechange' placeholder="昵称(用于给他人展示)" />
-					</view>
-				<!-- 姓名-->
-					<view class="uiput flex al-center pos-rel">
-						<image class="nameimg pos-abs" src="https://oss.kuaitongkeji.com/static/img/app/register/my.png" mode=""></image>
-						<input class="ipt"  bindinput='namechange'   placeholder="真实姓名" />
-					</view>
-				<!-- 上传证件照-->
-					<view class="uiput flex al-center pos-rel">
-						<image class="idptimg pos-abs" src="https://oss.kuaitongkeji.com/static/img/app/register/photo.png" mode=""></image>
-						<input class="ipt" disabled="true"   placeholder="上传人像照片" />
-						<view wx:if="{{toot == false}}" bindtap="upload" class="upload pos-abs">
-							上传
-						</view>
-						<view wx:else bindtap="preview" class="upload pos-abs">
-							预览
-						</view>
-					</view>
-				<!-- 手机号 -->
-					<view class="uiput flex al-center pos-rel">
-						<image class="iptimg pos-abs" src="https://oss.kuaitongkeji.com/static/img/app/login/phone.png" mode=""></image>
-						<input class="ipt" type="number"  bindinput='phonechange'   placeholder="手机号" />
-					</view>
-				<!-- 验证码 -->
-					<view class="uiput flex al-center pos-rel">
-						<image class="iptimg2 pos-abs" src="https://oss.kuaitongkeji.com/static/img/app/login/security.png" mode=""></image>
-						<input class="ipt" type="number" value="{{code}}"  bindinput='codechange'   placeholder="验证码" />
-						<view bindtap="addvercode" ref='code' class="vcode pos-abs flex al-center ju-center {{codebtn === false?'dv':''}}">
-							<view class="tetxs ">
-								{{text}}
-							</view>
-						</view>
-					</view>
-					<u-toast ref="uToast" />
-		</view>
-
-		<!-- 注册按钮 -->
-		<view class="flex-d al-center">
-			<view bindtap="register" class="btn pos-rel flex ju-center al-center">
-				<image src="https://oss.kuaitongkeji.com/static/img/app/login/jbs.png" class="jbsimg" mode=""></image>
-				<view class="lgtext pos-abs">
-					注册
-				</view>
+	</view>
+	<view>
+	</view>
+	<view wx:if="{{isLoding == true}}" class="showloding flex al-center ju-center">
+		<view class="loding flex-d al-center ju-center">
+			<view class=" ">
+				<image class="loimg" src="https://oss.kuaitongkeji.com/static/img/app/address/loading.gif" mode=""></image>
 			</view>
-		</view>
-		<view>
-		</view>
-		<view wx:if="{{isLoding == true}}" class="showloding flex al-center ju-center">
-			<view class="loding flex-d al-center ju-center">
-				<view class=" ">
-					<image class="loimg" src="https://oss.kuaitongkeji.com/static/img/app/address/loading.gif" mode=""></image>
-				</view>
-				上传中
-			</view>
+			上传中
 		</view>
 	</view>
+</view>

@@ -1,7 +1,7 @@
 .cont {
   width: 710rpx;
-  height: 100rpx;
   padding: 0 20rpx;
+  padding-bottom: 50rpx;
 }
 
 .nav {
@@ -74,4 +74,23 @@
   border: 1rpx solid rgb(240, 117, 53);
   font-size: 28rpx;
   color: rgb(240, 117, 53);
+}
+
+.imgBox{
+  width: 94%;
+  padding: 3%;
+  border-radius: 10rpx;
+  background: #FFFFFF;
+  font-size: 26rpx;
+   box-shadow: 2rpx 2rpx 12rpx #d9d9d9;
+  color: rgb(165, 165, 165);
+  flex-wrap: wrap;
+}
+
+.itemImg{
+  width: 140rpx;
+  height: 160rpx;
+  border-radius: 10rpx;
+  margin-right: 20rpx;
+  margin-bottom: 10rpx;
 }

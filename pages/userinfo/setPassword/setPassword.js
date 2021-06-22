@@ -1,5 +1,6 @@
 // pages/userinfo/setPassword/setPassword.js
 import user from '../../../vendor/user/userDetails.js'
+import sms from '../../../vendor/sms/sms'
 Page({
 
   /**
@@ -41,7 +42,7 @@ Page({
     ],
     falgWay: false,
     setWay: '使用旧密码修改',
-    verify_method: 'sms_code', //修改密码的方式 old_password：验证旧密码；sms_code：短信验证码
+    verify_method: 'sms_code', //修改密码的方式 old_secret：验证旧密码；sms_code：短信验证码
     flag: false,
     text: '获取验证码',
     code: true,
@@ -60,10 +61,10 @@ Page({
     }
     user.steNewpaw({
       data: {
-        verify_method: this.data.verify_method,
+        method: this.data.verify_method,
         new_secret: this.data.locadata[2].value,
-        new_secret2: this.data.locadata[3].value,
-        old_password:this.data.locadata[1].value,
+        new_secret_confirmation: this.data.locadata[3].value,
+        old_secret:this.data.locadata[1].value,
         sms_code: code
       },
       fail: () => {
@@ -125,7 +126,7 @@ Page({
     if (this.data.falgWay == true) {
       this.setData({
         locadata: this.data.locadata.slice(0, 4),
-        verify_method: 'old_password',
+        verify_method: 'old_secret',
         setWay: '手机验证码修改',
         idx: 0
       })
@@ -144,9 +145,10 @@ Page({
     wx.showLoading({
       title: '发送中...'
     })
-    user.stePawcode({
+    sms.smsSend({
       data: {
         tel: this.data.locadata[0].value,
+        use_to:'user_reset_password'
       },
       fail: () => {
         wx.hideLoading()
@@ -207,7 +209,13 @@ Page({
         this.setData({
           [msg]: '密码至少6位'
         })
-       }else{
+       }
+       else if(value == this.data.locadata[1].value){
+        this.setData({
+          [msg]: '新密码不能与旧密码相同'
+        })
+       }
+       else{
         this.setData({
           [msg]: ''
         })   

@@ -1,48 +1,65 @@
 <view class="">
-		<view class="fiedx">
-			<view class="searchBox flex al-center ju-center pos-rel">
-				<view class="searchBack flex al-center">
-					<image src="https://oss.kuaitongkeji.com/static/img/app/propertyManagement/serach.png" class="serachImg" mode=""></image>
-					<input type="text" class="ipt" value="{{username}}" bindconfirm="search" bindinput="Onchange" placeholder="请输入关键词" />
-				</view>
-				<view bindtap="cancel" wx:if="{{falg==true}}" class="cancel pos-abs">
-					取消
-				</view>
+	<view class="fiedx">
+		<view class="searchBox flex al-center ju-center pos-rel">
+			<view class="searchBack flex al-center">
+				<image class="serachImg " src="https://oss.kuaitongkeji.com/static/img/app/home/ss.png" mode=""></image>
+				<input type="text" class="ipt" value="{{username}}" bindconfirm="search" bindinput="Onchange"
+					placeholder="请输入关键词" />
 			</view>
 		</view>
-		<view class="topLine">
+	</view>
+	<view class="cancel ">
+		<view bindtap="celShow" class="allTx flex al-center">
+			筛选
+			<image src="https://oss.kuaitongkeji.com/static/img/app/propertyManagement/pullDown.png" class="xiala" mode="">
+			</image>
+		</view>
+		<view wx:if="{{xlshow==true}}" class="xlshow  pos-abs flex-d al-center">
+			<view class="itemLabel flex al-center ju-center  {{index==idx?'back':''}}" bindtap="select" data-item="{{item}}"
+				data-index="{{index}}" wx:for="{{condition}}" wx:key='id'>
+				{{item.label}}
+			</view>
+		</view>
+	</view>
+	<view class="topLine">
 
-		</view>
+	</view>
+	<view wx:if="{{code ==200}}" class="">
 		<view wx:if="{{lists.length>0}}" class="flex-d al-center m-t1">
-			<view class="itemBox"  wx:for="{{lists}}" wx:key='id'>
-				<view class="flex al-center">
+			<view class="itemBox" bindtap="goUserDetails" data-item="{{item}}" wx:for="{{lists}}" wx:key='id'>
+				<view class="flex al-center ju-between">
 					<view class="itemName">
-						{{item.username}}
+						{{item.own_user.username}}
 					</view>
-					<view class="itemTel">
-						{{item.tel}}
+					<view class="itemTel fz-12">
+						{{item.type}}
 					</view>
 				</view>
-				<view class="flex m-t3">
-					<view class="itemSex flex al-center ju-center {{item.sex=='男'?'dv':''}}" >
-						{{item.sex}}
+				<view class="flex m-t3 ju-between cl9 fz-14">
+					<view class=" flex al-center">
+						<image src="https://oss.kuaitongkeji.com/static/img/app/propertyManagement/time.png" class="timeImg"
+							mode=""></image>
+						<view wx:if="{{item.valid_type == 1}}" class="m-l1 ">
+							入住日期
+						</view>
+						<view wx:if="{{item.valid_type == 0}}" class="m-l1">
+							有效期限
+						</view>
 					</view>
-					<view class="itemIDcard">
-						<view class="flex al-center">
-							<image src="https://oss.kuaitongkeji.com/static/img/app/propertyManagement/idcard.png" class="idcardIcon" mode=""></image>
-							<view class="m-l1">
-								身份证号
-							</view>
-						</view>
-						<view class="m-t1">
-							{{item.id_card_no}}
-						</view>
+					<view wx:if="{{item.valid_type == 1}}" class="">
+						{{item.valid_begin}}
+					</view>
+					<view wx:if="{{item.valid_type == 0}}" class="">
+						永久
 					</view>
 				</view>
 			</view>
 		</view>
-		<view wx:if="{{isLoading==false&&lists.length==0}}" class="noQuery flex ju-center">
-			暂无用户可查询
+		<view wx:if="{{isLoading==false&&lists.length==0&&falg==true}}" class="noQuery flex ju-center">
+			查询的用户不存在
+		</view>
+		<view wx:if="{{isLoading==false&&lists.length==0&&falg==false}}" class="noQuery flex ju-center">
+			没有用户可查询
 		</view>
 		<view wx:if="{{hasMore==false&&lists.length>0}}" class="bomLine flex ju-center">
 			{{noText}}
@@ -51,13 +68,16 @@
 			<image class="lodimg" src="https://oss.kuaitongkeji.com/static/img/app/address/loading.gif" mode=""></image>
 			加载中...
 		</view>
-		<view wx:if="{{isLoading == true && lists.length == 0}}" class="showloding flex al-center ju-center">
-			<view class="loding flex-d al-center ju-center">
-				<view class=" ">
-					<image class="loimg" src="https://oss.kuaitongkeji.com/static/img/app/address/loading.gif" mode=""></image>
-				</view>
-				加载中
+	</view>
+	<view wx:if="{{isLoading == true && lists.length == 0}}" class="showloding flex al-center ju-center">
+		<view class="loding flex-d al-center ju-center">
+			<view class=" ">
+				<image class="loimg" src="https://oss.kuaitongkeji.com/static/img/app/address/loading.gif" mode=""></image>
 			</view>
+			加载中
 		</view>
+	</view>
+	<view wx:if="{{xlshow==true}}" bindtap="celShow" class="showBox">
 
 	</view>
+</view>

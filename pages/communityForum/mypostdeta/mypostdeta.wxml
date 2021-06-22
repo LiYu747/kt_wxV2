@@ -1,5 +1,11 @@
 <view class="">
 		<view class="woer">
+			<view class="flex al-center m-t3">
+				<image src="https://oss.kuaitongkeji.com/static/img/app/visit/gnt.png" class="img" mode=""></image>
+				<view  class="text m-l2">
+					{{arr.verify_status}}
+				</view> 
+			</view>
 			<!-- 标题 -->
 			<view class="title">
 				{{arr.title}}
@@ -13,7 +19,7 @@
 			<!-- 图片 -->
 			<view class="flex al-center imgbx">
 				<view class="" wx:for="{{arr.album}}" wx:key='id'>
-					<image class="itemimg {{(index+1)%3 == 0?'dv':''}}" src="{{item.url}}" mode="aspectFill"></image>
+					<image class="itemimg {{(index+1)%3 == 0?'dv':''}}" src="{{item}}" mode="aspectFill"></image>
 				</view>
 			</view>
 			<view class="fz-12 m-t2 time">
@@ -22,16 +28,7 @@
 
 
 			<view class=" flex-d al-center m-t4">
-				<view bindtap="celShow" class="contentBox pos-rel">
-					<view class="tabbar flex al-center">
-						谁能看见
-						<view class=" pos-abs rig flex al-center">
-							<image src="{{seeList[idx].ref}}" class="uplockImg" mode=""></image>
-							{{seeList[idx].label}}
-						</view>
-						<image class="reimg" src="https://oss.kuaitongkeji.com/static/img/app/address/retrue.png" mode=""></image>
-					</view>
-				</view>
+				
 				<!-- 提交 -->
 				<view bindtap="delt" class="matop flex al-center ju-center">
 					<image class="Submit" src="https://oss.kuaitongkeji.com/static/img/app/login/ccuc.png" mode=""></image>

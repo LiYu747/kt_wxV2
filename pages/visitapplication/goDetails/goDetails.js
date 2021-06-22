@@ -10,7 +10,7 @@ Page({
     username: '', //处理结果 
     remark: '', //备注
     result: '', //结果
-    redIMG:'', //图片
+    redIMG:[], //图片
     locadata: [{
         titel: '姓名',
         value: ''
@@ -51,24 +51,31 @@ Page({
         if (res.data.code != 200) return;
         let data = res.data.data
         // console.log(res.data.data);
+        switch (data.verify_status) {
+          case 1:
+            data.verify_status = '审核中'
+            break;
+          case 2:
+            data.verify_status = '同意'
+            break;
+          case 3:
+            data.verify_status = '未同意'
+            break;
+            }
         let username = 'locadata[0].value'
         let created = 'locadata[2].value'
+        let name = 'locadata[1].value'
         this.setData({
           [username] : data.own_host.username,
           [created] : data.created_at.slice(0, 16),
-          username : data.verify_text,
+          [name] : data.place,
+          username : data.verify_status,
           remark :  data.visitor_remark? data.visitor_remark :'',
           result : data.verify_msg?data.verify_msg:'',
-          redIMG : data.ext_img
+          redIMG : data.pics?data.pics:[],
         })
-        if (data.own_village) {
-          let name = 'locadata[1].value'
-          this.setData({
-            [name] : ''  + data.own_village.name + data.own_building.name + data.own_apartment.name + data.own_building.name + data.own_room.room_number
-          })
-        }
-        if(data.qr_content){
-          this.drawImg(data.qr_content)
+        if(data.encrypted_data){
+          this.drawImg(data.encrypted_data)
         }
       }),
 

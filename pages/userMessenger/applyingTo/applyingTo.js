@@ -8,7 +8,6 @@ Page({
    * 页面的初始数据
    */
   data: {
-    remark: '', //备注
     image: [], //上传图片
     isLoding: false,
     locdata: [{
@@ -56,15 +55,21 @@ Page({
       return;
     }
     if (this.data.isLoding == true) return;
+    if(this.data.image.length == 0){
+      wx.showToast({
+        title: "请上传工装照,身份证明等",
+        icon: 'none'
+      })
+      return;
+    }
     wx.showLoading({
       title: '加载中'
     })
     home.applyToBecome({
       data: {
         platform: this.data.locdata[1].value,
-        code: this.data.locdata[2].value,
+        job_number: this.data.locdata[2].value,
         files: this.data.image,
-        user_remark: this.data.remark
       },
       fail: () => {
         wx.hideLoading()
@@ -103,12 +108,6 @@ Page({
       }
     })
   },
-    //备注
-    Onareachenge(e){
-     this.setData({
-      remark : e.detail.value
-     })
-    },
   	// 选择附件
     pushBtn() {
       wx.chooseImage({
@@ -214,6 +213,23 @@ Page({
         }
         if (res.data.code != 200) return;
         let Users = res.data.data
+        if(!Users.id_card_no){
+          wx.showModal({
+            content:'请完善您的身份信息',
+            success: (res) => {
+              if (res.confirm) {
+                wx.navigateTo({
+                  url: '/pages/userinfo/realInformation/realInformation'
+                })
+              } else if (res.cancel) {
+                wx.navigateBack({
+                  delta: 1
+                })
+              }
+            }
+          })
+          return;
+        }
         let username = 'locdata[0].value'
         this.setData({
           [username] :  Users.username
@@ -232,14 +248,14 @@ Page({
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-  this.getuserinfo()
+  
   },
 
   /**
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+    this.getuserinfo()
   },
 
   /**

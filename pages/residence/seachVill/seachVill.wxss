@@ -1,0 +1,114 @@
+.navBox {
+  width: 100%;
+  position: fixed;
+  height: 80rpx;
+  z-index: 99;
+  background: #F07535;
+}
+
+.ipt {
+  width: 600rpx;
+  height: 60rpx;
+}
+
+.img {
+  width: 33rpx;
+  height: 34rpx;
+  left: 50rpx;
+}
+
+.input {
+  width: 394rpx;
+  height: 54rpx;
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 27px;
+  padding-left: 75rpx;
+  font-size: 24rpx;
+  font-family: Source Han Sans CN;
+  font-weight: 400;
+  color: #FFFFFF;
+}
+
+.input-placeholder {
+  color: #FFFFFF;
+}
+
+.rig {
+  right: 49rpx;
+  font-size: 30rpx;
+  color: #FFFFFF;
+}
+
+.topLine{
+  height: 80rpx;
+}
+
+.listbox {
+  width: 690rpx;
+  padding-left: 30rpx;
+  padding-right: 30rpx;
+}
+
+.content {
+  width: 600rpx;
+  background: #FFFFFF;
+  border-radius: 10rpx;
+  margin-bottom: 30rpx;
+  box-shadow: 2rpx 2rpx 12rpx #d9d9d9;
+  padding-left: 60rpx;
+  padding-right: 30rpx;
+  padding-top: 30rpx;
+  padding-bottom: 30rpx;
+}
+
+.name {
+  height: 50rpx;
+}
+
+.zrimg {
+  width: 24rpx;
+  height: 24rpx;
+}
+
+.location {
+  left: 20rpx;
+  top: 30rpx;
+}
+
+.addres {
+  width: 100%;
+  color: #666666;
+}
+
+.reimg {
+  width: 20rpx;
+  height: 30rpx;
+}
+
+.line {
+  width: 100%;
+  height: 2rpx;
+  background: #E6E6E6;
+}
+
+.text {
+  width: 480rpx;
+  padding: 40rpx 0;
+}
+
+.noBox {
+  height: 200rpx;
+}
+
+.record {
+  width: 690rpx;
+  color: rgb(93, 93, 93);
+  flex-wrap: wrap;
+}
+
+.itemtitle {
+  background: rgb(246, 246, 246);
+  padding: 12rpx 20rpx;
+  font-size: 15px;
+  border-radius: 10rpx;
+}

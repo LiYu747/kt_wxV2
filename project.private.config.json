@@ -13,10 +13,9 @@
     "miniprogram": {
       "list": [
         {
-          "id": -1,
           "name": "pages/visitapplication/visit/visit",
           "pathName": "pages/visitapplication/visit/visit",
-          "query": "",
+          "query": "id=1",
           "scene": null
         },
         {
@@ -48,10 +47,9 @@
           "scene": null
         },
         {
-          "id": -1,
           "name": "pages/operation/details/details",
           "pathName": "pages/operation/details/details",
-          "query": "id=22",
+          "query": "id=11",
           "scene": null
         },
         {
@@ -177,19 +175,19 @@
         {
           "name": "pages/communityForum/forumlists/forumlists",
           "pathName": "pages/communityForum/forumlists/forumlists",
-          "query": "id=2",
+          "query": "id=1",
           "scene": null
         },
         {
           "name": "pages/communityForum/release/release",
           "pathName": "pages/communityForum/release/release",
-          "query": "id=2",
+          "query": "id=1",
           "scene": null
         },
         {
           "name": "pages/communityForum/forum/forum",
           "pathName": "pages/communityForum/forum/forum",
-          "query": "id=1",
+          "query": "id=8",
           "scene": null
         },
         {
@@ -207,7 +205,7 @@
         {
           "name": "pages/communityForum/mypostdeta/mypostdeta",
           "pathName": "pages/communityForum/mypostdeta/mypostdeta",
-          "query": "id=8",
+          "query": "id=14",
           "scene": null
         },
         {
@@ -243,13 +241,13 @@
         {
           "name": "pages/propertyManagement/CheckToSee/CheckToSee",
           "pathName": "pages/propertyManagement/CheckToSee/CheckToSee",
-          "query": "",
+          "query": "id=13",
           "scene": null
         },
         {
           "name": "pages/propertyManagement/CheckToSee/seeDetails/seeDetails",
           "pathName": "pages/propertyManagement/CheckToSee/seeDetails/seeDetails",
-          "query": "id=11",
+          "query": "id=13",
           "scene": null
         },
         {
@@ -279,7 +277,7 @@
         {
           "name": "pages/propertyManagement/postManagement/postDetails/postDetails",
           "pathName": "pages/propertyManagement/postManagement/postDetails/postDetails",
-          "query": "id=3",
+          "query": "id=21",
           "scene": null
         },
         {
@@ -327,7 +325,7 @@
         {
           "name": "pages/classification/lookRoom/rentRoom/detailRoom/detailRoom",
           "pathName": "pages/classification/lookRoom/rentRoom/detailRoom/detailRoom",
-          "query": "id=3",
+          "query": "id=2",
           "scene": null
         },
         {
@@ -339,7 +337,7 @@
         {
           "name": "pages/classification/lookRoom/buyHouse/buyDetails/buyDetails",
           "pathName": "pages/classification/lookRoom/buyHouse/buyDetails/buyDetails",
-          "query": "id=4",
+          "query": "id=1",
           "scene": null
         },
         {
@@ -363,13 +361,13 @@
         {
           "name": "pages/classification/lookRoom/rentAndsale/rentroomDils/rentroomDils",
           "pathName": "pages/classification/lookRoom/rentAndsale/rentroomDils/rentroomDils",
-          "query": "id=14",
+          "query": "id=9",
           "scene": null
         },
         {
           "name": "pages/classification/lookRoom/rentAndsale/saleroomDils/saleroomDils",
           "pathName": "pages/classification/lookRoom/rentAndsale/saleroomDils/saleroomDils",
-          "query": "id=10",
+          "query": "id=4",
           "scene": null
         },
         {
@@ -519,6 +517,169 @@
         {
           "name": "pages/communityForum/forumlists/forumlists",
           "pathName": "pages/communityForum/forumlists/forumlists",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/loginAndR/register/register",
+          "pathName": "pages/loginAndR/register/register",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/loginAndR/findPsw/findPsw",
+          "pathName": "pages/loginAndR/findPsw/findPsw",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/userinfo/userinfo",
+          "pathName": "pages/userinfo/userinfo",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/userinfo/personal/personal",
+          "pathName": "pages/userinfo/personal/personal",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/userinfo/setPassword/setPassword",
+          "pathName": "pages/userinfo/setPassword/setPassword",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/userinfo/realInformation/realInformation",
+          "pathName": "pages/userinfo/realInformation/realInformation",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/userAddress/addediting/ADDediting",
+          "pathName": "pages/userAddress/addediting/ADDediting",
+          "query": "id=9",
+          "scene": null
+        },
+        {
+          "name": "pages/userAddress/pushMember/pushMember",
+          "pathName": "pages/userAddress/pushMember/pushMember",
+          "query": "id=9",
+          "scene": null
+        },
+        {
+          "name": "pages/userAddress/addediting/ADDediting",
+          "pathName": "pages/userAddress/addediting/ADDediting",
+          "query": "id=9",
+          "scene": null
+        },
+        {
+          "name": "pages/userAddress/tenement/tenement",
+          "pathName": "pages/userAddress/tenement/tenement",
+          "query": "id=9",
+          "scene": null
+        },
+        {
+          "name": "pages/residence/checkIn/checkIn",
+          "pathName": "pages/residence/checkIn/checkIn",
+          "query": "id=9",
+          "scene": null
+        },
+        {
+          "name": "pages/qrcode/qrcode",
+          "pathName": "pages/qrcode/qrcode",
+          "query": "id=9",
+          "scene": null
+        },
+        {
+          "name": "pages/residence/seachVill/seachVill",
+          "pathName": "pages/residence/seachVill/seachVill",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/residence/checkIn/checkIn",
+          "pathName": "pages/residence/checkIn/checkIn",
+          "query": "id=1",
+          "scene": null
+        },
+        {
+          "name": "pages/residence/checkdetails/checkdetails",
+          "pathName": "pages/residence/checkdetails/checkdetails",
+          "query": "id=10",
+          "scene": null
+        },
+        {
+          "name": "pages/visitapplication/visit/visit",
+          "pathName": "pages/visitapplication/visit/visit",
+          "query": "id=1",
+          "scene": null
+        },
+        {
+          "name": "pages/visitapplication/goRecord/goRecord",
+          "pathName": "pages/visitapplication/goRecord/goRecord",
+          "query": "id=1",
+          "scene": null
+        },
+        {
+          "name": "pages/visitapplication/goDetails/goDetails",
+          "pathName": "pages/visitapplication/goDetails/goDetails",
+          "query": "id=10",
+          "scene": null
+        },
+        {
+          "name": "pages/communityForum/introduction/introduction",
+          "pathName": "pages/communityForum/introduction/introduction",
+          "query": "id=1",
+          "scene": null
+        },
+        {
+          "name": "pages/communityForum/forum/forum",
+          "pathName": "pages/communityForum/forum/forum",
+          "query": "id=11",
+          "scene": null
+        },
+        {
+          "name": "pages/communityForum/submy/submy",
+          "pathName": "pages/communityForum/submy/submy",
+          "query": "id=1",
+          "scene": null
+        },
+        {
+          "name": "pages/classification/motion/motion",
+          "pathName": "pages/classification/motion/motion",
+          "query": "id=4",
+          "scene": null
+        },
+        {
+          "name": "pages/operation/details/details",
+          "pathName": "pages/operation/details/details",
+          "query": "id=4",
+          "scene": null
+        },
+        {
+          "name": "pages/propertyManagement/Villageletter/Villageletter",
+          "pathName": "pages/propertyManagement/Villageletter/Villageletter",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/propertyManagement/userQuery/theUserDetails/theUserDetails",
+          "pathName": "pages/propertyManagement/userQuery/theUserDetails/theUserDetails",
+          "query": "id=14",
+          "scene": null
+        },
+        {
+          "name": "pages/communityForum/introduction/introduction",
+          "pathName": "pages/communityForum/introduction/introduction",
+          "query": "id=1",
+          "scene": null
+        },
+        {
+          "name": "pages/userMessenger/applyingTo/applyingTo",
+          "pathName": "pages/userMessenger/applyingTo/applyingTo",
+          "query": "id=1",
           "scene": null
         }
       ]

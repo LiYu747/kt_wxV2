@@ -1,0 +1,147 @@
+.navBox {
+  width: 30%;
+  position: fixed;
+  top: 0;
+  right: 0;
+  z-index: 99;
+}
+
+.remak {
+  bottom: 20rpx;
+  right: 50rpx;
+  color: #fff;
+  font-size: 15px;
+}
+
+.formBox {
+  margin-top: 30rpx;
+  width: 650rpx;
+  border-radius: 10rpx;
+  padding: 30rpx 20rpx;
+  background: #fff;
+  color: #666;
+  box-shadow: 2rpx 2rpx 12rpx #d9d9d9;
+}
+
+.itemStyle {
+  height: 80rpx;
+  border-bottom: 1px solid #BFBFBF;
+
+}
+
+.ipt {
+  text-align: right;
+  margin-right: 40rpx;
+  width: 400rpx;
+}
+
+.reimg {
+  width: 20rpx;
+  height: 28rpx;
+  right: 0;
+}
+
+.xiala {
+  width: 28rpx;
+  height: 20rpx;
+  right: 0;
+}
+
+.textAr {
+  width: 100%;
+  height: 200rpx;
+  border-bottom: 1px solid #BFBFBF;
+}
+
+.picturesBox {
+  margin-top: 30rpx;
+  width: 650rpx;
+  border-radius: 10rpx;
+  padding: 30rpx 20rpx;
+  background: #fff;
+  color: #666;
+  box-shadow: 2rpx 2rpx 12rpx #d9d9d9;
+  flex-wrap: wrap;
+}
+
+.pushBtn {
+  width: 100rpx;
+  height: 100rpx;
+  border: 8rpx solid rgb(179, 179, 179);
+  border-radius: 14rpx;
+}
+
+.itemImg{
+  width: 150rpx;
+  height: 150rpx;
+  border-radius: 10rpx;
+  margin-right: 16rpx;
+  margin-bottom: 10rpx;
+}
+
+.dv{
+  margin-right: 0;
+}
+
+.Hline {
+  width: 70rpx;
+  height: 8rpx;
+  background: rgb(179, 179, 179);
+  border-radius: 20rpx;
+}
+
+.Sline {
+  width: 8rpx;
+  height: 70rpx;
+  background: rgb(179, 179, 179);
+  border-radius: 20rpx;
+}
+
+.submit {
+  margin-top: 100rpx;
+  width: 400rpx;
+  height: 80rpx;
+  border-radius: 40rpx;
+  background: linear-gradient(to right, #F5000A, #FF954F);
+  margin-bottom: 50rpx;
+}
+
+
+.showBxo {
+  margin-top: -10rpx;
+  width: 610rpx;
+  background: #fff;
+  z-index: 999;
+  box-shadow: 2rpx 2rpx 12rpx #d9d9d9;
+  padding: 20rpx;
+  border: 1px solid #eee;
+  border-radius: 10rpx;
+}
+
+.layout {
+  width: 100%;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  z-index: 99;
+}
+
+.showloding {
+  position: absolute;
+  width: 100%;
+  height: 100vh;
+  top: 0;
+  color: #FFFFFF;
+}
+
+.loimg {
+  width: 50rpx;
+  height: 50rpx;
+}
+
+.loding {
+  width: 260rpx;
+  height: 200rpx;
+  background: rgba(88, 88, 88, 0.8);
+  border-radius: 10rpx;
+}

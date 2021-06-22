@@ -1,44 +1,55 @@
 <view class="">
-		 <view class="readBox">
-      <view bindtap="ReadAll" class="empty">
-				全部已读
-			</view>
-     </view>
-     <view class="topLine">
-
-     </view>
-		<view wx:if="{{infoLists.length>0}}" class="contenBox">
-			<view class="flex-d al-center"  wx:for="{{infoLists}}" wx:key='id'>
-				<view class="itemTime">
-					{{item.created_at}}
-				</view>
-				<view bindtap="goDetails" data-item="{{item}}" class="itemBox flex al-center pos-rel">
-					<view class="itemTxt">
-						{{item.title}}
-					</view>
-					<view wx:if="{{item.read_at == null}}" class="circle pos-abs">
-					
-					</view>
-				</view>
-			</view>
-			<view wx:if="{{isLoding == true&&infoLists.length>0}}" class=" flex ju-center al-center lodbox">
-				<image class="lodimg" src="https://oss.kuaitongkeji.com/static/img/app/address/loading.gif" mode=""></image>
-				加载中...
-			</view>
-			<view class="flex ju-center  m-b2 fz-12" wx:if="{{hasMore == false}}">
-				{{text}}
-			</view>
+	<view class="readBox">
+		<view bindtap="ReadAll" class="empty">
+			全部已读
 		</view>
-		<view class="flex ju-center fz-14 nomsg" wx:if="{{infoLists.length==0 && code == 200}}">
-			暂无消息通知
-		</view>
-		<view wx:if="{{isLoding == true&&infoLists.length==0}}" class="showloding flex al-center ju-center">
-			<view class="loding flex-d al-center ju-center">
-				<view class=" ">
-					<image class="loimg" src="https://oss.kuaitongkeji.com/static/img/app/address/loading.gif" mode=""></image>
-				</view>
-				加载中
-			</view>
-		</view>
+	</view>
+	<view class="topLine">
 
 	</view>
+
+	<view wx:if="{{infoLists.length>0}}" class="contenBox">
+
+		<view class="flex-d al-center item" wx:for="{{infoLists}}" wx:key='id'>
+			<van-swipe-cell id="swipe-cell" right-width="{{ 65 }}" async-close data-index="{{index}}" data-item="{{item}}" bind:close="onClose">
+				<van-cell-group>
+					<van-cell class="item">
+						<view bindtap="goDetails" data-item="{{item}}" class="itemBox ">
+							<view class="itemTime">
+								{{item.created_at}}
+							</view>
+				      <view class="flex al-center">
+								<view class="itemTxt">
+								{{item.title}}
+							</view>
+							<view wx:if="{{item.read_at == null}}"  class="circle pos-abs">
+
+							</view>
+							</view>
+						</view>
+					</van-cell>
+				</van-cell-group>
+				<view slot="right" class="delTxt">删除</view>
+			</van-swipe-cell>
+		</view>
+		<view wx:if="{{isLoding == true&&infoLists.length>0}}" class=" flex ju-center al-center lodbox">
+			<image class="lodimg" src="https://oss.kuaitongkeji.com/static/img/app/address/loading.gif" mode=""></image>
+			加载中...
+		</view>
+		<view class="flex ju-center  fz-12" wx:if="{{hasMore == false}}">
+			{{text}}
+		</view>
+	</view>
+	<view class="flex ju-center fz-14 nomsg" wx:if="{{infoLists.length==0 && code == 200}}">
+		暂无消息通知
+	</view>
+	<view wx:if="{{isLoding == true&&infoLists.length==0}}" class="showloding flex al-center ju-center">
+		<view class="loding flex-d al-center ju-center">
+			<view class=" ">
+				<image class="loimg" src="https://oss.kuaitongkeji.com/static/img/app/address/loading.gif" mode=""></image>
+			</view>
+			加载中
+		</view>
+	</view>
+
+</view>

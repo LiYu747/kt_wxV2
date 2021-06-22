@@ -9,16 +9,16 @@ Page({
    * 页面的初始数据
    */
   data: {
+    customBar:0,
     iSlogin: false,
     flag: false,
     text: '获取验证码',
     codebtn: true,
     timer: 60,
-    loginMethod: 'secret', //默认密码登录为secret,验证码登录sms_code，
+    loginMethod: 'secret', //默认密码登录为secret,验证码登录sms，
     phone: '',
     password: '',
     code: '',
-    isRegister: 'false'
   },
   //登录
   Login: function () {
@@ -36,7 +36,7 @@ Page({
       data: {
         login_method: this.data.loginMethod,
         tel: this.data.phone,
-        smsCode: this.data.code,
+        sms_code: this.data.code,
         secret: this.data.password
       },
       fail: () => {
@@ -63,30 +63,24 @@ Page({
           return;
         }
 
-        let info = jwt.parseToken(res.data.data.jwt_token);
+        let info = jwt.parseToken(res.data.data.jwt.token);
 
         if (!info) return;
 
         // console.log('login data',info);
 
-        jwt.setToken(res.data.data.jwt_token, info.exp * 1000 - 10000, () => {
+        jwt.setToken(res.data.data.jwt.token, info.exp * 1000 - 10000, () => {
           jwt.execTask();
         })
-        // 
+        cache.set('loginTel',this.data.phone)
         wx.showToast({
           title: res.data.msg,
           icon: 'none'
         })
         const time = setTimeout(() => {
-          if (this.data.isRegister == 'true') {
-            wx.navigateBack({
-              delta: 3
-            })
-          } else {
-            wx.navigateBack({
-              delta: 1
-            })
-          }
+          wx.navigateBack({
+            delta: 1,
+          })
           clearTimeout(time)
         }, 2000)
       },
@@ -101,7 +95,7 @@ cut: function () {
   // this.iSlogin 为true 是验证码 ,反之
   if (this.data.iSlogin == true) {
     this.setData({
-      loginMethod: 'sms_code'
+      loginMethod: 'sms'
     })
   }
   if (this.data.iSlogin == false) {
@@ -124,9 +118,10 @@ addvercode: function () {
   wx.showLoading({
     title: '发送中...'
   })
-  sms.userLoginCode({
+  sms.smsSend({
     data: {
-      tel: this.data.phone
+      tel: this.data.phone,
+      use_to:'user_login',
     },
     fail: () => {
       wx.hideLoading()
@@ -190,11 +185,9 @@ register: function () {
 },
 // 找回密码
 find: function () {
-  wx.showToast({
-    title: '功能还未开发',
-    duration: 2000,
-    icon: "none"
-  })
+wx.navigateTo({
+  url: '/pages/loginAndR/findPsw/findPsw',
+})
 },
 
 phonechange: function (v) {
@@ -217,24 +210,26 @@ codechange: function (v) {
  * 生命周期函数--监听页面加载
  */
 onLoad: function (val) {
-  if (!val.register) return;
-  this.setData({
-    isRegister:val.register
-  })
+
 },
 
 /**
  * 生命周期函数--监听页面初次渲染完成
  */
 onReady: function () {
-  
+  this.setData({
+    customBar : wx.getSystemInfoSync().statusBarHeight + 47 
+  })
+  if(!cache.get('loginTel')) return;
+  this.setData({
+    phone : cache.get('loginTel')
+  })
 },
 
 /**
  * 生命周期函数--监听页面显示
  */
 onShow: function () {
-  cache.forget('photo')
 },
 
 /**

@@ -1,38 +1,40 @@
 <view class="">
-		<view class="fiedxBox">
-			<view bindtap="celShow" class="searchBox ">
-				<view class="allTx flex al-center">
-					筛选
-					<image src="https://oss.kuaitongkeji.com/static/img/app/propertyManagement/pullDown.png" class="pullDown" mode=""></image>
-				</view>
-			</view>
-			<view wx:if="{{xlshow==true}}" class="xlshow ">
-				<view class="itemLabel flex al-center ju-center  {{index==idx?'back':''}}" bindtap="select"  data-item="{{item}}" data-index="{{index}}" wx:for="{{condition}}"
-				 wx:key='id'>
-					{{item.label}}
-				</view>
+	<view class="fiedx">
+		<view class="searchBox flex al-center ju-center pos-rel">
+			<view class="searchBack flex al-center">
+				<image class="serachImg " src="https://oss.kuaitongkeji.com/static/img/app/home/ss.png" mode=""></image>
+				<input type="text" class="ipt" value="{{username}}" bindconfirm="search" bindinput="Onchange"
+					placeholder="请输入关键词" />
 			</view>
 		</view>
-		<view class="topLine">
-
+	</view>
+	<view class="cancel ">
+		<view bindtap="celShow" class="allTx flex al-center">
+			筛选
+			<image src="https://oss.kuaitongkeji.com/static/img/app/propertyManagement/pullDown.png" class="xiala" mode="">
+			</image>
 		</view>
+		<view wx:if="{{xlshow==true}}" class="xlshow  pos-abs flex-d al-center">
+			<view class="itemLabel flex al-center ju-center  {{index==idx?'back':''}}" bindtap="select" data-item="{{item}}"
+				data-index="{{index}}" wx:for="{{condition}}" wx:key='id'>
+				{{item.label}}
+			</view>
+		</view>
+	</view>
+	<view class="topLine">
 
+	</view>
+
+	<view wx:if="{{code == 200}}">
 		<view wx:if="{{lists.length>0}}" class="flex-d m-t1 al-center">
-			<view class="itemBox" bindtap="goDetails" data-item="{{item}}" data-index="{{index}}" wx:for="{{lists}}" wx:key='id'>
+			<view class="itemBox" bindtap="goDetails" data-item="{{item}}" data-index="{{index}}" wx:for="{{lists}}"
+				wx:key='id'>
 				<view class="itemName flex al-center ju-between">
 					<view class="">
-						姓名：{{item.own_user.username}}
+						姓名：{{item.username}}
 					</view>
-					<view class="{{item.verify_status_text=='已通过'?'dv':'nodv'}}">
-						{{item.verify_status_text}}>
-					</view>
-				</view>
-				<view class="itemName flex al-center">
-					<view class="">
-						电话：
-					</view>
-					<view class="">
-						{{item.own_user.tel}}
+					<view class="{{item.verify_status=='已通过'?'dv':'nodv'}}">
+						{{item.verify_status}}>
 					</view>
 				</view>
 				<view class="itemName flex al-center">
@@ -48,7 +50,7 @@
 						地址：
 					</view>
 					<view class="">
-						{{item.address}}
+						{{item.own_village.name }}
 					</view>
 				</view>
 			</view>
@@ -57,7 +59,7 @@
 			暂时没有用户申请
 		</view>
 		<view wx:if="{{lists.length==0&&isLoading == false&&falg == true}}" class="nocheckin flex ju-center">
-			没有筛选条件的用户申请
+			查询的用户不存在
 		</view>
 
 		<view wx:if="{{hasMore==false&&lists.length>0}}" class="bomLine flex ju-center al-center">
@@ -67,12 +69,17 @@
 			<image class="lodimg" src="https://oss.kuaitongkeji.com/static/img/app/address/loading.gif" mode=""></image>
 			加载中...
 		</view>
-		<view wx:if="{{isLoading == true && lists.length == 0}}" class="showloding flex al-center ju-center">
-			<view class="loding flex-d al-center ju-center">
-				<view class=" ">
-					<image class="loimg" src="https://oss.kuaitongkeji.com/static/img/app/address/loading.gif" mode=""></image>
-				</view>
-				加载中
+	</view>
+	<view wx:if="{{isLoading == true && lists.length == 0}}" class="showloding flex al-center ju-center">
+		<view class="loding flex-d al-center ju-center">
+			<view class=" ">
+				<image class="loimg" src="https://oss.kuaitongkeji.com/static/img/app/address/loading.gif" mode=""></image>
 			</view>
+			加载中
 		</view>
 	</view>
+
+	<view wx:if="{{xlshow==true}}" bindtap="celShow" class="showBox">
+
+</view>
+</view>

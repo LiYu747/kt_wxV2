@@ -79,6 +79,23 @@
   color: rgb(240, 117, 53);
 }
 
+.xiala {
+  width: 24rpx;
+  height: 16rpx;
+  margin-left: 10rpx;
+}
+
+.ipt {
+  width: 400rpx;
+  text-align: right;
+  font-size: 14px;
+}
+
+.input-placeholder {
+  font-size: 14px;
+  color: #A5A5A5;
+}
+
 .accessoryCtn{
   width: 94%;
   padding: 20rpx 3%;
@@ -89,12 +106,26 @@
 }
 
 .itemUrl{
-  margin-right: 20rpx;
+  margin-right: 30rpx;
   margin-bottom: 10rpx;
-  width: 120rpx;
+  width: 140rpx;
   height: 160rpx;
+  border-radius: 10rpx;
 }
 
 .btmLine{
   height: 60rpx;
+}
+
+.van-radio__label{
+  color: #A5A5A5 !important ;
+}
+
+
+.timeBox {
+  width: 650rpx;
+  padding: 30rpx;
+  box-shadow: 2rpx 2rpx 12rpx #d9d9d9;
+  border-radius: 10rpx;
+  color: #A5A5A5;
 }

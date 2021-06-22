@@ -17,32 +17,58 @@
 				 mode=""></image>
 			</view>
 			<view wx:if="{{Members.length>0}}" class="">
-				<view class="itemBox flex ju-between al-center {{index==Members.length-1?'itemBtm':''}}" bindtap="memberInfo" 
+				<view class="itemBox  {{index==Members.length-1?'itemBtm':''}}" bindtap="memberInfo" 
 				 wx:for="{{Members}}" data-item="{{item}}" wx:key='id'>
-					<view class="">
-						<view class="flex">
+				 <view class="flex ju-between">
 							姓名
-							<view wx:if='{{item.own_user}}' class="m-l2">
+							<view class="">
 								{{item.own_user.username}}
 							</view>
 						</view>
-						<view class="flex m-t2">
+						<view class="flex m-t1 ju-between">
 							手机号码
-							<view wx:if='{{item.own_user}}' class="m-l2">
+							<view  class="">
 								{{item.own_user.tel}}
 							</view>
 						</view>
-					</view>
-					<view wx:if="{{Islimits==1}}" class="">
-						<image class="reimg" src="https://oss.kuaitongkeji.com/static/img/app/address/retrue.png" mode=""></image>
-					</view>
+						<view class="flex m-t1 ju-between">
+							入住身份
+							<view class="">
+								{{item.type}}
+							</view>
+						</view>
+						<view wx:if="{{item.valid_type == '永久'}}" class="flex m-t1 ju-between">
+							有效时间
+							<view class="">
+								{{item.valid_type}}
+							</view>
+						</view>
+						<view class="" wx:else > 
+							<view class="flex m-t1 ju-between">
+								开始有效时间
+								<view class="">
+									{{item.valid_begin}}
+								</view>
+							</view>
+							<view class="flex m-t1 ju-between">
+								截止有效时间
+								<view class="">
+									{{item.valid_end}}
+								</view>
+							</view>
+						</view>
+						<view wx:if="{{Islimits==1}}"  bindtap="cleaDel" data-item="{{item}}" data-index="{{index}}" class=" fz-12  m-t2 flex  delTxt">
+							删除
+						</view>
 				</view>
 			</view>
 			<view wx:if="{{Members.length == 0 &&isLoding==false}}" class="nomen flex ju-center">
 				暂时还没有成员
 			</view>
 		</view>
+		<view class="btmLine">
 
+    </view>
 
 		<view wx:if="{{isLoding == true}}" class="showloding flex al-center ju-center">
 			<view class="loding flex-d al-center ju-center">

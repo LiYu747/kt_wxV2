@@ -34,15 +34,35 @@ Page({
         // console.log(res.data.data);
         let content = {
           title: res.data.data.title,
-          content: res.data.data.desc
+          content: res.data.data.content
         }
         app.redInfo = content
+        this.newsRead(res.data.data.id)
         wx.navigateTo({
           url: '/pages/InformationDetails/InformationDetails'
         })
       }
     })
   },
+
+  	//阅读统计
+    newsRead(id){
+      home.newsRead({
+        data:{id:id},
+        fail: () => {
+          wx.showToast({
+            title: '网络错误',
+            icon: 'none'
+          })
+        },
+        success: (res) => {
+          if (res.statusCode != 200) return
+          if (res.data.code != 200) return
+          // console.log(res.data.data.data);
+        },
+      })
+    },
+    
 // 数据
 getData() {
   if(this.data.isLoding == true || this.data.hasMore == false) return;

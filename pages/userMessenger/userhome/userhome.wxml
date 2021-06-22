@@ -57,18 +57,12 @@
 		</view>
 	</view>
 
-	<view class="flex-d al-center nointo" wx:if="{{code==403}}">
+	<view class="flex-d al-center nointo" wx:if="{{code==5403}}">
 		<view class="">
 			您还没有申请成为外卖或者快递员
 		</view>
 		<view bindtap="ApplyingTo" class="m-t2 gointo">
 			去申请成为
-		</view>
-		<view class="m-t4 flex al-center">
-			若您已申请
-			<view class="m-l2 gointo" bindtap="application">
-				去查看申请进度
-			</view>
 		</view>
 	</view>
 

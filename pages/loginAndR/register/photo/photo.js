@@ -1,6 +1,7 @@
 // pages/userAddress/userAddress.js
 import cache from '../../../../vendor/cache/cache'
 import route from '../../../../vendor/request/routes'
+const app = getApp()
 Page({
 
   /**
@@ -42,16 +43,15 @@ Page({
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-
+   this.setData({
+    img : app.userfaceimg
+   })
   },
 
   /**
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    this.setData({
-      img : cache.get('photo')
-    })
     if(this.data.srcss){
       this.setData({
         isLoding: true
@@ -80,13 +80,13 @@ Page({
               return;
             }
             wx.showToast({
-              title: '更换成功',
+              title: '上传成功',
               icon: 'none'
             })
-            cache.set('photo', data.data.url)
             this.setData({
-              img : this.data.srcss
+              img : data.data.url
             })
+            app.userfaceimg = data.data.url
           }
         });
     }
@@ -96,7 +96,9 @@ Page({
    * 生命周期函数--监听页面隐藏
    */
   onHide: function () {
-
+     this.setData({
+       srcss : ''
+     })
   },
 
   /**

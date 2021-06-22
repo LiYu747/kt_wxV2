@@ -21,12 +21,14 @@
 			<view wx:if="{{qrcodeURL}}"  class="qrimg flex ju-center">
 			  <image style="width:300rpx;height:300rpx;" src="{{ qrcodeURL }}"></image>
 			</view>
-			<view wx:if="{{redIMG}}" class="">
+			<view wx:if="{{redIMG.length>0}}" class="">
 				<view class="tex1">
 				  补充图片
 				</view>
-				<view class="imgBox">
-					<image src="{{redIMG}}" class="redImg" mode="aspectFill"></image>
+				<view class="imgBox flex">
+					<view class="" wx:for="{{redIMG}}" wx:key="id">
+						<image src="{{item}}" class="redImg" mode="aspectFill"></image>
+					</view>
 				</view>
 			</view>
 			<view class="tex1">

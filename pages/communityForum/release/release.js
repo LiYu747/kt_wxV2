@@ -11,45 +11,45 @@ Page({
     image: [],
     show: false, //弹出层的显示与隐藏
     tagdata: [{
-        name: '推荐',
+        name: '全部',
         type: true,
         default: true
       },
-      {
-        name: '热榜',
-        type: true,
-        default: true
-      }
     ],
     choiceData: [], //选中标签的数组
     title: '', // 标题
     content: '', //内容
     isLoding: false,
-    choiceID: '', //标签选中的id
+    choiceID: [], //标签选中的id
     seeShow: false,
     idx: "",
-    visible: '1',
-    seeTet: {
-      text: '公开 : 所有人可见',
-      img: 'https://oss.kuaitongkeji.com/static/img/app/forum/uplock.png'
-    },
-    seeList: [{
-        value: '1',
-        label: '公开 : 所有人可见',
-        ref: 'https://oss.kuaitongkeji.com/static/img/app/forum/uplock.png'
-      },
-      {
-        value: '0',
-        label: '私密 : 仅自己可见',
-        ref: 'https://oss.kuaitongkeji.com/static/img/app/forum/lock.png'
-      },
-    ]
   },
      
 
   //提交
   Submit(){
     if (this.data.isLoding == true) return;
+    if(!this.data.title){
+      wx.showToast({
+        title:"请填写标题",
+        icon:"none"
+      })
+      return;
+    }
+    if(this.data.choiceID.length == 0){
+      wx.showToast({
+        title:"请选择类别",
+        icon:"none"
+      })
+      return;
+    }
+    if(!this.data.content){
+      uni.showToast({
+        title:"请填写内容",
+        icon:"none"
+      })
+      return;
+    }
     wx.showLoading({
       title: '提交中'
     })
@@ -58,9 +58,8 @@ Page({
         village_id: this.data.id,
         title: this.data.title,
         content: this.data.content,
-        albums: this.data.image,
-        tribune_cat:this.data.choiceID,
-        visible: this.data.visible
+        album: this.data.image,
+        cate_id:this.data.choiceID,
       },
       fail: () => {
         wx.hideLoading()
@@ -107,26 +106,8 @@ Page({
       })
     },
 
-  	// 选择是否可见
-    addCel(e){
-      let index = e.currentTarget.dataset.index
-      let item = e.currentTarget.dataset.item
-      let img = 'seeTet.img' 
-      let text = 'seeTet.text' 
-      this.setData({
-        idx : index,
-        [img] : item.ref,
-        [text] : item.label,
-        visible : item.value,
-        seeShow : false
-      })
-    },
-  //选择可见性
-  Only(){
-   this.setData({
-     seeShow : true
-   })
-  },
+
+
   // 确定选择
   ok() {
     let list = []
@@ -135,13 +116,14 @@ Page({
     })
     list.map(item => {
       if (item.default) return
+      this.data.choiceID.push(item.id)
       this.setData({
-        choiceID :  this.data.choiceID += item.id + ','
+        choiceID :  this.data.choiceID 
       })
     })
     this.setData({
       choiceData : list,
-      choiceID : this.data.choiceID.slice(0, this.data.choiceID.length - 1),
+      choiceID : this.data.choiceID,
       show : false
     })
   },
@@ -181,7 +163,6 @@ Page({
         this.setData({
           tagdata: lists
         })
-        // console.log(this.tagdata );
       }
     })
   },

@@ -5,14 +5,20 @@
 		<view bindtap="UploadAvatar" class="text">
 			上传头像
 		</view>
-		<view class="postop">
-			<view class="fied flex al-center {{index===parameter.length-1?'dv':''}} " wx:for="{{parameter}}" bindtap="xuaz" data-index="{{index}}" wx:key='id' >
+		<view class="postop pos-rel">
+			<view class="fied flex ju-between al-center {{index===parameter.length-1?'dv':''}} " wx:for="{{parameter}}" bindtap="xuaz" data-index="{{index}}" wx:key='id' >
 				<view>
           {{item.label}}
         </view>
          <view>
-           <input type="text" bindinput="Onchange"  data-index="{{index}}" value="{{item.value}}" disabled="{{item.disabled}}" class="ipt {{item.value==='预览'?'colr':''}}" />
-         </view>
+           <input type="text" bindinput="Onchange"  data-index="{{index}}" value="{{item.value}}" disabled="{{item.disabled}}" class="ipt " />
+				 </view>
+				 <view wx:if="{{index>1}}" bindtap="add" data-index="{{index}}" class="pos-abs look">
+						<image wx:if="{{item.show == false}}" src="../../../image/user/onshow.png" class="onshow" mode="">
+						</image>
+						<image wx:if="{{item.show == true}}" src="../../../image/user/show.png" class="onshow" mode="">
+						</image>
+					</view>
       </view>
       <van-popup show="{{ show }}"   position="bottom"  custom-style="height: 40%;" bind:close="onClose">
         <van-picker columns="{{ list }}"  default-index="{{ sex -1 }}"  value-key='label' show-toolbar    bind:cancel="onCancel" bind:confirm="onConfirm" />

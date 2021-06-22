@@ -32,6 +32,11 @@
 .ipt{
   width: 360rpx;
   text-align: right;
+  margin-right: 60rpx;
+}
+
+.look{
+  right: 20rpx;
 }
 
 .postop {
@@ -77,4 +82,10 @@
   height: 200rpx;
   background: rgba(88, 88, 88, 0.8);
   border-radius: 10rpx;
+}
+
+.onshow {
+  width: 32rpx;
+  height: 20rpx;
+  margin-right: 12rpx;
 }

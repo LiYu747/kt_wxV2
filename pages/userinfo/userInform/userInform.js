@@ -16,6 +16,59 @@ Page({
     code: 0
   },
 
+   
+  //删除
+  onClose(e){
+   let item = e.currentTarget.dataset.item
+   let index = e.currentTarget.dataset.index
+   wx.showModal({
+     content:'您确定要删除吗?',
+     success: (res) => {
+        if(res.confirm){
+          this.delmsg(item,index)
+        }
+     }
+   })
+  },
+
+     //删除请求
+     delmsg(item,index){
+      home.delMsg({
+        data:{id:item.id},
+        fail: () => {
+       wx.showToast({
+         title:"网络错误",
+         icon:"none"
+       })
+     },
+     success: (res) => {
+       if(res.statusCode != 200){
+         wx.showToast({
+           title:"网络出错了",
+           icon:"none"
+         })
+         return;
+       }
+       if(res.data.code != 200){
+         wx.showToast({
+           title:res.data.msg,
+           icon:"none"
+         })
+         return;
+       }
+       wx.showToast({
+        title:res.data.msg,
+        icon:"none"
+      })
+       this.data.infoLists.splice(index, 1);
+       
+       this.setData({
+        infoLists :  this.data.infoLists,  
+        text: '',
+       })
+     }
+      })
+ },
 
   // 全部已读
   ReadAll() {
@@ -64,17 +117,9 @@ Page({
     let item = e.currentTarget.dataset.item
     if (!item.read_at) {
       this.Read(item.id)
-      let infoLists = this.data.infoLists
-      infoLists.map(items => {
-        if (items.id == item.id) {
-          items.read_at = '已读'
-        }
-      })
-      this.setData({
-        infoLists: infoLists
-      })
     }
     if (!item.page) return;
+    if(item.page == 'deal_move_in_apply_detail') return;
     urlUtil.to({
       pageAlias: item.page,
       options: item.params,
@@ -95,6 +140,15 @@ Page({
       success: (res) => {
         if (res.statusCode != 200) return;
         if (res.data.code != 200) return;
+        let infoLists = this.data.infoLists
+        infoLists.map(items => {
+          if (items.id == id) {
+            items.read_at = '已读'
+          }
+        })
+        this.setData({
+          infoLists: infoLists
+        })
       }
     })
   },
@@ -197,7 +251,7 @@ Page({
    */
   onReachBottom: function () {
     this.setData({
-      text: '没有更多了~'
+      text: '没有更多了'
     })
     if (this.data.isLoding == true || this.data.hasMore == false) return;
     this.getInform();

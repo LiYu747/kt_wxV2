@@ -12,13 +12,13 @@
       </view>
     </view>
     <view class="cortt flex al-center" wx:if="{{code == 200}}" bindtap="add">
-      <image wx:if="{{flag===1}}" src="https://oss.kuaitongkeji.com/static/img/app/qrcode/1.png" class="img1" mode="">
+      <image wx:if="{{flag==1 }}" src="https://oss.kuaitongkeji.com/static/img/app/qrcode/1.png" class="img1" mode="">
       </image>
-      <image wx:if="{{flag===0}}" src="https://oss.kuaitongkeji.com/static/img/app/qrcode/3.png" class="img2" mode="">
+      <image wx:if="{{flag==0}}" src="https://oss.kuaitongkeji.com/static/img/app/qrcode/3.png" class="img2" mode="">
       </image>
       {{text}}
     </view>
-    <view wx:if="{{show===1}}" class="m-t2 flex al-center ju-center">
+    <view wx:if="{{show == 1 && timetext}}" class="m-t2 flex al-center ju-center">
       <image src="https://oss.kuaitongkeji.com/static/img/app/qrcode/2.png" class="time" mode=""></image>
       <view class="pos-abs texts bai">
         {{timetext}}

@@ -50,10 +50,6 @@ Page({
     rentNum: '', //租金
     cash: '', //押金
     cashShow: false, //押金
-    cashList: [], //押金数据
-    defaultCash: [], //押金默认
-    rents_bet: '', //押几
-    rents_pay: '', //付几
     image: [], //图片数据
     isLoding: false,
     coverImg: '', //封面图片
@@ -130,17 +126,15 @@ Page({
         zx: this.data.celFit,
         rents: this.data.rentNum,
         album: this.data.image,
-        village: this.data.formlist[0].value,
+        address_name: this.data.formlist[0].value,
         desc: this.data.textvalue,
         tel: this.data.tel,
         contact_name: this.data.username,
-        // 可选
-        rents_bet: this.data.rents_bet,
-        rents_pay: this.data.rents_pay,
-        location: this.data.addDetails,
-        lgt: this.data.lgt,
+        rent_pay_method:this.data.cash,
+        address: this.data.addDetails,
+        lng: this.data.lgt,
         lat: this.data.lat,
-        faceimg: faceimg
+        cover: faceimg
       },
       fail: () => {
         wx.hideLoading()
@@ -279,10 +273,6 @@ Page({
       })
       return;
     }
-    if (this.data.id) {
-      this.upData()
-      return;
-    }
     this.subunit()
   },
   //房屋简介
@@ -339,17 +329,8 @@ Page({
   //押金确定选择
   confirmCash(e) {
     let value = e.detail.value
-    let text = value[0].label != '不需要' ? value[0].label : ''
-    let rents = ''
-    if (value[0].extra) {
-      rents = value[0].extra
-    } else {
-      rents = ''
-    }
     this.setData({
-      rents_bet: rents,
-      rents_pay: value[1].value,
-      cash: text + value[1].label,
+      cash: value[0].label + value[1].label,
       cashShow: false
     })
   },
@@ -493,6 +474,23 @@ Page({
             if (res.statusCode != 200) return;
             if (res.data.code != 200) return;
             let Users = res.data.data
+            if (!Users.id_card_no) {
+							wx.showModal({
+								content: '请完善您的身份信息',
+								success: function(res) {
+									if (res.confirm) {
+										wx.navigateTo({
+                      url: '/pages/userinfo/realInformation/realInformation'
+										})
+									} else if (res.cancel) {
+										wx.navigateBack({
+											delta: 1
+										})
+									}
+								}
+							})
+							return;
+						}
             this.setData({
               username: Users.username,
               tel: Users.tel
@@ -501,8 +499,8 @@ Page({
         })
       },
       fail: () => {
-        wx.switchTab({
-          url: '/pages/index/index'
+        wx.navigateBack({
+          delta: 1
         })
       }
     })
@@ -638,10 +636,7 @@ Page({
     })
     // 押金数据
     let cashLists = [{
-        values: [{
-          value: 1,
-          label: '不需要'
-        }],
+        values: [],
         className: 'column1',
       },
       {
@@ -667,172 +662,24 @@ Page({
     })
 
   },
+   //获取联系人输入框
+   getname(e){
+    this.setData({
+      username : e.detail.value
+    })
+   },
 
-  getData(id) {
-    wx.showLoading({
-      title: "加载中"
+   //获取电话输入框
+   gettel(e){
+    this.setData({
+      tel : e.detail.value
     })
-    home.rentDils({
-      data: {
-        id: id
-      },
-      fail: () => {
-        wx.hideLoading()
-        wx.showToast({
-          title: '网络错误',
-          icon: 'none'
-        })
-      },
-      success: (res) => {
-        wx.hideLoading()
-        if (res.statusCode != 200) {
-          wx.showToast({
-            title: '网络出错了',
-            icon: 'none'
-          })
-          return;
-        }
-        if (res.data.code != 200) {
-          wx.showToast({
-            title: res.data.msg,
-            icon: 'none'
-          })
-          return;
-        }
-        let data = res.data.data
-        this.setData({
-          celFit: data.zx,
-          defaultElevator: [data.ele]
-        })
-        if (data.zx == 'low') {
-          data.zx = '清水房'
-        }
-        if (data.zx == 'simple') {
-          data.zx = '简装'
-        }
-        if (data.zx == 'well') {
-          data.zx = '精装'
-        }
-        if (data.ele == 0) {
-          data.ele = '无'
-        }
-        if (data.ele == 1) {
-          data.ele = '有'
-        }
-        let village = 'formlist[0].value'
-        let room = 'formlist[1].value'
-        let floor = 'formlist[2].value'
-        let zx = 'formlist[3].value'
-        let area = 'formlist[4].value'
-        let ele = 'formlist[5].value'
-        let rents = data.rents_bet ? '押' + data.rents_bet : ''
-        this.setData({
-          value: data.title,
-          [village]: data.village,
-          [room]: data.room + '室' + data.hall + '厅' + data.bathroom + '卫',
-          [floor]: data.floor + '/' + data.total_floor,
-          [zx]: data.zx,
-          [area]: data.area,
-          [ele]: data.ele,
-          rentNum: data.rents,
-          cash: rents + '付' + data.rents_pay,
-          textvalue: data.desc,
-          image: data.album,
-          coverImg: data.faceimg,
-          floor: data.floor,
-          totalFloor: data.total_floor,
-          rents_bet: data.rents_bet,
-          rents_pay: data.rents_pay,
-          addDetails: data.location,
-          lgt: data.lgt,
-          lat: data.lat,
-
-          defaultType: [data.room, data.hall, data.bathroom],
-        })
-      }
-    })
-  },
-  upData() {
-    let faceimg = this.data.coverImg
-    if (!this.data.coverImg) {
-      faceimg = this.data.image[0]
-    }
-    wx.showLoading({
-      title: '提交中'
-    })
-    home.updataRoom({
-      data: {
-        id: this.data.id,
-        // 必传
-        title: this.data.value,
-        room: this.data.defaultType[0],
-        hall: this.data.defaultType[1],
-        bathroom: this.data.defaultType[2],
-        area: this.data.formlist[4].value,
-        ele: this.data.defaultElevator[0],
-        floor: this.data.floor,
-        total_floor: this.data.totalFloor,
-        zx: this.data.celFit,
-        rents: this.data.rentNum,
-        album: this.data.image,
-        village: this.data.formlist[0].value,
-        desc: this.data.textvalue,
-        tel: this.data.tel,
-        contact_name: this.data.username,
-        // 可选
-        rents_bet: this.data.rents_bet,
-        rents_pay: this.data.rents_pay,
-        location: this.data.addDetails,
-        lgt: this.data.lgt,
-        lat: this.data.lat,
-        faceimg: faceimg
-      },
-      fail: () => {
-        wx.hideLoading()
-        wx.showToast({
-          title: '网络错误',
-          icon: 'none'
-        })
-      },
-      success: (res) => {
-        wx.hideLoading()
-        if (res.statusCode != 200) {
-          wx.showToast({
-            title: '网络出错了',
-            icon: 'none'
-          })
-          return;
-        }
-        if (res.data.code != 200) {
-          wx.showToast({
-            title: res.data.msg,
-            icon: 'none'
-          })
-          return;
-        }
-        wx.showToast({
-          title: res.data.msg,
-          icon: 'none',
-          duration: 3000
-        })
-
-        let settime = setTimeout(() => {
-          wx.navigateBack({
-            delta: 3
-          })
-        }, 3000)
-      }
-    })
-  },
+   },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    if (!options.id) return;
-    this.getData(options.id)
-    this.setData({
-      id: options.id
-    })
+   
   },
 
   /**

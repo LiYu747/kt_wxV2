@@ -129,6 +129,7 @@ swiper{
 .itemimg {
   width: 100rpx;
   height: 100rpx;
+
 }
 
 .operation {
@@ -285,10 +286,11 @@ swiper{
   border-bottom: 1px solid #E6E6E6;
 }
 
-.itemImg {
+.itemIcon {
   width: 200rpx;
   height: 150rpx;
   margin-left: 40rpx;
+  border-radius: 10rpx;
 }
 
 .itemTil {
@@ -588,6 +590,7 @@ video {
 .lowRight{
   position: fixed;
   bottom: 100rpx;
+  margin-right: 10rpx;
 }
 
 .lowT{
@@ -620,7 +623,7 @@ video {
 }
 .m-ln4{
   width: 150rpx;
-  left: -20rpx;
+  left: -30rpx;
   top: 160rpx;
 }
 

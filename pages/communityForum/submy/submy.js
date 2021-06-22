@@ -52,7 +52,7 @@ Page({
      // 跳转回复的页面
 			reply(e) {
         let item = e.currentTarget.dataset.item
-				if (!item.own_village_tribune) {
+				if (!item.own_village_post) {
 					wx.showToast({
 						title: '该帖子已被用户删除',
 						icon: 'none'
@@ -60,7 +60,7 @@ Page({
 					return;
 				}
 				wx.navigateTo({
-					url: `/pages/communityForum/forum/forum?id=${item.tribune_id}`
+					url: `/pages/communityForum/forum/forum?id=${item.post_id}`
 				})
 			},
    	// 自己评论的帖子
@@ -111,6 +111,7 @@ Page({
       data: {
         villageId: this.data.id,
         page: this.data.page,
+        sort:"desc"
       },
       fail: () => {
         this.setData({
@@ -132,7 +133,8 @@ Page({
         
         let data = res.data.data;
         data.data.map( item => {
-            item.album = item.album.slice(0,3)
+            item.album = item.album ? item.album.slice(0,3) : []
+            item.created_at = item.created_at.slice(0,16)
         })
         let lists =  this.data.lists
         lists = lists.concat(data.data)

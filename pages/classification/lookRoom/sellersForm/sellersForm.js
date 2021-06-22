@@ -9,7 +9,6 @@ Page({
    * 页面的初始数据
    */
   data: {
-    id: '',
     value: '', //标题
     addDetails: '', //详细地址
     lgt: '', //经度
@@ -124,15 +123,14 @@ Page({
 				 zx:this.data.celFit,
 				 sale_price:this.data.rentNum,
 				 album:this.data.image,
-				 village:this.data.formlist[0].value,
+				 address_name:this.data.formlist[0].value,
 				 desc:this.data.textvalue,
 				 tel:this.data.tel,
 				 contact_name:this.data.username,
-				// 可选
-				  location:this.data.addDetails,
-				  lgt:this.data.lgt,
+         address:this.data.addDetails,
+				  lng:this.data.lgt,
 				  lat:this.data.lat,
-				  faceimg:faceimg
+				  cover:faceimg
 			 },
 			 fail: () => {
 				 wx.hideLoading()
@@ -271,10 +269,6 @@ Page({
          })
          return;
       } 
-      if(this.data.id){
-        this.upData()
-        return;
-      }
       this.subunit()
     },
    //房屋简介
@@ -457,6 +451,23 @@ Page({
             if (res.statusCode != 200) return;
             if (res.data.code != 200) return;
             let Users = res.data.data
+            if (!Users.id_card_no) {
+							wx.showModal({
+								content: '请完善您的身份信息',
+								success: function(res) {
+									if (res.confirm) {
+										wx.navigateTo({
+											url: '/pages/userinfo/realInformation/realInformation'
+										})
+									} else if (res.cancel) {
+										wx.navigateBack({
+											delta: 1
+										})
+									}
+								}
+							})
+							return;
+						}
             this.setData({
               username: Users.username,
               tel: Users.tel
@@ -465,8 +476,8 @@ Page({
         })
       },
       fail: () => {
-        wx.switchTab({
-          url: '/pages/index/index'
+      	wx.navigateBack({
+          delta: 1
         })
       }
     })
@@ -601,188 +612,25 @@ Page({
       listFloor: foortost
     })
   },
-
-  // 数据
-	getData(id) {
-		wx.showLoading({
-			title:"加载中"
-		})
-		home.saleDils({
-			data: {
-				id: id
-			},
-			fail: () => {
-				wx.hideLoading()
-				wx.showToast({
-					title: '网络错误',
-					icon: 'none'
-				})
-			},
-			success: (res) => {
-				wx.hideLoading()
-				if (res.statusCode != 200) {
-					wx.showToast({
-						title: '网络出错了',
-						icon: 'none'
-					})
-					return;
-				}
-				if (res.data.code != 200) {
-					wx.showToast({
-						title: res.data.msg,
-						icon: 'none'
-					})
-					return;
-				}
-        let data = res.data.data
-        this.setData({
-          celFit : data.zx,
-          defaultElevator : [data.ele]
-        })
-        if (data.zx == 'low') {
-					data.zx = '清水房'
-				}
-				if (data.zx == 'simple') {
-					data.zx = '简装'
-				}
-				if (data.zx == 'well') {
-					data.zx = '精装'
-				}
-				if (data.ele == 0) {
-					data.ele = '无'
-				}
-				if (data.ele == 1) {
-					data.ele = '有'
-				}
-        let village = 'formlist[0].value'
-        let room  = 'formlist[1].value'
-        let floor = 'formlist[2].value'
-        let zx = 'formlist[3].value'
-        let area = 'formlist[4].value'
-        let ele = 'formlist[5].value'
-        this.setData({
-          value : data.title,
-          [village] : data.village,
-          [room] : data.room + '室' + data.hall + '厅' + data.bathroom + '卫',
-          [floor] : data.floor + '/' + data.total_floor,
-          [zx] : data.zx ,
-          [area] : data.area,
-           [ele] : data.ele,
-           rentNum : data.sale_price,
-           textvalue : data.desc,
-           image :  data.album,
-           coverImg : data.faceimg,
-           addDetails : data.location,
-           lgt :  data.lgt,
-           lat :  data.lat,
-
-           defaultType : [data.room, data.hall,data.bathroom],
-           floor :  data.floor,
-           totalFloor : data.total_floor,
-         
-        })
-        return;
-        
-				this.celFit = data.zx
-				this.formlist[0].value = data.village
-				this.formlist[1].value = data.room + '室' + data.hall + '厅' + data.bathroom + '卫'
-				this.defaultType = [data.room-1, data.hall-1,data.bathroom-1]
-				this.formlist[2].value = data.floor + '/' + data.total_floor
-				this.defaultFloor = [data.floor-1,data.total_floor-data.floor]
-				this.formlist[3].value = data.zx 
-				this.formlist[4].value = data.area
-				this.formlist[5].value = data.ele
-				this.rentNum = data.sale_price
-				this.textvalue = data.desc
-				this.image = data.album
-				this.coverImg = data.faceimg
-				this.floor = data.floor
-				this.totalFloor = data.total_floor
-				this.addDetails = data.location
-				this.lgt = data.lgt
-				this.lat = data.lat
-			}
-		})
-  },
-  upData(){
-		let faceimg = this.data.coverImg
-		  if(!this.data.coverImg){
-			faceimg = this.data.image[0]
-		  }
-		  wx.showLoading({
-		  	title:'提交中'
-		  })
-		home.houseSaleUp({
-			 data:{
-         id : this.data.id,
-				 // 必传
-				 title: this.data.value,
-				 room:this.data.defaultType[0] ,
-				 hall:this.data.defaultType[1] ,
-				 bathroom:this.data.defaultType[2],
-				 area:this.data.formlist[4].value,
-				 ele:this.data.defaultElevator[0],
-				 floor:this.data.floor,
-				 total_floor:this.data.totalFloor,
-				 zx:this.data.celFit,
-				 sale_price:this.data.rentNum,
-				 album:this.data.image,
-				 village:this.data.formlist[0].value,
-				 desc:this.data.textvalue,
-				 tel:this.data.tel,
-				 contact_name:this.data.username,
-				// 可选
-				  location:this.data.addDetails,
-				  lgt:this.data.lgt,
-				  lat:this.data.lat,
-				  faceimg:faceimg
-			 },
-			 fail: () => {
-				 wx.hideLoading()
-				 wx.showToast({
-					title: '网络错误',
-					icon: 'none'
-				 })
-			 },
-			 success:(res) => {
-				  wx.hideLoading()
-				  if (res.statusCode != 200) {
-					wx.showToast({
-						title: '网络出错了',
-						icon: 'none'
-					})
-					return;
-				  }
-				  if (res.data.code != 200) {
-					wx.showToast({
-						title: res.data.msg,
-						icon: 'none'
-					})
-					return;
-				  }
-				  wx.showToast({
-					title: res.data.msg + ',需等待审核',
-					icon: 'none',
-					duration:3000
-				  })
-				
-				  let settime = setTimeout( () => {
-					  wx.navigateBack({
-					  	delta:3
-					  })
-				  },3000)	  
-				 }
-		})  
-	},
+    //获取联系人输入框
+    getname(e){
+      this.setData({
+        username : e.detail.value
+      })
+     },
+  
+     //获取电话输入框
+     gettel(e){
+      this.setData({
+        tel : e.detail.value
+      })
+     },
+ 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-     if(!options.id) return;
-     this.setData({
-      id : options.id
-     })
-     this.getData(options.id)
+   
   },
 
   /**

@@ -54,5 +54,11 @@ class Address {
 			 params.url = routes.address.alladd.deleteMember
 			 req.delete(params)
 	}
+
+	//物业留言反馈
+	feedback ( params) {
+		params.url = routes.address.alladd.feedback
+		req.post(params)
+}
 }
 module.exports = new Address

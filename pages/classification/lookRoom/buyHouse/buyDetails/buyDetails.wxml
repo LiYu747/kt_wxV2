@@ -3,7 +3,7 @@
 			<view class="backBox pos-rel m-t2 flex al-center ju-center">
 				<swiper class="swiper" indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
 					<swiper-item wx:for="{{roomInof.album}}" wx:key="id" class="flex ju-center">
-						<image src="{{item}}" class="logoImg " mode="aspectFill"></image>
+						<image bindtap="lookImg" data-index="{{index}}" src="{{item}}" class="logoImg " mode="aspectFill"></image>
 					</swiper-item>
 				</swiper>
 			</view>
@@ -12,7 +12,13 @@
 				<view class="nameDetail">
 					{{roomInof.title}}
 				</view>
-				<view class="fz-12 m-t2 haveSeen">
+				<view class="pritext flex m-t1">
+					{{roomInof.avg_price}}
+					<view class="fz-12">
+						元/㎡
+					</view>
+				</view>
+				<view class="fz-12 haveSeen">
 					已有{{roomInof.pv}}人浏览
 				</view>
 			</view>
@@ -64,7 +70,7 @@
 			<view bindtap="Address" class="addressBox m-t3 flex  fz-14">
 				<image src="https://oss.kuaitongkeji.com/static/img/app/lookroom/add.png" class="addImg" mode=""></image>
 				<view class="m-l2 addressmsg">
-					{{roomInof.village}}
+					{{roomInof.address}}
 				</view>
 			</view>
 

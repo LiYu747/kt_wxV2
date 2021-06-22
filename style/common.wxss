@@ -108,12 +108,20 @@
 	margin-left: 40rpx;
 }
 
+.m-r0{
+	margin-right: 0 !important;
+}
+
 .m-r1 {
 	margin-right: 10rpx;
 }
 
 .m-r2 {
 	margin-right: 20rpx;
+}
+
+.m-r3{
+	margin-right: 30rpx;
 }
 
 .m-t1 {
@@ -158,4 +166,12 @@
 
 .cl3{
 	color: #333333 ;
+}
+
+.p-b2{
+	padding-bottom: 20rpx;
+}
+
+.p-t2{
+	padding-top: 20rpx;
 }

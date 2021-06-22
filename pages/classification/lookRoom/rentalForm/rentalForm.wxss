@@ -11,7 +11,7 @@
 	background: #FFFFFF;
 	padding: 20rpx 30rpx;
 	color: #333333;
-	font-size: 32rpx;
+	font-size: 16px;
 	box-shadow: 2rpx 2rpx 12rpx #d9d9d9;
 }
 .textBox{
@@ -19,7 +19,7 @@
 	margin-left: 20rpx;
 	font-size: 14px;
 	color: #666666;
-  margin-top: 8rpx;
+	margin-top: 6rpx;
 	}
 
 .contentBox{
@@ -150,3 +150,8 @@
 		border: 1px solid #FFFFFF;
 	    background: rgba(0,0,0,0.2) 
 	}
+
+	.useript{
+		width: 400rpx;
+	}
+

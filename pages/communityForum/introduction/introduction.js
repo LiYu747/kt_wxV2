@@ -1,6 +1,7 @@
 // pages/communityForum/introduction/introduction.js
 import village from '../../../vendor/village/village.js'
 import jwt from '../../../vendor/auth/jwt.js'
+import cache from '../../../vendor/cache/cache'
 const app = getApp()
 Page({
   /**
@@ -17,13 +18,27 @@ Page({
 				detailedAddress: '', //小区详细地址
 				idx: 0,
         isLoding: false,
-        code:0
+        code:0,
+        page:1,
+        userLogin:false
   },
 
    
 
   // 去论坛
   goforum() {
+    if (this.data.userLogin == false) {
+      this.loadUserData()
+      return;
+    }
+    if (this.data.arr.tribune_state == 0) {
+      wx.showToast({
+        title: "暂时禁止发布和访问",
+        icon: "none",
+        duration: 3000
+      })
+      return;
+    }
      wx.navigateTo({
       url: `/pages/communityForum/forumlists/forumlists?id=${this.data.id}`
     })
@@ -67,16 +82,25 @@ godils(e) {
   // 点击
   add(e) {
     let index = e.currentTarget.dataset.index
+    if (this.data.userLogin == false) {
+      this.loadUserData()
+      return;
+    }
     this.setData({
       idx : index
     })
+    if (index == 1) {
+      this.noticeData()
+    }
   },
  
   // 小区公告
   noticeData() {
     village.Notice({
       data: {
-        village_id: this.data.id
+        village_id: this.data.id,
+        page: this.data.page,
+        pageSize: 3
       },
       fail: () => {
         wx.showToast({
@@ -119,16 +143,10 @@ godils(e) {
         })
         if (res.statusCode != 200) return
         if (res.data.code != 200) return
-        let data = res.data.data
-        let list = []
-         data.album.map(item => {
-          list.push(item.url)
-        })
-        if(list.length==0){
-          list =  ['https://oss.kuaitongkeji.com/static/img/app/forum/timg.jpg']//没有小区图片的默认图
-        }
+        let data = res.data.data.info
+        let img = ['https://oss.kuaitongkeji.com/upload/2020/12/15/AY0xTVMZBzNuJ0acHphXphi4gewrdyJeuBoypUCH.jpeg']
         this.setData({
-          list:list,
+          list:!data.album  || data.album.length == 0  ? img :data.album,
           arr:data,
           detailedAddress: data.address + data.address_name,// 小区详细地址
           code:res.data.code
@@ -137,6 +155,30 @@ godils(e) {
     })
   },
 
+  	// 判断是否登录
+    loadUserData() {
+      jwt.doOnlyTokenValid({
+        showModal: true,
+        keepSuccess: false,
+        success: () => {
+
+        },
+        fail: () => {
+          
+        }
+      })
+    },
+   
+  //查看图片
+  lookImg(e){
+    let index = e.currentTarget.dataset.index
+    // 预览图片
+     wx.previewImage({
+       urls:this.data.list, 
+       current: this.data.list[index],
+       indicator:"default", 
+     }); 
+  },
   /**
    * 生命周期函数--监听页面加载
    */
@@ -151,14 +193,21 @@ godils(e) {
    */
   onReady: function () {
    this.Information()
-   this.noticeData()
   },
 
   /**
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+    if (cache.get('jwt')) {
+      this.setData({
+        userLogin : true
+      })
+    } else {
+      this.setData({
+        userLogin : false
+      })
+    }
   },
 
   /**

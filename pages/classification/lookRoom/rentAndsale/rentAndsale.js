@@ -33,22 +33,7 @@ Page({
     triggered1:false
   },
   
-    //下拉刷新 
-  refresh(e){
-    this.setData({
-      page : 1,
-      lists : []
-    })
-   this.loadPageData()
-     },
-         //下拉刷新 
-  refresh1(e){
-    this.setData({
-      page1 : 1,
-      data1 : []
-    })
-   this.SelfPost()
-     },
+   
   	// 去详情
     gotoD(e) {
       let item = e.currentTarget.dataset.item
@@ -222,13 +207,15 @@ Page({
      if(this.data.idx == 0){
       this.data.lists.splice(this.data.index1,1)
       this.setData({
-        lists :  this.data.lists
+        lists :  this.data.lists,
+        text:''
       })
      }
      if(this.data.idx == 1){
       this.data.data1.splice(this.data.index2,1)
       this.setData({
-        data1 :  this.data.data1
+        data1 :  this.data.data1,
+        text1:''
       })
      }
   },

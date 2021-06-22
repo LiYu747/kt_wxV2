@@ -104,7 +104,7 @@
 				<view class="flex al-center">
 					联系人
 					<view class=" m-l3 fz-14">
-						{{username}}
+            <input type="text" class="useript" bindinput="getname" value="{{username}}" />
 					</view>
 				</view>
 				<view class="Hline">
@@ -113,7 +113,7 @@
 			    <view class=" flex al-center">
 			    	联系电话
 					<view class=" m-l3 fz-14">
-						{{tel}}
+            <input type="text" class="useript" bindinput="gettel" value="{{tel}}" />
 					</view>
 			    </view>
 			</view>

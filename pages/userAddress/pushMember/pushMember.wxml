@@ -40,7 +40,7 @@
             {{result.username}}
           </view>
         </view>
-        <view class="resultItem flex al-center">
+        <view class="resultItem nobtm flex al-center">
           <view class="">
             手机号码
           </view>
@@ -48,14 +48,7 @@
             {{result.tel}}
           </view>
         </view>
-        <view class="resultItem flex al-center nobtm">
-          <view class="">
-            身份证号
-          </view>
-          <view class="m-l2">
-            {{result.id_card_no}}
-          </view>
-        </view>
+       
       </view>
     </view>
 
@@ -87,9 +80,29 @@
         </view>
       </view>
       <van-popup show="{{ show }}" position="bottom" custom-style="height: 40%;" bind:close="onClose">
-        <van-datetime-picker type="date" bind:cancel='cancel' bind:confirm='confirm' value="{{ currentDate }}"
+        <van-datetime-picker type="datetime" bind:cancel='cancel' bind:confirm='confirm' value="{{ currentDate }}"
           min-date="{{ minDate }}" max-date="{{ maxDate }}" />
       </van-popup>
+      <view wx:if="{{timenum == 1}}" class="">
+					<view bindtap="cleStantime" class="m-t2 flex al-center">
+						<view class="starTxt flex cl9 al-center  fz-14">
+							开始时间
+							<view class="m-l2">
+								<input type="text" disabled="true" class="iptstyle" value="{{valid_begin}}"
+									placeholder="请选择开始时间" />
+							</view>
+						</view>
+					</view>
+					<view bindtap="cleEndtime" class="m-t2 flex al-center ">
+						<view class="flex cl9 al-center starTxt fz-14">
+							截止时间
+							<view class="m-l2">
+								<input type="text" disabled="true" class="iptstyle" value="{{valid_end}}"
+									placeholder="请选择结束时间" />
+							</view>
+						</view>
+					</view>
+				</view>
       <view bindtap="celUserType" class="flex m-t3 al-center">
         <image src="https://oss.kuaitongkeji.com/static/img/app/address/blckpd.png" class="blckpdImg" mode=""></image>
         <view class="m-l2">
@@ -104,14 +117,6 @@
           {{item.label}}
         </view>
       </view>
-      <view class="m-t3 flex">
-        <view class="remarkTxt">
-          备注
-        </view>
-        <view class="">
-          <textarea class="reArea" placeholder="(10字以内)" bindinput="areaChange" maxlength="10" />
-          </view>
-				</view>
 				
 				<view  class="flex al-center ju-around m-t2">
 					<view bindtap="affirm" class="btnr flex al-center ju-center">

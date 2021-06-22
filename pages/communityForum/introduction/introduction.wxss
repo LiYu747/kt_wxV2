@@ -107,6 +107,7 @@
   padding: 20rpx 14rpx;
   color: #666666;
   margin-bottom: 60rpx;
+  border-radius: 10rpx;
 }
 
 .wid {

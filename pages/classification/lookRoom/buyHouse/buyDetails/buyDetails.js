@@ -1,5 +1,6 @@
 // pages/classification/lookRoom/buyHouse/buyDetails/buyDetails.js
 import home from '../../../../../vendor/home/home.js'
+import cache from '../../../../../vendor/cache/cache'
 Page({
 
   /**
@@ -25,7 +26,7 @@ Page({
 
   //拨打电话
   consult(){
-    if(!this.data.roomInof.tel) return;
+    if(!this.data.roomInof.tel || !cache.get('jwt')) return;
     wx.makePhoneCall({
         phoneNumber:  this.data.roomInof.tel
     });
@@ -33,9 +34,9 @@ Page({
   // 地址
   Address(){
     if(!this.data.roomInof.lat) return;
-    if(!this.data.roomInof.lgt) return;
+    if(!this.data.roomInof.lng) return;
     let latitude = Number(this.data.roomInof.lat)
-    let longitude = Number(this.data.roomInof.lgt)
+    let longitude = Number(this.data.roomInof.lng)
     wx.openLocation({
         latitude: latitude,
         longitude: longitude, 
@@ -103,6 +104,9 @@ Page({
         if (data.ele == 1) {
           data.ele = '有'
         }
+        if(!cache.get('jwt')){
+          data.tel = data.tel.slice(0,3) + "****" + data.tel.slice(7,11)
+        }
         let price = 'locdata[0].value'
         let room = 'locdata[1].value'
         let area = 'locdata[2].value'
@@ -112,9 +116,37 @@ Page({
           [area] : data.area + '㎡',
           roomInof : data
         })
+        this.saleView(data.id)
       }
     })
   },
+  //浏览统计
+  saleView(id){
+    home.saleView({
+      data:{id:id},
+      fail: () => {
+        uni.showToast({
+          title: '网络错误',
+          icon: 'none'
+        })
+      },
+      success: (res) => {
+        if(res.statusCode != 200) return;
+        if(res.data.code != 200) return;
+      }
+    })
+  },
+
+    //查看图片
+    lookImg(e){
+      let index = e.currentTarget.dataset.index
+      // 预览图片
+       wx.previewImage({
+         urls:this.data.roomInof.album, 
+         current: this.data.roomInof.album[index],
+         indicator:"default", 
+       }); 
+    },
   /**
    * 生命周期函数--监听页面加载
    */

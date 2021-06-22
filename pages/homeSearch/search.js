@@ -7,11 +7,8 @@ Page({
    */
   data: {
     value: '', //搜索过来的关键词
-    page:1,
-    hasMore: true,
     locdata:[],
     isLoding: false,
-    text:''
   },
   //  去详情页面
   gotoo(e){
@@ -26,9 +23,8 @@ Page({
     this.setData({
       isLoding : true
     })
-    village.allvillage({
+    village.searchVill({
       data: {
-        page: this.data.page,
         kw: this.data.value
       },
       fail: () => {
@@ -50,17 +46,15 @@ Page({
 
         let data = res.data.data
         this.setData({
-          page :data.current_page + 1,
-          hasMore:data.next_page_url ? true : false,
-          locdata:this.data.locdata.concat(data.data)
+          locdata: data
         })
       }
     })
   },
   // 搜索
   confirm() {
+    if(!this.data.value) return;
     this.setData({
-      page:1,
       locdata:[]
     })
     this.getData()
@@ -125,11 +119,7 @@ Page({
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function () {
-    this.setData({
-      text:'没有更多了'
-    })
-    if (this.data.isLoding == true || this.data.hasMore == false) return;
-    this.getData()
+ 
   },
 
   /**

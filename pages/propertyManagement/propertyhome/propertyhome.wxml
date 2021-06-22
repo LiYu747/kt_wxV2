@@ -46,16 +46,17 @@
 					</view>
 				</view>
 				<view bindtap="comeAndGo" class="recordOfAccess flex pos-rel">
-					<image src="https://oss.kuaitongkeji.com/static/img/app/propertyManagement/accessBack.png" class="checkBack pos-abs" mode=""></image>
+					<image src="https://oss.kuaitongkeji.com/static/img/app/propertyManagement/accessBack.png" class="checkBack pos-abs"
+					 mode=""></image>
 					<view class="">
-						<image src="https://oss.kuaitongkeji.com/static/img/app/propertyManagement/contract.png" class="contractImg pos-abs" mode=""></image>
+						<image src="../../../image/home/nifo.png" class="contractImg pos-abs" mode=""></image>
 					</view>
 					<view class="textBox">
 						<view class="checktex1">
-							进出记录
+							小区信息
 						</view>
 						<view class="checktex2">
-							用户入住申请查看及审核
+							管理的小区信息
 						</view>
 					</view>
 				</view>

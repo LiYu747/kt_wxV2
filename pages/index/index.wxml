@@ -21,13 +21,13 @@
 				value="{{value}}" placeholder="请输入小区名称关键词" />
 
 			<view wx:if='{{user}}' bindtap="goInform" class="informBox pos-abs">
-				<view wx:if="{{0<informmsg.total_unread && informmsg.total_unread< 100}}"
+				<view wx:if="{{0<informmsg.unread && informmsg.unread< 100}}"
 					class="munber flex al-center ju-center pos-abs">
 					<view class="">
-						{{informmsg.total_unread}}
+						{{informmsg.unread}}
 					</view>
 				</view>
-				<view wx:if='{{informmsg.total_unread >99}}' class="munMore  flex al-center ju-center pos-abs">
+				<view wx:if='{{informmsg.unread >99}}' class="munMore  flex al-center ju-center pos-abs">
 					99+
 				</view>
 				<image src="https://oss.kuaitongkeji.com/static/img/app/home/infos.png" class="infosImg" mode=""></image>
@@ -129,7 +129,7 @@
 				data-index='index' bindtap="goclass">
 				<image src="{{item.image}}" class="claitemimg" mode=""></image>
 				<view class="clatext">
-					{{item.name}}
+					{{item.title}}
 				</view>
 
 			</view>
@@ -164,7 +164,7 @@
 		<view>
 			<view class="infobox">
 				<view class="text">
-					社区新闻
+					小区新闻
 				</view>
 				<view wx:if="{{newData.length>0}}" class="cententBox pos-rel flex al-center">
 					<view class="infoconTxt">
@@ -202,15 +202,15 @@
 									{{item.title}}
 								</view>
 							</view>
-							<image wx:if="{{item.faceimg}}" src="{{item.faceimg}}" class="itemImg" mode=""></image>
+							<image wx:if="{{item.cover}}" src="{{item.cover}}" class="itemIcon" mode="aspectFill"></image>
 							<image wx:else
 								src="https://oss.kuaitongkeji.com/upload/2020/12/15/AY0xTVMZBzNuJ0acHphXphi4gewrdyJeuBoypUCH.jpeg"
-								class="itemImg" mode=""></image>
+								class="itemImg" mode="aspectFill"></image>
 						</view>
 						<view class="fz-12 timeBox flex ju-between m-t2">
 							{{item.created_at}}
 							<view class="">
-								155787人浏览
+							{{item.pv}}人浏览
 							</view>
 						</view>
 					</view>
@@ -223,7 +223,6 @@
 			</view>
 		</view>
 	</view>
-
 	<!-- <view class="btmLine"></view> -->
 	<view hidden="{{showPullDownRefreshIcon}}" class="showloding flex al-center ju-center">
 		<view class="loding flex-d al-center ju-center">

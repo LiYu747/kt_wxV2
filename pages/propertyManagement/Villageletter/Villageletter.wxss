@@ -1,0 +1,54 @@
+.swpBox{
+  width: 690rpx;
+  border-radius: 10rpx;
+}
+
+.my-swipe{
+  height: 350rpx;
+}
+
+.lbimg{
+  width: 100%;
+  height: 350rpx;
+  border-radius: 10rpx;
+}
+
+
+.conBox{
+ width: 690rpx;
+}
+
+.brief{
+ width: 630rpx;
+ padding: 20rpx 30rpx;
+ background: #F0F0F0;
+ border-radius: 10rpx;
+}
+
+.showloding {
+ position: absolute;
+ width: 100%;
+ height: 100vh;
+ top: 0;
+ color: #FFFFFF;
+}
+
+.loimg {
+ width: 50rpx;
+ height: 50rpx;
+}
+
+.loding {
+ width: 260rpx;
+ height: 200rpx;
+ background: rgba(88, 88, 88, 0.8);
+ border-radius: 10rpx;
+}
+
+.cl6{
+ color: #666666;
+}
+
+.btmLine{
+ height: 50rpx;
+}

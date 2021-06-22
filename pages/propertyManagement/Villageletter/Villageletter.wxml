@@ -1,0 +1,42 @@
+<view>
+  <view wx:if="{{code == 200}}" class="flex-d al-center">
+    <view class="swpBox m-t3">
+      <swiper class="my-swipe" autoplay='true' indicator-dots='true'
+        indicator-active-color='#ffffff'>
+        <block wx:for="{{list}}"  data-item="{{item}}" wx:key='id'>
+          <swiper-item>
+            <image src="{{item}}" bindtap="lookImg" data-index="{{index}}" class="lbimg" mode="aspectFill"></image>
+          </swiper-item>
+        </block>
+      </swiper>
+    </view>
+    <view class="conBox m-t4">
+      <view class="fz-16">
+        {{villinfo.name}}
+      </view>
+      <view class=" fz-14 cl6 m-t1">
+        地址：{{villinfo.address}}
+      </view>
+      <view class="fz-14 m-t3">
+        简介
+      </view>
+      <view class="brief m-t2 fz-12">
+        <view wx:if="{{villinfo.brief}}" class="foot">
+      <rich-text nodes="{{villinfo.brief}}"></rich-text>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class="btmLine">
+
+  </view>
+  <view wx:if="{{isLoding == true}}" class="showloding flex al-center ju-center">
+    <view class="loding flex-d al-center ju-center">
+      <view class=" ">
+        <image class="loimg" src="https://oss.kuaitongkeji.com/static/img/app/address/loading.gif" mode="">
+        </image>
+      </view>
+      加载中
+    </view>
+  </view>
+</view>

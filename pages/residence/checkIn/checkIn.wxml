@@ -1,8 +1,14 @@
+
+<!-- <navigation-bar defaultData="入住申请"></navigation-bar>
+<view class="navbackBtn" bindtap="navback" style="height:{{navBarHeight}}px">
+<view style="height:{{menuHeight}}px ;bottom:{{menuBotton}}px" class="menu">
+	<image  src="https://oss.kuaitongkeji.com/static/img/app/login/1729908969cd5d7d911e096d6db3c70.png" class="reimg" alt=""/>
+</view>
+</view> -->
 <view class="flex-d al-center">
 	<view class=" message">
 		<view bindtap="Application" class="move">
 			申请记录
-		
 		</view>
 		<view class="text flex al-center">
 			基本信息
@@ -35,7 +41,7 @@
 	</view>
 	<van-popup  show="{{ show }}"   position="bottom"
   custom-style="height: 40%" bind:close="onClose">
-		<van-picker columns="{{ columns }}"  value-key="{{'label'}}"  bind:cancel="onCancel"
+		<van-picker columns="{{ columns }}" title="{{title}}"  value-key="{{'label'}}"  bind:cancel="onCancel"
   bind:confirm="onConfirm" show-toolbar  bind:change="onChange" />
 	</van-popup>
 

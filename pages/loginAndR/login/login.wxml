@@ -1,5 +1,5 @@
 <view class="back">
-		<view class="nav pos-rel flex al-center ju-center">
+		<view class=" pos-rel flex al-center ju-center" style="top:{{customBar}}rpx">
 			<image    bindtap="goback" class="img pos-abs" src="https://oss.kuaitongkeji.com/static/img/app/login/fanhui.png" mode=""></image>
 			<view class="text">
 				<!-- 登录 -->
@@ -17,7 +17,7 @@
 				<!-- 手机号 -->
 					<view class="uiput flex al-center pos-rel">
 						<image class="iptimg pos-abs" src="https://oss.kuaitongkeji.com/static/img/app/login/phone.png" mode=""></image>
-						<input class="ipt" type="number"  bindinput="phonechange" placeholder="输入手机号" value="" />
+						<input class="ipt" type="number"  bindinput="phonechange" placeholder="输入手机号" value="{{phone}}" />
 					</view>
 				<!-- 密码 -->
 					<view wx:if="{{iSlogin==false}}" class="uiput flex al-center pos-rel">

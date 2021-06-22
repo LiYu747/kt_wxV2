@@ -19,7 +19,7 @@
 	margin-left: 20rpx;
 	font-size: 14px;
 	color: #666666;
-  margin-top: 8rpx;
+	margin-top: 6rpx;
 	}
 
 .contentBox{
@@ -149,4 +149,8 @@
 		border-radius: 50%;
 		border: 1px solid #FFFFFF;
 	    background: rgba(0,0,0,0.2) 
+	}
+
+	.useript{
+		width: 400rpx;
 	}

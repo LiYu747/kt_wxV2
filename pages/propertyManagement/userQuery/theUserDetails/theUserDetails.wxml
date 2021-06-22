@@ -1,0 +1,20 @@
+<view wx:if="{{code == 200}}" class="flex-d al-center">
+			<view class="informationBar">
+				<view class="message">
+					基本信息
+				</view>
+				<view class="photoBox flex ju-center">
+					<image src="{{avatar}}" class="Avaimg" mode="aspectFill"></image>
+				</view>
+				<view class="m-t2">
+					<view class="flex itemBox al-center ju-between" wx:for="{{displayBox}}" wx:key='id'>
+						<view class="">
+							{{item.title}}
+						</view>
+						<view class="">
+							{{item.content}}
+						</view>
+					</view>
+				</view>
+			</view>
+		</view>

@@ -1,0 +1,53 @@
+<view>
+  <view class="navBox flex al-center ju-center">
+			<view class="ipt  ju-center flex al-center pos-rel">
+				<image class="img pos-abs" src="https://oss.kuaitongkeji.com/static/img/app/home/ss.png" mode="">
+				</image>
+				<input class="input" bindinput="Onchange" bindconfirm="seachBtn" value="{{value}}" type="text" 
+					placeholder="请输入小区名称关键词" />
+				<view bindtap="remove" class="rig m-l2">
+					取消
+				</view>
+			</view>
+    </view>
+    <view class="topLine"></view>
+    <view class="">
+			<view wx:if="{{dataList.length>0}}" class="listbox m-t3" ref='fied'>
+				<view class="content pos-rel fz-16 m-t2" bindtap="Select" data-item="{{item}}" data-index="{{index}}" wx:for="{{dataList}}"
+					wx:key='id'>
+					<view class="addres">
+						<view class="  name flex al-center  ju-between">
+							{{item.name}}
+							<view class="">
+								<image class="reimg" src="../../../image/goIn.png" mode=""></image>
+							</view>
+						</view>
+						<view class="line m-t2"></view>
+						<view wx:if="{{item.address}}" class="text">
+							{{item.address}}
+						</view>
+					</view>
+
+				</view>
+			</view>
+			<view wx:if="{{dataList.length==0&&code == 200}}" class="noBox flex al-center ju-center fz-14 cl9">
+				没有您搜索的小区
+			</view>
+			<view wx:if="{{flag == false}}" class="flex-d al-center m-t2">
+				<view class="record flex al-center ju-between">
+					<view class="">
+						搜索记录
+					</view>
+					<view bindtap="celnomore" class="fz-14">
+						清空
+					</view>
+				</view>
+				<view class="record m-t3 flex">
+					<view class="itemtitle m-r3 m-b2" bindtap="celItem" data-item="{{item}}" wx:for="{{historyList}}"
+						wx:key="id">
+						{{item}}
+					</view>
+				</view>
+			</view>
+		</view>
+</view>

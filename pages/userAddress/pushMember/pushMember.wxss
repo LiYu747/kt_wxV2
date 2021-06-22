@@ -81,9 +81,8 @@
 
 .showCentent{
   width: 500rpx;
-  height: 380rpx;
   border-radius: 20rpx;
-  padding: 30rpx;
+  padding: 50rpx 30rpx;
   background: #FFFFFF;
   font-size: 15px;
   color: #666666;
@@ -143,4 +142,18 @@
 }
 .itemType{
   margin-top: 20rpx;
+}
+
+.starTxt {
+  margin-left: 50rpx;
+}
+
+.iptstyle {
+  width: 300rpx;
+  font-size: 14px;
+}
+
+.input-placeholder {
+  font-size: 12px;
+  color: #999999;
 }

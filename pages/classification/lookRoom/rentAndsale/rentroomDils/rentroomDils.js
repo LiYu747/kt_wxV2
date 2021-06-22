@@ -42,7 +42,7 @@ Page({
   	// 地址
     Address(){
       let latitude = Number(this.data.roomInof.lat)
-      let longitude = Number(this.data.roomInof.lgt)
+      let longitude = Number(this.data.roomInof.lng)
       wx.openLocation({
           latitude: latitude,
           longitude: longitude, 

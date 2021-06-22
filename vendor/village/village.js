@@ -14,6 +14,12 @@ class Allvillage{
 		req.get(params)
 	}
 	
+	//搜索小区
+	searchVill (params){
+		params.url = routes.village.vagelist.searchVill;
+		req.get(params)
+	}
+
 	// 小区公告
 	Notice (params){
 		params.url = routes.village.vagelist.Notice;
@@ -57,8 +63,8 @@ class Allvillage{
 	}
 	
 	//删除帖子
-	delPost (params) {
-		params.url = routes.village.vagelist.delPost
+	deluserpost (params) {
+		params.url = routes.village.vagelist.deluserpost
 		req.delete(params)
 	}
 	
@@ -103,5 +109,17 @@ class Allvillage{
 		 params.url = routes.village.vagelist.customLists
 		 req.get(params)
 	 }
+
+	 	 //删除自己帖子的评论
+			deluserPost (params) {
+				params.url = routes.village.vagelist.deluserPost
+				req.delete(params)
+			}
+			
+			//删除自己的评论
+			delPost (params) {
+				params.url = routes.village.vagelist.delPost
+				req.delete(params)
+			}
 }
 module.exports = new Allvillage;

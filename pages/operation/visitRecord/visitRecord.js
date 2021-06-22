@@ -8,6 +8,7 @@ Page({
    * 页面的初始数据
    */
   data: {
+    code:0,
     text: '',  //没有有更多提示
     lists: [],  //数据列表
     page: 1,
@@ -15,7 +16,8 @@ Page({
     isLoding: false,  //是否显示loding
     hasMore: true, //是否还有更多
     notInfo: false,
-    idx:0
+    idx:0,
+    Isuser:false
   },
   
   // 去详情
@@ -68,10 +70,23 @@ Page({
         data.data.map(item => {
           item.own_visitor.tel = item.own_visitor.tel.slice(0,3) + '****' +item.own_visitor.tel.slice(7,11)
           item.created_at = item.created_at.slice(0,16)
+          switch(item.verify_status){
+            case 1:
+            item.verify_status  = "待处理"
+            break;
+            case 2:
+            item.verify_status  = "已同意"
+            break;
+            case 3:
+            item.verify_status  = "未同意"
+            break;
+          }
         })
         let lists = this.data.lists
         lists = lists.concat(data.data)
         this.setData({
+          code : res.data.code,
+          Isuser : true,
           page :  data.current_page + 1,
           hasMore : data.next_page_url ? true : false,
           lists : lists
@@ -92,9 +107,7 @@ Page({
         })
       },
       success: () => {
-        if(this.data.lists.length == 0){
           this.getData()
-        }
       }
     })
 
@@ -113,7 +126,7 @@ Page({
       let list =  this.data.lists
       list.map((item,index) =>{
          if(index == this.data.idx) {
-           item.verify_text = msg
+           item.verify_status = msg
          }
        })
        this.setData({
@@ -139,6 +152,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
+    if(this.data.code == 200) return;
     this.loadPageData()
     this.useriSdo()
   },
@@ -169,10 +183,10 @@ Page({
    */
   onReachBottom: function () {
     this.setData({
-      text : '没有更多了~'
+      text : '没有更多了'
     })
 		if (this.data.isLoding == true || this.data.hasMore == false) return;
-			this.loadPageData();
+			this.getData();
   },
 
   /**

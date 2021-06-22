@@ -8,6 +8,7 @@
 			<image src="https://oss.kuaitongkeji.com/static/img/app/address/plus.png"  bindtap="getto"
 				class="setimg "></image>
 		</view>
+		
 	<image src="https://oss.kuaitongkeji.com/static/img/app/home/jx.png" class="img" mode=""></image>
 
 	<!-- 地址列表 -->
@@ -62,7 +63,7 @@
 					<image src="https://oss.kuaitongkeji.com/static/img/app/address/no1.png" class="ntimg" mode=""></image>
 				</view>
 
-				<view bindtap="sure" class="flex loca al-center ju-center">
+				<view bindtap="sure" class="flex  al-center ju-center">
 					<view class="pos-abs sowtext bai">
 						知道了
 					</view>
@@ -81,6 +82,7 @@
 
 	<view wx:if="{{Gshow == 2}}" catchtouchmove="move" class="">
 			<view class="guideBox">
+			  <view class="" style="height:{{navBarHeight}}rpx"></view>
 				<view class="Gposr flex">
 					<view class="bai Gtext">
 						填写地址详细信息
@@ -91,7 +93,7 @@
 		</view>
 		<view wx:if="{{Gshow == 5}}" catchtouchmove="move" class="">
 			<view bindtap="gotohome"  class="guideBox2">
-				<image src="https://oss.kuaitongkeji.com/static/img/app/Newguidance/ele.png" mode="" class="ele"></image>
+				<image src="https://oss.kuaitongkeji.com/static/img/app/Newguidance/ele.png" mode="" style=" margin-top: {{navBarHeight}}rpx;" class="ele"></image>
 			</view>
 		</view>
 		<image wx:if="{{flag == true}}" src="https://oss.kuaitongkeji.com/static/img/app/Newguidance/addLogo.png" class="addLogo" mode=""></image> 

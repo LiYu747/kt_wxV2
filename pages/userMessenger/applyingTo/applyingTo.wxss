@@ -80,15 +80,17 @@
 }
 
 .pushBtn {
-  width: 130rpx;
-  height: 150rpx;
+  width: 140rpx;
+  height: 160rpx;
   background: rgb(244, 245, 246);
+  border-radius: 10rpx;
 }
 
 .itenImg {
-  width: 130rpx;
-  height: 150rpx;
+  width: 140rpx;
+  height: 160rpx;
   margin-right: 20rpx;
+  border-radius: 10rpx;
 }
 
 .pushimg {
